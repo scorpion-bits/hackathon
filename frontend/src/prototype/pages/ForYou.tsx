@@ -81,6 +81,7 @@ function QueueRow({ it, chosen }: { it: Insight; chosen?: string }) {
 /** Mini mapa estático (SVG) dos talhões, colorido pelo risco Zarc de hoje. */
 function MiniFarm() {
   const pts = FIELDS.flatMap((f) => f.poly)
+  if (!pts.length) return <div className="grid h-full place-items-center bg-[#1d3527] text-sm text-white/70">Nenhum talhão desenhado</div>
   const xs = pts.map((p) => p[0]); const ys = pts.map((p) => p[1])
   const [minX, maxX, minY, maxY] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)]
   const sx = (x: number) => 14 + ((x - minX) / (maxX - minX)) * 272

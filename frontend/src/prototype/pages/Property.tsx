@@ -1,7 +1,7 @@
 // "Minha propriedade" — gestão leve (secundária). Cada item aponta o dado aberto que se relaciona com ele.
 import clsx from 'clsx'
 import {
-  AlertTriangle, Bot, CheckCircle2, ClipboardList, Coins, Fuel, Layers, Map as MapIcon, Package, Plus, Receipt, Ruler, ShieldCheck, ShoppingCart, SprayCan, Sprout, Tractor, Wheat, Wallet,
+  AlertTriangle, Bot, CheckCircle2, Pencil, ClipboardList, Coins, Fuel, Layers, Map as MapIcon, Package, Plus, Receipt, Ruler, ShieldCheck, ShoppingCart, SprayCan, Sprout, Tractor, Wheat, Wallet,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useState } from 'react'
@@ -35,7 +35,7 @@ function MiniStrip() {
 }
 
 function FieldCard({ f }: { f: (typeof FIELDS)[number] }) {
-  const note = FIELD_NOTE[f.id]
+  const note = FIELD_NOTE[f.id] ?? { text: 'Talhão novo: os avisos de risco, chuva e defensivos para esta cultura aparecem na próxima varredura dos dados oficiais.', chips: ['zarc', 'clima'] }
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-surface shadow-sm transition hover:shadow-md">
       <div className="relative">
@@ -58,7 +58,8 @@ function FieldCard({ f }: { f: (typeof FIELDS)[number] }) {
         <div className="flex flex-wrap gap-1.5">{note.chips.map((c) => <SourceChip key={c} k={c} />)}</div>
       </div>
       <footer className="flex gap-2 border-t border-border bg-bg/60 px-4 py-2.5">
-        <Link to="/prototipo/mapa" className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted hover:bg-surface hover:text-ink"><MapIcon size={14} /> Ver no mapa</Link>
+        <Link to={`/prototipo/mapa?talhao=${f.id}`} className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted hover:bg-surface hover:text-ink"><MapIcon size={14} /> Ver no mapa</Link>
+        <Link to={`/prototipo/talhoes?de=propriedade&talhao=${f.id}`} className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted hover:bg-surface hover:text-ink"><Pencil size={14} /> Editar</Link>
         <Link to="/prototipo/assistente" className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-primary-dark hover:bg-primary-soft"><Bot size={14} /> Perguntar à IA</Link>
       </footer>
     </article>
@@ -72,13 +73,13 @@ function Overview() {
       <section className="flex flex-col overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
         <header className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
           <h2 className="inline-flex items-center gap-2 text-sm font-semibold text-ink"><MapIcon size={15} className="text-primary" /> {PRODUCER.farm} · {PRODUCER.municipality}/{PRODUCER.uf}</h2>
-          <span className="text-[11px] text-muted">desenho esquemático</span>
+          <Link to="/prototipo/talhoes?de=propriedade" className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-dark"><Pencil size={13} /> Editar talhões</Link>
         </header>
         <MiniFieldMap fields={FIELDS} pin={[PRODUCER.lon, PRODUCER.lat]} labels scaleBar className="min-h-60 flex-1" height={230} />
       </section>
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
         <Stat label="Área total" value={`${total.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} ha`} hint={`${FIELDS.length} talhões desenhados no mapa`} icon={<Ruler size={16} />} />
-        <Stat label="Para plantar" value="2 talhões" hint="soja e milho aguardando a janela" icon={<Sprout size={16} />} tone="amber" />
+        <Stat label="Para plantar" value={`${FIELDS.filter((f) => f.status === 'Aguardando plantio').length} talhões`} hint="aguardando a janela de plantio" icon={<Sprout size={16} />} tone="amber" />
         <div className="col-span-2 lg:col-span-1"><Stat label="Pede atenção" value="2 itens" hint="Magic vence em 10 dias · diesel baixo" icon={<AlertTriangle size={16} />} tone="red" /></div>
       </div>
     </div>
@@ -261,7 +262,14 @@ export default function Property() {
           </button>
         ))}
       </div>
-      {tab === 'talhoes' && <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{FIELDS.map((f) => <FieldCard key={f.id} f={f} />)}</div>}
+      {tab === 'talhoes' && (
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {FIELDS.map((f) => <FieldCard key={f.id} f={f} />)}
+          <Link to="/prototipo/talhoes?de=propriedade" className="grid min-h-48 place-items-center rounded-xl border-2 border-dashed border-border text-center text-sm font-semibold text-muted transition hover:border-primary hover:bg-primary-soft/40 hover:text-primary">
+            <span><Plus size={28} className="mx-auto mb-1" />Adicionar ou editar talhões<span className="block text-xs font-normal">abre o mapa para desenhar</span></span>
+          </Link>
+        </div>
+      )}
       {tab === 'atividades' && <Activities />}
       {tab === 'estoque' && <Stock />}
       {tab === 'custos' && <Costs />}

@@ -22,6 +22,7 @@ export function MiniFieldMap({ fields, pin, labels = false, scaleBar = false, cl
   const pad = 18
   const all = fields.flatMap((f) => f.poly)
   if (pin) all.push([pin[0], pin[1]])
+  if (!all.length) return <div className={className} style={{ height }} />
   const lat0 = all.reduce((s, p) => s + p[1], 0) / all.length
   const k = Math.cos((lat0 * Math.PI) / 180)
   const minLon = Math.min(...all.map((p) => p[0])), maxLat = Math.max(...all.map((p) => p[1]))

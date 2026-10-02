@@ -1,9 +1,10 @@
 // Painéis flutuantes do "Mapa vivo" (estilo Windy, escuro). Protótipo visual (D-009).
 import clsx from 'clsx'
 import {
-  CloudRain, Earth, Info, Map as MapIcon, Maximize, Minimize, Minus, Pause, Play, Plus, Satellite, X,
+  CloudRain, Earth, Info, Map as MapIcon, Pencil, Maximize, Minimize, Minus, Pause, Play, Plus, Satellite, X,
 } from 'lucide-react'
 import { useEffect, useRef, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import { FIELDS, FORECAST, INSIGHTS, PRODUCER } from '../../mock'
 import { OriginTag, SourceChip } from '../Shell'
 import {
@@ -154,6 +155,9 @@ export function FieldCard({ id, date, onClose }: { id: number; date: Date; onClo
           {insight.title}
         </div>
       )}
+      <Link to={`/prototipo/talhoes?talhao=${f.id}`} className="mt-3 flex items-center justify-center gap-1.5 rounded-lg bg-white/10 py-2 text-[13px] font-semibold text-white hover:bg-white/20">
+        <Pencil size={14} /> Editar este talhão (formato, cultura, solo)
+      </Link>
     </div>
   )
 }

@@ -17,6 +17,7 @@ import {
 import { EMPTY_ANSWERS, type Answers, type FieldDraft } from '../components/interview/types'
 import { ProtoStyles, StepHeader } from '../components/interview/ui'
 import { SOURCES } from '../mock'
+import { setFarmFields } from '../farmStore'
 
 type StepId = 'welcome' | 'profile' | 'location' | 'map' | 'size' | 'income' | 'budget' | 'credit' | 'machines' | 'concerns' | 'goals' | 'notify' | 'language' | 'result'
 /** `skip`: texto do botão para pular (só em perguntas opcionais). */
@@ -160,7 +161,7 @@ export default function Interview() {
                 header={<StepHeader kicker={kicker} title="Desenhe sua propriedade" hint="Marque no mapa os cantos de cada plantação (talhão). Depois diga o que planta, como é a terra e se irriga. Só o essencial." />}
               />
             ) : isResult ? (
-              <ResultScreen answers={a} onEdit={() => go(IDX.profile)} onFinish={() => nav('/prototipo')} />
+              <ResultScreen answers={a} onEdit={() => go(IDX.profile)} onFinish={() => { if (a.fields.length) setFarmFields(a.fields); nav('/prototipo') }} />
             ) : (
               <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:px-6 sm:py-10">
                 <div key={step} className="proto-anim animate-[proto-up_.35s_ease-out]">{body()}</div>

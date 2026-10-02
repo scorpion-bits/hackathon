@@ -1,7 +1,8 @@
 // Painel-guia do "Mapa vivo": um caminho só, em 3 passos — ① onde olhar ② o que saber ③ o que significa.
 // Desktop: coluna à esquerda. Celular: folha na parte de baixo, com os passos em faixas roláveis.
 import clsx from 'clsx'
-import { CalendarClock, ChevronDown, CloudRain, Earth, Home, SlidersHorizontal, Sparkles } from 'lucide-react'
+import { CalendarClock, ChevronDown, CloudRain, Earth, Home, Pencil, SlidersHorizontal, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useState, type ReactNode } from 'react'
 import { FIELDS, PRODUCER } from '../../mock'
 import { OriginTag } from '../Shell'
@@ -90,7 +91,7 @@ export function Guide(p: {
                   on ? 'bg-white text-ink ring-white' : 'bg-white/5 ring-white/10 hover:bg-white/10')}>
                 <span className="h-3 w-3 shrink-0 rounded-full ring-2 ring-white/70" style={{ background: fl.color }} />
                 <span className="min-w-0 flex-1">
-                  <span className="block whitespace-nowrap text-sm font-semibold">{fl.name} · {fl.crop.split(' ')[0]} <span className={clsx('hidden text-[11px] font-normal lg:inline', on ? 'text-ink/60' : 'text-white/60')}>{fl.area.toLocaleString('pt-BR')} ha</span></span>
+                  <span className="block whitespace-nowrap text-sm font-semibold">{fl.name} · {fl.crop.replace(' irrigado', '')} <span className={clsx('hidden text-[11px] font-normal lg:inline', on ? 'text-ink/60' : 'text-white/60')}>{fl.area.toLocaleString('pt-BR')} ha</span></span>
                 </span>
                 <span className="hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold text-white lg:inline" style={{ background: RISK_COLOR(risk) }} title="Risco climático oficial (Zarc) para plantio na data escolhida">
                   {risk ? `risco ${risk}%` : 'fora'}
@@ -103,6 +104,10 @@ export function Guide(p: {
               p.place === 'brazil' ? 'text-white' : 'text-white/60 hover:text-white')}>
             <Earth size={15} /> Ver o Brasil todo
           </button>
+          <Link to="/prototipo/talhoes"
+            className="flex shrink-0 items-center gap-1.5 rounded-xl bg-white/5 px-3 py-2 text-xs font-semibold text-emerald-200 ring-1 ring-emerald-300/30 hover:bg-emerald-400/15 lg:-mt-1 lg:self-stretch lg:justify-center">
+            <Pencil size={14} /> Adicionar ou editar talhões
+          </Link>
         </div>
       </section>
 

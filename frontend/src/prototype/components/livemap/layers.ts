@@ -108,11 +108,13 @@ export const DATA_LAYERS: DataLayer[] = [
     legend: { discrete: true, colors: [RISK_COLOR(20), RISK_COLOR(30), RISK_COLOR(40), RISK_COLOR(0)], labels: ['20%', '30%', '40%', 'fora'], unit: 'risco oficial de perder a lavoura pelo clima', note: 'Cinza = fora da janela indicada (sem zoneamento para a data).' },
     source: { chip: 'Zarc · MAPA', detail: 'Zoneamento Agrícola de Risco Climático, safra 2026/27, Araraquara' },
     meaning: (date) => {
-      const r = riskFor(FIELDS[1], date)
+      const milho = FIELDS.find((f) => f.crop === 'Milho')
+      if (!milho) return 'As cores mostram o risco oficial de perder a lavoura pelo clima para a cultura de cada talhão, na data de plantio escolhida.'
+      const r = riskFor(milho, date)
       const when = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
       return r === 0
-        ? `Plantando milho em ${when}, o Talhão 2 fica fora da janela oficial — sem acesso ao Proagro e ao seguro com subsídio. A janela abre em 1º/10.`
-        : `Plantando milho em ${when}, o Talhão 2 tem ${r}% de risco de perda pelo clima. A partir de 21/10 o risco cai para 20%. Soja (Talhão 1) e feijão (Talhão 3) já estão em 20%.`
+        ? `Plantando milho em ${when}, o ${milho.name} fica fora da janela oficial — sem acesso ao Proagro e ao seguro com subsídio. A janela abre em 1º/10.`
+        : `Plantando milho em ${when}, o ${milho.name} tem ${r}% de risco de perda pelo clima. A partir de 21/10 o risco cai para 20%. Soja (Talhão 1) e feijão (Talhão 3) já estão em 20%.`
     },
     origin: 'real', defaultOpacity: 0.8,
   },

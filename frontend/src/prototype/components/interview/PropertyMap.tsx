@@ -4,7 +4,7 @@ import '@geoman-io/leaflet-geoman-free'
 import { area as turfArea, polygon as turfPolygon } from '@turf/turf'
 import clsx from 'clsx'
 import L from 'leaflet'
-import { Check, ChevronDown, Lightbulb, MousePointerClick, PenLine, Sparkles, Trash2, Undo2, X } from 'lucide-react'
+import { Check, ChevronDown, Lightbulb, MousePointerClick, Move, PenLine, Sparkles, Trash2, Undo2, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 import { SATELLITE, SATELLITE_ATTR } from '../../../components/FieldsMap'
@@ -38,9 +38,13 @@ type Props = {
   /** conteúdo extra no fim da coluna lateral (ex.: contador de fontes) */
   footer?: ReactNode
   onLoadExample: () => void
+  /** talhão aberto ao entrar (ex.: vindo do Mapa vivo) */
+  initialSelected?: number | null
+  /** texto do botão de exemplo (padrão: "Usar exemplo") */
+  exampleLabel?: string
 }
 
-export function PropertyMap({ fields, setFields, center, header, footer, onLoadExample }: Props) {
+export function PropertyMap({ fields, setFields, center, header, footer, onLoadExample, initialSelected = null, exampleLabel = 'Usar exemplo' }: Props) {
   const mapEl = useRef<HTMLDivElement>(null)
   const mapRef = useRef<L.Map | null>(null)
   const groupRef = useRef<L.FeatureGroup | null>(null)
@@ -51,7 +55,9 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
   const needFit = useRef(fields.length > 0)
   const [ready, setReady] = useState(false)
   const [drawing, setDrawing] = useState(false)
-  const [pickedId, setSelectedId] = useState<number | null>(null)
+  const [pickedId, setSelectedId] = useState<number | null>(initialSelected)
+  /** talhão com os cantos sendo arrastados (Geoman edit mode) */
+  const [shapeId, setShapeId] = useState<number | null>(null)
   // se o talhão selecionado foi removido, a seleção some sozinha
   const selectedId = pickedId != null && fields.some((f) => f.id === pickedId) ? pickedId : null
 
@@ -113,14 +119,14 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
   // --- desenha os talhões a partir do estado ---
   useEffect(() => {
     const map = mapRef.current, group = groupRef.current
-    if (!map || !group || !ready) return
+    if (!map || !group || !ready || shapeId != null) return // ajustando formato: não redesenha por cima
     group.clearLayers(); layersRef.current.clear()
     fields.forEach((f) => {
       const on = f.id === selectedId
       const poly = L.polygon(f.ring.map(([lng, lat]) => [lat, lng] as L.LatLngTuple), {
         color: on ? '#FDE047' : '#ffffff', weight: on ? 4 : 2, fillColor: f.color, fillOpacity: on ? 0.65 : 0.5,
       })
-      poly.on('click', () => { if (!map.pm.globalDrawModeEnabled()) setSelectedId(f.id) })
+      poly.on('click', () => { if (!map.pm.globalDrawModeEnabled() && !poly.pm.enabled()) setSelectedId(f.id) })
       poly.addTo(group)
       layersRef.current.set(f.id, poly)
       const crop = cropOf(f)
@@ -133,10 +139,11 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
       } as L.MarkerOptions).addTo(group)
     })
     if (needFit.current && fields.length) {
-      map.fitBounds(group.getBounds(), { padding: [60, 60], maxZoom: 18 })
+      const target = selectedId != null ? layersRef.current.get(selectedId) : undefined
+      map.fitBounds((target ?? group).getBounds(), { padding: [60, 60], maxZoom: 18 })
       needFit.current = false
     }
-  }, [fields, selectedId, ready])
+  }, [fields, selectedId, ready, shapeId])
 
   // leva a ficha do talhão selecionado para a área visível (útil no celular, onde a lista fica abaixo do mapa)
   useEffect(() => {
@@ -157,6 +164,30 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
     setSelectedId((cur) => (cur === id ? null : id))
     const layer = layersRef.current.get(id)
     if (layer) mapRef.current?.fitBounds(layer.getBounds(), { padding: [80, 80], maxZoom: 18 })
+  }
+  const startShape = (id: number) => {
+    const layer = layersRef.current.get(id)
+    if (!layer) return
+    layer.setStyle({ color: '#FDE047', weight: 3, dashArray: '6,6' })
+    layer.pm.enable({ allowSelfIntersection: false, snappable: true } as L.PM.EditModeOptions)
+    mapRef.current?.fitBounds(layer.getBounds(), { padding: [80, 80], maxZoom: 18 })
+    setShapeId(id)
+  }
+  const finishShape = () => {
+    const id = shapeId
+    const layer = id != null ? layersRef.current.get(id) : undefined
+    if (id == null || !layer) return setShapeId(null)
+    layer.pm.disable()
+    const ring = (layer.getLatLngs() as L.LatLng[][])[0].map((p) => [p.lng, p.lat] as [number, number])
+    const closed = [...ring, ring[0]]
+    const areaHa = turfArea(turfPolygon([closed])) / 10000
+    setShapeId(null)
+    if (isFinite(areaHa) && areaHa >= 0.005) patch(id, { ring: closed, areaHa })
+  }
+  const cancelShape = () => {
+    const layer = shapeId != null ? layersRef.current.get(shapeId) : undefined
+    layer?.pm.disable()
+    setShapeId(null) // redesenha a partir do estado (descarta o arraste)
   }
   const patch = (id: number, p: Partial<FieldDraft>) => setFields((prev) => prev.map((f) => (f.id === id ? { ...f, ...p } : f)))
   const remove = (id: number) => setFields((prev) => prev.filter((f) => f.id !== id))
@@ -182,10 +213,23 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
           </div>
         )}
 
-        {!drawing && fields.length > 0 && (
+        {!drawing && shapeId == null && fields.length > 0 && (
           <button type="button" onClick={startDraw} disabled={!ready} className={clsx(btn('primary'), 'absolute left-3 top-3 z-[1000] py-2.5! shadow-lg')}>
             <PenLine size={17} /> Desenhar outro talhão
           </button>
+        )}
+
+        {shapeId != null && (
+          <div className="absolute left-1/2 top-3 z-[1000] w-[min(94%,540px)] -translate-x-1/2 rounded-xl border border-border bg-surface/95 p-3 shadow-lg backdrop-blur animate-[proto-up_.2s_ease-out]">
+            <p className="flex items-start gap-2 text-sm">
+              <Move size={17} className="mt-0.5 shrink-0 text-primary" />
+              <span><b>Arraste os pontos brancos</b> para ajustar os cantos. Arraste um ponto do meio para criar um canto novo.</span>
+            </p>
+            <div className="mt-2 flex flex-wrap justify-end gap-2">
+              <button type="button" className={clsx(btn('primary'), 'px-3! py-1.5! text-xs!')} onClick={finishShape}><Check size={14} /> Salvar formato</button>
+              <button type="button" className={clsx(btn('ghost'), 'px-3! py-1.5! text-xs!')} onClick={cancelShape}><X size={14} /> Cancelar</button>
+            </div>
+          </div>
         )}
 
         {drawing && (
@@ -206,8 +250,8 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
       <aside className="w-full shrink-0 border-t border-border bg-surface p-4 lg:h-full lg:w-[400px] lg:overflow-y-auto lg:border-l lg:border-t-0">
         {header}
         <div className="grid grid-cols-[1.3fr_1fr] gap-2">
-          <button type="button" onClick={startDraw} disabled={drawing || !ready} className={clsx(btn('primary'), 'whitespace-nowrap px-3!')}><PenLine size={17} /> Desenhar talhão</button>
-          <button type="button" onClick={loadExample} className={clsx(btn('secondary'), 'whitespace-nowrap px-3!')}><Sparkles size={17} /> Usar exemplo</button>
+          <button type="button" onClick={startDraw} disabled={drawing || shapeId != null || !ready} className={clsx(btn('primary'), 'whitespace-nowrap px-3!')}><PenLine size={17} /> Desenhar talhão</button>
+          <button type="button" onClick={loadExample} disabled={shapeId != null} className={clsx(btn('secondary'), 'whitespace-nowrap px-3!')}><Sparkles size={17} /> {exampleLabel}</button>
         </div>
         <p className="mt-1.5 text-[11px] text-muted">O exemplo carrega 3 talhões de um sítio em Araraquara/SP, para a demo rápida.</p>
 
@@ -231,7 +275,8 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
                     </span>
                     <ChevronDown size={18} className={clsx('shrink-0 text-muted transition-transform duration-200', open && 'rotate-180')} />
                   </button>
-                  {open && <FieldForm f={f} onPatch={(p) => patch(f.id, p)} onRemove={() => remove(f.id)} onDone={() => setSelectedId(null)} />}
+                  {open && <FieldForm f={f} onPatch={(p) => patch(f.id, p)} onRemove={() => { cancelShape(); remove(f.id) }} onDone={() => { if (shapeId === f.id) finishShape(); setSelectedId(null) }}
+                    shaping={shapeId === f.id} onShape={() => (shapeId === f.id ? finishShape() : startShape(f.id))} />}
                 </li>
               )
             })}
@@ -259,9 +304,14 @@ function Group({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function FieldForm({ f, onPatch, onRemove, onDone }: { f: FieldDraft; onPatch: (p: Partial<FieldDraft>) => void; onRemove: () => void; onDone: () => void }) {
+function FieldForm({ f, onPatch, onRemove, onDone, shaping, onShape }: {
+  f: FieldDraft; onPatch: (p: Partial<FieldDraft>) => void; onRemove: () => void; onDone: () => void; shaping: boolean; onShape: () => void
+}) {
   return (
     <div className="space-y-4 border-t border-border p-3.5 animate-[proto-up_.2s_ease-out]">
+      <button type="button" onClick={onShape} className={clsx(btn(shaping ? 'primary' : 'secondary'), 'w-full py-2! text-sm!')}>
+        {shaping ? <><Check size={15} /> Salvar formato no mapa</> : <><Move size={15} /> Ajustar formato no mapa</>}
+      </button>
       <label className="block">
         <span className="mb-1 block text-xs font-semibold text-muted">Nome do talhão</span>
         <input value={f.name} onChange={(e) => onPatch({ name: e.target.value })} maxLength={30}

@@ -13,11 +13,12 @@ import { L, buildStyle, centroid, fieldsGeoJSON } from '../components/livemap/ma
 import { FIELDS, PRODUCER } from '../mock'
 
 const BRAZIL = { center: [-53, -14.5] as [number, number], zoom: 2 }
-const ALL = FIELDS.flatMap((f) => f.poly)
-const HOME: [number, number] = [
-  (Math.min(...ALL.map((p) => p[0])) + Math.max(...ALL.map((p) => p[0]))) / 2,
-  (Math.min(...ALL.map((p) => p[1])) + Math.max(...ALL.map((p) => p[1]))) / 2,
-]
+/** Pontos e centro da propriedade lidos na hora (os talhões podem ter sido editados). */
+const allPoints = () => { const pts = FIELDS.flatMap((f) => f.poly); return pts.length ? pts : [[PRODUCER.lon, PRODUCER.lat]] }
+function homeCenter(): [number, number] {
+  const a = allPoints()
+  return [(Math.min(...a.map((p) => p[0])) + Math.max(...a.map((p) => p[0]))) / 2, (Math.min(...a.map((p) => p[1])) + Math.max(...a.map((p) => p[1]))) / 2]
+}
 // Os talhões somam ~10 ha (≈ 470 × 440 m): zoom ~16 enquadra a propriedade inteira (no celular, um pouco menos).
 const HOME_ZOOM = 15.9
 const LABEL_ZOOM = 14.5
@@ -71,7 +72,7 @@ export default function LiveMap() {
   const layerOpacity = layer ? opacity[layer.id] : 1
 
   const flyHome = useCallback((m = mapRef.current) => {
-    if (m) m.flyTo({ center: HOME, zoom: m.getContainer().clientWidth < 640 ? HOME_ZOOM - 0.7 : HOME_ZOOM, pitch: 52, bearing: -18, padding: viewPadding(m), duration: 7000, curve: 1.6, essential: true })
+    if (m) m.flyTo({ center: homeCenter(), zoom: m.getContainer().clientWidth < 640 ? HOME_ZOOM - 0.7 : HOME_ZOOM, pitch: 52, bearing: -18, padding: viewPadding(m), duration: 7000, curve: 1.6, essential: true })
   }, [])
   const flyField = useCallback((id: number) => {
     const m = mapRef.current
@@ -132,7 +133,7 @@ export default function LiveMap() {
     setMarkers({
       labels: FIELDS.map((f) => ({ id: f.id, el: mk(centroid(f.poly), 'center') })),
       pin: mk([PRODUCER.lon, PRODUCER.lat], 'bottom', 0, true),
-      forecast: mk([HOME[0], Math.max(...ALL.map((p) => p[1]))], 'bottom', -18), // acima da borda norte da propriedade
+      forecast: mk([homeCenter()[0], Math.max(...allPoints().map((p) => p[1]))], 'bottom', -18), // acima da borda norte da propriedade
     })
 
     return () => {
