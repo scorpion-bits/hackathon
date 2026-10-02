@@ -9,8 +9,10 @@ import Profile from './pages/Profile'
 import Reports from './pages/Reports'
 import Stock from './pages/Stock'
 import Weather from './pages/Weather'
+import ProtoApp from './prototype/ProtoApp'
 
-export default function App() {
+/** App funcional (backend real) em "/"; protótipo visual (dados de exemplo) em "/prototipo" — D-009. */
+function FunctionalApp() {
   return (
     <Layout>
       <Routes>
@@ -25,5 +27,14 @@ export default function App() {
         <Route path="/perfil" element={<Profile />} />
       </Routes>
     </Layout>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/prototipo/*" element={<ProtoApp />} />
+      <Route path="/*" element={<FunctionalApp />} />
+    </Routes>
   )
 }
