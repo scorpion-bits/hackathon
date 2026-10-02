@@ -8,15 +8,18 @@
 
 | ID | Nome | Tipo | Responsável | Agente / Modelo | Prio | Est. | Depende | Status |
 |---|---|---|---|---|---|---|---|---|
-| T-000 | Preparar estrutura operacional do repo | 🤖 | Claude | Orquestrador / Opus | P0 | 1h | — | DONE |
-| T-001 | Registrar tema, dataset e regras em `00-context.md` | 🤖 | Claude | Orquestrador / Opus | P0 | 15m | H-013 | Baixar bases ANA (Pivôs Mapeados CSV, Pivôs Área por Município CSV, Atlas Irrigação 2021 CSV) e push em `data/raw/` | Maria + Fernando | 02/10 10h30 | READY |
-| H-003 | DONE |
-| T-002 | Rodar `profile_data.py` nos datasets baixados pela equipe | 🤖 | Claude | Data Engineer / Sonnet | P0 | 20m | H-013 | BLOCKED |
-| T-003 | Análise de dados: qualidade, variáveis, insights (`02-data-analysis.md`) | 🤖 | Claude | Data Analyst / Opus | P0 | 45m | T-002 | IN_PROGRESS (catálogo feito) |
-| T-004 | Problema, público, hipóteses (`01-problem.md`) | 🤖 | Claude | Product Analyst / Opus | P0 | 30m | T-001 | BACKLOG |
-| T-005 | 3–5 soluções candidatas + comparação + recomendação (`03-solution.md`) | 🤖 | Claude | Orquestrador / Opus | P0 | 30m | T-003, T-004 | REVIEW (aguarda H-004) |
-
-> Tarefas de MVP/arquitetura/implementação só são criadas após H-004 (aprovação da solução).
+| T-000…T-005 | Preparação, contexto, análise de dados, candidatas | 🤖 | Claude | Opus | P0 | — | — | DONE |
+| T-010 | Modelo de dados + contrato `docs/api.md` + esqueleto backend | 🤖 | Claude | Software Architect / Opus | P0 | 1h | H-006 | READY |
+| T-011 | Esqueleto frontend: layout, navegação, tema, cliente API | 🤖 | Claude | Frontend / Sonnet | P0 | 1h | H-006 | READY |
+| T-012 | Pipeline dados abertos (Zarc 25-26/26-27, Agrofit, região) + `data_sources` | 🤖 | Claude + Maria | Data Engineer / Sonnet | P0 | 1h | H-006 | READY |
+| T-013 | Seed demo: João, 3 talhões, ~6 meses de histórico | 🤖 | Claude + Milan | Backend / Sonnet | P0 | 45m | T-010 | BACKLOG |
+| T-014 | Mapa: desenhar/editar talhão + ficha + Zarc por talhão (M3, M6) | 🤖 | Claude | Frontend / Sonnet | P0 | 2h | T-010, T-011 | BACKLOG |
+| T-015 | Estoque: itens, entradas/saídas, histórico (M5) | 🤖 | Claude | Frontend+Backend / Sonnet | P0 | 1h30 | T-010, T-011 | BACKLOG |
+| T-016 | Produção: safras, linha do tempo, plantio/aplicação/colheita → estoque/custo (M4) | 🤖 | Claude | Backend+Frontend / Sonnet | P0 | 2h | T-015 | BACKLOG |
+| T-017 | Painel + alertas (M2, M7) | 🤖 | Claude | Frontend+Backend / Sonnet | P0 | 1h30 | T-016 | BACKLOG |
+| T-018 | Assistente IA: orquestrador, ferramentas, cartão de fontes, botões contextuais (M8) | 🤖 | Claude | AI Engineer / Opus | P0 | 2h30 | T-010, H-014 | BACKLOG |
+| T-019 | Clima, Relatórios, Minha Região, Agrofit no estoque (S1–S4) | 🤖 | Claude | Sonnet | P1 | 3h | T-017 | BACKLOG |
+| T-020 | Testes: fluxo principal, Zarc vs CSV, custos, 10 perguntas da IA | 🤖 | Claude + Victor | QA / Sonnet | P0 | contínuo | T-016 | BACKLOG |
 
 ## Ações humanas (👥 HUMAN ACTION REQUIRED → espelhar no Hub)
 
@@ -25,6 +28,8 @@
 | H-001 | Revisar esta estrutura e o processo (CLAUDE.md) | equipe | 02/10 08h30 | READY |
 | H-002 | Preencher habilidades da equipe em `planning/agents.md` §Equipe humana | cada integrante | 02/10 08h30 | DONE |
 | H-013 | Baixar bases ANA (Pivôs Mapeados CSV, Pivôs Área por Município CSV, Atlas Irrigação 2021 CSV) e push em `data/raw/` | Maria + Fernando | 02/10 10h30 | READY |
+| H-014 | Escolher provedor/modelo de IA e providenciar chave (custo da equipe) | Milan + Fernando | 02/10 13h00 | READY |
+| H-015 | Thales: rascunho do roteiro do pitch | Thales | 02/10 15h00 | READY |
 | H-003 | Às 08h30 (Milan/PO): registrar tema, links dos dados, regras, critérios e respostas da organização (`docs/00-context.md` §Perguntas) | 1 pessoa designada | 02/10 09h00 | BACKLOG |
 | H-004 | Escolher a solução entre as candidatas (CP3) | equipe | 02/10 11h00 | BACKLOG |
 | H-005 | Aprovar escopo do MVP (CP4) | equipe | 02/10 11h30 | BACKLOG |
