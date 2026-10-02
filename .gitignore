@@ -32,3 +32,5 @@ data/interim/
 # Bases com DADO PESSOAL (nomes, CPF parcial, e-mail, telefone, coordenadas de propriedade).
 # Ficam só localmente; no git entram apenas agregados anônimos (data/processed/).
 data/restricted/
+data/opendata.db
+data/app.db

@@ -5,7 +5,14 @@
 
 | ID | Data/hora | Decisão | Tipo | Aprovado por | Status |
 |---|---|---|---|---|---|
-| D-000 | 02/10 madrugada | Estrutura do repositório e processo de trabalho (este setup) | operacional | Claude | vigente — revisão 👥 em H-001 |
+| D-000 | 02/10 madrugada | Estrutura do repositório e processo de trabalho (este setup) | operacional | Claude | vigente |
+| D-001 | 02/10 12h35 | Solução: **AgroIA** — plataforma web modular de gestão + IA que interpreta dados abertos | estratégica | equipe | vigente |
+| D-002 | 02/10 12h35 | MVP de `docs/04-mvp.md` + **Planejador de plantio** e **voz** (Minha Região vira cartão no Painel) | estratégica | equipe | vigente |
+| D-003 | 02/10 12h35 | Stack e modelo de dados de `docs/05-architecture.md` | estratégica | equipe | vigente |
+| D-004 | 02/10 12h40 | IA via API **compatível com OpenAI** (serve Groq, Gemini, OpenRouter, Ollama Cloud) + **modo offline determinístico** como plano B | técnica | Claude (delegado pela equipe) | vigente |
+| D-005 | 02/10 12h40 | Persona demo: João (fictício), Araraquara/SP, 3 talhões; Zarc safra 2026-27 (fallback 2025-26) | produto | Claude (delegado) | vigente |
+| D-006 | 02/10 12h40 | Solo do talhão por textura (arenoso/médio/argiloso); culturas com classes AD do Zarc usam aproximação AD2/AD4/AD6 **rotulada como estimativa** | técnica | Claude (delegado) | vigente |
+| D-007 | 02/10 12h40 | Agregados de bases com pessoa física suprimem grupos com < 3 registros (anti-reidentificação) | ética | Claude (delegado) | vigente |
 
 ---
 

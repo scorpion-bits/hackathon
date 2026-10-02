@@ -9,13 +9,13 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | **FASE 2 — IDEAÇÃO** — equipe propôs **AgroIA** (F em `docs/03-solution.md`); discutindo produto (sem stack ainda) |
-| Último checkpoint | CP0 — Repositório preparado |
-| Próximo checkpoint | CP1 — Problema compreendido |
+| Fase | **FASE 5 — CONSTRUÇÃO** (iniciada 02/10 12h40) |
+| Último checkpoint | CP5 — Arquitetura aprovada |
+| Próximo checkpoint | CP6 — Fluxo principal funcionando (17h) |
 | Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
 | Dataset | Regra: ≥1 base "pivô" do MAPA (dados.agricultura.gov.br) ou ANA/Embrapa (Pivôs Centrais 1985–2019); combinar com qualquer base aberta. Ver `docs/00-context.md` |
-| Solução escolhida | _em discussão_: AgroIA (equipe) — ancorar em Zarc/Agrofit (regra da base pivô) |
-| Stack | _não definida_ (opções pré-avaliadas em `docs/05-architecture.md`) |
+| Solução escolhida | **AgroIA** — gestão da propriedade + IA que interpreta dados abertos (D-001/D-002) |
+| Stack | React+TS+Vite+Tailwind · Leaflet/Geoman/Turf · FastAPI+SQLite · IA OpenAI-compatível + modo offline (D-003/D-004) |
 | Bloqueios | Ambiente sem rede p/ gov.br — humanos baixam dados e fazem push em `data/raw/` (R-13) |
 
 **Restrições-chave:** agenda CEPIN (visão computacional, preditivo, otimização, automação/robótica);
@@ -94,10 +94,10 @@ Ferramenta pronta para a análise inicial: `python3 scripts/profile_data.py data
 |---|---|---|---|
 | 0 | Repositório preparado | antes de 02/10 08h30 | ✅ |
 | 1 | Problema compreendido | 02/10 09h30 | ✅ |
-| 2 | Dataset analisado | 02/10 10h15 | 🟡 catálogo (arquivos pendentes) |
-| 3 | Solução definida (aprovada) | 02/10 11h00 | ⏳ |
-| 4 | MVP definido (aprovado) | 02/10 11h30 | ⏳ |
-| 5 | Arquitetura definida (aprovada) | 02/10 12h00 | ⏳ |
+| 2 | Dataset analisado | 02/10 10h15 | ✅ |
+| 3 | Solução definida (aprovada) | 02/10 11h00 | ✅ |
+| 4 | MVP definido (aprovado) | 02/10 11h30 | ✅ |
+| 5 | Arquitetura definida (aprovada) | 02/10 12h00 | ✅ |
 | 6 | Fluxo principal funcionando | 02/10 17h00 | ⏳ |
 | 7 | Demo funcionando | 02/10 20h00 | ⏳ |
 | 8 | Testes críticos concluídos | 02/10 21h30 | ⏳ |
@@ -110,7 +110,7 @@ Detalhes: `planning/timeline.md`.
 
 ## 7. Decisões vigentes
 
-_Nenhuma ainda._ Registro completo: `docs/06-decisions.md`.
+D-001…D-007 (AgroIA, MVP+planejador+voz, stack, IA plugável, persona João/Araraquara, solo→Zarc, supressão <3). Ver `docs/06-decisions.md`.
 
 ---
 
