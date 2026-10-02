@@ -53,7 +53,7 @@ export const INSIGHTS: Insight[] = [
   { id: 'i5', priority: 'info', title: 'Fungicida que você tem é registrado para feijão', summary: '“Magic” (iprodiona) é registrado para feijão contra mofo-branco. Classe toxicológica 4 (pouco tóxico). Vence em 10 dias.',
     why: ['Agrofit/MAPA: registro 00218 · feijão · mofo-branco, podridão-de-sclerotinia', 'Seu estoque: 3,5 L com validade 12/10'], sources: ['agrofit'], field: 'Talhão 3', action: 'Ver registro', origin: 'real' },
   { id: 'i6', priority: 'oportunidade', title: '14 drones agrícolas registrados no seu município', summary: 'Serviço de pulverização por drone pode ser contratado na região — útil para o talhão com declive.',
-    why: ['SIPEAGRO/MAPA: 14 drones com operador sediado em Araraquara (1.342 em SP)', 'Só 1.306 dos 5.573 municípios do Brasil têm algum operador registrado', 'Você indicou “sem pulverizador próprio para áreas inclinadas”'],
+    why: ['SIPEAGRO/MAPA: 14 drones com operador sediado em Araraquara (1.346 em SP)', 'Só 1.306 dos 5.573 municípios do Brasil têm algum operador registrado', 'Você indicou “sem pulverizador próprio para áreas inclinadas”'],
     sources: ['drones'], action: 'Ver operadores na região', origin: 'real' },
 ]
 

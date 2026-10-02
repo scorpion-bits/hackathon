@@ -75,7 +75,7 @@ Fonte: MAPA/CGRA, dicionário em `data/raw/zarc/*.pdf`. Perfil: `docs/data-profi
 ## SIPEAGRO Aviação Agrícola (analisado ✅ — contém dado pessoal → só agregado)
 - Registro: 3.931 estabelecimentos; **16.156 linhas de Aeronave Remotamente Pilotada (drones)** vs 8.166 convencionais.
 - Agregado anônimo (`data/processed/aviacao_registro_por_municipio.csv`): **6.257 drones e 2.527 aviões agrícolas ativos** em 1.420 municípios.
-- **SP lidera em drones**; topo: Lençóis Paulista (101), Charqueada (85), Artur Nogueira (76), Imperatriz/MA (72), Ribeirão Preto (65). **Araraquara: 15 drones registrados, 87 autorizações.**
+- **SP lidera em drones**; topo: Lençóis Paulista (101), Charqueada (85), Artur Nogueira (76), Imperatriz/MA (72), Ribeirão Preto (65). **Araraquara: 14 drones registrados (operadores ativos, deduplicado).**
 - Autorizações de operação (por município autorizado): 2021: 1.234 → 2022: 76.794 → 2023: 188.006 → 2024: 194.513 → 2025: 155.979 → 2026 (parcial): 124.921 → **adoção de drones explodiu desde 2021**.
 - Registro tem nome de pessoa física, e-mail e telefone → arquivo bruto fora do git.
 
