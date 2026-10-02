@@ -32,7 +32,8 @@ def rect(dx_m: float, dy_m: float, w_m: float, h_m: float, skew: float = 0.0) ->
 
 
 def main() -> None:
-    APP_DB.unlink(missing_ok=True)
+    # Recria as tabelas sem apagar o arquivo: a API pode continuar rodando durante o reset da demo.
+    Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
     s = SessionLocal()
 

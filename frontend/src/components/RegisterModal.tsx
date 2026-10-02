@@ -15,8 +15,10 @@ const KINDS: { k: RegisterKind; label: string }[] = [
 
 type InputRow = { item_id: number | ''; quantity: string }
 
-export function RegisterModal({ open, onClose, initialKind = 'plantio', draft, fieldId }: {
+export function RegisterModal({ open, onClose, initialKind = 'plantio', draft, fieldId, onDone }: {
   open: boolean; onClose: () => void; initialKind?: RegisterKind; draft?: Draft | null; fieldId?: number
+  /** Chamado após gravar com sucesso (ex.: assistente desativa o rascunho já confirmado). */
+  onDone?: () => void
 }) {
   const [kind, setKind] = useState<RegisterKind>(initialKind)
   const [fields, setFields] = useState<FieldT[]>([])
@@ -92,6 +94,7 @@ export function RegisterModal({ open, onClose, initialKind = 'plantio', draft, f
         setDone(inputs.length ? 'Registrado no caderno de campo. Estoque baixado e custo lançado na safra.' : 'Registrado no caderno de campo.')
       }
       notifyDataChanged()
+      onDone?.()
     } catch (e) {
       setError((e as Error).message)
     } finally {
