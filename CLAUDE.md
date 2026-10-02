@@ -47,6 +47,7 @@ Este arquivo ≤ 250 linhas: ao atualizar, **substitua** linhas de estado em vez
   (NASA POWER: set/26 93 mm × normal 48 mm; IBGE malhas) · Open-Meteo · NASA GIBS (camadas verificadas). Ver `docs/09`.
 - **Modelo de negócio:** A — público, ATER (CATI/Senar/prefeitura), gratuito ao produtor. Ver `docs/10-business-model.md`.
 
+**M1 ✅ (26481b7):** contas reais (cadastro/login com hash, token), botões demo João (recarrega fixtures) e conta nova; `/api/me`; tudo filtrado pela conta; banco recriado sozinho ao mudar `SCHEMA_VERSION`.
 **Próximo:** MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
 M4 telas → M5 IA → M6 app em `/` + roteiro; M7 ANA opcional) → **pitch (Thales) + PDF** → congelamento 03/10 08h.
 **Regra de dados (D-022):** dado de fonte aberta/externa é SEMPRE real (fonte fora → aviso, ou último dado real com data);

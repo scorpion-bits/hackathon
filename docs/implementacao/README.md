@@ -52,7 +52,7 @@ Esforço = `/effort` sugerido. Modelo = `/model` sugerido.
 
 | # | Etapa | Modelo | Esforço | Tempo | Status |
 |---|---|---|---|---|---|
-| M1 | [Contas: tabelas, produtor atual, 2 contas demo, cadastro e login](M1-contas.md) | **Opus** | médio | 1h20 | ⏳ |
+| M1 | [Contas: tabelas, produtor atual, 2 contas demo, cadastro e login](M1-contas.md) | **Opus** | médio | 1h20 | ✅ 26481b7 |
 | M2 | [Entrevista e talhões na API + primeiro acesso](M2-entrevista-talhoes.md) | Sonnet | médio | 1h | ⏳ |
 | M3 | [Assuntos calculados com fontes reais](M3-assuntos.md) | **Opus** | médio | 1h20 | ⏳ |
 | M4 | [Telas ligadas: Início, Resolver, Casos, Dados abertos, Mapa](M4-telas.md) | Sonnet | médio | 1h10 | ⏳ |
