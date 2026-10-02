@@ -54,7 +54,11 @@
 - **REGRA ÚNICA (literal):** "Todo projeto usa pelo menos uma base "pivô" — do portal do MAPA ou da ANA/Embrapa — e pode combiná-la com qualquer outra base aberta que a equipe encontrar. A combinação é com vocês. Não vamos sugerir o que construir."
 - **Uso de IA:** permitido, ferramentas livres. Organização/IFSP não pagam assinaturas, APIs, créditos ou tokens — **despesa é da equipe; preferir alternativas gratuitas**.
 - **Regras específicas:** ver regra única + ética acima
-- **Critérios de avaliação:** _pendente_ (perguntar à organização se não forem informados)
+- **Critérios de avaliação (pesos, total 100):** Relevância e impacto social **20** · Uso e análise dos dados **15** ·
+  Qualidade da solução **15** · Inovação e criatividade **15** · Protótipo/demonstração **15** · Viabilidade e continuidade **10** ·
+  Apresentação e comunicação **10**. **Ética, privacidade e uso responsável dos dados = critério ELIMINATÓRIO.**
+- **Catálogo oficial de bases:** ver `docs/02-data-analysis.md` §Inventário (13 MAPA + 5 ANA/Embrapa; metadados consultados pela organização em 24/09/2026).
+- **Checklist da organização antes de usar uma base:** fonte oficial · data de publicação · licença explícita · formato estruturado · metodologia documentada.
 - **Formato do pitch:** _pendente_ (duração, ao vivo ou gravado, tem demo?)
 - **Forma de entrega:** _pendente_ (link do repo? formulário? e-mail?)
 

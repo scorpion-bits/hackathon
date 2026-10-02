@@ -9,11 +9,12 @@
 | ID | Nome | Tipo | Responsável | Agente / Modelo | Prio | Est. | Depende | Status |
 |---|---|---|---|---|---|---|---|---|
 | T-000 | Preparar estrutura operacional do repo | 🤖 | Claude | Orquestrador / Opus | P0 | 1h | — | DONE |
-| T-001 | Registrar tema, dataset e regras em `00-context.md` | 🤖 | Claude | Orquestrador / Opus | P0 | 15m | H-003 | BACKLOG |
-| T-002 | Baixar datasets para `data/raw/` e rodar `profile_data.py` | 🤖 | Claude | Data Engineer / Sonnet | P0 | 20m | T-001 | BACKLOG |
-| T-003 | Análise de dados: qualidade, variáveis, insights (`02-data-analysis.md`) | 🤖 | Claude | Data Analyst / Opus | P0 | 45m | T-002 | BACKLOG |
+| T-001 | Registrar tema, dataset e regras em `00-context.md` | 🤖 | Claude | Orquestrador / Opus | P0 | 15m | H-013 | Baixar bases ANA (Pivôs Mapeados CSV, Pivôs Área por Município CSV, Atlas Irrigação 2021 CSV) e push em `data/raw/` | Maria + Fernando | 02/10 10h30 | READY |
+| H-003 | DONE |
+| T-002 | Rodar `profile_data.py` nos datasets baixados pela equipe | 🤖 | Claude | Data Engineer / Sonnet | P0 | 20m | H-013 | BLOCKED |
+| T-003 | Análise de dados: qualidade, variáveis, insights (`02-data-analysis.md`) | 🤖 | Claude | Data Analyst / Opus | P0 | 45m | T-002 | IN_PROGRESS (catálogo feito) |
 | T-004 | Problema, público, hipóteses (`01-problem.md`) | 🤖 | Claude | Product Analyst / Opus | P0 | 30m | T-001 | BACKLOG |
-| T-005 | 3–5 soluções candidatas + comparação + recomendação (`03-solution.md`) | 🤖 | Claude | Orquestrador / Opus | P0 | 30m | T-003, T-004 | BACKLOG |
+| T-005 | 3–5 soluções candidatas + comparação + recomendação (`03-solution.md`) | 🤖 | Claude | Orquestrador / Opus | P0 | 30m | T-003, T-004 | REVIEW (aguarda H-004) |
 
 > Tarefas de MVP/arquitetura/implementação só são criadas após H-004 (aprovação da solução).
 
@@ -23,6 +24,7 @@
 |---|---|---|---|---|
 | H-001 | Revisar esta estrutura e o processo (CLAUDE.md) | equipe | 02/10 08h30 | READY |
 | H-002 | Preencher habilidades da equipe em `planning/agents.md` §Equipe humana | cada integrante | 02/10 08h30 | DONE |
+| H-013 | Baixar bases ANA (Pivôs Mapeados CSV, Pivôs Área por Município CSV, Atlas Irrigação 2021 CSV) e push em `data/raw/` | Maria + Fernando | 02/10 10h30 | READY |
 | H-003 | Às 08h30 (Milan/PO): registrar tema, links dos dados, regras, critérios e respostas da organização (`docs/00-context.md` §Perguntas) | 1 pessoa designada | 02/10 09h00 | BACKLOG |
 | H-004 | Escolher a solução entre as candidatas (CP3) | equipe | 02/10 11h00 | BACKLOG |
 | H-005 | Aprovar escopo do MVP (CP4) | equipe | 02/10 11h30 | BACKLOG |
@@ -35,7 +37,8 @@
 | H-012 | Validar e submeter entrega final (repo + protótipo + PDF) | responsável pela entrega | 03/10 08h45 | BACKLOG |
 
 ## Bloqueios ativos
-BLOCKED: T-001 — ler apresentação do tema (https://jrbeluzo.com.br/hackathon/apresentacao.html)
+RESOLVIDO: T-001 — ler apresentação (equipe enviou prints)
+BLOCKED (antigo): T-001 — ler apresentação do tema (https://jrbeluzo.com.br/hackathon/apresentacao.html)
 Desde: 02/10 manhã · Motivo: política de rede do ambiente bloqueia o domínio jrbeluzo.com.br
 Alternativas: (1) liberar domínio nas configurações do ambiente (2) colar texto/prints no chat (3) subir HTML/PDF em data/raw/
 Precisa de humano? sim

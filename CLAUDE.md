@@ -9,12 +9,12 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | **FASE 1 — DESCOBERTA** (recebendo slides do tema) |
+| Fase | **FASE 2 — IDEAÇÃO** — 4 candidatas em `docs/03-solution.md`, aguardando H-004 |
 | Último checkpoint | CP0 — Repositório preparado |
 | Próximo checkpoint | CP1 — Problema compreendido |
 | Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
 | Dataset | Regra: ≥1 base "pivô" do MAPA (dados.agricultura.gov.br) ou ANA/Embrapa (Pivôs Centrais 1985–2019); combinar com qualquer base aberta. Ver `docs/00-context.md` |
-| Solução escolhida | _nenhuma_ |
+| Solução escolhida | _pendente_ — recomendação do Claude: **A — AquaPivô** |
 | Stack | _não definida_ (opções pré-avaliadas em `docs/05-architecture.md`) |
 | Bloqueios | Ambiente sem rede p/ gov.br — humanos baixam dados e fazem push em `data/raw/` (R-13) |
 
@@ -93,8 +93,8 @@ Ferramenta pronta para a análise inicial: `python3 scripts/profile_data.py data
 | CP | Marco | Meta (BRT) | Status |
 |---|---|---|---|
 | 0 | Repositório preparado | antes de 02/10 08h30 | ✅ |
-| 1 | Problema compreendido | 02/10 09h30 | ⏳ |
-| 2 | Dataset analisado | 02/10 10h15 | ⏳ |
+| 1 | Problema compreendido | 02/10 09h30 | ✅ |
+| 2 | Dataset analisado | 02/10 10h15 | 🟡 catálogo (arquivos pendentes) |
 | 3 | Solução definida (aprovada) | 02/10 11h00 | ⏳ |
 | 4 | MVP definido (aprovado) | 02/10 11h30 | ⏳ |
 | 5 | Arquitetura definida (aprovada) | 02/10 12h00 | ⏳ |
