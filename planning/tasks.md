@@ -13,12 +13,15 @@
 | T-011 | Esqueleto frontend: layout, navegação, tema, cliente API, + Registrar, Painel | 🤖 | Claude | Opus | P0 | 1h | — | DONE |
 | T-012 | Pipeline dados abertos (Zarc 25-26/26-27, Agrofit, região) + `data_sources` | 🤖 | Claude | Opus | P0 | 1h | — | DONE |
 | T-013 | Seed demo: João, 3 talhões, histórico desde 2025/26 | 🤖 | Claude | Opus | P0 | 45m | — | DONE |
-| T-014 | Mapa: desenhar/editar talhão + ficha + Zarc + Planejador (M3, M6) | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | IN_PROGRESS |
-| T-015 | Estoque: itens, entradas/saídas, histórico, Agrofit (M5, S4) | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | IN_PROGRESS |
-| T-016 | Produção: safras, linha do tempo (M4) — backend DONE | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | IN_PROGRESS |
-| T-017 | Painel (DONE) + tela de Alertas (agente) (M2, M7) | 🤖 | Claude + agente | Sonnet | P0 | 1h | — | IN_PROGRESS |
-| T-018 | Assistente IA: backend DONE (LLM + offline + rascunho); tela + voz (agente) (M8, S5) | 🤖 | Claude + agente | Opus/Sonnet | P0 | 1h15 | — | IN_PROGRESS |
-| T-019 | Clima, Relatórios, Perfil/fontes (S1, S2, S6) | 🤖 | agente | Sonnet | P1 | 1h | — | IN_PROGRESS |
+| T-014 | Mapa: desenhar/editar talhão + ficha + Zarc + Planejador (M3, M6) | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | DONE |
+| T-015 | Estoque: itens, entradas/saídas, histórico, Agrofit (M5, S4) | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | DONE |
+| T-016 | Produção: safras, linha do tempo (M4) — backend DONE | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | DONE |
+| T-017 | Painel + tela de Alertas (M2, M7) | 🤖 | Claude + agente | Sonnet | P0 | 1h | — | DONE |
+| T-018 | Assistente IA: LLM + offline + rascunho + tela + voz (M8, S5) | 🤖 | Claude + agente | Opus/Sonnet | P0 | 1h15 | H-014 (teste c/ chave) | DONE |
+| T-019 | Clima, Relatórios, Perfil/fontes (S1, S2, S6) | 🤖 | agente | Sonnet | P1 | 1h | — | DONE |
+| T-021 | QA ponta a ponta do fluxo da demo + correções | 🤖 | Claude + Victor | Opus | P0 | 1h | — | READY |
+| T-022 | Teste com modelo de IA real (chave da equipe) + 10 perguntas | 👥🤖 | Fernando/Milan + Claude | — | P0 | 45m | H-014 | READY |
+| T-023 | Pitch: roteiro + PDF (insights de dados, demo, B2B2C, ética) | 🤖👥 | Claude + Thales | Opus | P0 | 2h | — | READY |
 | T-020 | Testes: fluxo principal, Zarc vs CSV, custos, privacidade (7 ok) + 10 perguntas da IA | 🤖 | Claude + Victor | Opus | P0 | contínuo | — | IN_PROGRESS |
 
 ## Ações humanas (👥 HUMAN ACTION REQUIRED → espelhar no Hub)

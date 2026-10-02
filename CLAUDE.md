@@ -16,7 +16,9 @@
 | Dataset | Regra: ≥1 base "pivô" do MAPA (dados.agricultura.gov.br) ou ANA/Embrapa (Pivôs Centrais 1985–2019); combinar com qualquer base aberta. Ver `docs/00-context.md` |
 | Solução escolhida | **AgroIA** — gestão da propriedade + IA que interpreta dados abertos (D-001/D-002) |
 | Stack | React+TS+Vite+Tailwind · Leaflet/Geoman/Turf · FastAPI+SQLite · IA OpenAI-compatível + modo offline (D-003/D-004) |
-| Bloqueios | Ambiente sem rede p/ gov.br — humanos baixam dados e fazem push em `data/raw/` (R-13) |
+| Bloqueios | Ambiente do Claude sem internet externa (clima/tiles/LLM testados só nos notebooks da equipe) |
+
+**Construção (02/10 ~13h):** backend + 9 telas prontas; rodar via `README.md`; reset demo `python scripts/seed_demo.py`; testes `cd backend && pytest -q`.
 
 **Restrições-chave:** agenda CEPIN (visão computacional, preditivo, otimização, automação/robótica);
 ética (citar fonte+data, mostrar incerteza, sem dado pessoal); IA paga = custo da equipe → preferir gratuito.
