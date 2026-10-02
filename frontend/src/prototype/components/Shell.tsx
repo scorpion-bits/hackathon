@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { Bot, Database, FileText, Globe2, Home, Inbox, LogOut, Sprout } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { fmtWhen, useSources } from '../api/opendata'
 import { logout, useMe } from '../api/session'
 import { Logo } from './Brand'
 
@@ -17,10 +18,11 @@ const NAV = [
 ]
 
 export function ProtoBanner() {
+  const demo = !!useMe().me?.producer.is_demo
   return (
     <div className="bg-accent px-4 py-1 text-center text-[11px] font-semibold uppercase tracking-wide text-white">
-      <span className="sm:hidden">Protótipo · dados de exemplo</span>
-      <span className="hidden sm:inline">Protótipo visual · dados de exemplo (números marcados “dado oficial” vêm das bases oficiais analisadas)</span>
+      <span className="sm:hidden">{demo ? 'Dados abertos reais · conta fictícia' : 'Hackathon · dados abertos reais'}</span>
+      <span className="hidden sm:inline">{demo ? 'Dados abertos reais (MAPA, NASA, Open-Meteo) · só a conta, a propriedade e os casos são fictícios' : 'Versão do hackathon · dados abertos reais (MAPA, NASA, Open-Meteo)'}</span>
     </div>
   )
 }
@@ -35,6 +37,8 @@ export function Shell({ children, full }: { children: ReactNode; full?: boolean 
   const { me } = useMe()
   const exit = () => { logout().finally(() => nav('/prototipo/entrar')) }
   const firstName = me?.producer.name.split(/\s+/)[0]
+  const sources = useSources().data
+  const checked = (sources ?? []).map((x) => x.checked_at).filter(Boolean).sort().pop()
   return (
     <div className="flex h-full flex-col">
       <ProtoBanner />
@@ -61,8 +65,8 @@ export function Shell({ children, full }: { children: ReactNode; full?: boolean 
           <div className="space-y-3">
             <div className="rounded-lg bg-white/5 p-3">
               <div className="text-[11px] uppercase tracking-wide text-white/50">Radar ativo</div>
-              <div className="mt-1 text-sm font-semibold text-white">7 fontes oficiais</div>
-              <div className="text-[11px] text-white/60">última varredura: hoje, 06:00</div>
+              <div className="mt-1 text-sm font-semibold text-white">{sources ? `${sources.length} fontes oficiais` : 'Fontes oficiais'}</div>
+              <div className="text-[11px] text-white/60">{checked ? `bases do MAPA conferidas em ${fmtWhen(checked)}` : 'conferência ainda não registrada'}</div>
             </div>
             {me?.producer.is_demo && <DemoSeal className="ml-3" />}
             <button onClick={exit} className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-white/60 hover:bg-white/5 hover:text-white">

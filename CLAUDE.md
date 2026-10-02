@@ -50,7 +50,8 @@ Este arquivo ≤ 250 linhas: ao atualizar, **substitua** linhas de estado em vez
 **M1 ✅ (26481b7):** contas reais (cadastro/login com hash, token), botões demo João (recarrega fixtures) e conta nova; `/api/me`; tudo filtrado pela conta; banco recriado sozinho ao mudar `SCHEMA_VERSION`.
 **M2 ✅ (4f8e4e8):** entrevista grava fazenda/talhões/respostas (`/api/onboarding`, culturas → nomes do Zarc em `services/context.py`); editor e telas leem/gravam `/api/fields` (`farmStore.ts`); conta sem talhões vê o convite de primeiro acesso.
 **M3 ✅ (8cbc8af):** `GET /api/topics` — 7 regras (`services/topics.py`, textos em `topics_text.py`) × Zarc/Open-Meteo/NASA/Agrofit/SIPEAGRO; fonte fora → assunto some + `sources_status`; escolha em `POST /api/topics/{key}/choice`.
-**Próximo:** M4. MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
+**M4 ✅:** telas do roteiro ligadas à API (hooks em `frontend/src/prototype/api/`: `resource.ts`, `topics.ts`, `cases.ts`, `opendata.ts`); casos em `routers/cases.py` (`/api/cases`, `/api/experts`, demo-reply, reset só demo); `/api/opendata/funnel` e `sources` com contagem real; `resolve.ts` apagado, `mock.ts` sem número de fonte aberta; `SourceStatus` mostra "dado real de <data>"/"indisponível".
+**Próximo:** M5 (IA; o `Assistant.tsx` ainda tem conversa de exemplo com números fixos). MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
 M4 telas → M5 IA → M6 app em `/` + roteiro; M7 ANA opcional) → **pitch (Thales) + PDF** → congelamento 03/10 08h.
 **Regra de dados (D-022):** dado de fonte aberta/externa é SEMPRE real (fonte fora → aviso, ou último dado real com data);
 fictício só dado de conta (contas demo `is_demo`, fixtures nas mesmas tabelas). Cenários: conta nova × conta existente (João).

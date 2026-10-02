@@ -8,6 +8,10 @@ A tela "IA" (`/prototipo/assistente`) conversa com o backend.
 - Funciona **sem chave** (modo offline, já existe) e melhor **com chave** (Groq gratuito, D-020).
 - O aviso "a IA explica dados, não dá receita" continua.
 
+## Pendência vinda da M4
+`pages/Assistant.tsx` ainda tem a **conversa de exemplo** com textos e números fixos (ex.: coordenada, "atualizada hoje às 06:00", adubo/custos em `components/views/demo.ts`).
+Ela deve sair: a conversa passa a vir de `POST /api/assistant/chat`. Depois apague `components/views/demo.ts`.
+
 ## Situação atual
 - `backend/app/assistant/engine.py`:
   - `chat()` usa o LLM se `AGROIA_LLM_API_KEY` e `AGROIA_LLM_MODEL` existirem; senão, ou se der erro, usa `_chat_offline()`;

@@ -215,9 +215,9 @@ function Resolve({ topic, all, status, sent, experts }: ResolveProps) {
       {/* 1. Dados */}
       <Step n={1} title="O que os dados mostram" done>
         <div className="grid gap-4 md:grid-cols-3">
-          <div className="iso-card bg-surface p-5 md:col-span-2">
+          <div className="iso-card min-w-0 bg-surface p-5 md:col-span-2">
             <h3 className="font-semibold">{EVIDENCE_TITLE[ev.type]}</h3>
-            <p className="mb-4 flex items-center gap-1.5 text-xs text-muted">
+            <p className="mb-4 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted">
               <Database size={12} className={official ? 'text-primary' : ''} />{topic.evidence_note}
               {official ? <b className="text-primary-dark">· dado oficial</b> : <span>· dados da sua conta</span>}
             </p>

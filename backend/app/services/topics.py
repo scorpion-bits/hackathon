@@ -42,7 +42,8 @@ def _external(producer_id: int, farm: Farm) -> dict:
     if hit and hit[1] == loc and time.time() - hit[0] < CACHE_TTL:
         return hit[2]
     data = {"weather": weather.forecast(farm.lat, farm.lon), "nasa": live.rain_vs_normal(farm.lat, farm.lon)}
-    _cache[producer_id] = (time.time(), loc, data)
+    if data["weather"].get("available") and data["nasa"].get("available"):  # fonte fora não fica 10 min "offline" no cache
+        _cache[producer_id] = (time.time(), loc, data)
     return data
 
 
