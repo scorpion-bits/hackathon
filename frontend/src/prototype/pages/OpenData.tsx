@@ -239,7 +239,7 @@ export default function OpenData() {
       <Sources />
       <Pipeline />
       <Ethics />
-      <p className="pb-4 text-center text-xs text-muted">{INSIGHTS.length} recomendações geradas hoje · números “dado real” vêm das bases oficiais baixadas em 02/10/2026.</p>
+      <p className="pb-4 text-center text-xs text-muted">{INSIGHTS.length} recomendações geradas hoje · números “dado oficial” vêm das bases oficiais baixadas em 02/10/2026.</p>
     </div>
   )
 }

@@ -17,7 +17,8 @@ const NAV = [
 export function ProtoBanner() {
   return (
     <div className="bg-accent px-4 py-1 text-center text-[11px] font-semibold uppercase tracking-wide text-white">
-      Protótipo visual · dados de exemplo (números marcados “dado real” vêm das bases oficiais analisadas)
+      <span className="sm:hidden">Protótipo · dados de exemplo</span>
+      <span className="hidden sm:inline">Protótipo visual · dados de exemplo (números marcados “dado oficial” vêm das bases oficiais analisadas)</span>
     </div>
   )
 }
@@ -57,6 +58,15 @@ export function Shell({ children, full }: { children: ReactNode; full?: boolean 
         </aside>
         <main className={clsx('min-h-0 flex-1 overflow-y-auto', !full && 'p-4 md:p-6')}>{children}</main>
       </div>
+      {/* Celular: menu inferior (a barra lateral some em telas pequenas) */}
+      <nav aria-label="Menu principal" className="grid shrink-0 grid-cols-5 border-t border-white/10 bg-sidebar md:hidden">
+        {NAV.filter((n) => n.to !== '/prototipo/contexto').map(({ to, label, icon: Icon, end }) => (
+          <NavLink key={to} to={to} end={end} className={({ isActive }) => clsx('flex flex-col items-center gap-0.5 px-1 py-2 text-[10px] font-medium',
+            isActive ? 'text-[#7fd6a0]' : 'text-white/70')}>
+            <Icon size={20} /> <span className="truncate">{label.replace('Minha propriedade', 'Propriedade').replace('Pergunte à IA', 'IA')}</span>
+          </NavLink>
+        ))}
+      </nav>
     </div>
   )
 }
@@ -69,6 +79,6 @@ export function SourceChip({ k }: { k: string }) {
 
 export function OriginTag({ origin }: { origin: 'real' | 'ilustrativo' }) {
   return origin === 'real'
-    ? <span className="rounded bg-primary-soft px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary-dark">dado real</span>
+    ? <span className="rounded bg-primary-soft px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary-dark">dado oficial</span>
     : <span className="rounded bg-bg px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-muted ring-1 ring-border">ilustrativo</span>
 }
