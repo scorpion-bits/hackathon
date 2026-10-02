@@ -69,6 +69,12 @@ export default function LiveMap() {
   const flyHome = useCallback((m = mapRef.current) => {
     if (m) m.flyTo({ center: HOME, zoom: m.getContainer().clientWidth < 640 ? HOME_ZOOM - 0.7 : HOME_ZOOM, pitch: 52, bearing: -18, padding: viewPadding(m), duration: 7000, curve: 1.6, essential: true })
   }, [])
+  const flyField = useCallback((id: number) => {
+    const m = mapRef.current
+    const f = FIELDS.find((x) => x.id === id)
+    setSelected(id)
+    if (m && f) m.flyTo({ center: centroid(f.poly), zoom: m.getContainer().clientWidth < 640 ? 16.6 : 17.2, pitch: 55, bearing: -18, padding: viewPadding(m), duration: 2500, curve: 1.5, essential: true })
+  }, [])
   const flyBrazil = useCallback(() => {
     const m = mapRef.current
     setSelected(null)
@@ -228,7 +234,7 @@ export default function LiveMap() {
         </>
       )}
 
-      <Header onHome={() => flyHome()} onBrazil={flyBrazil} />
+      <Header onHome={() => { setSelected(null); flyHome() }} onBrazil={flyBrazil} onField={flyField} selected={selected} />
       <Controls
         onZoomIn={() => mapRef.current?.zoomIn()} onZoomOut={() => mapRef.current?.zoomOut()}
         proj={proj} onProj={() => setProj((p) => (p === 'globe' ? 'mercator' : 'globe'))}

@@ -28,24 +28,37 @@ function thumbBg(l: DataLayer) {
 }
 
 // ---------------------------------------------------------------- cabeçalho
-export function Header({ onHome, onBrazil }: { onHome: () => void; onBrazil: () => void }) {
+export function Header({ onHome, onBrazil, onField, selected }: {
+  onHome: () => void; onBrazil: () => void; onField: (id: number) => void; selected: number | null
+}) {
   return (
-    <div className={clsx(PANEL, 'absolute left-3 top-3 z-20 max-w-[calc(100%-4.75rem)] p-3 lg:left-4 lg:top-4 lg:max-w-[27rem] lg:p-4')}>
+    <div className={clsx(PANEL, 'absolute left-3 top-3 z-20 max-w-[calc(100%-4.75rem)] p-3 lg:left-4 lg:top-4 lg:w-[23rem] lg:p-4')}>
       <h1 className="text-[15px] font-bold leading-snug lg:text-lg">
         <span className="text-emerald-300">Mapa vivo</span> · dados abertos sobre a sua propriedade
       </h1>
-      <div className="mt-2 flex flex-wrap items-center gap-1.5">
-        <Chip className="bg-emerald-400/15 text-emerald-200 ring-emerald-300/30"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-300" />camadas oficiais: NASA, INPE, MAPA</Chip>
-        <span className="hidden sm:inline-flex"><Chip>{PRODUCER.farm}</Chip></span>
+      <div className="mt-1.5"><Chip className="bg-emerald-400/15 text-emerald-200 ring-emerald-300/30"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-300" />camadas oficiais: NASA, INPE, MAPA</Chip></div>
+
+      {/* Minhas propriedades: um clique leva a câmera até lá */}
+      <div className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-white/50">Minhas propriedades</div>
+      <button onClick={onHome} className="mt-1 flex w-full items-center gap-2 rounded-lg bg-white/5 px-2.5 py-2 text-left ring-1 ring-white/10 hover:bg-white/15">
+        <LocateFixed size={16} className="shrink-0 text-emerald-300" />
+        <span className="min-w-0 flex-1">
+          <span className="block truncate text-sm font-semibold">{PRODUCER.farm}</span>
+          <span className="text-[11px] text-white/60">{PRODUCER.municipality}/{PRODUCER.uf} · {PRODUCER.area_ha.toLocaleString('pt-BR')} ha · {FIELDS.length} talhões</span>
+        </span>
+      </button>
+      <div className="mt-1.5 flex flex-wrap gap-1.5 max-sm:hidden">
+        {FIELDS.map((f) => (
+          <button key={f.id} onClick={() => onField(f.id)}
+            className={clsx('inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1 transition',
+              selected === f.id ? 'bg-white text-ink ring-white' : 'bg-white/5 text-white/85 ring-white/15 hover:bg-white/15')}>
+            <span className="h-2 w-2 rounded-full" style={{ background: f.color }} />{f.name} · {f.crop}
+          </button>
+        ))}
       </div>
-      <div className="mt-3 flex flex-wrap gap-2">
-        <button onClick={onHome} className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white shadow hover:bg-primary-dark lg:text-[13px]">
-          <LocateFixed size={15} /> <span className="sm:hidden">Minha propriedade</span><span className="hidden sm:inline">Ir para minha propriedade</span>
-        </button>
-        <button onClick={onBrazil} className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-semibold text-white ring-1 ring-white/15 hover:bg-white/20 lg:text-[13px]">
-          <Earth size={15} /> Ver o Brasil
-        </button>
-      </div>
+      <button onClick={onBrazil} className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-white/60 hover:text-white">
+        <Earth size={14} /> Ver o Brasil
+      </button>
     </div>
   )
 }
@@ -123,7 +136,7 @@ export function LegendCard(p: {
   const [open, setOpen] = useState(false) // só afeta telas < lg (no desktop tudo fica visível)
   const more = open ? '' : 'max-lg:hidden'
   return (
-    <div className={clsx(PANEL, 'absolute inset-x-3 bottom-[9.25rem] z-10 max-h-[50%] overflow-y-auto p-3 lg:inset-x-auto lg:bottom-[5.75rem] lg:left-4 lg:max-h-[calc(100%-19.5rem)] lg:w-[23rem] lg:p-4',
+    <div className={clsx(PANEL, 'absolute inset-x-3 bottom-[9.25rem] z-10 max-h-[50%] overflow-y-auto p-3 lg:inset-x-auto lg:bottom-[5.75rem] lg:left-4 lg:max-h-[calc(100%-25.5rem)] lg:w-[23rem] lg:p-4',
       p.hidden && 'hidden')}>
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2">
@@ -276,7 +289,7 @@ export function FieldCard({ id, date, onClose }: { id: number; date: Date; onClo
   const insight = INSIGHTS.find((i) => i.field === f.name)
   return (
     <div className={clsx(PANEL, 'absolute inset-x-3 bottom-[9.25rem] z-30 max-h-[55%] overflow-y-auto p-3',
-      'lg:inset-x-auto lg:bottom-[5.75rem] lg:left-4 lg:max-h-[calc(100%-19.5rem)] lg:w-[23rem] lg:p-4')}>
+      'lg:inset-x-auto lg:bottom-[5.75rem] lg:left-4 lg:max-h-[calc(100%-25.5rem)] lg:w-[23rem] lg:p-4')}>
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2.5">
           <span className="h-9 w-9 shrink-0 rounded-lg ring-2 ring-white" style={{ background: f.color }} />
