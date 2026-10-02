@@ -71,6 +71,13 @@
 - Integração visível: base única de dados + ação global "+ Registrar" + botões contextuais "Perguntar à IA sobre isto" em talhão, alerta, item de estoque e relatório.
 - Demo começa pelo uso visual dos módulos; a IA entra no fim como camada que cruza tudo.
 
+#### F — estratégia para vencer (rodada 4, recomendação do Claude)
+- Posicionamento: **"o dado público que já existe, trabalhando para cada talhão"** — gestão + IA que interpreta dados abertos com fonte.
+- Dados abertos no produto: Zarc (risco por talhão), Agrofit (checagem de defensivos do estoque), SIPEAGRO Aviação (drones/serviços na região, agregado),
+  PSR/SISSER (seguro rural na região, agregado), clima (previsão), Pivôs ANA (opcional, camada de irrigação).
+- Módulo extra barato e forte: **"Minha Região"** (inteligência territorial agregada por município).
+- Modelo: B2B2C — gratuito para pequeno produtor; cooperativas, ATER/prefeituras e agentes de crédito/seguro pagam por painel regional e caderno de campo organizado.
+
 ## Comparação ponderada pelos critérios oficiais (nota 0–10 × peso)
 
 | Critério (peso) | A AquaPivô | B PivôVision | C Plantio Certo | D Seguro | E AgroTwin (puro) | E′ AgroTwin sobre Pivôs |
