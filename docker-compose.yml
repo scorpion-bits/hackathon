@@ -1,0 +1,41 @@
+# AgroBits com Docker: `docker compose up` sobe API (8000) + interface (5173).
+#   Protótipo: http://localhost:5173/prototipo · App: http://localhost:5173 · API: http://localhost:8000/docs
+# Código e dados ficam no seu computador (volumes): editar e salvar recarrega sozinho.
+services:
+  backend:
+    build: { context: ., dockerfile: docker/backend.Dockerfile }
+    ports: ["8000:8000"]
+    env_file:
+      - path: .env          # chave da IA (opcional)
+        required: false
+    environment:
+      SYNC: ${SYNC:-0}      # SYNC=1 docker compose up  → confere o portal do MAPA
+      RESET: ${RESET:-0}    # RESET=1 docker compose up → recria a demo
+    volumes:
+      - ./backend:/app/backend
+      - ./scripts:/app/scripts
+      - ./data:/app/data    # bancos SQLite e bases oficiais persistem aqui
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/farm')"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  frontend:
+    image: node:22-alpine
+    working_dir: /app
+    entrypoint: ["/bin/sh", "/docker/frontend-entrypoint.sh"]
+    ports: ["5173:5173"]
+    environment:
+      VITE_API_TARGET: http://backend:8000
+      CHOKIDAR_USEPOLLING: ${POLLING:-false}   # POLLING=true se a recarga não funcionar (Windows/WSL)
+    volumes:
+      - ./frontend:/app
+      - ./docker:/docker:ro
+      - frontend_node_modules:/app/node_modules   # dependências instaladas uma vez só
+    depends_on:
+      - backend
+
+volumes:
+  frontend_node_modules:

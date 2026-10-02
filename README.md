@@ -22,7 +22,20 @@ propriedade) **não são publicadas** neste repositório (`data/restricted/`, fo
 **agregadas por município**, com supressão de grupos com menos de 3 registros.
 O produtor da demonstração (João, Sítio Boa Esperança) é **fictício** e rotulado como tal na interface.
 
-## Como rodar (notebook da equipe)
+## Como rodar com Docker (recomendado — não precisa instalar Python nem Node)
+Requisito: Docker Desktop (Windows/Mac) ou Docker Engine + Compose (Linux).
+
+```bash
+docker compose up --build     # 1ª vez: baixa e instala tudo (~3–5 min); gera os bancos se faltarem
+docker compose up             # das próximas vezes: sobe em segundos
+```
+- Protótipo: http://localhost:5173/prototipo · App: http://localhost:5173 · API: http://localhost:8000/docs
+- `RESET=1 docker compose up` recria a propriedade de demonstração · `SYNC=1 docker compose up` confere o portal do MAPA
+- `docker compose down` para tudo. Código e bancos ficam na sua pasta (`./data`): editar e salvar recarrega sozinho.
+- Recarga não funciona no Windows/WSL? Use `POLLING=true docker compose up`.
+- No Linux, os bancos criados pelo Docker ficam com dono root; se depois quiser usar o `./dev.sh`, rode `sudo chown -R $USER data`.
+
+## Como rodar sem Docker (notebook da equipe)
 Requisitos: Python 3.11+, Node 20+.
 
 **Atalho (Linux/macOS/WSL):** `./dev.sh` faz tudo abaixo e sobe API + interface (Ctrl+C para parar).
