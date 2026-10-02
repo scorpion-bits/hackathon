@@ -56,6 +56,15 @@
   - **Risco de escopo:** documento planeja 3 dias e stack completa (auth, PostGIS, pgvector, LangGraph); temos ~21h.
   - **Fato que vira demo:** Zarc 2025-26, Araraquara, milho 1ª safra, solo argiloso: decêndio 28 (1–10/out) risco **30%** → decêndio 29 (11–20/out) **20%**; solo arenoso: 40% até 20/out, 20% a partir de 21/out. _[confirmar com safra 2026-27]_
 
+#### F — visão consolidada (rodada 2, após esclarecimento da equipe)
+- AgroIA = **plataforma modular de gestão + inteligência da propriedade**; IA é camada transversal (não o produto).
+- **Espinha dorsal proposta: o Caderno de Campo (linha do tempo de eventos).** Todo acontecimento (plantio, aplicação,
+  colheita, compra, observação) é um evento ligado a talhão/safra; estoque, custos, status do talhão e painel são **derivados** dos eventos.
+- Módulos: Propriedade (perfil+mapa+talhões) · Produção (safras+caderno de campo) · Estoque (itens+movimentações) ·
+  Custos (derivado) · Inteligência territorial (Zarc, clima, Agrofit) · Alertas · Painel · IA (perguntar, registrar, explicar, avisar).
+- Estratégia de hackathon: **amplitude visível + 1 fio condutor profundo** (registrar plantio → estoque baixa → custo → linha do tempo → checagem Zarc → painel/alerta),
+  com histórico demonstrativo de ~6 meses (produtor fictício, rotulado).
+
 ## Comparação ponderada pelos critérios oficiais (nota 0–10 × peso)
 
 | Critério (peso) | A AquaPivô | B PivôVision | C Plantio Certo | D Seguro | E AgroTwin (puro) | E′ AgroTwin sobre Pivôs |
