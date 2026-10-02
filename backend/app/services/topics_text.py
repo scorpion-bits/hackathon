@@ -30,6 +30,15 @@ def risk_phrase(r: int) -> str:
     return "fora da janela do Zarc" if r == 0 else f"risco de {r}%"
 
 
+FEMININE = ("soja", "mandioca", "cana", "laranja", "aveia", "cevada", "mamona")
+
+
+def plant_question(crop: str, field: str) -> str:
+    """"Quando plantar a soja do Talhão 1?" — artigo pela cultura; tira o "1ª Safra" do nome do Zarc."""
+    name = crop.lower().split(" 1ª")[0].split(" 2ª")[0]
+    return f"Quando plantar {'a' if name.startswith(FEMININE) else 'o'} {name} do {field}?"
+
+
 def path(pid: str, title: str, detail: str, pros=(), cons=(), then=(), recommended: bool = False) -> dict:
     p = {"id": pid, "title": title, "detail": detail, "pros": list(pros), "cons": list(cons), "then": list(then)}
     if recommended:
@@ -73,7 +82,7 @@ def janela_plantio(field: str, crop: str, now_label: str, now_risk: int, start: 
     if steps:
         why.append("Próximos períodos: " + " → ".join(f"{lbl} {r}%" if r else f"{lbl} fora" for lbl, r in steps))
     why.append(ZARC_RULE)
-    return {"title": title, "summary": summary, "question": f"Quando plantar o {crop.lower()} do {field}?",
+    return {"title": title, "summary": summary, "question": plant_question(crop, field),
             "paths": paths, "why": why}
 
 
@@ -81,7 +90,7 @@ def janela_aberta(field: str, crop: str, now_label: str, risk: int, end: date) -
     return {
         "title": f"{crop} no {field} já está na janela de menor risco",
         "summary": f"Risco de {risk}% para plantar de hoje até {dm(end)}, o menor indicado pelo Zarc para este solo.",
-        "question": f"Quando plantar o {crop.lower()} do {field}?",
+        "question": plant_question(crop, field),
         "why": [f"Hoje ({now_label}) e até {dm(end)}: risco de {risk}%, o menor da tabela do Zarc para {crop} aqui", ZARC_RULE],
         "paths": [
             path("janela", f"Plantar entre hoje e {dm(end)}", "Aproveitar o período de menor risco que já começou.",
