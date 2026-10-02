@@ -31,6 +31,21 @@
 | Arroz Irrigado (3 recortes) | Mapeamento por região/município/áreas | CSV, GeoJSON, KML | Geo/visão | baixo |
 | **Cana Irrigada e Fertirrigada (3 recortes)** | Fertirrigação, irrigação plena/déficit/salvamento | CSV, GeoJSON, KML | Geo, regional | baixo |
 
+## Zarc — Tábua de Risco (arquivos analisados ✅ 02/10)
+Fonte: MAPA/CGRA, dicionário em `data/raw/zarc/*.pdf`. Perfil: `docs/data-profile.md`.
+
+| Safra | Linhas | Culturas | Municípios | UFs |
+|---|---|---|---|---|
+| 2016-17 | 53.583 | 5 (Trigo sequeiro, Milho 2ª safra, Algodão, Feijão caupi, Arroz sequeiro) | 3.916 | 15 |
+| 2017-18 | 168.540 | 7 (+ Milho, Soja) | 5.508 | 26 |
+
+- **Estrutura:** 1 linha = cultura × ciclo (Grupo I–VI/perene) × solo (arenoso/médio/argiloso ou AD1–AD6) × município (geocódigo IBGE ✅ chave de junção) × portaria.
+- **dec1…dec36 = 36 decêndios do ano.** Valores: **0** (plantio não indicado), **20 / 30 / 40** (classe de risco climático de perda, %). Distribuição: 0 = 84%, 20 = 10%, 30 = 3%, 40 = 2%.
+- **Qualidade:** colunas Clima, Manejo, Produtividade e Nível de Manejo **100% vazias** nessas safras; 1 linha com decêndios vazios (Senador Guiomard/AC, milho 2ª safra 2016-17); 189 linhas duplicadas.
+- **Araraquara (3503208):** 63 linhas — 2016-17: milho 2ª safra, trigo; 2017-18: + soja, milho, arroz. **Sem cana/laranja** nessas safras.
+- **Limitação:** safras antigas (2016–2018). O arquivo consolidado atual (`dados-abertos-tabua-de-risco.csv`, atualização diária) deve trazer safras recentes e mais culturas _[a verificar]_.
+- **Valor para IA:** matriz pronta "quando plantar × quanto risco" por município/solo → otimização de calendário, camada de risco para gêmeo digital, alvo para modelos.
+
 ## Leitura inicial (sem abrir arquivos)
 1. **As bases ANA são as mais "prontas para IA":** estruturadas, geográficas, agregadas, sem dado pessoal e com série histórica longa (35 anos) → ética segura e análise rica.
 2. **Pivôs + Atlas combinam naturalmente:** mesmo órgão, mesma chave (código IBGE do município) _[a verificar]_; Atlas traz o **potencial**, Pivôs traz a **trajetória**.
