@@ -25,3 +25,15 @@ Thumbs.db
 
 # Dados grandes: arquivos > ~50 MB não devem ir para o Git (limite GitHub: 100 MB).
 # Se necessário, adicione o caminho específico aqui e documente o link de download em data/README.md.
+
+# CSVs descompactados das safras Zarc (zips ficam em data/raw/zarc/)
+data/interim/
+
+# Bases com DADO PESSOAL (nomes, CPF parcial, e-mail, telefone, coordenadas de propriedade).
+# Ficam só localmente; no git entram apenas agregados anônimos (data/processed/).
+data/restricted/
+data/opendata.db
+data/app.db
+data/weather_cache.json
+data/test_app.db
+.env

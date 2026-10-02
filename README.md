@@ -1,27 +1,70 @@
-# Hackathon de Dados Abertos — IFSP Araraquara
+# 🌱 AgroIA — o dado público que já existe, trabalhando para cada talhão
 
-> 🚧 Projeto em preparação. Tema e base de dados serão divulgados em 02/10 às 08h30.
-> Este README será reescrito com a solução final (problema, solução, como rodar, demo, equipe).
+**1ª Hackathon de Dados Abertos · IFSP Araraquara · 02–03/10/2026**
+Tema: Inteligência Artificial e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura.
 
-## Entregáveis
-- [ ] Protótipo funcional
-- [ ] Repositório (este)
-- [ ] PDF do pitch
+AgroIA é uma plataforma web de **gestão da propriedade rural** (mapa de talhões, produção, estoque, clima, alertas,
+relatórios) em que uma **IA interpreta dados abertos oficiais do MAPA** para a realidade de cada talhão — sempre com
+fonte e data. Gratuita para o pequeno e médio produtor; cooperativas, assistência técnica e agentes de crédito/seguro
+são os clientes pagantes (B2B2C).
 
-## Como navegar
-| Para… | Veja |
-|---|---|
-| Estado atual do projeto | [`CLAUDE.md`](CLAUDE.md) |
-| Contexto do evento | [`docs/00-context.md`](docs/00-context.md) |
-| Tarefas e ações humanas | [`planning/tasks.md`](planning/tasks.md) |
-| Cronograma | [`planning/timeline.md`](planning/timeline.md) |
-| Decisões | [`docs/06-decisions.md`](docs/06-decisions.md) |
+## Dados abertos usados
+| Base | Órgão | Uso no produto |
+|---|---|---|
+| Zarc — Tábua de Risco (safras 2025-26, 2026-27) | MAPA | Risco climático por talhão (36 decêndios), Planejador de plantio, alertas |
+| Agrofit — Produtos formulados | MAPA | Checagem de defensivos do estoque (registro p/ cultura, classes tóxica/ambiental) |
+| SIPEAGRO — Aviação agrícola (agregado) | MAPA | Drones/aviões agrícolas por município ("Minha região") |
+| PSR — Seguro rural 2025 (agregado) | MAPA | Apólices por município ("Minha região") |
+| Previsão do tempo | Open-Meteo (CC-BY 4.0) | Clima, alertas de chuva/frio, Planejador |
 
-## Ferramentas
+**Privacidade (LGPD):** as bases do MAPA com dado pessoal (nome, CPF parcial, e-mail, telefone, coordenadas de
+propriedade) **não são publicadas** neste repositório (`data/restricted/`, fora do git) e só entram no produto
+**agregadas por município**, com supressão de grupos com menos de 3 registros.
+O produtor da demonstração (João, Sítio Boa Esperança) é **fictício** e rotulado como tal na interface.
+
+## Como rodar (notebook da equipe)
+Requisitos: Python 3.11+, Node 20+.
+
 ```bash
-pip install -r requirements-tools.txt
-python3 scripts/profile_data.py data/raw/        # gera docs/data-profile.md
+# 1) dados abertos → data/opendata.db  (~2 min, uma vez só)
+pip install -r backend/requirements.txt
+python scripts/pipeline_opendata.py
+
+# 2) propriedade de demonstração → data/app.db  (rode de novo para "resetar" a demo)
+python scripts/seed_demo.py
+
+# 3) API  (http://localhost:8000/docs)
+cd backend && uvicorn app.main:app --reload --port 8000
+
+# 4) Interface  (http://localhost:5173) — em outro terminal
+cd frontend && npm install && npm run dev
+```
+
+### IA (opcional — sem chave o assistente funciona em **modo offline**)
+Qualquer provedor compatível com a API da OpenAI e com *tool calling*. Exemplo (Groq, camada gratuita):
+```bash
+export AGROIA_LLM_BASE_URL=https://api.groq.com/openai/v1
+export AGROIA_LLM_API_KEY=...        # nunca commitar
+export AGROIA_LLM_MODEL=openai/gpt-oss-120b   # ou outro modelo com tool calling
+```
+Gemini: `AGROIA_LLM_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai` · OpenRouter, Ollama Cloud: idem com a URL do provedor.
+A IA **nunca inventa números**: consulta ferramentas determinísticas (talhões, estoque, custos, Zarc, clima, Agrofit,
+região) e devolve as fontes usadas. Se o modelo falhar, cai automaticamente no modo offline.
+
+### Testes
+```bash
+cd backend && pytest -q
+```
+
+## Estrutura
+```
+backend/   API FastAPI (app/routers, app/services, app/assistant) + testes
+frontend/  React + TypeScript + Vite + Tailwind + Leaflet/Geoman
+scripts/   pipeline_opendata.py · seed_demo.py · aggregate_sipeagro_aviacao.py · profile_data.py
+data/      raw/ (bases oficiais) · processed/ (agregados anônimos) · restricted/ (fora do git)
+docs/      contexto, problema, dados, solução, MVP, arquitetura, decisões, testes, pitch
+planning/  tarefas, riscos, cronograma, agentes
 ```
 
 ## Equipe
-_A preencher._
+Thales Miguel Hajes · Milan Bahrami · Fernando · Maria · Victor Ricardo · Christian — com Claude (orquestrador técnico).

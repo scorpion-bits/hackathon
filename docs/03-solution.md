@@ -45,6 +45,39 @@
 - **Dificuldade:** alta · **MVP:** ~12–14h · **Risco:** médio/alto (muitas camadas externas, rede bloqueada no ambiente do Claude, tentação de 3D).
 - **Ética:** não usar limites do CAR/proprietários; rotular claramente o que é **dado real** e o que é **simulação**.
 
+### F — AgroIA (proposta da equipe, 02/10 ~11h15) — **em discussão de produto**
+- Documento-base: branch `idv-victor` → `data/escopos/escopoInicial.pdf` (+ referências visuais e paleta).
+- Visão: assistente agrícola que conhece o produtor (entrevista conversacional → perfil), mapa com talhões,
+  chat com contexto + ferramentas, estoque, alertas, dashboard.
+- **Análise do Claude (resumo):**
+  - Pontos fortes: público claro (pequeno/médio produtor), princípio "IA interpreta, dados vêm de fontes determinísticas", ética já pensada.
+  - **Risco de regra:** as fontes listadas (INMET, INPE, MapBiomas, IBGE, CONAB…) **não são bases "pivô"** do catálogo → é preciso ancorar em MAPA/ANA. Proposta: **Zarc como cérebro do planejamento** (+ Agrofit p/ estoque de defensivos).
+  - **Risco de inovação:** "chatbot agrícola" é comum; diferencial precisa ser *IA que mostra a conta* com dado oficial por talhão.
+  - **Risco de escopo:** documento planeja 3 dias e stack completa (auth, PostGIS, pgvector, LangGraph); temos ~21h.
+  - **Fato que vira demo:** Zarc 2025-26, Araraquara, milho 1ª safra, solo argiloso: decêndio 28 (1–10/out) risco **30%** → decêndio 29 (11–20/out) **20%**; solo arenoso: 40% até 20/out, 20% a partir de 21/out. _[confirmar com safra 2026-27]_
+
+#### F — visão consolidada (rodada 2, após esclarecimento da equipe)
+- AgroIA = **plataforma modular de gestão + inteligência da propriedade**; IA é camada transversal (não o produto).
+- **Espinha dorsal proposta: o Caderno de Campo (linha do tempo de eventos).** Todo acontecimento (plantio, aplicação,
+  colheita, compra, observação) é um evento ligado a talhão/safra; estoque, custos, status do talhão e painel são **derivados** dos eventos.
+- Módulos: Propriedade (perfil+mapa+talhões) · Produção (safras+caderno de campo) · Estoque (itens+movimentações) ·
+  Custos (derivado) · Inteligência territorial (Zarc, clima, Agrofit) · Alertas · Painel · IA (perguntar, registrar, explicar, avisar).
+- Estratégia de hackathon: **amplitude visível + 1 fio condutor profundo** (registrar plantio → estoque baixa → custo → linha do tempo → checagem Zarc → painel/alerta),
+  com histórico demonstrativo de ~6 meses (produtor fictício, rotulado).
+
+#### F — experiência (rodada 3)
+- **Sistema web de gestão com navegação lateral**; toda operação do dia a dia é feita visualmente (formulários, mapa, tabelas). IA é complementar.
+- Navegação: Painel · Mapa da propriedade · Produção (safras + caderno de campo) · Estoque · Clima · Alertas · Relatórios · Assistente IA · Perfil/Configurações.
+- Integração visível: base única de dados + ação global "+ Registrar" + botões contextuais "Perguntar à IA sobre isto" em talhão, alerta, item de estoque e relatório.
+- Demo começa pelo uso visual dos módulos; a IA entra no fim como camada que cruza tudo.
+
+#### F — estratégia para vencer (rodada 4, recomendação do Claude)
+- Posicionamento: **"o dado público que já existe, trabalhando para cada talhão"** — gestão + IA que interpreta dados abertos com fonte.
+- Dados abertos no produto: Zarc (risco por talhão), Agrofit (checagem de defensivos do estoque), SIPEAGRO Aviação (drones/serviços na região, agregado),
+  PSR/SISSER (seguro rural na região, agregado), clima (previsão), Pivôs ANA (opcional, camada de irrigação).
+- Módulo extra barato e forte: **"Minha Região"** (inteligência territorial agregada por município).
+- Modelo: B2B2C — gratuito para pequeno produtor; cooperativas, ATER/prefeituras e agentes de crédito/seguro pagam por painel regional e caderno de campo organizado.
+
 ## Comparação ponderada pelos critérios oficiais (nota 0–10 × peso)
 
 | Critério (peso) | A AquaPivô | B PivôVision | C Plantio Certo | D Seguro | E AgroTwin (puro) | E′ AgroTwin sobre Pivôs |
