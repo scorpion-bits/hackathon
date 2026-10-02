@@ -35,7 +35,10 @@
 | H-012 | Validar e submeter entrega final (repo + protótipo + PDF) | responsável pela entrega | 03/10 08h45 | BACKLOG |
 
 ## Bloqueios ativos
-_Nenhum._ (formato: `templates/blocked.md`)
+BLOCKED: T-001 — ler apresentação do tema (https://jrbeluzo.com.br/hackathon/apresentacao.html)
+Desde: 02/10 manhã · Motivo: política de rede do ambiente bloqueia o domínio jrbeluzo.com.br
+Alternativas: (1) liberar domínio nas configurações do ambiente (2) colar texto/prints no chat (3) subir HTML/PDF em data/raw/
+Precisa de humano? sim
 
 ## Concluídas recentemente
 - T-000 — estrutura operacional criada.
