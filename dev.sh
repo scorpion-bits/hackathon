@@ -115,6 +115,14 @@ if [[ $PROTO -eq 0 ]]; then
   [[ -f .env ]] && { set -a; source .env; set +a; }
 fi
 
+# estado da IA a partir do .env (sem expor a chave)
+ia_status() {
+  local key model
+  key=$(grep -hE '^(AGROBITS|AGROIA)_LLM_API_KEY=.+' .env 2>/dev/null | tail -1 | cut -d= -f2-)
+  model=$(grep -hE '^(AGROBITS|AGROIA)_LLM_MODEL=.+' .env 2>/dev/null | tail -1 | cut -d= -f2-)
+  if [[ -n "$key" && -n "$model" ]]; then echo "IA: ligada ($model)"; else echo "IA: modo offline (sem chave) — veja docs/implementacao/M5-ia.md"; fi
+}
+
 # ---------- Frontend ----------
 node_ok || { [[ -x "$TOOLS/node/bin/node" ]] && export PATH="$TOOLS/node/bin:$PATH"; }
 node_ok || { warn "Node.js ausente ou antigo (precisa ≥ 20)"; get_node; }
@@ -146,6 +154,7 @@ sleep 3
 echo
 say "Pronto! (Ctrl+C para parar)"
 echo "   Protótipo visual:  http://localhost:5173/prototipo"
+echo "   $(ia_status)"
 if [[ $PROTO -eq 0 ]]; then
   echo "   App funcional:     http://localhost:5173"
   echo "   API (docs):        http://localhost:8000/docs"

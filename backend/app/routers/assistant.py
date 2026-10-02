@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from ..assistant.engine import chat, llm_enabled
+from ..assistant.engine import chat, llm_enabled, llm_model
 from ..auth import current_producer
 from ..db import get_session
 from ..models import ChatMessage, Producer
@@ -20,7 +20,7 @@ class ChatIn(BaseModel):
 
 @router.get("/status")
 def status():
-    return {"llm": llm_enabled(), "mode": "llm" if llm_enabled() else "offline"}
+    return {"llm": llm_enabled(), "mode": "llm" if llm_enabled() else "offline", "model": llm_model()}
 
 
 @router.get("/history")

@@ -58,10 +58,18 @@ for ($i = 0; $i -lt 180; $i++) {
 Write-Host ""
 if (-not $ok) { docker compose logs --tail 30; Fail "Nao respondeu em 6 minutos - veja os logs acima (.\iniciar.ps1 logs)." }
 
+$iaKey = $null; $iaModel = $null
+if (Test-Path .env) {
+  foreach ($l in Get-Content .env) {
+    if ($l -match '^(AGROBITS|AGROIA)_LLM_API_KEY=(.+)$') { $iaKey = $Matches[2] }
+    if ($l -match '^(AGROBITS|AGROIA)_LLM_MODEL=(.+)$') { $iaModel = $Matches[2] }
+  }
+}
 $url = "http://localhost:5173/prototipo"
 Say "Pronto!"
 Write-Host "   Prototipo:  $url"
 Write-Host "   App:        http://localhost:5173"
+if ($iaKey -and $iaModel) { Write-Host "   IA: ligada ($iaModel)" } else { Write-Host "   IA: modo offline (sem chave) - veja docs/implementacao/M5-ia.md" }
 Write-Host "   API (docs): http://localhost:8000/docs"
 Write-Host "   Parar:      .\iniciar.ps1 parar   -   Logs: .\iniciar.ps1 logs"
 Start-Process $url

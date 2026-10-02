@@ -1,7 +1,7 @@
 """Orquestrador do assistente.
 
 Modo LLM: qualquer API compatível com OpenAI (Groq, Gemini, OpenRouter, Ollama Cloud…), com tool calling.
-  AGROIA_LLM_BASE_URL, AGROIA_LLM_API_KEY, AGROIA_LLM_MODEL
+  AGROBITS_LLM_BASE_URL, AGROBITS_LLM_API_KEY, AGROBITS_LLM_MODEL (AGROIA_LLM_* continuam valendo)
 Modo offline (plano B, D-004): roteamento por palavras-chave → ferramentas → resposta em modelo de texto.
 Em ambos, números vêm SOMENTE das ferramentas; a resposta traz as fontes usadas.
 """
@@ -21,24 +21,34 @@ from ..services import farmdata as fd
 from ..services import opendata as od
 from .tools import openai_tools, run_tool
 
-SYSTEM_PROMPT = """Você é o assistente do AgroBits, uma plataforma de gestão da propriedade rural para pequenos e médios produtores.
+SYSTEM_PROMPT = """Você é a IA do AgroBits, que ajuda pequenos produtores a entender dados abertos oficiais sobre a propriedade deles.
 Hoje é {today}. Propriedade: {farm} ({municipality}). Safra atual: {season}.
 
 REGRAS:
-- Use as ferramentas para obter QUALQUER número (áreas, quantidades, custos, riscos, clima). Nunca invente números.
-- Se faltar informação, diga o que falta e pergunte ao produtor.
-- Diferencie: dado OFICIAL (Zarc/MAPA, Agrofit), PREVISÃO (clima), DECLARADO pelo produtor e ESTIMATIVA.
-- Não faça diagnóstico de praga/doença nem recomende dose de agrotóxico: oriente procurar um engenheiro agrônomo
-  (uso de agrotóxico exige receituário agronômico).
-- Linguagem simples, frases curtas, em português do Brasil. Comece pela resposta direta; depois os detalhes em tópicos.
-- Zarc: valores 20/30/40 = risco de perda por clima (%); 0 = período fora da janela indicada.
+- Você EXPLICA dados; NÃO decide pelo produtor. Para decidir (plantar, adubar, aplicar), diga: "Leve para um técnico — de graça"
+  (assistência técnica pública, tela Resolver / Meus casos).
+- Nunca indique produto nem dose de agrotóxico ou adubo, nem diagnostique praga/doença: exige receituário agronômico (Lei 7.802/89).
+  Pode dizer se um produto tem registro no Agrofit para a cultura.
+- Use as ferramentas para obter QUALQUER número (clima, Zarc, estoque, assuntos). Nunca invente números.
+- Cite a fonte e a data de cada dado. Diga quando é PREVISÃO e quando é ESTIMATIVA. Se uma fonte estiver fora, avise.
+- Se faltar informação, diga o que falta. Linguagem simples, frases curtas, português do Brasil; comece pela resposta direta.
+- Zarc: 20/30/40 = risco de perda por clima (%); 0 = fora da janela indicada.
 {context}"""
 
 MAX_STEPS = 6
 
 
+def _env(name: str, default: str | None = None) -> str | None:
+    """Lê AGROBITS_LLM_<name>; aceita AGROIA_LLM_<name> por compatibilidade."""
+    return os.environ.get(f"AGROBITS_LLM_{name}") or os.environ.get(f"AGROIA_LLM_{name}") or default
+
+
+def llm_model() -> str | None:
+    return _env("MODEL") if _env("API_KEY") else None
+
+
 def llm_enabled() -> bool:
-    return bool(os.environ.get("AGROIA_LLM_API_KEY") and os.environ.get("AGROIA_LLM_MODEL"))
+    return bool(_env("API_KEY") and _env("MODEL"))
 
 
 def _dedupe(sources: list[dict]) -> list[dict]:
@@ -97,12 +107,12 @@ def _chat_llm(session: Session, message: str, history: list[dict], context: dict
                                   municipality=f"{farm.municipality}/{farm.uf}", season=season.name if season else "-",
                                   context=_context_text(context))
     messages = [{"role": "system", "content": system}] + history[-8:] + [{"role": "user", "content": message}]
-    base = os.environ.get("AGROIA_LLM_BASE_URL", "https://api.groq.com/openai/v1").rstrip("/")
-    headers = {"Authorization": f"Bearer {os.environ['AGROIA_LLM_API_KEY']}"}
+    base = _env("BASE_URL", "https://api.groq.com/openai/v1").rstrip("/")
+    headers = {"Authorization": f"Bearer {_env('API_KEY')}"}
     sources, used = [], []
     for _ in range(MAX_STEPS):
         r = httpx.post(f"{base}/chat/completions", headers=headers, timeout=60, json={
-            "model": os.environ["AGROIA_LLM_MODEL"], "messages": messages, "tools": openai_tools(),
+            "model": _env("MODEL"), "messages": messages, "tools": openai_tools(),
             "tool_choice": "auto", "temperature": 0.2})
         r.raise_for_status()
         msg = r.json()["choices"][0]["message"]
@@ -152,7 +162,26 @@ def _chat_offline(session: Session, message: str, context: dict | None) -> dict:
         sources.extend(srcs)
         return res
 
-    if any(w in t for w in ("plant", "semear", "janela", "zarc", "risco")) and field:
+    if any(w in t for w in ("o que e o zarc", "que e zarc", "o que e zarc", "zoneamento")) and "talhao" not in t:
+        lines.append("O Zarc (Zoneamento Agrícola de Risco Climático, do MAPA) diz, para cada município, solo e cultura, em quais períodos "
+                     "de 10 dias o plantio tem menor risco de perda por clima: 20%, 30% ou 40%. Fora da janela, o risco é maior e "
+                     "você pode perder o acesso ao Proagro e à subvenção do seguro. É um risco histórico, não uma garantia.")
+        call("farm_overview")
+        sources.append(od.source("zarc"))
+    elif any(w in t for w in ("fungicida", "defensivo", "agrotoxic", "veneno", "dose", "pulveriz", "adubo", "produto")) \
+            and any(w in t for w in ("posso", "usar", "qual", "quanto", "dose", "aplicar")):
+        lines.append("Não indico produto nem dose: isso exige receituário de um engenheiro agrônomo (Lei 7.802/89). "
+                     "Leve para um técnico — de graça — pela tela Resolver / Meus casos.")
+        reg = call("get_topics")
+        d = [x for x in reg["topics"] if "defensivo" in x["key"] or "agrofit" in x["key"]]
+        if d:
+            lines.append("O que os dados abertos mostram: " + "; ".join(x["summary"] for x in d[:2]))
+    elif any(w in t for w in ("o que eu faco", "o que fazer", "o que faco", "tecnico", "ajuda", "decidir", "enviar caso")):
+        top = call("get_topics")["topics"]
+        lines.append("Eu explico os dados; quem ajuda a decidir é o técnico da assistência pública, de graça. "
+                     "Abra o assunto em Resolver e envie o caso: ele já vai com os dados e as fontes.")
+        lines += [f"• ({x['priority']}) {x['title']}" for x in top[:3]]
+    elif any(w in t for w in ("plant", "semear", "janela", "zarc", "risco")) and field:
         p = call("plan_planting", field=field)
         lines.append(p.get("recommendation") or "Sem dados de zoneamento para este talhão.")
         if p.get("options"):
@@ -221,7 +250,9 @@ def _chat_offline(session: Session, message: str, context: dict | None) -> dict:
         o = call("farm_overview")
         lines.append(f"{o['farm']} ({o['municipality']}), safra {o['season']}:")
         lines += [f"• {f['name']}: {f['area_ha']:g} ha — {f['status']}" for f in o["fields"]]
-        lines.append("Posso ajudar com: plantio (Zarc + clima + sementes), custos, estoque, clima, alertas e dados da região.")
+        top = call("get_topics")["topics"]
+        lines += [f"• Assunto: {x['title']}" for x in top[:3]]
+        lines.append("Posso ajudar com: plantio (Zarc + clima + sementes), chuva, estoque e dados da região. Para decidir, leve ao técnico.")
     return {"answer": "\n".join(lines), "sources": _dedupe(sources), "tools": used, "mode": "offline"}
 
 

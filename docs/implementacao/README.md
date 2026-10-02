@@ -56,7 +56,7 @@ Esforço = `/effort` sugerido. Modelo = `/model` sugerido.
 | M2 | [Entrevista e talhões na API + primeiro acesso](M2-entrevista-talhoes.md) | Sonnet | médio | 1h | ✅ 4f8e4e8 |
 | M3 | [Assuntos calculados com fontes reais](M3-assuntos.md) | **Opus** | médio | 1h20 | ✅ 8cbc8af |
 | M4 | [Telas ligadas: Início, Resolver, Casos, Dados abertos, Mapa](M4-telas.md) | Sonnet | médio | 1h10 | ✅ 4c02bdc |
-| M5 | [IA real + passo a passo da chave](M5-ia.md) | Sonnet | médio | 40 min | ⏳ |
+| M5 | [IA real + passo a passo da chave](M5-ia.md) | Sonnet | médio | 40 min | ✅ HASH |
 | M6 | [App principal em `/` + teste dos 2 cenários + roteiro](M6-final.md) | Sonnet | médio | 50 min | ⏳ |
 | M7 | [*Opcional:* pivôs da ANA na região](M7-ana-pivos.md) | Sonnet | baixo | 30 min | ⏳ |
 

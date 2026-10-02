@@ -88,11 +88,11 @@ cd frontend && npm install && npm run dev
 ### IA (opcional — sem chave o assistente funciona em **modo offline**)
 Qualquer provedor compatível com a API da OpenAI e com *tool calling*. Exemplo (Groq, camada gratuita):
 ```bash
-export AGROIA_LLM_BASE_URL=https://api.groq.com/openai/v1
-export AGROIA_LLM_API_KEY=...        # nunca commitar
-export AGROIA_LLM_MODEL=openai/gpt-oss-120b   # ou outro modelo com tool calling
+export AGROBITS_LLM_BASE_URL=https://api.groq.com/openai/v1
+export AGROBITS_LLM_API_KEY=...        # nunca commitar
+export AGROBITS_LLM_MODEL=openai/gpt-oss-120b   # ou outro modelo com tool calling
 ```
-Gemini: `AGROIA_LLM_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai` · OpenRouter, Ollama Cloud: idem com a URL do provedor.
+Gemini: `AGROBITS_LLM_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai` · OpenRouter, Ollama Cloud: idem com a URL do provedor.
 A IA **nunca inventa números**: consulta ferramentas determinísticas (talhões, estoque, custos, Zarc, clima, Agrofit,
 região) e devolve as fontes usadas. Se o modelo falhar, cai automaticamente no modo offline.
 

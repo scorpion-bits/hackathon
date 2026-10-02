@@ -66,10 +66,19 @@ done
 echo
 [[ $ok == 1 ]] || { docker compose logs --tail 30; fail "Não respondeu em 6 minutos — veja os logs acima (./iniciar.sh logs)."; }
 
+# estado da IA a partir do .env (sem expor a chave)
+ia_status() {
+  local key model
+  key=$(grep -hE '^(AGROBITS|AGROIA)_LLM_API_KEY=.+' .env 2>/dev/null | tail -1 | cut -d= -f2-)
+  model=$(grep -hE '^(AGROBITS|AGROIA)_LLM_MODEL=.+' .env 2>/dev/null | tail -1 | cut -d= -f2-)
+  if [[ -n "$key" && -n "$model" ]]; then echo "IA: ligada ($model)"; else echo "IA: modo offline (sem chave) — veja docs/implementacao/M5-ia.md"; fi
+}
+
 URL="http://localhost:5173/prototipo"
 say "Pronto!"
 echo "   Protótipo:  $URL"
 echo "   App:        http://localhost:5173"
+echo "   $(ia_status)"
 echo "   API (docs): http://localhost:8000/docs"
 echo "   Parar:      ./iniciar.sh parar   ·   Logs: ./iniciar.sh logs"
 if command -v xdg-open >/dev/null; then xdg-open "$URL" >/dev/null 2>&1 || true

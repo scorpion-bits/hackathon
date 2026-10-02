@@ -136,7 +136,34 @@ def get_alerts(session: Session, **_):
     return {"alerts": [{k: a[k] for k in ("title", "why", "severity", "kind")} for a in compute_alerts(session, farm)]}, [SYSTEM_SOURCE]
 
 
+def _topics(session: Session):
+    from ..services import topics as tp
+    farm = fd.get_farm(session)
+    return tp.compute(session, farm.producer_id)
+
+
+def get_topics(session: Session, **_):
+    data = _topics(session)
+    srcs = {s["key"]: s for t in data["topics"] for s in t["sources"]}
+    return {"topics": [{"key": t["key"], "priority": t["priority"], "title": t["title"], "summary": t["summary"],
+                        "field": t["field"], "choice": t["choice"]} for t in data["topics"]],
+            "sources_status": data["sources_status"]}, list(srcs.values())
+
+
+def explain_topic(session: Session, key: str, **_):
+    t = next((x for x in _topics(session)["topics"] if x["key"] == key), None)
+    if t is None:
+        return {"error": f"Assunto '{key}' não existe (use get_topics para ver as chaves)."}, []
+    ev = {k: v for k, v in t["evidence"].items() if k not in ("series", "labels", "days")}
+    return {"title": t["title"], "summary": t["summary"], "why": t["why"], "evidence": ev,
+            "paths": [{"title": p["title"], "detail": p["detail"]} for p in t["paths"]],
+            "next_step": "Levar o caso a um técnico da assistência técnica pública (de graça) em 'Resolver'."}, t["sources"]
+
+
 TOOLS = {
+    "get_topics": (get_topics, "Assuntos que merecem atenção agora (janela de plantio, chuva forte, semente, defensivo, drone), com prioridade.", {}),
+    "explain_topic": (explain_topic, "Explica um assunto (chave vinda de get_topics): por quê, dados e caminhos possíveis, com fontes.",
+                      {"key": {"type": "string"}}),
     "farm_overview": (farm_overview, "Visão geral: propriedade, talhões (cultura, solo, situação), safra atual e perfil do produtor.", {}),
     "get_field": (get_field, "Detalhes de um talhão: situação, linha do tempo (plantios, aplicações, colheitas) e risco Zarc de hoje.",
                   {"field": {"type": "string", "description": "Nome ou número do talhão, ex.: 'Talhão 2' ou '2'"}}),
@@ -155,7 +182,7 @@ TOOLS = {
     "region_stats": (region_stats, "Dados abertos do município: drones/aviões agrícolas registrados, seguro rural, culturas zoneadas.", {}),
     "get_alerts": (get_alerts, "Alertas ativos da propriedade (estoque, validade, Zarc, clima).", {}),
 }
-REQUIRED = {"get_field": ["field"], "get_zarc": ["field"], "plan_planting": ["field"], "check_agrofit": ["product"]}
+REQUIRED = {"explain_topic": ["key"], "get_field": ["field"], "get_zarc": ["field"], "plan_planting": ["field"], "check_agrofit": ["product"]}
 
 
 def openai_tools() -> list[dict]:
