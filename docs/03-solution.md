@@ -35,23 +35,36 @@
 - **IA:** preditivo + otimização.
 - **Dificuldade:** média/alta · **MVP:** ~10–12h · **Risco:** médio/alto (volume; **SISSER pode conter nome/CPF** → critério eliminatório exige anonimização cuidadosa).
 
+### E — AgroTwin Open (proposta da equipe): gêmeo digital acessível para robótica agrícola
+- **Problema:** robótica/agricultura de precisão depende de ecossistemas fechados, caros e calibrados para realidades estrangeiras; pequenos/médios produtores não conseguem "ver" a propriedade como ambiente para máquinas autônomas.
+- **Público:** pequenos/médios produtores, cooperativas, operadores de robôs/drones, extensão rural, CEPIN.
+- **Valor:** representação digital da área com camadas abertas (relevo, vegetação, clima, solo, risco) + simulação de frota: robôs com rotas que pesam declividade/umidade/solo/energia, drones focados em áreas de atenção.
+- **IA (CEPIN):** otimização de rotas (A*/cobertura com custo multicritério) + priorização de áreas (modelo/score) — fala direto com "caminhos de automação/robótica".
+- **Ponto crítico — regra da base pivô:** relevo/clima/solo/vegetação vêm de bases externas; sem âncora, a base MAPA/ANA vira enfeite.
+- **E′ (variante proposta pelo Claude): AgroTwin sobre Pivôs** — cada **pivô central mapeado pela ANA/Embrapa** é a "unidade de gêmeo digital" (geometria real e pública, sem dado pessoal). Contexto de risco por Zarc (MAPA) + Atlas. Relevo: Topodata (INPE) ou Copernicus DEM; clima: INMET/NASA POWER.
+- **Dificuldade:** alta · **MVP:** ~12–14h · **Risco:** médio/alto (muitas camadas externas, rede bloqueada no ambiente do Claude, tentação de 3D).
+- **Ética:** não usar limites do CAR/proprietários; rotular claramente o que é **dado real** e o que é **simulação**.
+
 ## Comparação ponderada pelos critérios oficiais (nota 0–10 × peso)
 
-| Critério (peso) | A AquaPivô | B PivôVision | C Plantio Certo | D Seguro |
-|---|---|---|---|---|
-| Relevância/impacto social (20) | 8 | 6 | 8 | 9 |
-| Uso e análise dos dados (15) | 9 | 7 | 7 | 8 |
-| Qualidade da solução (15) | 8 | 5 | 7 | 6 |
-| Inovação/criatividade (15) | 7 | 10 | 6 | 7 |
-| Protótipo/demonstração (15) | 9 | 7 | 8 | 6 |
-| Viabilidade/continuidade (10) | 8 | 6 | 8 | 7 |
-| Apresentação (10) | 9 | 8 | 7 | 7 |
-| **Total (0–100)** | **82,5** | 69,5 | 73,0 | 72,5 |
-| Risco de não entregar | baixo/médio | alto | médio | médio/alto |
-| Risco ético (eliminatório) | baixo | baixo | baixo | **médio/alto** |
-| Aderência CEPIN | preditivo + otimização | visão computacional | otimização | preditivo + otimização |
+| Critério (peso) | A AquaPivô | B PivôVision | C Plantio Certo | D Seguro | E AgroTwin (puro) | E′ AgroTwin sobre Pivôs |
+|---|---|---|---|---|---|---|
+| Relevância/impacto social (20) | 8 | 6 | 8 | 9 | 8 | 8 |
+| Uso e análise dos dados (15) | 9 | 7 | 7 | 8 | 6 | 8 |
+| Qualidade da solução (15) | 8 | 5 | 7 | 6 | 6 | 7 |
+| Inovação/criatividade (15) | 7 | 10 | 6 | 7 | 10 | 10 |
+| Protótipo/demonstração (15) | 9 | 7 | 8 | 6 | 9 | 9 |
+| Viabilidade/continuidade (10) | 8 | 6 | 8 | 7 | 6 | 7 |
+| Apresentação (10) | 9 | 8 | 7 | 7 | 9 | 9 |
+| **Total (0–100)** | **82,5** | 69,5 | 73,0 | 72,5 | 77,5 | **83,0** |
+| Risco de não entregar | baixo/médio | alto | médio | médio/alto | alto | médio/alto |
+| Risco ético (eliminatório) | baixo | baixo | baixo | **médio/alto** | médio | baixo |
+| Aderência CEPIN | preditivo + otimização | visão computacional | otimização | preditivo + otimização | robótica + otimização | robótica + otimização + preditivo |
 
-## Recomendação do Claude
+## Recomendação do Claude (atualizada após proposta E)
+**E′ — AgroTwin Open sobre Pivôs**, com escopo 2D controlado (ver resposta no chat / `04-mvp.md` após aprovação). A continua como plano B.
+
+### Recomendação anterior
 **A — AquaPivô**, com um "teaser" de B como COULD HAVE (detecção de pivôs em 2–3 recortes de imagem, se sobrar tempo).
 - Maior nota ponderada e menor risco; dados limpos, geográficos, sem dado pessoal (blinda o critério eliminatório).
 - Demo muito visual (mapa animado + previsão) — pontua em protótipo e apresentação.
