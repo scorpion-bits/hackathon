@@ -42,6 +42,14 @@ def seed():
         ("Soja", None, "Nacional", 55.0, 128.0, 4600.0, 12.0, 15.0, "CONAB ago/2026", "IBGE LSPA", "CONAB custos safra 2025/26", None, None, None, "medium", now),
         ("Milho 1ª Safra", None, "Nacional", 85.0, 70.0, 3900.0, 12.0, 15.0, "CONAB ago/2026", "IBGE LSPA", "CONAB custos safra 2025/26", None, None, None, "medium", now),
         ("Feijão", None, "Nacional", 22.0, 300.0, 5200.0, 12.0, 15.0, "CONAB ago/2026", "IBGE LSPA", "CONAB custos safra 2025/26", None, None, None, "medium", now),
+        ("Café", None, "Nacional", 30.0, 1200.0, 20000.0, 12.0, 15.0, "CONAB ago/2026", "IBGE", "CONAB custos", None, None, None, "medium", now),
+        ("Cana-de-açúcar", None, "Nacional", 80.0, 150.0, 8000.0, 12.0, 15.0, "UDOP", "IBGE", "Estimativa", None, None, None, "medium", now),
+        ("Laranja", None, "Nacional", 800.0, 40.0, 15000.0, 12.0, 15.0, "CEPEA", "IBGE", "Estimativa", None, None, None, "medium", now),
+        ("Amendoim", None, "Nacional", 150.0, 90.0, 8000.0, 12.0, 15.0, "CONAB ago/2026", "IBGE LSPA", "CONAB custos", None, None, None, "medium", now),
+        ("Mandioca", None, "Nacional", 20.0, 800.0, 6000.0, 12.0, 15.0, "CEPEA", "IBGE", "Estimativa", None, None, None, "medium", now),
+        ("Hortaliças", None, "Nacional", 1.0, 1000.0, 1000.0, 12.0, 15.0, "Genérico", "Genérico", "Genérico", None, None, None, "low", now),
+        ("Pastagem", None, "Nacional", 1.0, 500.0, 1500.0, 12.0, 15.0, "Genérico", "Genérico", "Genérico", None, None, None, "low", now),
+        ("Trigo", None, "Nacional", 50.0, 80.0, 2500.0, 12.0, 15.0, "CONAB ago/2026", "IBGE", "CONAB custos", None, None, None, "medium", now),
     ]
     
     con.executemany("""

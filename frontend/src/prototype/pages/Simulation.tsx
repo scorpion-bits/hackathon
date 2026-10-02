@@ -64,6 +64,14 @@ export default function ProtoSimulationPage() {
     'Soja': { productivity_sacas_ha: 60, price_saca: 131, cost_ha: 4800, price_source: 'CONAB ago/2026', prod_source: 'IBGE LSPA', cost_source: 'CONAB' },
     'Milho': { productivity_sacas_ha: 90, price_saca: 72, cost_ha: 4200, price_source: 'CONAB ago/2026', prod_source: 'IBGE LSPA', cost_source: 'CONAB' },
     'Feijão': { productivity_sacas_ha: 25, price_saca: 310, cost_ha: 5500, price_source: 'CONAB ago/2026', prod_source: 'IBGE LSPA', cost_source: 'CONAB' },
+    'Café': { productivity_sacas_ha: 30, price_saca: 1200, cost_ha: 20000, price_source: 'CONAB', prod_source: 'IBGE', cost_source: 'CONAB' },
+    'Cana-de-açúcar': { productivity_sacas_ha: 80, price_saca: 150, cost_ha: 8000, price_source: 'UDOP', prod_source: 'IBGE', cost_source: 'Estimativa' },
+    'Laranja': { productivity_sacas_ha: 800, price_saca: 40, cost_ha: 15000, price_source: 'CEPEA', prod_source: 'IBGE', cost_source: 'Estimativa' },
+    'Amendoim': { productivity_sacas_ha: 150, price_saca: 90, cost_ha: 8000, price_source: 'CONAB', prod_source: 'IBGE', cost_source: 'CONAB' },
+    'Mandioca': { productivity_sacas_ha: 20, price_saca: 800, cost_ha: 6000, price_source: 'CEPEA', prod_source: 'IBGE', cost_source: 'Estimativa' },
+    'Hortaliças': { productivity_sacas_ha: 1, price_saca: 1000, cost_ha: 1000, price_source: 'Genérico', prod_source: 'Genérico', cost_source: 'Genérico' },
+    'Pastagem': { productivity_sacas_ha: 1, price_saca: 500, cost_ha: 1500, price_source: 'Genérico', prod_source: 'Genérico', cost_source: 'Genérico' },
+    'Trigo': { productivity_sacas_ha: 50, price_saca: 80, cost_ha: 2500, price_source: 'CONAB', prod_source: 'IBGE', cost_source: 'CONAB' },
   }
   
   const [sources, setSources] = useState<Record<string, string>>({})
@@ -79,7 +87,7 @@ export default function ProtoSimulationPage() {
       const f = fields.find(x => x.id === params.field_id)
       if (f) {
         const c = cropOf(f)
-        const cropName = c ? (c.id === 'milho' ? 'Milho' : c.id === 'feijao' ? 'Feijão' : c.id === 'soja' ? 'Soja' : c.label) : ''
+        const cropName = c ? c.label : ''
         setParams(p => ({ ...p, area_ha: f.areaHa || p.area_ha, crop: cropName || p.crop }))
       }
     }
@@ -179,7 +187,7 @@ export default function ProtoSimulationPage() {
               <Label label="Cultura">
                 <Select value={params.crop} onChange={e => setParams({...params, crop: e.target.value})}>
                   <option value="">Selecione...</option>
-                  {['Soja', 'Milho', 'Feijão', 'Trigo'].map(c => <option key={c} value={c}>{c}</option>)}
+                  {Object.keys(DEFAULTS).map(c => <option key={c} value={c}>{c}</option>)}
                 </Select>
               </Label>
 
