@@ -8,6 +8,7 @@ export type ApiField = {
   geometry: { type: 'Polygon'; coordinates: [number, number][][] }
   crop: string | null; crop_key: string | null; soil: string | null; irrigated: boolean; irrigation: string
   has_zarc?: boolean
+  status?: { stage: string; label: string }
 }
 
 export type Onboarding = {

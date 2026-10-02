@@ -27,7 +27,7 @@ export function fieldsGeoJSON(date: Date): FeatureCollection {
       const risk = riskFor(f, date)
       return {
         type: 'Feature', id: f.id,
-        properties: { id: f.id, name: f.name, crop: f.crop, color: f.color, risk, riskColor: RISK_COLOR(risk) },
+        properties: { id: f.id, name: f.name, crop: f.crop, color: f.color, risk: risk ?? -1, riskColor: RISK_COLOR(risk) },
         geometry: { type: 'Polygon', coordinates: [ring] },
       }
     }),

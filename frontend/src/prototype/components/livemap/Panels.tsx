@@ -5,10 +5,12 @@ import {
 } from 'lucide-react'
 import { useEffect, useRef, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { FIELDS, FORECAST, INSIGHTS, PRODUCER } from '../../mock'
+import { fmtWhen } from '../../api/opendata'
+import { useTopics } from '../../api/topics'
+import { FIELDS, PRODUCER } from '../../mock'
 import { OriginTag, SourceChip } from '../Shell'
 import {
-  DAY_OFFSETS, RISK_COLOR, addDays, forecastAt, riskFor, shortDate, weekday,
+  DAY_OFFSETS, RISK_COLOR, addDays, forecastAt, riskFor, riskPill, shortDate, useForecast, weekday,
 } from './layers'
 
 export const PANEL = 'rounded-2xl border border-white/10 bg-sidebar/80 text-white shadow-2xl shadow-black/40 backdrop-blur-md'
@@ -56,6 +58,7 @@ export function Timeline(p: { today: Date; offset: number; onOffset: (o: number)
     const b = c?.querySelector<HTMLElement>('[data-sel="1"]')
     if (c && b && c.scrollWidth > c.clientWidth) c.scrollTo({ left: b.offsetLeft - c.clientWidth / 2 + b.clientWidth / 2, behavior: 'smooth' })
   }, [p.offset])
+  const fcast = useForecast()
   return (
     <div className={p.embedded ? 'rounded-xl bg-white/5 p-2' : clsx(PANEL, 'absolute z-20 max-lg:hidden lg:bottom-4 lg:left-[24.5rem] lg:right-4 lg:px-3 lg:pb-1 lg:pt-2')}>
       <div className="flex items-center gap-2">
@@ -66,7 +69,7 @@ export function Timeline(p: { today: Date; offset: number; onOffset: (o: number)
         <div ref={scroller} className="relative flex min-w-0 flex-1 overflow-x-auto [scrollbar-width:none]">
           {DAY_OFFSETS.map((o) => {
             const d = addDays(p.today, o)
-            const f = forecastAt(o)
+            const f = forecastAt(fcast.days, o)
             const sel = o === p.offset
             return (
               <button key={o} onClick={() => p.onOffset(o)} data-sel={sel ? '1' : undefined}
@@ -94,8 +97,6 @@ export function Timeline(p: { today: Date; offset: number; onOffset: (o: number)
 }
 
 // ---------------------------------------------------------------- cartão do talhão
-const NDVI: Record<number, [number, string]> = { 1: [0.32, 'palhada, aguardando plantio'], 2: [0.21, 'solo preparado e exposto'], 3: [0.74, 'feijão vigoroso'] }
-const SOIL: Record<number, string> = { 1: 'na média da região', 2: 'boa — setembro foi chuvoso', 3: 'boa — irrigado' }
 
 function Row({ label, value, children, tag }: { label: string; value: ReactNode; children?: ReactNode; tag: 'real' | 'ilustrativo' }) {
   return (
@@ -116,10 +117,10 @@ export function FieldCard({ id, date, onClose, embedded }: { id: number; date: D
   const f = FIELDS.find((x) => x.id === id)
   if (!f) return null
   const risk = riskFor(f, date)
-  const rain7 = FORECAST.reduce((s, x) => s + x.rain, 0)
-  const peak = FORECAST.reduce((a, b) => (b.rain > a.rain ? b : a))
-  const [ndvi, ndviTxt] = NDVI[f.id] ?? [0.4, '']
-  const insight = INSIGHTS.find((i) => i.field === f.name)
+  const fcast = useForecast()
+  const rain7 = fcast.days.reduce((s, x) => s + x.rain, 0)
+  const peak = fcast.days.reduce((a, b) => (b.rain > a.rain ? b : a), fcast.days[0])
+  const insight = useTopics().data?.topics.find((t) => t.field_id === f.id)
   return (
     <div className={embedded ? '' : clsx(PANEL, 'absolute z-30 overflow-y-auto max-lg:hidden lg:right-4 lg:top-[4.25rem] lg:max-h-[calc(100%-10.5rem)] lg:w-[22rem] lg:p-4')}>
       <div className="flex items-start justify-between gap-2">
@@ -136,23 +137,19 @@ export function FieldCard({ id, date, onClose, embedded }: { id: number; date: D
       <div className="mt-3 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-emerald-300"><Info size={13} /> O que os dados dizem aqui</div>
       <div className="mt-2 space-y-1.5">
         <Row label={`Risco Zarc · plantio em ${shortDate(date)}`} tag="real"
-          value={<span className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full" style={{ background: RISK_COLOR(risk) }} />{risk ? `${risk}% de chance de perda` : 'fora da janela indicada'}</span>}>
+          value={<span className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-full" style={{ background: RISK_COLOR(risk) }} />{risk == null ? 'sem zoneamento (Zarc) para esta cultura aqui' : risk ? `${risk}% de chance de perda` : 'fora da janela indicada'}</span>}>
           <SourceChip k="zarc" />
         </Row>
-        <Row label="Chuva prevista · 7 dias" tag="ilustrativo" value={`${rain7} mm · pico de ${peak.rain} mm na ${peak.d}`}>
+        <Row label="Chuva prevista · 7 dias" tag="real" value={fcast.days.length ? `${Math.round(rain7)} mm · pico de ${Math.round(peak.rain)} mm (${peak.d})` : 'previsão indisponível agora'}>
           <SourceChip k="clima" />
-        </Row>
-        <Row label="Satélite · vegetação e umidade" tag="ilustrativo"
-          value={<span className="block text-[13px] leading-snug">NDVI {ndvi.toLocaleString('pt-BR')} — {ndviTxt}<br />Umidade do solo {SOIL[f.id] ?? '—'}</span>}>
-          <SourceChip k="satelite" />
         </Row>
       </div>
       {insight && (
-        <div className={clsx('mt-3 rounded-lg p-2.5 text-[13px] font-medium ring-1',
+        <Link to={`/prototipo/resolver/${encodeURIComponent(insight.key)}`} className={clsx('mt-3 block rounded-lg p-2.5 text-[13px] font-medium ring-1',
           insight.priority === 'agir' ? 'bg-red-500/15 text-red-100 ring-red-300/30' : insight.priority === 'atencao' ? 'bg-amber-400/15 text-amber-100 ring-amber-300/30' : 'bg-emerald-400/15 text-emerald-100 ring-emerald-300/30')}>
           <div className="text-[10px] font-bold uppercase tracking-wide opacity-80">Recomendação para este talhão</div>
           {insight.title}
-        </div>
+        </Link>
       )}
       <Link to={`/prototipo/talhoes?talhao=${f.id}`} className="mt-3 flex items-center justify-center gap-1.5 rounded-lg bg-white/10 py-2 text-[13px] font-semibold text-white hover:bg-white/20">
         <Pencil size={14} /> Editar este talhão (formato, cultura, solo)
@@ -173,7 +170,7 @@ export function FieldLabel({ id, show, zarc, date }: { id: number; show: boolean
       <div className="text-[10px] leading-tight text-white/80">{f.crop} · {f.area.toLocaleString('pt-BR')} ha</div>
       {zarc && (
         <div className="mt-0.5 rounded px-1 text-[10px] font-bold" style={{ background: RISK_COLOR(risk) }}>
-          {risk ? `risco ${risk}%` : 'fora da janela'}
+          {riskPill(risk)}
         </div>
       )}
     </div>
@@ -195,25 +192,27 @@ export function FarmPin({ show, onClick }: { show: boolean; onClick: () => void 
 }
 
 export function ForecastBars({ show, offset }: { show: boolean; offset: number }) {
-  const max = Math.max(...FORECAST.map((f) => f.rain), 1)
+  const { days, status, fetchedAt } = useForecast()
+  const max = Math.max(...days.map((f) => f.rain), 1)
   return (
     <div className={clsx('pointer-events-none w-64 transition-opacity duration-500 max-lg:hidden', show ? 'opacity-100' : 'opacity-0')}>
       <div className="rounded-xl bg-sidebar/90 p-2.5 text-white shadow-2xl ring-1 ring-white/15 backdrop-blur">
         <div className="flex items-center justify-between gap-2">
           <span className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-sky-200"><CloudRain size={12} /> Chuva prevista aqui</span>
-          <OriginTag origin="ilustrativo" />
+          <OriginTag origin="real" />
         </div>
+        {days.length === 0 && <div className="mt-2 text-[11px] text-white/70">Previsão indisponível agora.</div>}
         <div className="mt-2 flex h-[5.5rem] items-end gap-1.5">
-          {FORECAST.map((f, i) => (
+          {days.map((f, i) => (
             <div key={i} className="flex flex-1 flex-col items-center justify-end gap-0.5">
-              <span className={clsx('text-[9px] font-semibold tabular-nums', f.rain >= 50 ? 'text-amber-300' : 'text-white/80')}>{f.rain || ''}</span>
+              <span className={clsx('text-[9px] font-semibold tabular-nums', f.rain >= 50 ? 'text-amber-300' : 'text-white/80')}>{Math.round(f.rain) || ''}</span>
               <div className={clsx('w-full rounded-t-sm', i === offset ? 'bg-amber-400' : f.rain >= 50 ? 'bg-sky-400' : 'bg-sky-300/70')}
                 style={{ height: `${Math.max(3, (f.rain / max) * 44)}px` }} />
               <span className={clsx('text-[9px]', i === offset ? 'font-bold text-amber-300' : 'text-white/70')}>{f.d}</span>
             </div>
           ))}
         </div>
-        <div className="mt-1 text-[10px] text-white/55">mm/dia · Previsão Open-Meteo (exemplo)</div>
+        <div className="mt-1 text-[10px] text-white/55">mm/dia · Previsão Open-Meteo{status === 'stale' ? ` · dado real de ${fmtWhen(fetchedAt)} (fonte fora do ar)` : ''}</div>
       </div>
       <div className="mx-auto h-3 w-3 -translate-y-1.5 rotate-45 bg-sidebar/90" />
     </div>

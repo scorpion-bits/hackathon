@@ -9,7 +9,7 @@ import { FIELDS, PRODUCER } from '../../mock'
 import { OriginTag } from '../Shell'
 import { IsoCube } from '../Brand'
 import { Legend, type Place } from './Guide'
-import { DATA_LAYERS, RISK_COLOR, forecastAt, riskFor, shortDate, weekday } from './layers'
+import { DATA_LAYERS, RISK_COLOR, forecastAt, riskFor, riskPill, shortDate, useForecast, useMeaningCtx, weekday } from './layers'
 import { DarkSource, FieldCard, PANEL, Timeline } from './Panels'
 
 const ORDER = ['chuva', 'zarc', 'ndvi', 'umidade', 'temp', 'fogo', 'cor']
@@ -51,7 +51,9 @@ export function MobileUI(p: {
   const field = p.selected != null ? FIELDS.find((f) => f.id === p.selected) : undefined
   const placeLabel = field ? `${field.name} · ${field.crop.replace(' irrigado', '')}` : p.place === 'brazil' ? 'Brasil' : PRODUCER.farm
   const dayLabel = p.offset === 0 ? 'hoje' : `${weekday(p.date)} ${shortDate(p.date)}`
-  const fc = forecastAt(p.offset)
+  const fcast = useForecast()
+  const fc = forecastAt(fcast.days, p.offset)
+  const mctx = useMeaningCtx(FIELDS)
   const go = (pl: Place) => { p.onPlace(pl); setSheet(null) }
 
   return (
@@ -78,7 +80,7 @@ export function MobileUI(p: {
               <span className="mt-0.5 flex items-center gap-2 text-xs text-white/70">
                 {field.area.toLocaleString('pt-BR')} ha
                 <span className="rounded-full px-1.5 py-0.5 text-[10px] font-bold text-white" style={{ background: RISK_COLOR(riskFor(field, p.date)) }}>
-                  {riskFor(field, p.date) ? `risco ${riskFor(field, p.date)}%` : 'fora da janela'}
+                  {riskPill(riskFor(field, p.date))}
                 </span>
               </span>
             </button>
@@ -92,7 +94,7 @@ export function MobileUI(p: {
               <span className="flex items-center gap-2 text-sm font-bold">{layer.question}
                 <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/80"><CalendarDays size={10} />{dayLabel}</span>
               </span>
-              <span className="mt-0.5 line-clamp-2 text-[13px] leading-snug text-white/80">{layer.meaning(p.date)}</span>
+              <span className="mt-0.5 line-clamp-2 text-[13px] leading-snug text-white/80">{layer.meaning(p.date, mctx)}</span>
             </span>
             <ChevronRight size={18} className="shrink-0 text-white/50" />
           </button>
@@ -115,7 +117,7 @@ export function MobileUI(p: {
                 <button key={f.id} onClick={() => go(f.id)} className={clsx('flex min-h-12 w-full items-center gap-3 rounded-2xl px-3 text-left ring-1', p.place === f.id ? 'bg-white text-ink ring-white' : 'bg-white/5 ring-white/10')}>
                   <span className="h-4 w-4 shrink-0 rounded ring-2 ring-white/70" style={{ background: f.color }} />
                   <span className="flex-1 font-semibold">{f.name} · {f.crop.replace(' irrigado', '')} <span className="text-xs font-normal opacity-60">{f.area.toLocaleString('pt-BR')} ha</span></span>
-                  <span className="rounded-full px-2 py-0.5 text-[10px] font-bold text-white" style={{ background: RISK_COLOR(r) }}>{r ? `${r}%` : 'fora'}</span>
+                  <span className="rounded-full px-2 py-0.5 text-[10px] font-bold text-white" style={{ background: RISK_COLOR(r) }}>{r == null ? 'sem Zarc' : r ? `${r}%` : 'fora'}</span>
                 </button>
               )
             })}
@@ -152,7 +154,7 @@ export function MobileUI(p: {
 
       {sheet === 'info' && layer && (
         <Drawer title={layer.question} onClose={() => setSheet(null)}>
-          <p className="text-[15px] leading-relaxed">{layer.meaning(p.date)}</p>
+          <p className="text-[15px] leading-relaxed">{layer.meaning(p.date, mctx)}</p>
           {!!layer.gibs && p.offset > 0 && (
             <p className="mt-3 flex gap-2 rounded-xl bg-amber-400/15 p-3 text-sm text-amber-100"><CloudRain size={16} className="mt-0.5 shrink-0" />
               Satélite só mostra o passado. Para {dayLabel}{fc ? `, a previsão é de ${fc.rain} mm de chuva` : ''}.</p>

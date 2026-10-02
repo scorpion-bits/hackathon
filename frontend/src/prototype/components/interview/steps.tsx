@@ -5,7 +5,7 @@ import {
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { FUNNEL } from '../../mock'
+import { nfmt, useTotalRecords } from '../../api/opendata'
 import {
   BUDGETS, CHANNELS, CONCERNS, CREDITS, FREQUENCIES, GOALS, INCOMES, INTERNETS, MACHINES, MUNICIPALITIES, PROFILES, SIZES, sizeFromHa,
 } from './options'
@@ -42,6 +42,7 @@ function MultiList({ opts, value, onChange, exclusive, cols }: { opts: Opt[]; va
 
 // ---------------------------------------------------------------- 1. boas-vindas
 export function WelcomeStep({ name }: { name?: string }) {
+  const total = useTotalRecords()
   const tiles: { icon: LucideIcon; title: string; text: string }[] = [
     { icon: MousePointerClick, title: 'Quase só cliques', text: 'Você escolhe em cartões grandes. Quase não precisa escrever.' },
     { icon: SkipForward, title: 'Pule o que quiser', text: 'Só o tipo de produtor e o município são obrigatórios.' },
@@ -68,8 +69,7 @@ export function WelcomeStep({ name }: { name?: string }) {
       <div className="mt-6 flex items-start gap-3 rounded-2xl border border-primary/20 bg-primary-soft/60 p-4">
         <Funnel size={20} className="mt-0.5 shrink-0 text-primary" />
         <div className="text-sm text-primary-dark">
-          Hoje analisamos <b>{FUNNEL[0].value} registros oficiais</b>. Depois da entrevista, eles viram <b>{FUNNEL[3].value} recomendações</b> para você.
-          <span className="ml-1 text-xs text-primary-dark/70">(exemplo)</span>
+          {total ? <>Hoje analisamos <b>{nfmt(total)} registros oficiais</b>. </> : null}Depois da entrevista, só o que vale para a sua propriedade chega até você.
         </div>
       </div>
     </div>

@@ -8,14 +8,17 @@ import { useState, type ReactNode } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { IsoFarm } from '../components/IsoFarm'
 import { CUBE_TODO, IsoCube } from '../components/Brand'
+import { SourceStatus, Skeleton } from '../components/SourceStatus'
 import { SourceChip } from '../components/Shell'
-import { FIELDS, FORECAST, INSIGHTS, PRODUCER, ZARC_MILHO } from '../mock'
-import { BEST_EXPERT, EXPERTS, ORDER, PROBLEMS, ZARC_SOJA, nextOpen, sendCase, useCases, useResolved, type Evidence, type Problem } from '../resolve'
+import { FIELDS } from '../mock'
+import { fmtDate, sendCase, useCases, useExperts, type CaseRecord, type Expert } from '../api/cases'
+import { nfmt, weekdayOf } from '../api/opendata'
+import { useMe } from '../api/session'
+import { useTopics, type Evidence, type Topic } from '../api/topics'
 
 const RISK_BG = (r: number) => (r >= 40 ? 'bg-risk-40' : r >= 30 ? 'bg-risk-30' : r > 0 ? 'bg-risk-20' : 'bg-risk-0')
-const MONTH = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
-const DEC_START = ['1', '11', '21']
-const TODAY_DEC = 28 // 1–10/out (decêndio 28, base 1)
+/** "1–10/out" → "1/out" · "21–fim/out" → "21/out" */
+const shortLabel = (l: string) => l.replace(/–[^/]+\//, '/')
 
 function Step({ n, title, done, children }: { n: number; title: string; done?: boolean; children: ReactNode }) {
   return (
@@ -29,23 +32,21 @@ function Step({ n, title, done, children }: { n: number; title: string; done?: b
   )
 }
 
-/** Faixa do Zarc de setembro a dezembro, com "hoje" marcado. */
-function ZarcStrip({ values }: { values: number[] }) {
-  const from = 24 // decêndio 25 (1/set) em base 0
-  const slice = values.slice(from, 36)
+/** Faixa do Zarc a partir de 2 decêndios antes de hoje (até 12 barras), com "hoje" marcado. */
+function ZarcStrip({ values, labels, today }: { values: number[]; labels: string[]; today: number }) {
+  const from = Math.max(0, today - 3)
+  const slice = values.slice(from, from + 12)
   return (
     <div>
       <div className="flex items-end gap-1">
         {slice.map((r, i) => {
           const dec = from + i + 1
-          const today = dec === TODAY_DEC
+          const isToday = dec === today
           return (
             <div key={dec} className="flex flex-1 flex-col items-center gap-1">
               <span className={clsx('text-[11px] font-bold', r ? 'text-ink' : 'text-muted')}>{r ? `${r}%` : '—'}</span>
-              <div className={clsx('w-full rounded', RISK_BG(r), today && 'ring-2 ring-ink ring-offset-2')} style={{ height: r ? 18 + r * 1.4 : 10 }} />
-              <span className={clsx('text-[10px] leading-tight', today ? 'font-bold text-ink' : 'text-muted')}>
-                {DEC_START[(dec - 1) % 3]}/{MONTH[Math.floor((dec - 1) / 3)]}
-              </span>
+              <div className={clsx('w-full rounded', RISK_BG(r), isToday && 'ring-2 ring-ink ring-offset-2')} style={{ height: r ? 18 + r * 1.4 : 10 }} />
+              <span className={clsx('text-[10px] leading-tight', isToday ? 'font-bold text-ink' : 'text-muted')}>{shortLabel(labels[dec - 1] ?? '')}</span>
             </div>
           )
         })}
@@ -61,17 +62,20 @@ function ZarcStrip({ values }: { values: number[] }) {
   )
 }
 
-function RainBars() {
-  const max = Math.max(...FORECAST.map((f) => f.rain), 1)
+function RainBars({ days, threshold }: { days: { date: string; mm: number | null }[]; threshold: number }) {
+  const max = Math.max(...days.map((f) => f.mm ?? 0), 1)
   return (
     <div className="flex h-40 items-end gap-2">
-      {FORECAST.map((f) => (
-        <div key={f.d} className="flex flex-1 flex-col items-center gap-1">
-          <span className={clsx('text-xs font-bold', f.rain >= 50 ? 'text-danger' : 'text-info')}>{f.rain}<span className="hidden sm:inline"> mm</span></span>
-          <div className={clsx('w-full rounded-t', f.rain >= 50 ? 'bg-danger' : f.rain === 0 ? 'bg-primary/60' : 'bg-info/60')} style={{ height: Math.max(6, (f.rain / max) * 100) }} />
-          <span className="text-xs uppercase text-muted">{f.d}</span>
-        </div>
-      ))}
+      {days.map((f) => {
+        const mm = f.mm ?? 0
+        return (
+          <div key={f.date} className="flex flex-1 flex-col items-center gap-1">
+            <span className={clsx('text-xs font-bold', mm >= threshold ? 'text-danger' : 'text-info')}>{Math.round(mm)}<span className="hidden sm:inline"> mm</span></span>
+            <div className={clsx('w-full rounded-t', mm >= threshold ? 'bg-danger' : mm === 0 ? 'bg-primary/60' : 'bg-info/60')} style={{ height: Math.max(6, (mm / max) * 100) }} />
+            <span className="text-xs uppercase text-muted">{weekdayOf(f.date)}</span>
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -89,30 +93,54 @@ function Big({ value, label }: { value: string; label: string }) {
   return <div className="rounded-xl bg-bg p-4"><div className="text-3xl font-bold text-primary-dark">{value}</div><div className="text-sm text-muted">{label}</div></div>
 }
 
-function EvidenceView({ kind }: { kind: Evidence }) {
-  switch (kind) {
-    case 'zarc-milho': return <ZarcStrip values={ZARC_MILHO} />
-    case 'zarc-soja': return <ZarcStrip values={ZARC_SOJA} />
-    case 'rain': return <RainBars />
-    case 'seeds': return (
+const EVIDENCE_TITLE: Record<Evidence['type'], string> = {
+  zarc: 'Risco de perder a lavoura pelo clima, por data de plantio', rain: 'Chuva prevista para a sua coordenada (mm por dia)',
+  rain_normal: 'Chuva dos últimos dias × o normal da região', seeds: 'Semente necessária × semente em estoque',
+  agrofit: 'Registro oficial do produto no seu estoque', drones: 'Drones agrícolas registrados no MAPA',
+}
+
+function EvidenceView({ ev }: { ev: Evidence }) {
+  switch (ev.type) {
+    case 'zarc': return <ZarcStrip values={ev.series} labels={ev.labels} today={ev.today_decendio} />
+    case 'rain': return <RainBars days={ev.days} threshold={ev.threshold_mm} />
+    case 'rain_normal': return (
       <div className="space-y-4">
-        <Bar label="Você precisa" value={61.6} max={65} className="bg-ink/70" note="~62 kg" />
-        <Bar label="Você tem" value={40} max={65} className="bg-primary" note="40 kg" />
-        <p className="rounded-xl bg-accent-soft px-4 py-3 text-sm"><b>Faltam ~22 kg</b> para plantar os 3,08 ha do Talhão 2.</p>
+        <Bar label="Choveu" value={ev.observed_mm} max={Math.max(ev.observed_mm, ev.normal_mm, 1)} className="bg-info" note={`${nfmt(ev.observed_mm)} mm`} />
+        <Bar label="O normal para o período" value={ev.normal_mm} max={Math.max(ev.observed_mm, ev.normal_mm, 1)} className="bg-ink/60" note={`${nfmt(ev.normal_mm)} mm`} />
+        <p className="rounded-xl bg-info-soft px-4 py-3 text-sm">{ev.period.start} a {ev.period.end} ({ev.period.days} dias): <b>{ev.label}</b>.</p>
       </div>
     )
-    case 'agrofit': return (
-      <dl className="grid gap-3 text-sm sm:grid-cols-2">
-        {[['Produto', 'Magic (iprodiona)'], ['Registro MAPA', '00218'], ['Registrado para', 'Feijão · mofo-branco'], ['Classe toxicológica', '4 — pouco tóxico'], ['Seu estoque', '3,5 L'], ['Validade', '12/10 · em 10 dias']].map(([k, v]) => (
-          <div key={k} className="rounded-xl bg-bg px-4 py-3"><dt className="text-xs text-muted">{k}</dt><dd className="font-semibold">{v}</dd></div>
-        ))}
-      </dl>
-    )
+    case 'seeds': {
+      const max = Math.max(ev.needed_kg, ev.have_kg, 1) * 1.05
+      return (
+        <div className="space-y-4">
+          <Bar label="Você precisa" value={ev.needed_kg} max={max} className="bg-ink/70" note={`~${nfmt(Math.round(ev.needed_kg))} kg`} />
+          <Bar label="Você tem" value={ev.have_kg} max={max} className="bg-primary" note={`${nfmt(ev.have_kg)} kg`} />
+          <p className="rounded-xl bg-accent-soft px-4 py-3 text-sm"><b>Faltam ~{nfmt(Math.round(ev.missing_kg))} kg</b> para plantar {nfmt(ev.area_ha)} ha ({nfmt(ev.rate_kg_ha)} kg/ha, taxa informada por você).</p>
+        </div>
+      )
+    }
+    case 'agrofit': {
+      const match = ev.matches[0]
+      const rows: [string, string][] = [
+        ['Produto', ev.found ? `${ev.brand}${ev.ingredient ? ` (${ev.ingredient})` : ''}` : ev.item],
+        ['Registro MAPA', ev.registration ?? 'não encontrado no Agrofit'],
+        ['Registrado para', match ? `${match.crop}${match.pests ? ` · ${match.pests}` : ''}` : ev.registered_crops.slice(0, 4).join(', ') || '—'],
+        ['Classe toxicológica', ev.tox_class ?? '—'],
+        ['Seu estoque', `${nfmt(ev.quantity)} ${ev.unit}`],
+        ['Validade', `${fmtDate(ev.expiry_date)} · ${ev.days_to_expiry < 0 ? `vencido há ${-ev.days_to_expiry} dias` : `em ${ev.days_to_expiry} dias`}`],
+      ]
+      return (
+        <dl className="grid gap-3 text-sm sm:grid-cols-2">
+          {rows.map(([k, v]) => <div key={k} className="rounded-xl bg-bg px-4 py-3"><dt className="text-xs text-muted">{k}</dt><dd className="font-semibold">{v}</dd></div>)}
+        </dl>
+      )
+    }
     case 'drones': return (
       <div className="grid gap-3 sm:grid-cols-3">
-        <Big value="14" label="drones com operador em Araraquara" />
-        <Big value="1.346" label="drones no estado de SP" />
-        <Big value="1.306" label="dos 5.573 municípios têm algum operador" />
+        <Big value={nfmt(ev.drones)} label={`drones com operador em ${ev.municipality}`} />
+        <Big value={nfmt(ev.uf_drones)} label={`drones no estado (${ev.uf})`} />
+        <Big value={nfmt(ev.br_municipalities_with_drones)} label={`dos ${nfmt(ev.br_municipalities)} municípios têm algum operador`} />
       </div>
     )
   }
@@ -121,28 +149,53 @@ function EvidenceView({ kind }: { kind: Evidence }) {
 /** key={id}: ao ir para o próximo assunto, a tela recomeça do zero. */
 export default function ResolveRoute() {
   const { id = '' } = useParams()
-  return <Resolve key={id} id={id} />
+  const topics = useTopics()
+  const cases = useCases()
+  const experts = useExperts()
+  if (topics.loading || cases.loading || experts.loading) return <div className="mx-auto max-w-4xl space-y-4"><Skeleton className="h-10" /><Skeleton className="h-64" /><Skeleton className="h-40" /></div>
+  if (!topics.data) return <p className="mx-auto max-w-4xl rounded-2xl bg-surface p-6 text-sm text-muted ring-1 ring-border">Não consegui carregar o assunto: {topics.error} <button onClick={() => void topics.reload()} className="font-semibold text-primary">Tentar de novo</button></p>
+  const topic = topics.data.topics.find((t) => t.key === id)
+  const sent = (cases.data ?? []).find((c) => c.topic_key === id)
+  // assunto que sumiu (dado mudou) mas já tem caso enviado: mostra o caso, não o assunto
+  if (!topic) return sent ? <Navigate to="/prototipo/casos" replace /> : <Navigate to="/prototipo" replace />
+  return <Resolve key={id} topic={topic} all={topics.data.topics} status={topics.data.sources_status} sent={sent} experts={experts.data ?? []} />
 }
 
-function Resolve({ id }: { id: string }) {
+type ResolveProps = { topic: Topic; all: Topic[]; status: Record<string, string>; sent?: CaseRecord; experts: Expert[] }
+
+function Resolve({ topic, all, status, sent, experts }: ResolveProps) {
   const nav = useNavigate()
-  const resolved = useResolved()
-  const p: Problem | undefined = PROBLEMS[id]
-  const insight = INSIGHTS.find((i) => i.id === id)
-  const cases = useCases()
-  const sent = cases[id]
-  const [pick, setPick] = useState<string | undefined>(() => sent?.path)
-  const [expert, setExpert] = useState<string>(() => BEST_EXPERT[id] ?? 'cati')
+  const me = useMe().me
+  const id = topic.key
+  const [pick, setPick] = useState<string | undefined>(() => sent?.path ?? undefined)
+  const [expert, setExpert] = useState<string>(() => sent?.expert_id ?? topic.expert_id ?? experts[0]?.id ?? 'cati')
   const [channel, setChannel] = useState('WhatsApp')
   const [note, setNote] = useState('')
   const [consent, setConsent] = useState(false)
-  if (!p || !insight) return <Navigate to="/prototipo" replace />
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const chosen = p.solutions.find((s) => s.id === (sent?.path ?? pick))
-  const field = FIELDS.find((f) => f.id === p.fieldId)
-  const position = ORDER.indexOf(id) + 1
-  const doneCount = ORDER.filter((k) => resolved[k]).length
-  const next = nextOpen(resolved, id)
+  const chosen = topic.paths.find((s) => s.id === (sent?.path ?? pick))
+  const field = FIELDS.find((f) => f.id === topic.field_id)
+  const position = all.findIndex((t) => t.key === id) + 1
+  const doneCount = all.filter((t) => t.choice).length
+  const next = [...all.slice(position), ...all.slice(0, position - 1)].find((t) => !t.choice)
+  const official = topic.sources[0]?.key !== 'conta'
+  const ev = topic.evidence
+  const statusKey = ev.type === 'rain' ? 'clima' : ev.type === 'rain_normal' ? 'nasa' : null
+  const expertOf = (eid: string) => experts.find((e) => e.id === eid)
+
+  async function send() {
+    setBusy(true)
+    setError(null)
+    try {
+      await sendCase({ topic_key: id, expert_id: expert, channel, path: pick, note: note || undefined })
+    } catch (e) {
+      setError((e as Error).message)
+    } finally {
+      setBusy(false)
+    }
+  }
 
   return (
     <div className="mx-auto max-w-4xl space-y-8 pb-10">
@@ -150,25 +203,26 @@ function Resolve({ id }: { id: string }) {
       <div>
         <div className="flex items-center justify-between gap-3 text-sm">
           <Link to="/prototipo" className="inline-flex items-center gap-1 font-semibold text-muted hover:text-ink"><ArrowLeft size={16} /> Início</Link>
-          <span className="text-muted">Assunto {position} de {ORDER.length} · {doneCount} encaminhado{doneCount === 1 ? '' : 's'}</span>
+          <span className="text-muted">Assunto {position} de {all.length} · {doneCount} encaminhado{doneCount === 1 ? '' : 's'}</span>
         </div>
         <div className="mt-2 flex gap-1" aria-hidden>
-          {ORDER.map((k) => <span key={k} className={clsx('h-1.5 flex-1 rounded-full', resolved[k] ? 'bg-primary' : k === id ? 'bg-ink' : 'bg-border')} />)}
+          {all.map((t) => <span key={t.key} className={clsx('h-1.5 flex-1 rounded-full', t.choice ? 'bg-primary' : t.key === id ? 'bg-ink' : 'bg-border')} />)}
         </div>
-        <h1 className="mt-5 text-2xl font-bold leading-tight md:text-3xl">{p.question}</h1>
-        <p className="mt-2 text-[15px] text-muted">{insight.summary}</p>
+        <h1 className="mt-5 text-2xl font-bold leading-tight md:text-3xl">{topic.question}</h1>
+        <p className="mt-2 text-[15px] text-muted">{topic.summary}</p>
       </div>
 
       {/* 1. Dados */}
       <Step n={1} title="O que os dados mostram" done>
         <div className="grid gap-4 md:grid-cols-3">
           <div className="iso-card bg-surface p-5 md:col-span-2">
-            <h3 className="font-semibold">{p.evidenceTitle}</h3>
+            <h3 className="font-semibold">{EVIDENCE_TITLE[ev.type]}</h3>
             <p className="mb-4 flex items-center gap-1.5 text-xs text-muted">
-              <Database size={12} className={insight.origin === 'real' ? 'text-primary' : ''} />{p.evidenceNote}
-              {insight.origin === 'real' ? <b className="text-primary-dark">· dado oficial</b> : <span>· exemplo</span>}
+              <Database size={12} className={official ? 'text-primary' : ''} />{topic.evidence_note}
+              {official ? <b className="text-primary-dark">· dado oficial</b> : <span>· dados da sua conta</span>}
             </p>
-            <EvidenceView kind={p.evidence} />
+            <EvidenceView ev={ev} />
+            {statusKey && <SourceStatus status={status[statusKey]} fetchedAt={'fetched_at' in ev ? ev.fetched_at : undefined} what="Dado" />}
           </div>
           {field && (
             <Link to={`/prototipo/mapa?talhao=${field.id}`} className="iso-card group flex flex-col overflow-hidden bg-surface">
@@ -182,8 +236,8 @@ function Resolve({ id }: { id: string }) {
         </div>
         <details className="mt-3 rounded-xl bg-bg px-4 py-3 text-sm">
           <summary className="cursor-pointer font-semibold text-primary">Por que isso vale para você?</summary>
-          <ul className="mt-2 space-y-1.5">{insight.why.map((w) => <li key={w} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />{w}</li>)}</ul>
-          <div className="mt-2 flex flex-wrap gap-1.5">{insight.sources.map((s) => <SourceChip key={s} k={s} />)}<SourceChip k="voce" /></div>
+          <ul className="mt-2 space-y-1.5">{topic.why.map((w) => <li key={w} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />{w}</li>)}</ul>
+          <div className="mt-2 flex flex-wrap gap-1.5">{topic.sources.map((s) => <SourceChip key={s.key} k={s.key === 'conta' ? 'voce' : s.name.split(' — ')[0]} />)}</div>
         </details>
       </Step>
 
@@ -194,7 +248,7 @@ function Resolve({ id }: { id: string }) {
           <span><b>O AgroBits não decide por você.</b> Estes caminhos saem dos dados oficiais e servem para você conversar com a assistência técnica, que dá a orientação final.</span>
         </p>
         <div role="radiogroup" aria-label="Caminhos possíveis" className="space-y-3">
-          {p.solutions.map((s) => {
+          {topic.paths.map((s) => {
             const on = pick === s.id
             return (
               <button key={s.id} role="radio" aria-checked={on} disabled={!!sent} onClick={() => setPick(on ? undefined : s.id)}
@@ -229,7 +283,7 @@ function Resolve({ id }: { id: string }) {
           <div className="iso-card bg-surface p-5">
             <div className="flex flex-wrap items-center gap-3">
               <CheckCircle2 size={26} className="text-primary" />
-              <div className="flex-1"><b className="block text-lg">Protocolo {sent.protocol}</b><span className="text-sm text-muted">{EXPERTS.find((e) => e.id === sent.expertId)?.name} · enviado em {sent.sentAt} · {EXPERTS.find((e) => e.id === sent.expertId)?.eta}</span></div>
+              <div className="flex-1"><b className="block text-lg">Protocolo {sent.protocol}</b><span className="text-sm text-muted">{expertOf(sent.expert_id)?.name} · enviado em {fmtDate(sent.created_at)} · {expertOf(sent.expert_id)?.eta}</span></div>
               <Link to="/prototipo/casos" className="text-sm font-semibold text-primary">Ver meus casos</Link>
             </div>
             <h3 className="mt-4 text-sm font-bold">Enquanto isso, o AgroBits:</h3>
@@ -242,14 +296,14 @@ function Resolve({ id }: { id: string }) {
         ) : (
           <div className="space-y-4">
             <div role="radiogroup" aria-label="Quem vai atender" className="grid gap-3 md:grid-cols-3">
-              {EXPERTS.map((e) => {
+              {experts.map((e) => {
                 const on = expert === e.id
                 return (
                   <button key={e.id} role="radio" aria-checked={on} onClick={() => setExpert(e.id)}
                     className={clsx('flex flex-col gap-1 bg-surface p-4 text-left transition', on ? 'iso-card bg-mint-soft/40' : 'rounded-2xl shadow-sm ring-1 ring-border hover:ring-primary/50')}>
                     <span className="flex items-center gap-2">
                       <Landmark size={18} className="shrink-0 text-primary" />
-                      {BEST_EXPERT[id] === e.id && <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold text-white">Indicado para este assunto</span>}
+                      {topic.expert_id === e.id && <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold text-white">Indicado para este assunto</span>}
                     </span>
                     <b className="leading-snug">{e.name}</b>
                     <span className="text-xs text-muted">{e.kind}</span>
@@ -263,11 +317,11 @@ function Resolve({ id }: { id: string }) {
             <div className="rounded-2xl bg-surface p-4 shadow-sm ring-1 ring-border">
               <h3 className="flex items-center gap-2 text-sm font-bold"><FileText size={16} className="text-primary" /> O que vai no seu caso (já preenchido)</h3>
               <ul className="mt-2 grid gap-1 text-sm text-muted sm:grid-cols-2">
-                <li>• Assunto: {p.question}</li>
+                <li>• Assunto: {topic.question}</li>
                 {field && <li>• {field.name}: {field.crop}, {field.area.toLocaleString('pt-BR')} ha, solo {field.soil.toLowerCase()}</li>}
-                <li>• Dados oficiais: {p.evidenceNote}</li>
-                <li>• Município: {PRODUCER.municipality}/{PRODUCER.uf}</li>
-                {pick && <li>• Caminho que você está pensando: {p.solutions.find((x) => x.id === pick)?.title}</li>}
+                <li>• Dados: {topic.evidence_note ?? topic.sources.map((s) => s.name).join(' · ')}</li>
+                <li>• Município: {me?.farm?.municipality}/{me?.farm?.uf}</li>
+                {pick && <li>• Caminho que você está pensando: {topic.paths.find((x) => x.id === pick)?.title}</li>}
               </ul>
               <label className="mt-3 block">
                 <span className="text-xs font-semibold text-muted">Quer contar mais alguma coisa? (opcional)</span>
@@ -289,10 +343,11 @@ function Resolve({ id }: { id: string }) {
             </div>
 
             <div className="sticky bottom-0 -mx-4 border-t border-border bg-bg/95 p-3 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0">
-              <button disabled={!consent || !expert} onClick={() => expert && sendCase({ problemId: id, expertId: expert, channel, path: pick, note: note || undefined })}
+              <button disabled={!consent || !expert || busy} onClick={() => void send()}
                 className="iso-btn flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-display text-base font-bold text-white hover:bg-primary-dark disabled:opacity-50 md:inline-flex md:w-auto">
-                <Send size={18} /> Enviar meu caso
+                <Send size={18} /> {busy ? 'Enviando…' : 'Enviar meu caso'}
               </button>
+              {error && <p role="alert" className="mt-1.5 text-center text-sm text-danger md:text-left">{error}</p>}
               {!consent && <p className="mt-1.5 text-center text-xs text-muted md:text-left">Marque a autorização acima para enviar.</p>}
             </div>
           </div>
@@ -302,7 +357,7 @@ function Resolve({ id }: { id: string }) {
       {sent && (
         <div className="flex flex-wrap gap-3 md:pl-12">
           {next ? (
-            <button onClick={() => nav(`/prototipo/resolver/${next}`)} className="iso-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3 font-display text-base font-bold text-white hover:bg-ink/90 md:w-auto">
+            <button onClick={() => nav(`/prototipo/resolver/${encodeURIComponent(next.key)}`)} className="iso-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3 font-display text-base font-bold text-white hover:bg-ink/90 md:w-auto">
               Próximo assunto <ArrowRight size={18} />
             </button>
           ) : (

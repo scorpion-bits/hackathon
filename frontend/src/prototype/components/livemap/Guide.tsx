@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { useState, type ReactNode } from 'react'
 import { FIELDS, PRODUCER } from '../../mock'
 import { OriginTag } from '../Shell'
-import { DATA_LAYERS, RISK_COLOR, forecastAt, riskFor, shortDate, weekday, type DataLayer } from './layers'
+import { DATA_LAYERS, RISK_COLOR, forecastAt, riskFor, shortDate, useForecast, useMeaningCtx, weekday, type DataLayer } from './layers'
 import { DarkSource, PANEL } from './Panels'
 import { IsoCube } from '../Brand'
 
@@ -58,7 +58,9 @@ export function Guide(p: {
 }) {
   const layer = DATA_LAYERS.find((l) => l.id === p.layerId) ?? null
   const [mobileOpen, setMobileOpen] = useState(false) // celular: passo ③ recolhido por padrão
-  const f = forecastAt(p.offset)
+  const fc = useForecast()
+  const f = forecastAt(fc.days, p.offset)
+  const mctx = useMeaningCtx(FIELDS)
   const futureSat = !!layer?.gibs && p.offset > 0
 
   return (
@@ -94,7 +96,7 @@ export function Guide(p: {
                   <span className="block whitespace-nowrap text-sm font-semibold">{fl.name} · {fl.crop.replace(' irrigado', '')} <span className={clsx('hidden text-[11px] font-normal lg:inline', on ? 'text-ink/60' : 'text-white/60')}>{fl.area.toLocaleString('pt-BR')} ha</span></span>
                 </span>
                 <span className="hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold text-white lg:inline" style={{ background: RISK_COLOR(risk) }} title="Risco climático oficial (Zarc) para plantio na data escolhida">
-                  {risk ? `risco ${risk}%` : 'fora'}
+                  {risk == null ? 'sem Zarc' : risk ? `risco ${risk}%` : 'fora'}
                 </span>
               </button>
             )
@@ -140,7 +142,7 @@ export function Guide(p: {
           <div className={clsx('mt-2 space-y-3 rounded-xl bg-white/[0.07] p-3 ring-1 ring-white/10', !mobileOpen && 'max-lg:hidden')}>
             <div className="flex items-start gap-2">
               <Sparkles size={16} className="mt-0.5 shrink-0 text-emerald-300" />
-              <p className="text-[14px] leading-snug text-white">{layer.meaning(p.date)}</p>
+              <p className="text-[14px] leading-snug text-white">{layer.meaning(p.date, mctx)}</p>
             </div>
             {futureSat && (
               <p className="flex gap-2 rounded-lg bg-amber-400/15 p-2 text-[12px] text-amber-100">

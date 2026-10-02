@@ -20,6 +20,7 @@ import { ProtoStyles, StepHeader } from '../components/interview/ui'
 import { SOURCES } from '../mock'
 import { fromApi, getOnboarding, saveOnboarding } from '../api/fields'
 import { refreshMe } from '../api/session'
+import { reloadPrefix } from '../api/resource'
 import { replaceFromServer } from '../farmStore'
 
 type StepId = 'welcome' | 'profile' | 'location' | 'map' | 'size' | 'income' | 'budget' | 'credit' | 'machines' | 'concerns' | 'goals' | 'notify' | 'language' | 'result'
@@ -87,7 +88,8 @@ export default function Interview() {
     try {
       const saved = await saveOnboarding(withDefaults(a))
       await refreshMe()
-      replaceFromServer(saved.fields.map(fromApi))
+      replaceFromServer(saved.fields.map(fromApi), saved.fields)
+      reloadPrefix('/topics', '/opendata', '/weather', '/climate', '/onboarding') // outra propriedade/município: tudo se refaz
       nav('/prototipo')
     } catch (e) {
       setSaveError((e as Error).message)

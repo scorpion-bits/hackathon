@@ -10,7 +10,11 @@
 //   - cores das legendas ainda APROXIMADAS das paletas GIBS (conferir em /colormaps/v1.3/{LAYER}.xml).
 import type { LucideIcon } from 'lucide-react'
 import { CloudRain, Droplets, Flame, Leaf, Satellite, ShieldAlert, Thermometer } from 'lucide-react'
-import { FIELDS, FORECAST, ZARC_MILHO } from '../../mock'
+import { useRainNormal, useWeather, weekdayOf, type RainNormal } from '../../api/opendata'
+import type { MapField } from '../../mock'
+
+/** Dados ao vivo que os textos das camadas podem citar (nunca números fixos no código). */
+export type MeaningCtx = { rain7: number | null; peak: { d: string; mm: number } | null; normal: RainNormal | null; fields: MapField[] }
 
 export type Legend = { colors: string[]; labels: string[]; unit?: string; note?: string; discrete?: boolean }
 
@@ -35,8 +39,8 @@ export type DataLayer = {
   gibs?: GibsSpec
   legend: Legend
   source: { chip: string; detail: string }
-  /** "O que esta camada significa para você" — linguagem simples, contexto do João. */
-  meaning: (date: Date) => string
+  /** "O que esta camada significa para você" — linguagem simples; só números vindos da API (via `ctx`). */
+  meaning: (date: Date, ctx: MeaningCtx) => string
   origin: 'real' | 'ilustrativo'
   defaultOpacity: number
 }
@@ -51,7 +55,7 @@ export const DATA_LAYERS: DataLayer[] = [
     gibs: { layer: 'VIIRS_SNPP_CorrectedReflectance_TrueColor', matrix: 'GoogleMapsCompatible_Level9', ext: 'jpg', maxzoom: 9, latencyDays: 1, cadence: 'diário' },
     legend: { colors: [], labels: [], note: 'Cores naturais: nuvens em branco, mata em verde-escuro, queimadas em marrom.' },
     source: { chip: 'NASA GIBS · VIIRS (Suomi NPP)', detail: 'Reflectância corrigida, cor verdadeira, ~375 m' },
-    meaning: () => 'É a “foto” de ontem vista do espaço. Serve para ver nuvens de chuva chegando e manchas de queimada perto do Sítio Boa Esperança.',
+    meaning: () => 'É a “foto” de ontem vista do espaço. Serve para ver nuvens de chuva chegando e manchas de queimada perto da sua propriedade.',
     origin: 'real', defaultOpacity: 0.85,
   },
   {
@@ -60,7 +64,7 @@ export const DATA_LAYERS: DataLayer[] = [
     gibs: { layer: 'MODIS_Terra_Land_Surface_Temp_Day', matrix: 'GoogleMapsCompatible_Level7', ext: 'png', maxzoom: 7, latencyDays: 1, cadence: 'diário (dia)' },
     legend: { colors: ['#3b0f70', '#2c7fb8', '#41b6c4', '#a1dab4', '#ffffb2', '#fd8d3c', '#e31a1c', '#800026'], labels: ['−10', '10', '25', '40', '55'], unit: '°C na superfície' },
     source: { chip: 'NASA GIBS · MODIS Terra', detail: 'Temperatura da superfície terrestre (dia), 1 km' },
-    meaning: () => 'A terra da sua região passou de 35 °C à tarde nesta semana. Seu feijão do Talhão 3 está florindo (51 dias): calor forte na flor derruba vagens — irrigue cedo, antes das 9 h.',
+    meaning: () => 'Mostra o quanto a superfície da terra está quente durante o dia. Calor forte na floração derruba a produção: confira com o técnico antes de decidir irrigar ou plantar.',
     origin: 'ilustrativo', defaultOpacity: 0.7,
   },
   {
@@ -69,7 +73,7 @@ export const DATA_LAYERS: DataLayer[] = [
     gibs: { layer: 'MODIS_Terra_NDVI_8Day', matrix: 'GoogleMapsCompatible_Level9', ext: 'png', maxzoom: 9, latencyDays: 1, cadence: 'a cada 8 dias' },
     legend: { colors: ['#8c5a2b', '#c9a46a', '#efe3b0', '#b8d97a', '#6bb34a', '#2b8a2b', '#0d5a12'], labels: ['0', '0,2', '0,4', '0,6', '0,8+'], unit: 'índice de verde (NDVI)' },
     source: { chip: 'NASA GIBS · MODIS Terra', detail: 'Índice de vegetação NDVI, composição de 8 dias, 250 m' },
-    meaning: () => 'Quanto mais verde, mais planta viva. Seus Talhões 1 e 2 aparecem “marrons” porque estão sem lavoura, esperando o plantio — normal. O Talhão 3 (feijão) aparece verde: lavoura saudável.',
+    meaning: () => 'Quanto mais verde, mais planta viva. Talhão sem lavoura (esperando plantio) aparece “marrom”, o que é normal; lavoura saudável aparece verde.',
     origin: 'ilustrativo', defaultOpacity: 0.7,
   },
   {
@@ -78,9 +82,10 @@ export const DATA_LAYERS: DataLayer[] = [
     gibs: { layer: 'IMERG_Precipitation_Rate', matrix: 'GoogleMapsCompatible_Level6', ext: 'png', maxzoom: 6, latencyDays: 1, cadence: '30 min' },
     legend: { colors: ['#b9e3f7', '#6cbcea', '#2f80d1', '#3346b0', '#7b2fa8', '#c2228f', '#f0326a'], labels: ['0,1', '1', '5', '15', '50'], unit: 'mm/h' },
     source: { chip: 'NASA GIBS · GPM IMERG', detail: 'Taxa de precipitação por satélite (passado) · previsão: Open-Meteo' },
-    meaning: () => {
-      const total = FORECAST.reduce((s, f) => s + f.rain, 0)
-      return `Choveu pouco na região de Araraquara na última semana. Para os próximos 7 dias a previsão soma ≈${total} mm, quase tudo na quinta (≈62 mm): não aplique defensivo na quarta e proteja o Talhão 2, que está com o solo exposto.`
+    meaning: (_d, c) => {
+      if (c.rain7 == null) return 'A previsão do tempo está indisponível agora, então não dá para somar a chuva dos próximos 7 dias. A imagem de satélite mostra a chuva que já caiu.'
+      const peak = c.peak && c.peak.mm >= 1 ? ` O dia mais chuvoso é ${c.peak.d}, com ${Math.round(c.peak.mm)} mm.` : ''
+      return `Para os próximos 7 dias a previsão soma ≈${Math.round(c.rain7)} mm sobre a sua propriedade.${peak} A imagem de satélite mostra a chuva que já caiu.`
     },
     origin: 'ilustrativo', defaultOpacity: 0.75,
   },
@@ -90,7 +95,7 @@ export const DATA_LAYERS: DataLayer[] = [
     gibs: { layer: 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture', matrix: 'GoogleMapsCompatible_Level6', ext: 'png', maxzoom: 6, latencyDays: 4, cadence: 'diário (modelo + satélite)' },
     legend: { colors: ['#7a4a17', '#b98a4c', '#e8d5a0', '#d9ecd6', '#8fd0c4', '#3fa49a', '#0b5f5a'], labels: ['seco', '', 'médio', '', 'úmido'], unit: 'água na zona das raízes (0–100 cm)' },
     source: { chip: 'NASA GIBS · SMAP L4', detail: 'Umidade do solo na zona das raízes, 9 km' },
-    meaning: () => 'Em setembro choveu 93 mm na sua região, quase o dobro do normal para o período (48 mm · NASA POWER, consultado em 02/10). O solo deve ter boa umidade — mesmo assim, o risco oficial do milho só cai para 20% a partir de 21/10.',
+    meaning: (_d, c) => c.normal?.available && c.normal.ratio != null ? `Nos últimos ${c.normal.period.days} dias choveu ${Math.round(c.normal.observed_mm)} mm na sua região (${c.normal.label}; o normal para o período é ${Math.round(c.normal.normal_mm)} mm · NASA POWER). A imagem mostra a umidade na zona das raízes.` : 'A imagem mostra a umidade na zona das raízes: marrom é solo seco, azul-esverdeado é solo úmido.',
     origin: 'ilustrativo', defaultOpacity: 0.7,
   },
   {
@@ -100,29 +105,30 @@ export const DATA_LAYERS: DataLayer[] = [
     gibs: { layer: 'GOES-East_ABI_FireTemp', matrix: 'GoogleMapsCompatible_Level7', ext: 'png', maxzoom: 7, latencyDays: 0, cadence: 'a cada 10 min' },
     legend: { colors: ['#fff36b', '#ffae00', '#ff3b1f'], labels: ['', 'temperatura de fogo', ''], unit: 'pixel ≈ 2 km', note: 'Também monitorado pelo INPE (BDQueimadas).' },
     source: { chip: 'NASA GIBS · GOES-Leste', detail: 'Temperatura de fogo (ABI), 2 km · INPE BDQueimadas' },
-    meaning: () => 'Nenhum foco de fogo a menos de 10 km da sua propriedade nos últimos 7 dias. É época seca: mantenha os aceiros limpos, principalmente perto do Talhão 1.',
+    meaning: () => 'Pontos amarelos a vermelhos são fogo detectado pelo satélite. Mantenha os aceiros limpos na época seca e confira o INPE (BDQueimadas) para focos perto de você.',
     origin: 'ilustrativo', defaultOpacity: 1,
   },
   {
     id: 'zarc', question: 'Quando plantar?', label: 'Risco climático (Zarc)', icon: ShieldAlert,
     legend: { discrete: true, colors: [RISK_COLOR(20), RISK_COLOR(30), RISK_COLOR(40), RISK_COLOR(0)], labels: ['20%', '30%', '40%', 'fora'], unit: 'risco oficial de perder a lavoura pelo clima', note: 'Cinza = fora da janela indicada (sem zoneamento para a data).' },
-    source: { chip: 'Zarc · MAPA', detail: 'Zoneamento Agrícola de Risco Climático, safra 2026/27, Araraquara' },
-    meaning: (date) => {
-      const milho = FIELDS.find((f) => f.crop === 'Milho')
-      if (!milho) return 'As cores mostram o risco oficial de perder a lavoura pelo clima para a cultura de cada talhão, na data de plantio escolhida.'
-      const r = riskFor(milho, date)
+    source: { chip: 'Zarc · MAPA', detail: 'Zoneamento Agrícola de Risco Climático da safra vigente, no seu município' },
+    meaning: (date, c) => {
       const when = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
-      return r === 0
-        ? `Plantando milho em ${when}, o ${milho.name} fica fora da janela oficial — sem acesso ao Proagro e ao seguro com subsídio. A janela abre em 1º/10.`
-        : `Plantando milho em ${when}, o ${milho.name} tem ${r}% de risco de perda pelo clima. A partir de 21/10 o risco cai para 20%. Soja (Talhão 1) e feijão (Talhão 3) já estão em 20%.`
+      const rows = c.fields.filter((f) => f.zarc)
+      if (!rows.length) return 'As cores mostram o risco oficial de perder a lavoura pelo clima para a cultura de cada talhão. Ainda não há talhão com cultura que tenha zoneamento (Zarc) neste município.'
+      const lines = rows.map((f) => { const r = riskFor(f, date); return `${f.name} (${f.crop.replace(' irrigado', '').toLowerCase()}): ${r ? `${r}%` : 'fora da janela'}` })
+      return `Risco oficial de perda pelo clima se plantar em ${when} — ${lines.join(' · ')}. Fora da janela do Zarc, o produtor pode perder acesso ao Proagro e ao seguro com subsídio.`
     },
     origin: 'real', defaultOpacity: 0.8,
   },
 ]
 
-export function RISK_COLOR(risk: number) {
-  return risk === 0 ? '#6b7280' : risk <= 20 ? '#2E7D4F' : risk <= 30 ? '#D69E2E' : '#C0392B'
+export function RISK_COLOR(risk: number | null) {
+  return risk == null ? '#9ca3af' : risk === 0 ? '#6b7280' : risk <= 20 ? '#2E7D4F' : risk <= 30 ? '#D69E2E' : '#C0392B'
 }
+
+/** Texto curto do risco: "risco 40%" · "fora da janela" · "sem zoneamento". */
+export const riskPill = (r: number | null) => (r == null ? 'sem zoneamento' : r ? `risco ${r}%` : 'fora da janela')
 
 /** Decêndio do ano (0..35) — o Zarc é publicado por decêndio. */
 export function decendio(d: Date) {
@@ -130,9 +136,9 @@ export function decendio(d: Date) {
   return d.getMonth() * 3 + (day <= 10 ? 0 : day <= 20 ? 1 : 2)
 }
 
-/** Risco Zarc do talhão na data: milho usa a série real por decêndio; demais usam o valor do mock. */
-export function riskFor(field: (typeof FIELDS)[number], date: Date) {
-  return field.crop === 'Milho' ? ZARC_MILHO[decendio(date)] : field.risk
+/** Risco Zarc oficial do talhão na data (0 = fora da janela). `null` = sem zoneamento para esta cultura/município (ou fonte fora). */
+export function riskFor(field: MapField, date: Date): number | null {
+  return field.zarc ? field.zarc[decendio(date)] ?? null : null
 }
 
 // ---------- datas ----------
@@ -159,5 +165,22 @@ export function gibsTileUrl(spec: GibsSpec, time: string) {
   return `${GIBS_BASE}/${spec.layer}/default/${time}/${spec.matrix}/{z}/{y}/{x}.${spec.ext}`
 }
 
-/** Previsão (mock.FORECAST) indexada por deslocamento 0..6 a partir de hoje. */
-export const forecastAt = (offset: number) => (offset >= 0 ? FORECAST[offset] : undefined)
+export type FcDay = { date: string; d: string; t: number; min: number; rain: number }
+
+/** Previsão real (Open-Meteo, via API) dos próximos 7 dias a partir de hoje; vazia se a fonte está fora e sem cache. */
+export function useForecast(): { days: FcDay[]; status: string; fetchedAt?: string; loading: boolean } {
+  const w = useWeather()
+  const days = (w.data?.available ? w.data.daily : []).slice(0, 7).map((x) => ({ date: x.date, d: weekdayOf(x.date), t: Math.round(x.tmax), min: Math.round(x.tmin), rain: x.rain_mm ?? 0 }))
+  return { days, status: w.data?.status ?? (w.error ? 'offline' : 'live'), fetchedAt: w.data?.fetched_at, loading: w.loading }
+}
+
+/** Dia da previsão para um deslocamento 0..6 a partir de hoje. */
+export const forecastAt = (days: FcDay[], offset: number) => (offset >= 0 ? days[offset] : undefined)
+
+/** Contexto dos textos das camadas: chuva prevista e chuva × normal (ambos reais). */
+export function useMeaningCtx(fields: MapField[]): MeaningCtx {
+  const { days } = useForecast()
+  const normal = useRainNormal().data
+  const peak = days.reduce<FcDay | null>((a, b) => (!a || b.rain > a.rain ? b : a), null)
+  return { rain7: days.length ? days.reduce((s, x) => s + x.rain, 0) : null, peak: peak ? { d: peak.d, mm: peak.rain } : null, normal, fields }
+}

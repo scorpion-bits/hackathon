@@ -12,7 +12,7 @@ import { signIn } from '../api/session'
 import type { Me } from '../api/session'
 import { ProtoStyles } from '../components/interview/ui'
 import { ProtoBanner } from '../components/Shell'
-import { FUNNEL, PRODUCER } from '../mock'
+import { nfmt, useTotalRecords } from '../api/opendata'
 import { Logo } from '../components/Brand'
 
 type Tab = 'entrar' | 'criar'
@@ -218,6 +218,7 @@ const FLOATING = [
 ]
 
 function Pitch() {
+  const total = useTotalRecords()
   return (
     <section className="iso-grid relative overflow-hidden bg-sidebar text-white">
       {/* fundo: brilho + sulcos de plantio */}
@@ -265,8 +266,8 @@ function Pitch() {
           <div className="absolute left-[270px] top-1/2 h-px w-10 -translate-x-full bg-gradient-to-r from-transparent to-white/40" />
           <div className="absolute right-0 top-1/2 w-[210px] -translate-y-1/2 rounded-2xl bg-white p-4 text-ink shadow-xl">
             <div className="text-[11px] font-semibold uppercase tracking-wide text-muted">Para você</div>
-            <div className="mt-1 text-3xl font-extrabold text-primary-dark">{FUNNEL[3].value}</div>
-            <div className="text-xs leading-snug text-muted">recomendações, de {FUNNEL[0].value} registros oficiais</div>
+            <div className="mt-1 text-3xl font-extrabold text-primary-dark">{total ? nfmt(total) : '…'}</div>
+            <div className="text-xs leading-snug text-muted">registros oficiais lidos; só o que serve à sua roça chega até você</div>
           </div>
         </div>
       </div>
@@ -293,7 +294,7 @@ function DemoButtons() {
       <p className="text-xs font-semibold uppercase tracking-wide text-muted">Só quer ver como funciona?</p>
       <div className="grid gap-2 sm:grid-cols-2">
         <button type="button" disabled={busy} onClick={() => start('existente')} className="rounded-xl border-2 border-primary/30 bg-primary-soft/50 px-3 py-2.5 text-sm font-semibold leading-snug text-primary-dark transition hover:bg-primary-soft disabled:opacity-70">
-          {spin('existente') ?? <Sprout size={16} className="-mt-0.5 mr-1.5 inline" />}Entrar como {PRODUCER.name} (demo)
+          {spin('existente') ?? <Sprout size={16} className="-mt-0.5 mr-1.5 inline" />}Entrar como João (demo)
         </button>
         <button type="button" disabled={busy} onClick={() => start('nova')} className="rounded-xl border-2 border-border bg-surface px-3 py-2.5 text-sm font-semibold leading-snug text-ink transition hover:bg-bg disabled:opacity-70">
           {spin('nova') ?? <Sparkles size={16} className="-mt-0.5 mr-1.5 inline" />}Experimentar como novo usuário

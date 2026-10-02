@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom'
 import { InfoKind } from '../../components/data'
 import { Button, Card, PageHeader } from '../../components/ui'
 import { RISK_COLOR } from '../../lib/format'
-import { FORECAST, SOURCES, ZARC_MILHO } from '../mock'
+import { SOURCES } from '../mock'
+import { useTopics } from '../api/topics'
+import { useForecast } from '../components/livemap/layers'
 import { COST_TOTAL, FERTILIZER, FERTILIZER_TOTAL, brl0 } from '../components/views/demo'
-import { DECENDIO_LABELS } from '../components/views/SourceSamples'
 import { SourceChip } from '../components/Shell'
 
 type Kind = Parameters<typeof InfoKind>[0]['kind']
@@ -20,10 +21,12 @@ type Msg =
 
 /* ------------------------------------------------------------------ visuais dentro das respostas */
 function DecendioPicker() {
-  const items = [28, 29, 30, 31].map((d) => ({ d, label: DECENDIO_LABELS[d - 1], risk: ZARC_MILHO[d - 1] }))
+  const ev = (useTopics().data?.topics ?? []).map((t) => t.evidence).find((e) => e.type === 'zarc')
+  if (!ev || ev.type !== 'zarc') return null
+  const items = [0, 1, 2, 3].map((k) => ev.today_decendio - 1 + k).filter((d) => d < 36).map((d) => ({ d, label: ev.labels[d], risk: ev.series[d] }))
   return (
     <div className="rounded-xl border border-border bg-bg p-3">
-      <div className="mb-2 text-xs font-medium text-muted">Risco de perda por clima se plantar milho no Talhão 2</div>
+      <div className="mb-2 text-xs font-medium text-muted">Risco de perda por clima se plantar {ev.crop.toLowerCase()} (Zarc oficial)</div>
       <div className="grid grid-cols-4 gap-2">
         {items.map((it) => (
           <div key={it.d} className="overflow-hidden rounded-lg border border-border bg-surface text-center">
@@ -32,7 +35,6 @@ function DecendioPicker() {
           </div>
         ))}
       </div>
-      <div className="mt-2 flex gap-2 text-[11px] text-muted"><span className="rounded bg-ink px-1.5 py-0.5 font-semibold text-white">semana que vem: 5 a 11/out</span><span>→ espere pela faixa verde (20%)</span></div>
     </div>
   )
 }
@@ -51,14 +53,17 @@ function FertilizerRows() {
 }
 
 function RainBars() {
+  const { days } = useForecast()
+  if (!days.length) return <div className="rounded-xl border border-border bg-bg p-3 text-xs text-muted">Previsão indisponível agora.</div>
+  const max = Math.max(...days.map((d) => d.rain), 1)
   return (
     <div className="rounded-xl border border-border bg-bg p-3">
-      <div className="mb-2 text-xs font-medium text-muted">Chuva prevista nos próximos 7 dias (mm)</div>
+      <div className="mb-2 text-xs font-medium text-muted">Chuva prevista nos próximos 7 dias (mm) · Open-Meteo</div>
       <div className="flex items-end gap-2">
-        {FORECAST.map((d) => (
-          <div key={d.d} className="flex flex-1 flex-col items-center gap-1">
-            <span className={clsx('text-[11px] font-semibold', d.rain >= 50 ? 'text-danger' : 'text-info')}>{d.rain}</span>
-            <div className="flex h-16 w-full items-end"><div className="w-full rounded-t" style={{ height: `${Math.max(3, (d.rain / 62) * 64)}px`, background: d.rain >= 50 ? 'var(--color-danger)' : 'var(--color-info)' }} /></div>
+        {days.map((d) => (
+          <div key={d.date} className="flex flex-1 flex-col items-center gap-1">
+            <span className={clsx('text-[11px] font-semibold', d.rain >= 50 ? 'text-danger' : 'text-info')}>{Math.round(d.rain)}</span>
+            <div className="flex h-16 w-full items-end"><div className="w-full rounded-t" style={{ height: `${Math.max(3, (d.rain / max) * 64)}px`, background: d.rain >= 50 ? 'var(--color-danger)' : 'var(--color-info)' }} /></div>
             <span className="text-[11px] uppercase text-muted">{d.d}</span>
           </div>
         ))}

@@ -2,31 +2,34 @@
 // A interface pública (useFarmFields, setFarmFields, resetFarmFields) é a mesma do protótipo: as telas não mudam.
 // setFarmFields aplica na hora (otimista) e, logo depois, grava a diferença com POST/PUT/DELETE, em fila.
 //
-// Truque deliberado para não reescrever as telas (até a M4): o array `FIELDS` de mock.ts é atualizado NO LUGAR,
-// então toda tela que lê FIELDS ao montar já enxerga os talhões da conta.
+// O array `FIELDS` de mock.ts é atualizado NO LUGAR (como antes), então toda tela que o lê já enxerga os talhões da
+// conta. Status do talhão e risco do Zarc (36 decêndios) vêm da API: `GET /api/fields` e `/api/fields/{id}/zarc`.
 import { useSyncExternalStore } from 'react'
 import { ApiError, apiPost } from './api/client'
-import { createField, deleteField, listFields, updateField } from './api/fields'
+import { apiGet } from './api/client'
+import { createField, deleteField, fromApi, updateField, type ApiField } from './api/fields'
+import { reloadPrefix } from './api/resource'
 import { getSession, onSessionChange, signIn } from './api/session'
 import { cropOf } from './components/interview/context'
 import type { FieldDraft } from './components/interview/types'
-import { FIELDS, PRODUCER } from './mock'
+import { FIELDS, PRODUCER, type MapField } from './mock'
 
-// status/risco ilustrativos do protótipo, por nome do talhão (a M3/M4 troca por dados reais)
-const ORIGINAL = Object.fromEntries(FIELDS.map((f) => [f.name, { status: f.status, risk: f.risk, crop: f.crop }]))
 const SOIL_LABEL: Record<string, string> = { arenoso: 'Arenoso', medio: 'Textura média', argiloso: 'Argiloso' }
 
-function toField(d: FieldDraft): (typeof FIELDS)[number] {
+/** Estado vindo do servidor por talhão (não editável no mapa). */
+type Meta = { status: string; zarc: number[] | null }
+let meta = new Map<number, Meta>()
+
+function toField(d: FieldDraft): MapField {
   const crop = cropOf(d)
   const irrigated = !!d.irrigation && d.irrigation !== 'nao'
   const name = !crop ? 'Sem cultura' : crop.id === 'feijao' && irrigated ? 'Feijão irrigado' : crop.label
-  const orig = ORIGINAL[d.name]
+  const m = meta.get(d.id)
   return {
     id: d.id, name: d.name, crop: name, area: Math.round(d.areaHa * 100) / 100,
     soil: SOIL_LABEL[d.soil ?? ''] ?? 'Não informado',
-    status: orig?.status ?? 'Aguardando plantio',
-    color: d.color,
-    risk: orig && orig.crop === name ? orig.risk : crop?.zarc ? 20 : 0,
+    status: m?.status ?? (crop ? `Planejado: ${name}` : 'Sem cultura definida'),
+    color: d.color, zarc: m?.zarc ?? null,
     poly: d.ring.slice(0, -1),
   }
 }
@@ -46,13 +49,16 @@ function apply() {
   FIELDS.splice(0, FIELDS.length, ...drafts.map(toField))
   PRODUCER.area_ha = Math.round(drafts.reduce((s, d) => s + d.areaHa, 0) * 10) / 10
   const farm = getSession().me?.farm
-  if (farm) Object.assign(PRODUCER, { municipality: farm.municipality, uf: farm.uf, geocode: farm.geocode, lat: farm.lat, lon: farm.lon })
+  const me = getSession().me
+  if (me) Object.assign(PRODUCER, { name: me.producer.name.split(' ')[0] })
+  if (farm) Object.assign(PRODUCER, { farm: farm.name, municipality: farm.municipality, uf: farm.uf, geocode: farm.geocode, lat: farm.lat, lon: farm.lon })
 }
 
 function setSync(s: FarmSync) { sync = s; emit() }
 
 /** Substitui tudo pelo que veio do servidor (carga inicial, entrevista salva). */
-export function replaceFromServer(fields: FieldDraft[]) {
+export function replaceFromServer(fields: FieldDraft[], raw?: ApiField[]) {
+  if (raw) { meta = new Map(raw.map((r) => [r.id, { status: r.status?.label ?? '', zarc: null }])); void loadZarc(raw, loadedFor) }
   drafts = fields
   synced = new Map(fields.map((f) => [f.id, key(f)]))
   apply()
@@ -63,11 +69,23 @@ async function load(producerId: number) {
   loadedFor = producerId
   setSync({ status: 'loading' })
   try {
-    replaceFromServer(await listFields())
+    const raw = await apiGet<ApiField[]>('/fields')
+    replaceFromServer(raw.map(fromApi), raw)
   } catch (e) {
     if ((e as ApiError).status === 404) replaceFromServer([]) // conta sem propriedade ainda
     else setSync({ status: 'error', error: (e as Error).message })
   }
+}
+
+/** Risco oficial por decêndio de cada talhão com cultura (Zarc/MAPA). Sem zoneamento → fica `null` (o mapa avisa). */
+async function loadZarc(raw: ApiField[], producerId: number | null) {
+  await Promise.all(raw.filter((r) => r.crop).map(async (r) => {
+    try {
+      const z = await apiGet<{ available: boolean; risk?: number[] }>(`/fields/${r.id}/zarc`)
+      if (z.available && z.risk && loadedFor === producerId) meta.set(r.id, { ...(meta.get(r.id) as Meta), zarc: z.risk })
+    } catch { /* fonte fora: o talhão segue sem risco (null), nunca com número inventado */ }
+  }))
+  if (loadedFor === producerId) { apply(); emit() }
 }
 
 function watchSession() {
@@ -105,6 +123,10 @@ async function flush() {
     }
     apply()
     setSync({ status: 'ready' })
+    reloadPrefix('/topics') // talhão mudou: os assuntos mudam
+    const raw = await apiGet<ApiField[]>('/fields')
+    meta = new Map(raw.map((r) => [r.id, { status: r.status?.label ?? '', zarc: null }]))
+    void loadZarc(raw, loadedFor)
   } catch (e) {
     setSync({ status: 'error', error: (e as Error).message })
   }

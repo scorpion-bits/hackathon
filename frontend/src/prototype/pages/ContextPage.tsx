@@ -4,25 +4,48 @@ import { Download, FileText, Filter, Info, Lock, Pencil, RefreshCcw, Save, Scrol
 import { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Badge, Button, Card, PageHeader, Textarea } from '../../components/ui'
-import { CONTEXT_MD, FUNNEL } from '../mock'
+import { EMPTY_ANSWERS } from '../components/interview/types'
+import { buildContextMd } from '../components/interview/context'
+import { fromApi, type Onboarding } from '../api/fields'
+import { nfmt, useFunnel } from '../api/opendata'
+import { useApi } from '../api/resource'
+import { Skeleton } from '../components/SourceStatus'
 import { MarkdownDoc, RawMarkdown } from '../components/views/Markdown'
 import { SourceChip } from '../components/Shell'
 
 /** Cada seção do contexto liga a um filtro aplicado nos dados abertos. */
 const FILTER_MAP: { section: string; title: string; filter: string; sources: string[] }[] = [
-  { section: 'Perfil', title: 'Perfil', filter: 'Linguagem simples e respostas curtas (internet instável). Quem usa PRONAF e não tem seguro vê primeiro as informações de seguro rural.', sources: ['seguro'] },
-  { section: 'Localização', title: 'Localização', filter: 'Zarc só do município 3503208 (Araraquara). Previsão do tempo exatamente na coordenada da sede. Drones e seguro do município e vizinhos.', sources: ['zarc', 'clima', 'drones'] },
-  { section: 'Propriedade', title: 'Propriedade e culturas', filter: 'Culturas soja, milho 1ª safra e feijão; solos argiloso e médio; manejo sequeiro e irrigado. Satélite num raio de 10 km.', sources: ['zarc', 'agrofit', 'satelite'] },
-  { section: 'Recursos', title: 'Recursos', filter: 'Sem drone: mostramos serviços de drone na região. Com pulverizador de barra: avisamos chuva e vento antes de aplicar.', sources: ['drones', 'clima'] },
-  { section: 'Preocupações', title: 'Preocupações', filter: 'Definem a prioridade dos alertas: seca vem primeiro (chuva e Zarc), depois custo de insumos, depois pragas (Agrofit).', sources: ['clima', 'zarc', 'agrofit'] },
-  { section: 'Objetivos', title: 'Objetivos', filter: 'Reduzir perdas por clima destaca janelas de plantio. Acessar seguro rural destaca a subvenção do governo.', sources: ['zarc', 'seguro'] },
+  { section: 'Perfil', title: 'Perfil', filter: 'Linguagem simples e respostas curtas quando a internet é instável. O crédito e o seguro que você informou ajustam os caminhos mostrados.', sources: ['seguro'] },
+  { section: 'Localização', title: 'Localização', filter: 'Zarc só do município da sua propriedade. Previsão do tempo exatamente na coordenada da sede. Drones e seguro do município.', sources: ['zarc', 'clima', 'drones'] },
+  { section: 'Propriedade', title: 'Propriedade e culturas', filter: 'Só as culturas, os solos e o manejo dos seus talhões. Satélite sobre a sua região.', sources: ['zarc', 'agrofit', 'satelite'] },
+  { section: 'Recursos', title: 'Recursos', filter: 'Se você não tem drone, mostramos o serviço de drone na região. O que você tem de máquina ajusta os avisos de chuva.', sources: ['drones', 'clima'] },
+  { section: 'Preocupações', title: 'Preocupações', filter: 'Definem a prioridade dos assuntos: o que mais preocupa vem primeiro.', sources: ['clima', 'zarc', 'agrofit'] },
+  { section: 'Objetivos', title: 'Objetivos', filter: 'Os objetivos que você marcou destacam as janelas de plantio e a subvenção do seguro rural.', sources: ['zarc', 'seguro'] },
   { section: 'Filtros aplicados', title: 'Filtros aplicados', filter: 'O resumo técnico que os agentes de fato executam em cada fonte. É aqui que o contexto vira consulta.', sources: ['zarc', 'agrofit', 'clima', 'satelite'] },
 ]
 
 export default function ContextPage() {
+  const onboarding = useApi<Onboarding>('/onboarding')
+  if (onboarding.loading) return <div className="mx-auto max-w-6xl space-y-3"><Skeleton className="h-16" /><Skeleton className="h-96" /></div>
+  const o = onboarding.data
+  if (!o?.answers) {
+    return (
+      <div className="mx-auto max-w-xl rounded-2xl bg-surface p-6 text-center ring-1 ring-border">
+        <h1 className="text-xl font-bold">Seu contexto ainda não existe</h1>
+        <p className="mt-1 text-sm text-muted">{onboarding.error ?? 'Ele é escrito a partir da entrevista inicial.'}</p>
+        <Link to="/prototipo/entrevista" className="iso-btn mt-4 inline-flex min-h-11 items-center rounded-xl bg-primary px-5 font-display font-bold text-white">Fazer a entrevista</Link>
+      </div>
+    )
+  }
+  const md = buildContextMd({ ...EMPTY_ANSWERS, ...o.answers, fields: o.fields.map(fromApi) })
+  return <ContextDoc initial={md} />
+}
+
+function ContextDoc({ initial }: { initial: string }) {
   const nav = useNavigate()
-  const [text, setText] = useState(CONTEXT_MD)
-  const [draft, setDraft] = useState(CONTEXT_MD)
+  const funnel = useFunnel().data?.steps ?? []
+  const [text, setText] = useState(initial)
+  const [draft, setDraft] = useState(initial)
   const [mode, setMode] = useState<'doc' | 'raw'>('doc')
   const [editing, setEditing] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -65,7 +88,7 @@ export default function ContextPage() {
 
       <div className="mb-4 flex gap-3 rounded-xl border border-info/25 bg-info-soft/60 p-3 text-sm text-ink">
         <Info size={18} className="mt-0.5 shrink-0 text-info" />
-        <p>Na entrevista inicial, o AgroBits escreveu este arquivo com o que você contou. <b>Ele é seu</b>: você pode ler, corrigir e baixar. Quanto mais certo estiver, menos ruído você recebe — de {FUNNEL[0].value} registros oficiais, só {FUNNEL[FUNNEL.length - 1].value} chegam até você.</p>
+        <p>Na entrevista inicial, o AgroBits escreveu este arquivo com o que você contou. <b>Ele é seu</b>: você pode ler, corrigir e baixar. Quanto mais certo estiver, menos ruído você recebe — {funnel.length ? <>de {nfmt(funnel[0].value)} registros oficiais</> : null}, só {funnel.length ? nfmt(funnel[funnel.length - 1].value) : '…'} viram assuntos para você.</p>
       </div>
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
@@ -123,7 +146,7 @@ export default function ContextPage() {
           </div>
           <Link to="/prototipo/dados" className="block rounded-xl bg-sidebar p-4 text-sm text-white hover:opacity-95">
             <div className="text-xs uppercase tracking-wide text-white/60">Resultado do filtro</div>
-            <div className="mt-1 text-lg font-bold">{FUNNEL[0].value} → {FUNNEL[FUNNEL.length - 1].value}</div>
+            <div className="mt-1 text-lg font-bold">{funnel.length ? `${nfmt(funnel[0].value)} → ${nfmt(funnel[funnel.length - 1].value)}` : '…'}</div>
             <div className="text-xs text-white/70">Ver o funil completo em Dados abertos →</div>
           </Link>
         </aside>
