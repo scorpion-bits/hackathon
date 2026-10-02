@@ -57,7 +57,7 @@ export default function Profile() {
 
   return (
     <div className="space-y-5">
-      <PageHeader title="O que o AgroIA sabe sobre você" subtitle={<>Produtor: <b className="text-ink">{producer.name}</b> · você controla o que está aqui</>} />
+      <PageHeader title="O que o AgroBits sabe sobre você" subtitle={<>Produtor: <b className="text-ink">{producer.name}</b> · você controla o que está aqui</>} />
 
       {producer.is_demo && (
         <div className="rounded-xl border border-accent/40 bg-accent-soft p-3 text-sm text-accent">
@@ -108,7 +108,7 @@ export default function Profile() {
 
       <Card title="Fontes de dados abertos" padded={false}>
         <div className="border-b border-border p-4">
-          <p className="text-sm text-muted">Selo de transparência: todo dado oficial mostrado no AgroIA vem de uma destas bases públicas, com órgão e data de extração.</p>
+          <p className="text-sm text-muted">Selo de transparência: todo dado oficial mostrado no AgroBits vem de uma destas bases públicas, com órgão e data de extração.</p>
           <p className="mt-2 flex items-start gap-2 text-xs text-muted">
             <Lock size={14} className="mt-0.5 shrink-0 text-primary" />
             <span><b>Privacidade:</b> bases com dados pessoais (seguro rural, SIPEAGRO) são usadas apenas de forma agregada por município, e grupos com menos de 3 registros são suprimidos. Os dados do produtor ficam no próprio sistema.</span>

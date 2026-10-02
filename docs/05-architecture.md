@@ -1,4 +1,4 @@
-# 05 — Arquitetura técnica: AgroIA
+# 05 — Arquitetura técnica: AgroBits
 
 > Status: 🟡 **proposta — aguardando aprovação (H-006)** · Checkpoint: CP5
 > Princípio: a arquitetura mais simples que entrega o MVP de `04-mvp.md` em ~20h, com 6 pessoas + agentes em paralelo.

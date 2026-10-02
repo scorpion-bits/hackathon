@@ -5,7 +5,8 @@ import {
 } from 'lucide-react'
 import { useState, type ReactNode } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
-import { MiniFieldMap } from '../components/views/MiniFieldMap'
+import { IsoFarm } from '../components/IsoFarm'
+import { CUBE_TODO, IsoCube } from '../components/Brand'
 import { SourceChip } from '../components/Shell'
 import { FIELDS, FORECAST, INSIGHTS, ZARC_MILHO } from '../mock'
 import { ORDER, PROBLEMS, ZARC_SOJA, nextOpen, resolveProblem, useResolved, type Evidence, type Problem } from '../resolve'
@@ -19,8 +20,7 @@ function Step({ n, title, done, children }: { n: number; title: string; done?: b
   return (
     <section className="relative md:pl-12">
       <h2 className="flex items-center gap-3 text-lg font-bold">
-        <span className={clsx('grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-bold md:absolute md:left-0 md:top-0',
-          done ? 'bg-primary text-white' : 'bg-ink text-white')}>{done ? <Check size={16} /> : n}</span>
+        <IsoCube size={34} {...(done ? {} : CUBE_TODO)} className="md:absolute md:-left-1 md:-top-1">{done ? '✓' : n}</IsoCube>
         <span className="md:pt-0.5">{title}</span>
       </h2>
       <div className="mt-3">{children}</div>
@@ -158,7 +158,7 @@ function Resolve({ id }: { id: string }) {
       {/* 1. Dados */}
       <Step n={1} title="O que os dados mostram" done>
         <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-border md:col-span-2">
+          <div className="iso-card bg-surface p-5 md:col-span-2">
             <h3 className="font-semibold">{p.evidenceTitle}</h3>
             <p className="mb-4 flex items-center gap-1.5 text-xs text-muted">
               <Database size={12} className={insight.origin === 'real' ? 'text-primary' : ''} />{p.evidenceNote}
@@ -167,8 +167,8 @@ function Resolve({ id }: { id: string }) {
             <EvidenceView kind={p.evidence} />
           </div>
           {field && (
-            <Link to={`/prototipo/mapa?talhao=${field.id}`} className="group flex flex-col overflow-hidden rounded-2xl bg-surface shadow-sm ring-1 ring-border hover:ring-primary">
-              <MiniFieldMap fields={FIELDS} focusId={field.id} labels className="h-44 w-full" height={176} />
+            <Link to={`/prototipo/mapa?talhao=${field.id}`} className="iso-card group flex flex-col overflow-hidden bg-surface">
+              <div className="bg-gradient-to-b from-mint-soft to-surface"><IsoFarm fields={FIELDS} colorBy="crop" focusId={field.id} height={176} className="w-full" /></div>
               <div className="flex flex-1 flex-col justify-between gap-2 px-4 py-3">
                 <span><b className="block text-sm">{field.name} · {field.crop}</b><span className="text-xs text-muted">{field.area.toLocaleString('pt-BR')} ha · solo {field.soil.toLowerCase()}</span></span>
                 <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary"><Globe2 size={15} /> Ver no mapa vivo <ArrowRight size={14} className="transition group-hover:translate-x-0.5" /></span>
@@ -199,8 +199,8 @@ function Resolve({ id }: { id: string }) {
                 const on = pick === s.id
                 return (
                   <button key={s.id} role="radio" aria-checked={on} onClick={() => setPick(s.id)}
-                    className={clsx('w-full rounded-2xl bg-surface p-4 text-left shadow-sm ring-1 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
-                      on ? 'ring-2 ring-primary' : 'ring-border hover:ring-primary/50')}>
+                    className={clsx('w-full bg-surface p-4 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary',
+                      on ? 'iso-card bg-mint-soft/40' : 'rounded-2xl shadow-sm ring-1 ring-border hover:ring-primary/50')}>
                     <div className="flex items-start gap-3">
                       {on ? <CheckCircle2 size={22} className="mt-0.5 shrink-0 text-primary" /> : <CircleDot size={22} className="mt-0.5 shrink-0 text-border" />}
                       <div className="min-w-0 flex-1">
@@ -222,7 +222,7 @@ function Resolve({ id }: { id: string }) {
               })}
             </div>
             <button disabled={!pick} onClick={() => { if (pick) { resolveProblem(id, pick); setEditing(false) } }}
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-base font-semibold text-white shadow hover:bg-primary-dark disabled:opacity-50">
+              className="iso-btn mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-display text-base font-bold text-white hover:bg-primary-dark disabled:opacity-50">
               Confirmar escolha <Check size={18} />
             </button>
           </>
@@ -237,7 +237,7 @@ function Resolve({ id }: { id: string }) {
           </ul>
           <div className="mt-5 flex flex-wrap gap-3">
             {next ? (
-              <button onClick={() => nav(`/prototipo/resolver/${next}`)} className="inline-flex items-center gap-2 rounded-xl bg-ink px-6 py-3 text-base font-semibold text-white hover:bg-ink/90">
+              <button onClick={() => nav(`/prototipo/resolver/${next}`)} className="iso-btn inline-flex items-center gap-2 rounded-xl bg-ink px-6 py-3 font-display text-base font-bold text-white hover:bg-ink/90">
                 Próximo assunto: {PROBLEMS[next].question} <ArrowRight size={18} />
               </button>
             ) : (

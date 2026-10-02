@@ -31,11 +31,11 @@ export function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex h-full">
-      <aside className="hidden w-60 shrink-0 flex-col bg-sidebar p-4 md:flex">
+      <aside className="iso-grid hidden w-60 shrink-0 flex-col bg-sidebar p-4 md:flex">
         <div className="mb-6 flex items-center gap-2 px-2">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-lg">🌱</span>
+          <img src="/brand/agrobits-simbolo.png" alt="" width={38} height={38} />
           <div>
-            <div className="text-lg font-bold leading-none text-white">AgroIA</div>
+            <div className="font-display text-lg font-extrabold leading-none text-white">AgroBits</div>
             <div className="text-[11px] text-white/60">dado público para cada talhão</div>
           </div>
         </div>

@@ -74,7 +74,7 @@ export const FORECAST = [
   { d: 'seg', t: 27, min: 18, rain: 8 }, { d: 'ter', t: 30, min: 17, rain: 0 }, { d: 'qua', t: 28, min: 19, rain: 12 }, { d: 'qui', t: 24, min: 18, rain: 62 },
 ]
 
-export const CONTEXT_MD = `# Contexto do produtor — AgroIA
+export const CONTEXT_MD = `# Contexto do produtor — AgroBits
 > Gerado na entrevista inicial em 02/10/2026 · atualizado automaticamente a cada registro.
 > Usado pelos agentes para FILTRAR os dados abertos e sugerir só o que é útil. Você pode editar.
 

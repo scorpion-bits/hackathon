@@ -65,7 +65,7 @@ export default function ContextPage() {
 
       <div className="mb-4 flex gap-3 rounded-xl border border-info/25 bg-info-soft/60 p-3 text-sm text-ink">
         <Info size={18} className="mt-0.5 shrink-0 text-info" />
-        <p>Na entrevista inicial, o AgroIA escreveu este arquivo com o que você contou. <b>Ele é seu</b>: você pode ler, corrigir e baixar. Quanto mais certo estiver, menos ruído você recebe — de {FUNNEL[0].value} registros oficiais, só {FUNNEL[FUNNEL.length - 1].value} chegam até você.</p>
+        <p>Na entrevista inicial, o AgroBits escreveu este arquivo com o que você contou. <b>Ele é seu</b>: você pode ler, corrigir e baixar. Quanto mais certo estiver, menos ruído você recebe — de {FUNNEL[0].value} registros oficiais, só {FUNNEL[FUNNEL.length - 1].value} chegam até você.</p>
       </div>
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Sobe o AgroIA localmente (API + interface) com um comando só.
+# Sobe o AgroBits localmente (API + interface) com um comando só.
 #
 #   ./dev.sh            API (8000) + interface (5173)
 #   ./dev.sh --proto    só a interface — basta para o protótipo em /prototipo

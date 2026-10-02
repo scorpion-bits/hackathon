@@ -37,7 +37,7 @@ RESTRICTED = ROOT / "data" / "restricted"
 STATE = ROOT / "data" / "sync_state.json"
 CKAN = "https://dados.agricultura.gov.br/api/3/action"
 # O portal recusa (403) clientes sem User-Agent identificável; nos identificamos honestamente.
-USER_AGENT = "Mozilla/5.0 (compatible; AgroIA-hackathon/1.0; +https://github.com/scorpion-bits/hackathon)"
+USER_AGENT = "Mozilla/5.0 (compatible; AgroBits-hackathon/1.0; +https://github.com/scorpion-bits/hackathon)"
 
 
 @dataclass(frozen=True)

@@ -54,7 +54,7 @@ export function WelcomeStep({ name }: { name?: string }) {
       </div>
       <h1 className="text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">{name ? `Olá, ${name}!` : 'Olá!'} Vamos conhecer a sua roça.</h1>
       <p className="mt-3 max-w-xl text-lg leading-relaxed text-muted">
-        São <b className="text-ink">5 minutos, quase só cliques</b>. Com o que você contar, o AgroIA separa, entre milhões de dados abertos do governo, <b className="text-ink">só o que serve para a sua propriedade</b>.
+        São <b className="text-ink">5 minutos, quase só cliques</b>. Com o que você contar, o AgroBits separa, entre milhões de dados abertos do governo, <b className="text-ink">só o que serve para a sua propriedade</b>.
       </p>
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {tiles.map(({ icon: Icon, title, text }) => (
@@ -290,7 +290,7 @@ export function NotifyStep({ a, set, kicker }: P) {
           <b>Vamos usar o modo leve.</b> Respostas curtas, poucos gráficos e mapas só quando você pedir, para funcionar bem mesmo com sinal fraco. Avisos por SMS chegam até sem internet.
         </WhyBox>
       ) : (
-        <WhyBox icon={Info}>Se a internet cair, o AgroIA guarda o que você registrou e sincroniza quando o sinal voltar.</WhyBox>
+        <WhyBox icon={Info}>Se a internet cair, o AgroBits guarda o que você registrou e sincroniza quando o sinal voltar.</WhyBox>
       )}
     </>
   )

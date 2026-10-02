@@ -4,6 +4,7 @@ import { Bot, Database, FileText, Globe2, Home, LogOut, Sprout } from 'lucide-re
 import type { ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { PRODUCER } from '../mock'
+import { Logo } from './Brand'
 
 const NAV = [
   { to: '/prototipo', label: 'Para você', icon: Home, end: true },
@@ -29,13 +30,9 @@ export function Shell({ children, full }: { children: ReactNode; full?: boolean 
     <div className="flex h-full flex-col">
       <ProtoBanner />
       <div className="flex min-h-0 flex-1">
-        <aside className="hidden w-64 shrink-0 flex-col bg-sidebar p-4 md:flex">
-          <div className="mb-6 flex items-center gap-2 px-2">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-lg">🌱</span>
-            <div>
-              <div className="text-lg font-bold leading-none text-white">AgroIA</div>
-              <div className="text-[11px] text-white/60">dados abertos que trabalham para você</div>
-            </div>
+        <aside className="iso-grid hidden w-64 shrink-0 flex-col bg-sidebar p-4 md:flex">
+          <div className="mb-6 px-1">
+            <Logo size={44} tagline="dados abertos que trabalham para você" />
           </div>
           <nav className="flex flex-1 flex-col gap-1">
             {NAV.map(({ to, label, icon: Icon, end }) => (

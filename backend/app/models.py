@@ -109,7 +109,7 @@ class AlertState(Base):
 
 
 class ProfileFact(Base):
-    """"O que o AgroIA sabe sobre você" — cada fato com origem."""
+    """"O que o AgroBits sabe sobre você" — cada fato com origem."""
     __tablename__ = "profile_fact"
     id: Mapped[int] = mapped_column(primary_key=True)
     producer_id: Mapped[int] = mapped_column(ForeignKey("producer.id"))

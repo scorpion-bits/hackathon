@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ChevronDown, Sparkles } from 'lucide-react'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { ProtoBanner } from '../components/Shell'
+import { Logo } from '../components/Brand'
 import { LiveSummary, SourceMeter } from '../components/interview/LiveSummary'
 import { PropertyMap } from '../components/interview/PropertyMap'
 import { ResultScreen } from '../components/interview/ResultScreen'
@@ -123,8 +124,7 @@ export default function Interview() {
 
       <header className="shrink-0 border-b border-border bg-surface">
         <div className="flex h-14 items-center gap-3 px-4">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-base">🌱</span>
-          <span className="text-lg font-bold leading-none text-ink">AgroIA</span>
+          <Logo size={34} tone="dark" />
           <span className="hidden text-sm text-muted sm:inline">· Entrevista inicial</span>
           <div className="ml-auto flex items-center gap-4 text-sm">
             {step > 0 && !isResult && <span className="font-medium text-muted tabular-nums">Etapa {step} de {QUESTIONS}</span>}

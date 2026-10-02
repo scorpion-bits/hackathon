@@ -1,9 +1,9 @@
-# 🌱 AgroIA — o dado público que já existe, trabalhando para cada talhão
+# 🌱 AgroBits — o dado público que já existe, trabalhando para cada talhão
 
 **1ª Hackathon de Dados Abertos · IFSP Araraquara · 02–03/10/2026**
 Tema: Inteligência Artificial e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura.
 
-AgroIA é uma plataforma web de **gestão da propriedade rural** (mapa de talhões, produção, estoque, clima, alertas,
+AgroBits é uma plataforma web de **gestão da propriedade rural** (mapa de talhões, produção, estoque, clima, alertas,
 relatórios) em que uma **IA interpreta dados abertos oficiais do MAPA** para a realidade de cada talhão — sempre com
 fonte e data. Gratuita para o pequeno e médio produtor; cooperativas, assistência técnica e agentes de crédito/seguro
 são os clientes pagantes (B2B2C).

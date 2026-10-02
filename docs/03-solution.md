@@ -45,7 +45,7 @@
 - **Dificuldade:** alta · **MVP:** ~12–14h · **Risco:** médio/alto (muitas camadas externas, rede bloqueada no ambiente do Claude, tentação de 3D).
 - **Ética:** não usar limites do CAR/proprietários; rotular claramente o que é **dado real** e o que é **simulação**.
 
-### F — AgroIA (proposta da equipe, 02/10 ~11h15) — **em discussão de produto**
+### F — AgroBits (proposta da equipe, 02/10 ~11h15) — **em discussão de produto**
 - Documento-base: branch `idv-victor` → `data/escopos/escopoInicial.pdf` (+ referências visuais e paleta).
 - Visão: assistente agrícola que conhece o produtor (entrevista conversacional → perfil), mapa com talhões,
   chat com contexto + ferramentas, estoque, alertas, dashboard.
@@ -57,7 +57,7 @@
   - **Fato que vira demo:** Zarc 2025-26, Araraquara, milho 1ª safra, solo argiloso: decêndio 28 (1–10/out) risco **30%** → decêndio 29 (11–20/out) **20%**; solo arenoso: 40% até 20/out, 20% a partir de 21/out. _[confirmar com safra 2026-27]_
 
 #### F — visão consolidada (rodada 2, após esclarecimento da equipe)
-- AgroIA = **plataforma modular de gestão + inteligência da propriedade**; IA é camada transversal (não o produto).
+- AgroBits = **plataforma modular de gestão + inteligência da propriedade**; IA é camada transversal (não o produto).
 - **Espinha dorsal proposta: o Caderno de Campo (linha do tempo de eventos).** Todo acontecimento (plantio, aplicação,
   colheita, compra, observação) é um evento ligado a talhão/safra; estoque, custos, status do talhão e painel são **derivados** dos eventos.
 - Módulos: Propriedade (perfil+mapa+talhões) · Produção (safras+caderno de campo) · Estoque (itens+movimentações) ·

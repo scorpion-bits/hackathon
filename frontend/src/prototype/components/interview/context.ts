@@ -111,7 +111,7 @@ export function buildContextMd(input: Answers, now = new Date()): string {
   if (a.concerns.includes('seca')) alerts.push('10 dias seguidos ou mais sem chuva')
 
   const L: string[] = []
-  L.push('# Contexto do produtor — AgroIA')
+  L.push('# Contexto do produtor — AgroBits')
   L.push(`> Gerado na entrevista inicial em ${date} · atualizado automaticamente a cada registro.`)
   L.push('> Usado pelos agentes para FILTRAR os dados abertos e sugerir só o que é útil. Você pode editar.')
   L.push('')

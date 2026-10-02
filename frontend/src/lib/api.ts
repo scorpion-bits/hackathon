@@ -1,4 +1,4 @@
-// Cliente da API do AgroIA. Tipos espelham backend/app/routers/api.py (contrato: docs/api.md).
+// Cliente da API do AgroBits. Tipos espelham backend/app/routers/api.py (contrato: docs/api.md).
 
 export type Source = { key: string; name?: string; agency?: string; url?: string; extracted_at?: string; notes?: string }
 

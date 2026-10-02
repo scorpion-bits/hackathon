@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 import { Badge, Button, Card, Input, Label, Modal, PageHeader, Select, Stat, Table } from '../../components/ui'
 import { RISK_COLOR } from '../../lib/format'
 import { FIELDS, PRODUCER, ZARC_MILHO } from '../mock'
-import { MiniFieldMap } from '../components/views/MiniFieldMap'
+import { IsoFarm } from '../components/IsoFarm'
 import { COST_BY_CATEGORY, COST_BY_FIELD, COST_TOTAL, FERTILIZER_TOTAL, brl0 } from '../components/views/demo'
 import { OriginTag, SourceChip } from '../components/Shell'
 
@@ -39,7 +39,7 @@ function FieldCard({ f }: { f: (typeof FIELDS)[number] }) {
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-surface shadow-sm transition hover:shadow-md">
       <div className="relative">
-        <MiniFieldMap fields={[f]} className="h-36 w-full" height={144} />
+        <div className="bg-gradient-to-b from-mint-soft to-surface"><IsoFarm fields={[f]} colorBy="crop" labels={false} height={144} className="w-full" /></div>
         <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold text-ink shadow-sm ring-1 ring-border">
           <span className="h-2.5 w-2.5 rounded-full" style={{ background: f.color }} />{f.name}
         </span>
@@ -75,7 +75,7 @@ function Overview() {
           <h2 className="inline-flex items-center gap-2 text-sm font-semibold text-ink"><MapIcon size={15} className="text-primary" /> {PRODUCER.farm} · {PRODUCER.municipality}/{PRODUCER.uf}</h2>
           <Link to="/prototipo/talhoes?de=propriedade" className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-dark"><Pencil size={13} /> Editar talhões</Link>
         </header>
-        <MiniFieldMap fields={FIELDS} pin={[PRODUCER.lon, PRODUCER.lat]} labels scaleBar className="min-h-60 flex-1" height={230} />
+        <div className="flex-1 bg-gradient-to-b from-mint-soft to-surface"><IsoFarm fields={FIELDS} colorBy="crop" height={240} className="w-full" /></div>
       </section>
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
         <Stat label="Área total" value={`${total.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} ha`} hint={`${FIELDS.length} talhões desenhados no mapa`} icon={<Ruler size={16} />} />
@@ -200,7 +200,7 @@ function Costs() {
 
 /* ------------------------------------------------------------------ registrar */
 const CHIPS: { id: string; label: string; icon: LucideIcon; placeholder: string; help: string; chips: string[] }[] = [
-  { id: 'plantio', label: 'Plantio', icon: Sprout, placeholder: 'Ex.: milho, 40 kg de semente', help: 'O AgroIA confere a janela do Zarc para este talhão e avisa se o risco estiver alto.', chips: ['zarc'] },
+  { id: 'plantio', label: 'Plantio', icon: Sprout, placeholder: 'Ex.: milho, 40 kg de semente', help: 'O AgroBits confere a janela do Zarc para este talhão e avisa se o risco estiver alto.', chips: ['zarc'] },
   { id: 'aplicacao', label: 'Aplicação', icon: SprayCan, placeholder: 'Ex.: Magic, 1,5 L', help: 'Confere no Agrofit se o produto é registrado para a cultura e olha a previsão de chuva.', chips: ['agrofit', 'clima'] },
   { id: 'colheita', label: 'Colheita', icon: Wheat, placeholder: 'Ex.: 38 sacas', help: 'Guarda a produtividade para comparar com as próximas safras.', chips: [] },
   { id: 'compra', label: 'Compra', icon: ShoppingCart, placeholder: 'Ex.: ureia, 800 kg, R$ 3.440', help: 'Soma ao estoque e aos custos do talhão.', chips: [] },
@@ -224,7 +224,7 @@ function RegisterModal({ open, onClose, onSave }: { open: boolean; onClose: () =
         </div>
         <Label label="O que foi feito"><Input placeholder={cur.placeholder} /></Label>
         <div className="rounded-lg bg-primary-soft/60 p-3 text-xs text-primary-dark">
-          <div className="mb-1 font-semibold">O que o AgroIA faz com este registro</div>
+          <div className="mb-1 font-semibold">O que o AgroBits faz com este registro</div>
           <p>{cur.help}</p>
           {cur.chips.length > 0 && <div className="mt-2 flex gap-1.5">{cur.chips.map((c) => <SourceChip key={c} k={c} />)}</div>}
         </div>

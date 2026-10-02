@@ -37,7 +37,7 @@ export function Button({ variant = 'primary', size = 'md', className, ...p }: Bu
       className={clsx(
         'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition disabled:cursor-not-allowed disabled:opacity-50',
         size === 'sm' ? 'px-2.5 py-1.5 text-xs' : 'px-4 py-2 text-sm',
-        variant === 'primary' && 'bg-primary text-white hover:bg-primary-dark',
+        variant === 'primary' && 'iso-btn bg-primary font-semibold text-white hover:bg-primary-dark',
         variant === 'secondary' && 'border border-border bg-surface text-ink hover:bg-bg',
         variant === 'ghost' && 'text-muted hover:bg-bg hover:text-ink',
         variant === 'danger' && 'bg-danger text-white hover:opacity-90',

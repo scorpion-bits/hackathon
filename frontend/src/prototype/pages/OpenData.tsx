@@ -35,7 +35,7 @@ function Hero() {
         </div>
         <h1 className="mt-3 max-w-2xl text-2xl font-bold leading-tight tracking-tight md:text-4xl">As fontes oficiais que trabalham para você</h1>
         <p className="mt-2 max-w-2xl text-sm text-white/70 md:text-base">
-          O governo publica milhões de linhas de dados abertos, espalhadas em sites e formatos diferentes. O AgroIA lê tudo isso todo dia,
+          O governo publica milhões de linhas de dados abertos, espalhadas em sites e formatos diferentes. O AgroBits lê tudo isso todo dia,
           separa o que importa para <b className="text-white">a sua propriedade</b> e entrega em linguagem simples.
         </p>
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -69,7 +69,7 @@ function Funnel() {
       action={<Link to="/prototipo/contexto" className="text-xs font-medium text-primary hover:underline">filtros vêm do seu contexto.md →</Link>}
     >
       <p className="mb-4 text-sm text-muted">
-        Você não precisa ler {fmtInt(vals[0])} linhas. O AgroIA usa o que você contou na entrevista para filtrar,
+        Você não precisa ler {fmtInt(vals[0])} linhas. O AgroBits usa o que você contou na entrevista para filtrar,
         e entrega <b className="text-ink">{FUNNEL[3].value}</b>.
       </p>
       <div>
@@ -169,7 +169,7 @@ function Sources() {
 /* ------------------------------------------------------------------ caminho dos dados */
 const STEPS: { icon: typeof Landmark; title: string; text: string; tone: string }[] = [
   { icon: Landmark, title: 'Fontes oficiais', text: 'APIs e arquivos abertos do MAPA, ANA, Embrapa, NASA, INPE e Open-Meteo.', tone: '#2F6E91' },
-  { icon: RefreshCw, title: 'Atualização automática', text: 'Todo dia de manhã (06:00) o AgroIA busca as novidades sozinho.', tone: '#7C5CBF' },
+  { icon: RefreshCw, title: 'Atualização automática', text: 'Todo dia de manhã (06:00) o AgroBits busca as novidades sozinho.', tone: '#7C5CBF' },
   { icon: Filter, title: 'Filtro pelo seu contexto', text: 'O arquivo contexto.md diz onde você está, o que planta e o que te preocupa.', tone: '#9A6516' },
   { icon: Bot, title: 'Agentes de IA interpretam', text: 'Cruzam os dados filtrados com a previsão do tempo e escrevem em palavras simples.', tone: '#2E7D4F' },
   { icon: ListChecks, title: 'Recomendações com fonte e data', text: 'Cada sugestão diz de onde veio, quando foi atualizada e o quanto é incerta.', tone: '#1F5C39' },

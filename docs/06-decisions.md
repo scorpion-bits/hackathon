@@ -6,7 +6,7 @@
 | ID | Data/hora | Decisão | Tipo | Aprovado por | Status |
 |---|---|---|---|---|---|
 | D-000 | 02/10 madrugada | Estrutura do repositório e processo de trabalho (este setup) | operacional | Claude | vigente |
-| D-001 | 02/10 12h35 | Solução: **AgroIA** — plataforma web modular de gestão + IA que interpreta dados abertos | estratégica | equipe | vigente |
+| D-001 | 02/10 12h35 | Solução: **AgroBits** — plataforma web modular de gestão + IA que interpreta dados abertos | estratégica | equipe | vigente |
 | D-002 | 02/10 12h35 | MVP de `docs/04-mvp.md` + **Planejador de plantio** e **voz** (Minha Região vira cartão no Painel) | estratégica | equipe | vigente |
 | D-003 | 02/10 12h35 | Stack e modelo de dados de `docs/05-architecture.md` | estratégica | equipe | vigente |
 | D-004 | 02/10 12h40 | IA via API **compatível com OpenAI** (serve Groq, Gemini, OpenRouter, Ollama Cloud) + **modo offline determinístico** como plano B | técnica | Claude (delegado pela equipe) | vigente |
@@ -19,6 +19,7 @@
 | D-011 | 02/10 ~15h30 | Entregas vão para `main` **e** para a branch da sessão (equipe só dá `git pull` na main) | operacional | equipe | vigente |
 | D-012 | 02/10 ~15h30 | UX do protótipo: tela inicial **guiada** (um assunto por vez → tela Resolver: dados → soluções do agente → próximo passo); resumo da entrevista em cartões | produto | equipe | vigente |
 | D-013 | 02/10 ~15h40 | Mapa vivo com **painel-guia em 3 passos** (onde olhar → pergunta simples → o que significa); camadas viram perguntas | produto | equipe | vigente |
+| D-014 | 02/10 ~16h | Nome do produto: **AgroBits** (logo do Victor em `docs/brand/`); visual "isométrico" da marca: contorno grosso, sombra sólida, cubos e fazenda em vista isométrica | produto | equipe | vigente |
 
 ---
 

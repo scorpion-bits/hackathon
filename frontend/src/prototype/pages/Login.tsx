@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { ProtoStyles } from '../components/interview/ui'
 import { ProtoBanner } from '../components/Shell'
 import { FUNNEL, PRODUCER } from '../mock'
+import { Logo } from '../components/Brand'
 
 type Tab = 'entrar' | 'criar'
 
@@ -42,7 +43,7 @@ function PasswordToggle({ shown, onToggle }: { shown: boolean; onToggle: () => v
 
 function SubmitButton({ busy, children }: { busy: boolean; children: ReactNode }) {
   return (
-    <button type="submit" disabled={busy} className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/20 transition hover:bg-primary-dark active:scale-[.99] disabled:opacity-70">
+    <button type="submit" disabled={busy} className="iso-btn flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 font-display text-base font-bold text-white hover:bg-primary-dark disabled:opacity-70">
       {busy ? <><LoaderCircle size={18} className="animate-spin" /> Aguarde…</> : <>{children}<ArrowRight size={18} /></>}
     </button>
   )
@@ -175,7 +176,7 @@ const FLOATING = [
 
 function Pitch() {
   return (
-    <section className="relative overflow-hidden bg-sidebar text-white">
+    <section className="iso-grid relative overflow-hidden bg-sidebar text-white">
       {/* fundo: brilho + sulcos de plantio */}
       <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(46,125,79,.55),transparent_55%),radial-gradient(circle_at_95%_85%,rgba(214,158,46,.20),transparent_50%)]" />
       <svg aria-hidden className="absolute inset-x-0 bottom-0 hidden h-[46%] w-full lg:block" viewBox="0 0 800 360" preserveAspectRatio="none">
@@ -190,17 +191,11 @@ function Pitch() {
       </svg>
 
       <div className="relative z-10 flex h-full flex-col justify-between gap-8 p-6 sm:p-10 lg:p-14">
-        <div className="flex items-center gap-2.5">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary text-xl">🌱</span>
-          <div>
-            <div className="text-xl font-bold leading-none">AgroIA</div>
-            <div className="text-[11px] text-white/60">dados abertos que trabalham para você</div>
-          </div>
-        </div>
+        <Logo size={56} tagline="dados abertos que trabalham para você" />
 
         <div className="max-w-xl">
           <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">Os dados do governo, <span className="text-[#8FD6A8]">filtrados para a sua roça.</span></h1>
-          <p className="mt-4 text-base leading-relaxed text-white/75 sm:text-lg">O AgroIA lê as bases oficiais por você e mostra só o que importa para a sua propriedade.</p>
+          <p className="mt-4 text-base leading-relaxed text-white/75 sm:text-lg">O AgroBits lê as bases oficiais por você e mostra só o que importa para a sua propriedade.</p>
           <ul className="mt-7 hidden gap-4 sm:grid">
             {POINTS.map(({ icon: Icon, title, text }) => (
               <li key={title} className="flex items-start gap-3.5">

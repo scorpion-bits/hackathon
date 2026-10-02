@@ -14,7 +14,7 @@
 | Próximo checkpoint | CP6 — Fluxo principal funcionando (17h) |
 | Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
 | Dataset | Regra: ≥1 base "pivô" do MAPA (dados.agricultura.gov.br) ou ANA/Embrapa (Pivôs Centrais 1985–2019); combinar com qualquer base aberta. Ver `docs/00-context.md` |
-| Solução escolhida | **AgroIA** — dados abertos no centro; contexto do produtor (entrevista) filtra e a IA recomenda (D-001/D-008) |
+| Solução escolhida | **AgroBits** — dados abertos no centro; contexto do produtor (entrevista) filtra e a IA recomenda (D-001/D-008) |
 | Stack | React+TS+Vite+Tailwind · Leaflet/Geoman/Turf · FastAPI+SQLite · IA OpenAI-compatível + modo offline (D-003/D-004) |
 | Bloqueios | Nenhum. Internet liberada na sessão (02/10 ~15h). Portal do MAPA exige User-Agent (já tratado) |
 
@@ -122,9 +122,9 @@ Detalhes: `planning/timeline.md`.
 
 ## 7. Decisões vigentes
 
-D-001…D-007 (AgroIA, MVP+planejador+voz, stack, IA plugável, persona João/Araraquara, solo→Zarc, supressão <3) ·
+D-001…D-007 (AgroBits, MVP+planejador+voz, stack, IA plugável, persona João/Araraquara, solo→Zarc, supressão <3) ·
 D-008 dados abertos no centro + contexto do produtor · D-009 protótipo visual antes de reimplementar ·
-D-010 atualização por API/CKAN · D-011 entregas na `main` · D-012 início guiado + tela Resolver · D-013 mapa com guia em 3 passos.
+D-010 atualização por API/CKAN · D-011 entregas na `main` · D-012 início guiado + tela Resolver · D-013 mapa com guia em 3 passos · D-014 nome AgroBits + visual isométrico (logo em `docs/brand/`).
 Ver `docs/06-decisions.md`.
 
 ---

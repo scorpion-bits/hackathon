@@ -9,6 +9,7 @@ import {
 import { cropOf, totalHa } from './context'
 import { fmtHa } from './format'
 import type { Answers } from './types'
+import { IsoFarm } from '../IsoFarm'
 
 const optOf = (opts: Opt[], id?: string) => opts.find((o) => o.id === id)
 
@@ -32,33 +33,6 @@ function Pill({ opt, fallback }: { opt?: Opt; fallback?: string }) {
 }
 
 const Empty = ({ children }: { children: ReactNode }) => <p className="text-sm italic text-muted">{children}</p>
-
-/** Desenho simples dos talhões (SVG) a partir dos polígonos desenhados na entrevista. */
-function FieldsSketch({ a }: { a: Answers }) {
-  const pts = a.fields.flatMap((f) => f.ring)
-  if (!pts.length) return null
-  const xs = pts.map((p) => p[0]); const ys = pts.map((p) => p[1])
-  const [minX, maxX, minY, maxY] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)]
-  const w = maxX - minX || 1e-6; const h = maxY - minY || 1e-6
-  const k = Math.min(260 / w, 130 / h)
-  const sx = (x: number) => 10 + (x - minX) * k + (260 - w * k) / 2
-  const sy = (y: number) => 10 + (maxY - y) * k + (130 - h * k) / 2
-  return (
-    <svg viewBox="0 0 280 150" className="h-36 w-full rounded-xl bg-[#1d3527]" role="img" aria-label="Desenho dos seus talhões">
-      {a.fields.map((f) => {
-        const d = f.ring.map((p, i) => `${i ? 'L' : 'M'}${sx(p[0])},${sy(p[1])}`).join(' ') + 'Z'
-        const cx = f.ring.slice(0, -1).reduce((s, p) => s + sx(p[0]), 0) / Math.max(1, f.ring.length - 1)
-        const cy = f.ring.slice(0, -1).reduce((s, p) => s + sy(p[1]), 0) / Math.max(1, f.ring.length - 1)
-        return (
-          <g key={f.id}>
-            <path d={d} fill={f.color} fillOpacity={0.8} stroke="#fff" strokeWidth={1.5} />
-            <text x={cx} y={cy + 4} textAnchor="middle" fontSize="11" fontWeight={700} fill="#fff">{f.name}</text>
-          </g>
-        )
-      })}
-    </svg>
-  )
-}
 
 export function ContextSummary({ a, md }: { a: Answers; md: string }) {
   const [tech, setTech] = useState(false)
@@ -85,7 +59,9 @@ export function ContextSummary({ a, md }: { a: Answers; md: string }) {
         <Card icon={Sprout} title="Sua propriedade" className="md:col-span-2">
           {a.fields.length ? (
             <div className="grid gap-4 md:grid-cols-[280px_minmax(0,1fr)]">
-              <FieldsSketch a={a} />
+              <div className="overflow-hidden rounded-xl bg-gradient-to-b from-mint-soft to-surface ring-1 ring-border">
+                <IsoFarm fields={a.fields.map((f) => ({ id: f.id, name: f.name, crop: cropOf(f)?.label ?? f.name, color: f.color, poly: f.ring.slice(0, -1) }))} colorBy="crop" height={150} className="w-full" />
+              </div>
               <ul className="space-y-2">
                 {a.fields.map((f) => {
                   const crop = cropOf(f)

@@ -12,12 +12,12 @@
    e só baixa quando muda (`last_modified`), roda o pipeline e **registra a data/versão** (regra de ética: fonte + data de extração).
 3. **Manter os arquivos atuais no repositório como plano B offline** para a demo (internet do laboratório é risco R-06).
 
-Para o pitch: *"o AgroIA consulta as APIs oficiais todo dia; quando o MAPA publica uma nova portaria do Zarc, as
+Para o pitch: *"o AgroBits consulta as APIs oficiais todo dia; quando o MAPA publica uma nova portaria do Zarc, as
 recomendações do produtor mudam sozinhas."*
 
 ## Fonte por fonte
 
-| Fonte | API? | Endpoint (exemplo) | Chave? | Uso no AgroIA | Confiança |
+| Fonte | API? | Endpoint (exemplo) | Chave? | Uso no AgroBits | Confiança |
 |---|---|---|---|---|---|
 | **Zarc (MAPA)** | Metadados via **CKAN** + download do CSV consolidado (atualização **diária**, segundo o dicionário de dados) | `https://dados.agricultura.gov.br/api/3/action/package_show?id=6d3d141c-885e-41a4-ab7f-dc8ff323b96f` · arquivo: `.../resource/a8875ff8-fe4d-4c3c-b1a1-3b19c32916f1/download/dados-abertos-tabua-de-risco.csv` | não | Sincronização diária → `opendata.db` | alta (URL consta no dicionário oficial) |
 | **Agrofit (MAPA)** | CKAN (arquivo) **ou** API Agrofit via **Embrapa AgroAPI** | `https://dados.agricultura.gov.br/api/3/action/package_search?q=agrofit` · AgroAPI: `https://www.agroapi.cnptia.embrapa.br` | AgroAPI: cadastro gratuito + token | Checagem de defensivos por cultura/praga | média |
@@ -73,5 +73,5 @@ Me mandem a saída — com isso confirmo endpoints e nomes de camadas.
 | NASA GIBS (Mapa vivo) | direto no navegador | `frontend/.../livemap/layers.ts` | 6 camadas com tile real sobre Araraquara; fogo trocado para `GOES-East_ABI_FireTemp` (VIIRS é só vetor); SMAP atraso 4 dias |
 
 **Pegadinhas descobertas:** o portal do MAPA devolve **403** para clientes sem User-Agent identificável (o script se identifica
-como `AgroIA-hackathon`); e o MAPA **republica todos os arquivos todo dia ~07h** (a data muda mesmo sem mudança), por isso
+como `AgroBits-hackathon`); e o MAPA **republica todos os arquivos todo dia ~07h** (a data muda mesmo sem mudança), por isso
 a comparação é por hash do conteúdo — sem isso, o banco seria reconstruído todo dia à toa.

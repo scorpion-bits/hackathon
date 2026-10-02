@@ -1,4 +1,4 @@
-# 04 — MVP: AgroIA
+# 04 — MVP: AgroBits
 
 > Status: 🟡 **proposta — aguardando aprovação (H-005)** · Checkpoint: CP4
 > Base: visão consolidada em `docs/03-solution.md` (F, rodadas 1–4).
@@ -38,7 +38,7 @@ Gratuito para o pequeno/médio produtor; cooperativas, ATER e agentes de crédit
 | S3 | **Minha Região**: painel do município com dados abertos agregados (culturas Zarc, drones/autorizações SIPEAGRO, apólices PSR) |
 | S4 | **Agrofit no estoque**: ao cadastrar defensivo, mostrar se é registrado p/ a cultura + classe toxicológica/ambiental (informativo, sem receita) |
 | S5 | **Registro por conversa**: IA transforma frase em registro → formulário pré-preenchido → produtor confirma |
-| S6 | **Perfil** + "O que o AgroIA sabe sobre você" (fatos com origem: declarado / registro / oficial) |
+| S6 | **Perfil** + "O que o AgroBits sabe sobre você" (fatos com origem: declarado / registro / oficial) |
 
 ## COULD HAVE — só se sobrar tempo
 - C1 Entrevista guiada inicial (onboarding conversacional com respostas rápidas)
@@ -52,7 +52,7 @@ políticas públicas detalhadas · IoT/drones reais · app mobile nativo · offl
 
 ## Demo flow (~4 min)
 1. **Problema** (Thales): dado público existe, mas não chega ao talhão.
-2. **Painel do João** (histórico fictício rotulado): "esta é a fazenda dele no AgroIA".
+2. **Painel do João** (histórico fictício rotulado): "esta é a fazenda dele no AgroBits".
 3. **Ao vivo**: Mapa → desenha talhão → Estoque → registra compra de semente → Produção → registra plantio.
    Banca vê estoque, custo, linha do tempo e painel mudarem juntos.
 4. **Alerta** aparece (Zarc: "plantio em período de 30% de risco" / chuva forte) → abrir → **Perguntar à IA** →

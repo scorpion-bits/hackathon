@@ -6,7 +6,7 @@ from .routers import api, assistant
 
 Base.metadata.create_all(engine)
 
-app = FastAPI(title="AgroIA API", version="0.1.0",
+app = FastAPI(title="AgroBits API", version="0.1.0",
               description="Gestão da propriedade + IA que interpreta dados abertos (Zarc, Agrofit, SIPEAGRO, PSR).")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 app.include_router(api.router)

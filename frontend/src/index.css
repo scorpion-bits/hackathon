@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
-/* Identidade AgroIA — base na paleta do Victor; destaque escurecido p/ contraste AA */
+/* Identidade AgroBits — logo isométrica (cubos com contorno grosso) + paleta do Victor (docs/brand/).
+   Destaque escurecido p/ contraste AA. */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* cores da logo */
+  --color-mint: #4FD08A;
+  --color-mint-soft: #DDF6E8;
+  --color-outline: #0E3B22;
+  --color-straw: #E2AE5F;
+  --color-straw-soft: #F8EBD3;
   --color-bg: #F6F9F3;
   --color-surface: #FFFFFF;
   --color-border: #DDE5DA;
@@ -17,7 +25,7 @@
   --color-danger-soft: #FBE7E4;
   --color-info: #2F6E91;
   --color-info-soft: #E3EFF6;
-  --color-sidebar: #13241A;
+  --color-sidebar: #0F1A13;
   /* escala de risco Zarc */
   --color-risk-20: #2E7D4F;
   --color-risk-30: #D69E2E;
@@ -28,3 +36,25 @@
 html, body, #root { height: 100%; }
 body { background: var(--color-bg); color: var(--color-ink); font-family: var(--font-sans); }
 .leaflet-container { font-family: var(--font-sans); }
+
+h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+
+/* ---------- estilo "isométrico" da marca: contorno grosso + sombra sólida deslocada (como os cubos da logo) */
+.iso-card {
+  border: 2px solid var(--color-outline);
+  border-radius: 1rem;
+  box-shadow: 5px 5px 0 0 var(--color-outline);
+}
+.iso-btn {
+  border: 2px solid var(--color-outline);
+  box-shadow: 0 4px 0 0 var(--color-outline);
+  transition: transform .08s ease, box-shadow .08s ease, background-color .15s ease;
+}
+.iso-btn:hover { transform: translateY(-1px); box-shadow: 0 5px 0 0 var(--color-outline); }
+.iso-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 0 var(--color-outline); }
+/* grade isométrica (losangos 30°) para fundos escuros */
+.iso-grid {
+  background-image:
+    repeating-linear-gradient(30deg, rgb(255 255 255 / .045) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(150deg, rgb(255 255 255 / .045) 0 1px, transparent 1px 28px);
+}

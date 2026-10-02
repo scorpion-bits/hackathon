@@ -2,11 +2,13 @@
 // 1º nível (bater o olho): o que fazer hoje + de quais dados oficiais isso veio.
 // 2º nível (um clique): por que, com fontes e números. Detalhe completo fica nas telas Dados abertos / Mapa vivo.
 import clsx from 'clsx'
-import { AlertTriangle, ArrowRight, CheckCircle2, ChevronDown, CloudRain, Database, Globe2, Lightbulb, PartyPopper, RotateCcw, Sparkles, SlidersHorizontal, Zap } from 'lucide-react'
+import { AlertTriangle, ArrowRight, ChevronDown, CloudRain, Database, Globe2, Lightbulb, PartyPopper, RotateCcw, Sparkles, SlidersHorizontal, Zap } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FIELDS, FORECAST, FUNNEL, INSIGHTS, PRODUCER, type Insight } from '../mock'
 import { PROBLEMS, nextOpen, resetResolved, useResolved } from '../resolve'
+import { IsoFarm } from '../components/IsoFarm'
+import { IsoCube } from '../components/Brand'
 
 const PRIORITY = {
   agir: { label: 'Agir agora', icon: Zap, bar: 'bg-danger', icoBg: 'bg-danger-soft text-danger' },
@@ -38,8 +40,8 @@ function Origin({ it }: { it: Insight }) {
 function FocusCard({ it }: { it: Insight }) {
   const p = PRIORITY[it.priority]
   return (
-    <article className="relative overflow-hidden rounded-3xl bg-surface shadow-md ring-1 ring-border">
-      <span className={clsx('absolute inset-x-0 top-0 h-1.5', p.bar)} aria-hidden />
+    <article className="iso-card relative overflow-hidden bg-surface">
+      <span className={clsx('absolute inset-x-0 top-0 h-2', p.bar)} aria-hidden />
       <div className="p-6 md:p-8">
         <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted">
           <span className={clsx('inline-flex items-center gap-1 rounded-full px-2.5 py-1 normal-case tracking-normal', p.icoBg)}><p.icon size={13} />{p.label}</span>
@@ -48,7 +50,7 @@ function FocusCard({ it }: { it: Insight }) {
         <h3 className="mt-3 text-2xl font-bold leading-tight md:text-3xl">{PROBLEMS[it.id].question}</h3>
         <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted">{it.summary}</p>
         <div className="mt-6 flex flex-wrap items-center gap-4">
-          <Link to={`/prototipo/resolver/${it.id}`} className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/20 hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          <Link to={`/prototipo/resolver/${it.id}`} className="iso-btn inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-display text-base font-bold text-white hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
             Resolver agora <ArrowRight size={18} />
           </Link>
           <span className="text-sm text-muted">Veja os dados e escolha entre {PROBLEMS[it.id].solutions.length} soluções · ~1 min</span>
@@ -66,7 +68,7 @@ function QueueRow({ it, chosen }: { it: Insight; chosen?: string }) {
   return (
     <li>
       <Link to={`/prototipo/resolver/${it.id}`} className="group flex items-center gap-3 rounded-2xl bg-surface px-4 py-3 shadow-sm ring-1 ring-border hover:ring-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-        {sol ? <CheckCircle2 size={22} className="shrink-0 text-primary" /> : <span className={clsx('grid h-8 w-8 shrink-0 place-items-center rounded-lg', p.icoBg)}><p.icon size={16} /></span>}
+        {sol ? <IsoCube size={26} /> : <span className={clsx('grid h-8 w-8 shrink-0 place-items-center rounded-lg', p.icoBg)}><p.icon size={16} /></span>}
         <span className="min-w-0 flex-1">
           <span className={clsx('block truncate font-semibold', sol && 'text-muted line-through decoration-1')}>{PROBLEMS[it.id].question}</span>
           <span className="block truncate text-xs text-muted">{sol ? `Escolhido: ${sol.title}` : `${p.label}${it.field ? ` · ${it.field}` : ''}`}</span>
@@ -75,33 +77,6 @@ function QueueRow({ it, chosen }: { it: Insight; chosen?: string }) {
         <ArrowRight size={16} className="text-muted transition group-hover:translate-x-0.5" />
       </Link>
     </li>
-  )
-}
-
-/** Mini mapa estático (SVG) dos talhões, colorido pelo risco Zarc de hoje. */
-function MiniFarm() {
-  const pts = FIELDS.flatMap((f) => f.poly)
-  if (!pts.length) return <div className="grid h-full place-items-center bg-[#1d3527] text-sm text-white/70">Nenhum talhão desenhado</div>
-  const xs = pts.map((p) => p[0]); const ys = pts.map((p) => p[1])
-  const [minX, maxX, minY, maxY] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)]
-  const sx = (x: number) => 14 + ((x - minX) / (maxX - minX)) * 272
-  const sy = (y: number) => 14 + ((maxY - y) / (maxY - minY)) * 142
-  return (
-    <svg viewBox="0 0 300 170" className="h-full w-full" role="img" aria-label="Talhões coloridos pelo risco climático de hoje">
-      <rect width="300" height="170" fill="#1d3527" />
-      {FIELDS.map((f) => {
-        const d = f.poly.map((p, i) => `${i ? 'L' : 'M'}${sx(p[0])},${sy(p[1])}`).join(' ') + 'Z'
-        const cx = f.poly.reduce((a, p) => a + sx(p[0]), 0) / f.poly.length
-        const cy = f.poly.reduce((a, p) => a + sy(p[1]), 0) / f.poly.length
-        return (
-          <g key={f.id}>
-            <path d={d} fill={f.risk >= 40 ? '#C0392B' : f.risk >= 30 ? '#D69E2E' : '#2E7D4F'} fillOpacity={0.85} stroke="#fff" strokeWidth={1.5} />
-            <text x={cx} y={cy - 2} textAnchor="middle" fontSize="12" fontWeight={700} fill="#fff">{f.crop.split(' ')[0]}</text>
-            <text x={cx} y={cy + 12} textAnchor="middle" fontSize="11" fill="#ffffffdd">risco {f.risk}%</text>
-          </g>
-        )
-      })}
-    </svg>
   )
 }
 
@@ -119,7 +94,8 @@ export default function ForYou() {
   return (
     <div className="mx-auto max-w-6xl space-y-6">
       {/* 1. Saudação + de onde vem */}
-      <section className="rounded-3xl bg-sidebar px-6 py-6 text-white shadow-sm md:px-8">
+      <section className="iso-grid relative overflow-hidden rounded-3xl bg-sidebar px-6 py-6 text-white shadow-sm md:px-8">
+        <img src="/brand/agrobits-simbolo.png" alt="" className="pointer-events-none absolute -bottom-6 -right-4 hidden w-40 opacity-90 drop-shadow-[0_6px_0_rgba(0,0,0,.35)] md:block" />
         <p className="text-sm text-white/60">Sexta, 2 de outubro · {PRODUCER.farm}</p>
         <h1 className="mt-1 text-2xl font-bold leading-tight md:text-[2rem]">
           Bom dia, {PRODUCER.name}.{' '}
@@ -147,7 +123,7 @@ export default function ForYou() {
           </ol>
         )}
         {/* progresso do dia */}
-        <div className="mt-5 flex items-center gap-3">
+        <div className="mt-5 flex items-center gap-3 md:pr-36">
           <div className="flex flex-1 gap-1" aria-hidden>
             {INSIGHTS.map((i) => <span key={i.id} className={clsx('h-1.5 flex-1 rounded-full', resolved[i.id] ? 'bg-[#7fd6a0]' : 'bg-white/15')} />)}
           </div>
@@ -186,8 +162,8 @@ export default function ForYou() {
 
         {/* 3. Lateral: só o que se lê num relance */}
         <aside className="space-y-6">
-          <Link to="/prototipo/mapa" className="group block overflow-hidden rounded-2xl bg-surface shadow-sm ring-1 ring-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-            <div className="h-44"><MiniFarm /></div>
+          <Link to="/prototipo/mapa" className="iso-card group block overflow-hidden bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            <div className="bg-gradient-to-b from-mint-soft to-surface"><IsoFarm fields={FIELDS} height={190} className="w-full" /></div>
             <div className="flex items-center justify-between px-4 py-3">
               <span>
                 <span className="flex items-center gap-2 text-sm font-semibold"><Globe2 size={16} className="text-primary" /> Abrir mapa vivo</span>

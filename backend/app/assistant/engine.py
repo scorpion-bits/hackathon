@@ -21,7 +21,7 @@ from ..services import farmdata as fd
 from ..services import opendata as od
 from .tools import openai_tools, run_tool
 
-SYSTEM_PROMPT = """Você é o assistente do AgroIA, uma plataforma de gestão da propriedade rural para pequenos e médios produtores.
+SYSTEM_PROMPT = """Você é o assistente do AgroBits, uma plataforma de gestão da propriedade rural para pequenos e médios produtores.
 Hoje é {today}. Propriedade: {farm} ({municipality}). Safra atual: {season}.
 
 REGRAS:

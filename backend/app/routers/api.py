@@ -1,4 +1,4 @@
-"""API REST do AgroIA. Contrato resumido em docs/api.md (documentação interativa em /docs)."""
+"""API REST do AgroBits. Contrato resumido em docs/api.md (documentação interativa em /docs)."""
 from __future__ import annotations
 
 from datetime import date

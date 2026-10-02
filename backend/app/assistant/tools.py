@@ -11,7 +11,7 @@ from ..services import live
 from ..services.insights import compute_alerts, plan_planting
 from ..services.weather import forecast
 
-SYSTEM_SOURCE = {"key": "agroia", "name": "Registros da propriedade (AgroIA)", "agency": "declarado pelo produtor"}
+SYSTEM_SOURCE = {"key": "agroia", "name": "Registros da propriedade (AgroBits)", "agency": "declarado pelo produtor"}
 
 
 def _field_by_name(session: Session, farm_id: int, name_or_id) -> Field | None:

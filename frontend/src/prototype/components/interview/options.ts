@@ -121,7 +121,7 @@ export const GOALS: Opt[] = [
 ]
 
 export const CHANNELS: Opt[] = [
-  { id: 'app', label: 'No aplicativo', hint: 'Avisos dentro do AgroIA', icon: Smartphone },
+  { id: 'app', label: 'No aplicativo', hint: 'Avisos dentro do AgroBits', icon: Smartphone },
   { id: 'whatsapp', label: 'WhatsApp', hint: 'Mensagem curta no celular', icon: MessageCircle },
   { id: 'sms', label: 'SMS', hint: 'Funciona até sem internet', icon: MessageSquare },
 ]

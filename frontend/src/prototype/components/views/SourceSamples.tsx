@@ -60,7 +60,7 @@ function ZarcSample() {
         <pre className="overflow-x-auto rounded-lg bg-sidebar p-3 font-mono text-[11.5px] leading-5 text-white/85">{`Nome_cultura;SafraIni;SafraFin;Cod_Solo;geocodigo;UF;municipio;…;dec27;dec28;dec29;dec30;dec31
 Milho;2026;2027;AD6;3503208;SP;Araraquara;…;0;40;30;20;20`}</pre>
       </div>
-      <Note>Esta tabela tem 1 linha por <b>cultura × ciclo × solo × município</b>. O AgroIA lê só as linhas de Araraquara, das suas culturas e dos seus tipos de solo. Se você plantar fora da janela, pode perder acesso ao Proagro e à subvenção do seguro.</Note>
+      <Note>Esta tabela tem 1 linha por <b>cultura × ciclo × solo × município</b>. O AgroBits lê só as linhas de Araraquara, das suas culturas e dos seus tipos de solo. Se você plantar fora da janela, pode perder acesso ao Proagro e à subvenção do seguro.</Note>
       <Footer>Fonte: MAPA · Zoneamento Agrícola de Risco Climático · safra 2026/27 (957.490 linhas) · extraído em 02/10/2026.</Footer>
     </div>
   )
@@ -90,7 +90,7 @@ function AgrofitSample() {
         <Big value="243" label="culturas" />
         <Big value="1.472" label="pragas" />
       </div>
-      <Note>O AgroIA filtra por <b>soja, milho e feijão</b> (Soja: 2.286 e Milho: 1.707 registros) e dá prioridade a produtos de classe toxicológica 4–5. O nome “Magic” e o número do registro são de exemplo; o formato das colunas é o real.</Note>
+      <Note>O AgroBits filtra por <b>soja, milho e feijão</b> (Soja: 2.286 e Milho: 1.707 registros) e dá prioridade a produtos de classe toxicológica 4–5. O nome “Magic” e o número do registro são de exemplo; o formato das colunas é o real.</Note>
       <Footer>Fonte: MAPA · Agrofit (produtos formulados) · extraído em 02/10/2026. Os titulares do registro são empresas — não há dado pessoal.</Footer>
     </div>
   )
@@ -120,7 +120,7 @@ function SeguroSample() {
         <div><div className="text-xs font-medium text-primary-dark">Araraquara</div><div className="text-lg font-bold text-ink">menos de 3 apólices</div></div>
         <Badge tone="green"><EyeOff size={12} /> número escondido de propósito</Badge>
       </div>
-      <Note tone="privacy">O arquivo original traz <b>nome do segurado, CPF parcial e localização da propriedade</b>. Por isso o AgroIA só usa totais, e <b>grupos com menos de 3 registros são suprimidos</b> para ninguém ser identificado.</Note>
+      <Note tone="privacy">O arquivo original traz <b>nome do segurado, CPF parcial e localização da propriedade</b>. Por isso o AgroBits só usa totais, e <b>grupos com menos de 3 registros são suprimidos</b> para ninguém ser identificado.</Note>
       <Footer>Fonte: MAPA · Subvenção ao Prêmio do Seguro Rural (PSR/SISSER) · 2025 · agregado por município em 02/10/2026.</Footer>
     </div>
   )
@@ -151,7 +151,7 @@ function DronesSample() {
         </div>
         <div className="mt-1 text-[11px] text-muted">* 2026 parcial. Total no país: 6.257 drones e 2.527 aviões agrícolas ativos.</div>
       </div>
-      <Note tone="privacy">O cadastro original tem nome, e-mail e telefone de pessoas físicas. O AgroIA <b>guarda só a contagem por município</b> — você vê que existe serviço perto, mas não quem é.</Note>
+      <Note tone="privacy">O cadastro original tem nome, e-mail e telefone de pessoas físicas. O AgroBits <b>guarda só a contagem por município</b> — você vê que existe serviço perto, mas não quem é.</Note>
       <Footer>Fonte: MAPA · SIPEAGRO — Aviação Agrícola (registro e autorizações) · agregado por município em 02/10/2026.</Footer>
     </div>
   )
@@ -173,7 +173,7 @@ function ClimaSample() {
           </div>
         ))}
       </div>
-      <Note>Previsões mudam: quanto mais distante o dia, maior a margem de erro. O AgroIA avisa quando a chuva prevista passa de <b>50 mm em um dia</b> (limite do seu contexto.md).</Note>
+      <Note>Previsões mudam: quanto mais distante o dia, maior a margem de erro. O AgroBits avisa quando a chuva prevista passa de <b>50 mm em um dia</b> (limite do seu contexto.md).</Note>
       <Footer>Fonte: Open-Meteo (modelos globais) · 16 dias × 24 h na coordenada da sede · atualizado agora. Valores de exemplo.</Footer>
     </div>
   )

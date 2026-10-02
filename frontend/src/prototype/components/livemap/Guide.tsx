@@ -8,6 +8,7 @@ import { FIELDS, PRODUCER } from '../../mock'
 import { OriginTag } from '../Shell'
 import { DATA_LAYERS, RISK_COLOR, forecastAt, riskFor, shortDate, weekday, type DataLayer } from './layers'
 import { DarkSource, PANEL } from './Panels'
+import { IsoCube } from '../Brand'
 
 /** Ordem das perguntas: das mais úteis no dia a dia para as mais técnicas. */
 const ORDER = ['chuva', 'zarc', 'ndvi', 'umidade', 'temp', 'fogo', 'cor']
@@ -18,7 +19,7 @@ export type Place = 'farm' | 'brazil' | number
 function StepTitle({ n, children }: { n: number; children: ReactNode }) {
   return (
     <h2 className="flex items-center gap-2 text-[13px] font-bold text-white">
-      <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-emerald-400 text-[11px] font-extrabold text-ink">{n}</span>
+      <IsoCube size={26}>{n}</IsoCube>
       {children}
     </h2>
   )
