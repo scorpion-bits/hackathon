@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field as PField
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from ..auth import current_producer
 from ..db import get_session
 from ..models import AlertState, Event, Field, ProfileFact, Season, StockItem, StockMovement
 from ..services import farmdata as fd
@@ -16,7 +17,8 @@ from ..services import opendata as od
 from ..services.insights import compute_alerts, plan_planting
 from ..services.weather import forecast
 
-router = APIRouter(prefix="/api")
+# Toda rota enxerga só os dados da conta atual (auth.current_producer → session.info["producer_id"]).
+router = APIRouter(prefix="/api", dependencies=[Depends(current_producer)])
 DB = Depends(get_session)
 
 
@@ -24,12 +26,22 @@ def farm_or_404(session: Session):
     try:
         return fd.get_farm(session)
     except LookupError as exc:
-        raise HTTPException(503, str(exc)) from exc
+        raise HTTPException(404, str(exc)) from exc
+
+
+def owned(session: Session, obj) -> bool:
+    """O objeto pertence à conta atual? (talhão, evento, item, safra → fazenda; fato → produtor)"""
+    if hasattr(obj, "farm_id"):
+        farm = fd.find_farm(session)
+        return farm is not None and obj.farm_id == farm.id
+    if hasattr(obj, "producer_id"):
+        return obj.producer_id == session.info.get("producer_id")
+    return True
 
 
 def get_or_404(session: Session, model, obj_id: int):
     obj = session.get(model, obj_id)
-    if obj is None:
+    if obj is None or not owned(session, obj):
         raise HTTPException(404, f"{model.__name__} {obj_id} não encontrado")
     return obj
 
@@ -37,7 +49,9 @@ def get_or_404(session: Session, model, obj_id: int):
 # ---------------- propriedade / painel ----------------
 @router.get("/farm")
 def get_farm(session: Session = DB):
-    farm = farm_or_404(session)
+    farm = fd.find_farm(session)
+    if farm is None:
+        return None  # conta nova, ainda sem propriedade
     season = fd.current_season(session, farm.id)
     seasons = session.scalars(select(Season).where(Season.farm_id == farm.id).order_by(Season.start)).all()
     return {
@@ -301,7 +315,7 @@ def create_movement(item_id: int, body: MovementIn, session: Session = DB):
 @router.get("/reports/costs")
 def report_costs(season_id: int | None = None, session: Session = DB):
     farm = farm_or_404(session)
-    season = session.get(Season, season_id) if season_id else fd.current_season(session, farm.id)
+    season = get_or_404(session, Season, season_id) if season_id else fd.current_season(session, farm.id)
     return fd.costs_report(session, farm, season)
 
 

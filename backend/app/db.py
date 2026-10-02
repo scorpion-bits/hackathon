@@ -19,6 +19,24 @@ class Base(DeclarativeBase):
     pass
 
 
+# Aumente quando mudar tabelas: os scripts de subir recriam o app.db sozinhos (seed_demo.py --if-needed).
+SCHEMA_VERSION = 2
+
+
+def schema_version() -> int:
+    with engine.connect() as con:
+        return con.exec_driver_sql("PRAGMA user_version").scalar() or 0
+
+
+def set_schema_version() -> None:
+    with engine.begin() as con:
+        con.exec_driver_sql(f"PRAGMA user_version = {SCHEMA_VERSION}")
+
+
+def schema_outdated() -> bool:
+    return not APP_DB.exists() or schema_version() != SCHEMA_VERSION
+
+
 def get_session():
     session = SessionLocal()
     try:

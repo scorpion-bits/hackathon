@@ -10,9 +10,12 @@ if [ "${SYNC:-0}" = "1" ]; then
   echo "▶ Conferindo dados abertos no portal do MAPA"
   python scripts/fetch_opendata.py || echo "  (portal indisponível — seguindo com os dados locais)"
 fi
-if [ "${RESET:-0}" = "1" ] || [ ! -f data/app.db ]; then
-  echo "▶ Criando propriedade de demonstração (data/app.db)"
+if [ "${RESET:-0}" = "1" ]; then
+  echo "▶ Recriando contas de demonstração (data/app.db)"
   python scripts/seed_demo.py
+else
+  # recria sozinho se o banco não existe ou o esquema mudou (SCHEMA_VERSION em backend/app/db.py)
+  python scripts/seed_demo.py --if-needed
 fi
 cd backend
 exec uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app/backend

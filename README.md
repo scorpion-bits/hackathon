@@ -22,6 +22,11 @@ propriedade) **não são publicadas** neste repositório (`data/restricted/`, fo
 **agregadas por município**, com supressão de grupos com menos de 3 registros.
 O produtor da demonstração (João, Sítio Boa Esperança) é **fictício** e rotulado como tal na interface.
 
+**Contas (M1):** tela `/prototipo/entrar` → criar conta (senha com hash), entrar, **"Entrar como João (demo)"**
+(volta sempre ao estado inicial; também dá para entrar com `joao@demo.agrobits` / `demo1234`) ou
+**"Experimentar como novo usuário"** (conta vazia). Os dados do João ficam em `backend/app/fixtures/demo/joao.json`.
+Se o esquema do banco mudar, os scripts de subir recriam o `data/app.db` sozinhos.
+
 ## Jeito mais fácil (Docker) — Windows ou Linux
 Requisito: **Docker Desktop** aberto (Windows/Mac) ou Docker Engine + Compose (Linux). Não precisa Python nem Node.
 
@@ -70,7 +75,7 @@ Passo a passo manual:
 pip install -r backend/requirements.txt
 python scripts/pipeline_opendata.py
 
-# 2) propriedade de demonstração → data/app.db  (rode de novo para "resetar" a demo)
+# 2) contas de demonstração → data/app.db  (sem opção: recria sempre; --if-needed: só se o esquema mudou)
 python scripts/seed_demo.py
 
 # 3) API  (http://localhost:8000/docs)

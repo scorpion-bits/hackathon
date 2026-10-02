@@ -104,9 +104,12 @@ if [[ $PROTO -eq 0 ]]; then
     python scripts/fetch_opendata.py || echo "  (portal indisponível — seguindo com os dados locais)"
   fi
 
-  if [[ $RESET -eq 1 || ! -f data/app.db ]]; then
-    say "Criando propriedade de demonstração (data/app.db)"
+  if [[ $RESET -eq 1 ]]; then
+    say "Recriando contas de demonstração (data/app.db)"
     python scripts/seed_demo.py
+  else
+    # recria sozinho se o banco não existe ou o esquema mudou (SCHEMA_VERSION em backend/app/db.py)
+    python scripts/seed_demo.py --if-needed
   fi
 
   [[ -f .env ]] && { set -a; source .env; set +a; }

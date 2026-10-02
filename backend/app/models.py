@@ -13,6 +13,53 @@ class Producer(Base):
     name: Mapped[str] = mapped_column(String(120))
     is_demo: Mapped[bool] = mapped_column(default=True)
     phone_pref: Mapped[str | None] = mapped_column(String(40))
+    contact: Mapped[str | None] = mapped_column(String(160), unique=True)  # e-mail ou celular (login)
+    password_hash: Mapped[str | None] = mapped_column(String(200))  # "salt$hash" (pbkdf2-sha256)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+
+
+class AuthToken(Base):
+    __tablename__ = "auth_token"
+    token: Mapped[str] = mapped_column(String(64), primary_key=True)
+    producer_id: Mapped[int] = mapped_column(ForeignKey("producer.id"))
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+
+
+class Interview(Base):
+    """Respostas da entrevista (formato do front: types.ts → Answers)."""
+    __tablename__ = "interview"
+    producer_id: Mapped[int] = mapped_column(ForeignKey("producer.id"), primary_key=True)
+    answers: Mapped[dict] = mapped_column(JSON, default=dict)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now, onupdate=datetime.now)
+
+
+class Case(Base):
+    """Caso enviado à assistência técnica pública (D-015). Resposta do técnico é simulada e rotulada (D-019)."""
+    __tablename__ = "case"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    producer_id: Mapped[int] = mapped_column(ForeignKey("producer.id"))
+    protocol: Mapped[str] = mapped_column(String(20), unique=True)
+    topic_key: Mapped[str] = mapped_column(String(80))
+    field_id: Mapped[int | None] = mapped_column(ForeignKey("field.id"))
+    expert_id: Mapped[str] = mapped_column(String(40))
+    channel: Mapped[str] = mapped_column(String(40))
+    path: Mapped[str | None] = mapped_column(String(80))  # caminho escolhido pelo produtor
+    note: Mapped[str | None] = mapped_column(Text)
+    snapshot: Mapped[dict] = mapped_column(JSON, default=dict)  # dados mostrados ao produtor no envio
+    consent_at: Mapped[datetime | None] = mapped_column(DateTime)
+    status: Mapped[str] = mapped_column(String(20), default="enviado")  # enviado|respondido|encerrado
+    reply: Mapped[str | None] = mapped_column(Text)
+    reply_is_example: Mapped[bool] = mapped_column(default=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+
+
+class TopicState(Base):
+    """Escolha do produtor em cada assunto do início guiado."""
+    __tablename__ = "topic_state"
+    producer_id: Mapped[int] = mapped_column(ForeignKey("producer.id"), primary_key=True)
+    topic_key: Mapped[str] = mapped_column(String(80), primary_key=True)
+    choice: Mapped[str | None] = mapped_column(String(80))
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now, onupdate=datetime.now)
 
 
 class Farm(Base):
@@ -122,6 +169,7 @@ class ProfileFact(Base):
 class ChatMessage(Base):
     __tablename__ = "chat_message"
     id: Mapped[int] = mapped_column(primary_key=True)
+    producer_id: Mapped[int | None] = mapped_column(ForeignKey("producer.id"))
     role: Mapped[str] = mapped_column(String(10))
     content: Mapped[str] = mapped_column(Text)
     sources: Mapped[list] = mapped_column(JSON, default=list)

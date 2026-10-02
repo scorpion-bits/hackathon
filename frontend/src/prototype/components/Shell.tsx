@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { Bot, Database, FileText, Globe2, Home, Inbox, LogOut, Sprout } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { PRODUCER } from '../mock'
+import { logout, useMe } from '../api/session'
 import { Logo } from './Brand'
 
 const NAV = [
@@ -25,11 +25,26 @@ export function ProtoBanner() {
   )
 }
 
+/** Selo das contas de demonstração (D-022): dados de conta fictícios. */
+export function DemoSeal({ className }: { className?: string }) {
+  return <span className={clsx('inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-accent/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white', className)}>conta de demonstração</span>
+}
+
 export function Shell({ children, full }: { children: ReactNode; full?: boolean }) {
   const nav = useNavigate()
+  const { me } = useMe()
+  const exit = () => { logout().finally(() => nav('/prototipo/entrar')) }
+  const firstName = me?.producer.name.split(/\s+/)[0]
   return (
     <div className="flex h-full flex-col">
       <ProtoBanner />
+      {me && (
+        // celular: conta + Sair (a barra lateral some em telas pequenas)
+        <div className="flex items-center justify-between gap-2 bg-sidebar px-4 py-1.5 text-xs text-white/80 md:hidden">
+          <span className="flex min-w-0 items-center gap-2"><span className="truncate">{me.producer.name}</span>{me.producer.is_demo && <DemoSeal />}</span>
+          <button onClick={exit} className="flex shrink-0 items-center gap-1 rounded px-2 py-1 hover:bg-white/10"><LogOut size={14} /> Sair</button>
+        </div>
+      )}
       <div className="flex min-h-0 flex-1">
         <aside className="iso-grid hidden w-64 shrink-0 flex-col bg-sidebar p-4 md:flex">
           <div className="mb-6 px-1">
@@ -49,8 +64,9 @@ export function Shell({ children, full }: { children: ReactNode; full?: boolean 
               <div className="mt-1 text-sm font-semibold text-white">7 fontes oficiais</div>
               <div className="text-[11px] text-white/60">última varredura: hoje, 06:00</div>
             </div>
-            <button onClick={() => nav('/prototipo/entrar')} className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-white/60 hover:bg-white/5 hover:text-white">
-              <LogOut size={16} /> Sair ({PRODUCER.name})
+            {me?.producer.is_demo && <DemoSeal className="ml-3" />}
+            <button onClick={exit} className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-white/60 hover:bg-white/5 hover:text-white">
+              <LogOut size={16} /> {me ? `Sair (${firstName})` : 'Entrar'}
             </button>
           </div>
         </aside>

@@ -1,11 +1,15 @@
-// LOGIN / CRIAR CONTA (protótipo visual, D-009). Só visual: validação simples no front, sem backend.
-// Rota: /prototipo/entrar → "Entrar" vai para /prototipo; "Criar conta" vai para /prototipo/entrevista.
+// LOGIN / CRIAR CONTA (M1, D-018). Chama a API de contas: /api/auth/register, /login, /demo.
+// Rota: /prototipo/entrar → sem entrevista vai para /prototipo/entrevista; com entrevista vai para /prototipo.
 import clsx from 'clsx'
-import { ArrowRight, Check, Eye, EyeOff, Filter, Info, Lock, LoaderCircle, Mail, MessageCircle, ShieldCheck, Sprout, UserRound } from 'lucide-react'
+import { ArrowRight, Check, Eye, EyeOff, Filter, Info, Lock, LoaderCircle, Mail, MessageCircle, ShieldCheck, Sparkles, Sprout, UserRound, WifiOff } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import type { InputHTMLAttributes, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
+import type { NavigateFunction } from 'react-router-dom'
+import { ApiError, apiPost } from '../api/client'
+import { signIn } from '../api/session'
+import type { Me } from '../api/session'
 import { ProtoStyles } from '../components/interview/ui'
 import { ProtoBanner } from '../components/Shell'
 import { FUNNEL, PRODUCER } from '../mock'
@@ -49,17 +53,37 @@ function SubmitButton({ busy, children }: { busy: boolean; children: ReactNode }
   )
 }
 
-/** Hook: executa `fn` após um pequeno atraso simulando a chamada ao servidor, com limpeza ao desmontar. */
-function useFakeRequest() {
+/** Hook: roda uma chamada à API com "aguarde"; devolve o erro (ApiError) para a tela mostrar. */
+function useApiRequest() {
   const [busy, setBusy] = useState(false)
-  const t = useRef<number | undefined>(undefined)
-  useEffect(() => () => window.clearTimeout(t.current), [])
-  return { busy, run: (fn: () => void) => { setBusy(true); t.current = window.setTimeout(fn, 700) } }
+  return {
+    busy,
+    run: async (fn: () => Promise<void>): Promise<ApiError | null> => {
+      setBusy(true)
+      try { await fn(); return null } catch (e) { return e instanceof ApiError ? e : new ApiError(0, String(e)) } finally { setBusy(false) }
+    },
+  }
+}
+
+/** Depois de entrar: sem entrevista → entrevista; com entrevista → início. */
+function goAfterLogin(nav: NavigateFunction, me: Me, name?: string) {
+  if (me.has_interview) nav('/prototipo')
+  else nav('/prototipo/entrevista', { state: { name: name ?? (me.producer.name === 'Visitante' ? undefined : me.producer.name) } })
+}
+
+function OfflineNote({ msg }: { msg?: string }) {
+  if (!msg) return null
+  return (
+    <div role="alert" className="flex items-start gap-2 rounded-xl border border-danger/30 bg-danger-soft p-3 text-sm font-medium text-danger">
+      <WifiOff size={16} className="mt-0.5 shrink-0" /><span>{msg}</span>
+    </div>
+  )
 }
 
 function LoginForm() {
   const nav = useNavigate()
-  const { busy, run } = useFakeRequest()
+  const { busy, run } = useApiRequest()
+  const [formError, setFormError] = useState<string>()
   const [ident, setIdent] = useState('')
   const [pass, setPass] = useState('')
   const [show, setShow] = useState(false)
@@ -74,8 +98,16 @@ function LoginForm() {
     else if (!looksLikeContact(ident)) er.ident = 'Digite um e-mail válido ou um celular com DDD.'
     if (!pass) er.pass = 'Digite sua senha.'
     setErrors(er)
+    setFormError(undefined)
     if (Object.keys(er).length) return
-    run(() => nav('/prototipo'))
+    run(async () => {
+      const { token } = await apiPost<{ token: string }>('/auth/login', { contact: ident.trim(), password: pass })
+      goAfterLogin(nav, await signIn(token))
+    }).then((err) => {
+      if (!err) return
+      if (err.status === 401) setErrors({ pass: err.message })
+      else setFormError(err.message)
+    })
   }
 
   return (
@@ -93,9 +125,10 @@ function LoginForm() {
       {forgot && (
         <div className="flex items-start gap-2 rounded-xl border border-info/20 bg-info-soft p-3 text-xs leading-relaxed text-info animate-[proto-up_.2s_ease-out]">
           <Info size={15} className="mt-0.5 shrink-0" />
-          <span>No protótipo nada é enviado. Na versão final mandamos um link de recuperação para o seu e-mail ou um código por SMS.</span>
+          <span>A recuperação de senha ainda não existe nesta versão. Na versão final mandamos um link para o seu e-mail ou um código por SMS.</span>
         </div>
       )}
+      <OfflineNote msg={formError} />
       <SubmitButton busy={busy}>Entrar</SubmitButton>
     </form>
   )
@@ -103,7 +136,8 @@ function LoginForm() {
 
 function SignupForm() {
   const nav = useNavigate()
-  const { busy, run } = useFakeRequest()
+  const { busy, run } = useApiRequest()
+  const [formError, setFormError] = useState<string>()
   const [name, setName] = useState('')
   const [contact, setContact] = useState('')
   const [pass, setPass] = useState('')
@@ -125,8 +159,16 @@ function SignupForm() {
     else if (confirm !== pass) er.confirm = 'As senhas não são iguais.'
     if (!consent) er.consent = 'Para continuar, é preciso concordar com o uso dos dados.'
     setErrors(er)
+    setFormError(undefined)
     if (Object.keys(er).length) return
-    run(() => nav('/prototipo/entrevista', { state: { name: name.trim() } }))
+    run(async () => {
+      const { token } = await apiPost<{ token: string }>('/auth/register', { name: name.trim(), contact: contact.trim(), password: pass })
+      goAfterLogin(nav, await signIn(token), name.trim())
+    }).then((err) => {
+      if (!err) return
+      if (err.status === 409) setErrors({ contact: err.message })
+      else setFormError(err.message)
+    })
   }
 
   return (
@@ -157,6 +199,7 @@ function SignupForm() {
         {errors.consent && <p id="s-consent-err" role="alert" className="mt-1.5 text-xs font-medium text-danger">{errors.consent}</p>}
       </div>
 
+      <OfflineNote msg={formError} />
       <SubmitButton busy={busy}>Criar conta e começar entrevista</SubmitButton>
     </form>
   )
@@ -231,8 +274,40 @@ function Pitch() {
   )
 }
 
-export default function Login() {
+function DemoButtons() {
   const nav = useNavigate()
+  const { busy, run } = useApiRequest()
+  const [which, setWhich] = useState<'existente' | 'nova'>()
+  const [error, setError] = useState<string>()
+  const start = (scenario: 'existente' | 'nova') => {
+    setWhich(scenario)
+    setError(undefined)
+    run(async () => {
+      const { token } = await apiPost<{ token: string }>('/auth/demo', { scenario })
+      goAfterLogin(nav, await signIn(token))
+    }).then((err) => err && setError(err.message))
+  }
+  const spin = (s: 'existente' | 'nova') => busy && which === s ? <LoaderCircle size={16} className="-mt-0.5 mr-1.5 inline animate-spin" /> : null
+  return (
+    <div className="space-y-2">
+      <p className="text-xs font-semibold uppercase tracking-wide text-muted">Só quer ver como funciona?</p>
+      <div className="grid gap-2 sm:grid-cols-2">
+        <button type="button" disabled={busy} onClick={() => start('existente')} className="rounded-xl border-2 border-primary/30 bg-primary-soft/50 px-3 py-2.5 text-sm font-semibold leading-snug text-primary-dark transition hover:bg-primary-soft disabled:opacity-70">
+          {spin('existente') ?? <Sprout size={16} className="-mt-0.5 mr-1.5 inline" />}Entrar como {PRODUCER.name} (demo)
+        </button>
+        <button type="button" disabled={busy} onClick={() => start('nova')} className="rounded-xl border-2 border-border bg-surface px-3 py-2.5 text-sm font-semibold leading-snug text-ink transition hover:bg-bg disabled:opacity-70">
+          {spin('nova') ?? <Sparkles size={16} className="-mt-0.5 mr-1.5 inline" />}Experimentar como novo usuário
+        </button>
+      </div>
+      <p className="text-[11px] leading-snug text-muted">
+        Conta de demonstração (dados fictícios; volta ao início a cada entrada): <b className="font-mono">joao@demo.agrobits</b> · senha <b className="font-mono">demo1234</b>
+      </p>
+      <OfflineNote msg={error} />
+    </div>
+  )
+}
+
+export default function Login() {
   const [tab, setTab] = useState<Tab>('entrar')
   const tabs: { id: Tab; label: string }[] = [{ id: 'entrar', label: 'Entrar' }, { id: 'criar', label: 'Criar conta' }]
 
@@ -266,10 +341,8 @@ export default function Login() {
             </div>
 
             <div className="mt-6 border-t border-border pt-5 text-center">
-              <button type="button" onClick={() => nav('/prototipo')} className="rounded-lg px-3 py-2 text-center text-sm font-medium leading-snug text-primary-dark transition hover:bg-primary-soft">
-                <Sprout size={16} className="-mt-0.5 mr-1.5 inline" />Só quer ver como funciona? Entrar como {PRODUCER.name} (demonstração)
-              </button>
-              <p className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-muted"><Check size={12} /> Protótipo visual: nada do que você digitar é enviado ou salvo.</p>
+              <DemoButtons />
+              <p className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-muted"><Check size={12} /> Senha guardada só como hash. Não use uma senha que você usa em outro lugar.</p>
             </div>
           </div>
         </section>

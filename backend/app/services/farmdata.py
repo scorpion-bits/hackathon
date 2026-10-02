@@ -8,17 +8,29 @@ from datetime import date
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from ..models import Event, Farm, Field, Season, StockItem, StockMovement
+from ..models import Event, Farm, Field, Producer, Season, StockItem, StockMovement
 
 
 def today() -> date:
     return date.today()
 
 
-def get_farm(session: Session) -> Farm:
-    farm = session.scalars(select(Farm).limit(1)).first()
+def find_farm(session: Session, producer: Producer | None = None) -> Farm | None:
+    """Fazenda da conta atual (`producer`, ou o id posto em session.info por auth.current_producer)."""
+    producer_id = producer.id if producer else session.info.get("producer_id")
+    if producer_id is None:
+        from ..auth import default_producer
+        p = default_producer(session)
+        producer_id = p.id if p else None
+    if producer_id is None:
+        return None
+    return session.scalars(select(Farm).where(Farm.producer_id == producer_id).order_by(Farm.id).limit(1)).first()
+
+
+def get_farm(session: Session, producer: Producer | None = None) -> Farm:
+    farm = find_farm(session, producer)
     if farm is None:
-        raise LookupError("Nenhuma propriedade cadastrada — rode scripts/seed_demo.py")
+        raise LookupError("Esta conta ainda não tem propriedade cadastrada")
     return farm
 
 

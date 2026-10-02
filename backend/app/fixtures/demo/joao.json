@@ -1,0 +1,685 @@
+{
+ "_about": "Conta de demonstração do João (FICTÍCIA, D-022). Só dados de conta: nada de fonte aberta aqui (risco do Zarc, chuva etc. vêm sempre da fonte). Defensivos usam nomes/registros reais do Agrofit; quantidades, preços e fornecedores são fictícios. Polígonos iguais a frontend/src/prototype/mock.ts.",
+ "producer": {
+  "name": "João da Silva (fictício)",
+  "contact": "joao@demo.agrobits",
+  "password": "demo1234",
+  "phone_pref": "WhatsApp"
+ },
+ "farm": {
+  "name": "Sítio Boa Esperança",
+  "geocode": "3503208",
+  "municipality": "Araraquara",
+  "uf": "SP",
+  "lat": -21.832,
+  "lon": -48.236,
+  "total_area_ha": 14.0
+ },
+ "fields": [
+  {
+   "key": "t1",
+   "name": "Talhão 1",
+   "crop": "Soja",
+   "soil": "argiloso",
+   "irrigated": false,
+   "color": "#2E7D4F",
+   "seed_rate_kg_ha": 55,
+   "notes": "Área mais plana, perto da estrada.",
+   "ring": [
+    [
+     -48.2385,
+     -21.8316
+    ],
+    [
+     -48.236,
+     -21.8316
+    ],
+    [
+     -48.2359,
+     -21.8297
+    ],
+    [
+     -48.2384,
+     -21.8296
+    ],
+    [
+     -48.2385,
+     -21.8316
+    ]
+   ]
+  },
+  {
+   "key": "t2",
+   "name": "Talhão 2",
+   "crop": "Milho 1ª Safra",
+   "soil": "argiloso",
+   "irrigated": false,
+   "color": "#B7791F",
+   "seed_rate_kg_ha": 20,
+   "notes": "Leve declive para o córrego.",
+   "ring": [
+    [
+     -48.2358,
+     -21.8316
+    ],
+    [
+     -48.2339,
+     -21.8315
+    ],
+    [
+     -48.2339,
+     -21.8301
+    ],
+    [
+     -48.2358,
+     -21.8302
+    ],
+    [
+     -48.2358,
+     -21.8316
+    ]
+   ]
+  },
+  {
+   "key": "t3",
+   "name": "Talhão 3",
+   "crop": "Feijão",
+   "soil": "medio",
+   "irrigated": true,
+   "color": "#3B82A6",
+   "seed_rate_kg_ha": 60,
+   "notes": "Irrigado por aspersão.",
+   "ring": [
+    [
+     -48.2372,
+     -21.8335
+    ],
+    [
+     -48.2356,
+     -21.8335
+    ],
+    [
+     -48.2356,
+     -21.8324
+    ],
+    [
+     -48.2372,
+     -21.8324
+    ],
+    [
+     -48.2372,
+     -21.8335
+    ]
+   ]
+  }
+ ],
+ "seasons": [
+  {
+   "key": "s25",
+   "name": "2025/26",
+   "start": "2025-07-01",
+   "end": "2026-06-30"
+  },
+  {
+   "key": "s26",
+   "name": "2026/27",
+   "start": "2026-07-01",
+   "end": "2027-06-30"
+  }
+ ],
+ "supplier": "Cooperativa Regional (fictícia)",
+ "stock": [
+  {
+   "key": "soja_sem",
+   "name": "Semente de soja",
+   "category": "semente",
+   "unit": "kg",
+   "crop": "Soja"
+  },
+  {
+   "key": "milho2_sem",
+   "name": "Semente de milho (safrinha)",
+   "category": "semente",
+   "unit": "kg",
+   "crop": "Milho"
+  },
+  {
+   "key": "milho_sem",
+   "name": "Semente de milho (verão)",
+   "category": "semente",
+   "unit": "kg",
+   "crop": "Milho"
+  },
+  {
+   "key": "feijao_sem",
+   "name": "Semente de feijão",
+   "category": "semente",
+   "unit": "kg",
+   "crop": "Feijão"
+  },
+  {
+   "key": "npk",
+   "name": "Adubo NPK 04-14-08",
+   "category": "fertilizante",
+   "unit": "kg",
+   "min_quantity": 300
+  },
+  {
+   "key": "ureia",
+   "name": "Ureia",
+   "category": "fertilizante",
+   "unit": "kg",
+   "min_quantity": 100
+  },
+  {
+   "key": "glufos",
+   "name": "Glufos Bestar (herbicida)",
+   "category": "defensivo",
+   "unit": "L",
+   "min_quantity": 5,
+   "expiry_date": "2027-05-30",
+   "agrofit_registration": "00225"
+  },
+  {
+   "key": "elestal",
+   "name": "Elestal Neo (inseticida)",
+   "category": "defensivo",
+   "unit": "L",
+   "min_quantity": 1,
+   "expiry_date": "2027-02-15",
+   "agrofit_registration": "00123"
+  },
+  {
+   "key": "magic",
+   "name": "Magic (fungicida)",
+   "category": "defensivo",
+   "unit": "L",
+   "min_quantity": 1,
+   "expiry_date": "2026-10-12",
+   "agrofit_registration": "00218"
+  },
+  {
+   "key": "diesel",
+   "name": "Óleo diesel",
+   "category": "combustivel",
+   "unit": "L",
+   "min_quantity": 250
+  }
+ ],
+ "history": [
+  {
+   "op": "buy",
+   "item": "soja_sem",
+   "qty": 300,
+   "price": 9.5,
+   "date": "2025-10-05",
+   "season": "s25"
+  },
+  {
+   "op": "buy",
+   "item": "npk",
+   "qty": 2000,
+   "price": 2.9,
+   "date": "2025-10-20",
+   "season": "s25"
+  },
+  {
+   "op": "buy",
+   "item": "glufos",
+   "qty": 20,
+   "price": 42.0,
+   "date": "2025-10-20",
+   "season": "s25"
+  },
+  {
+   "op": "buy",
+   "item": "diesel",
+   "qty": 600,
+   "price": 5.85,
+   "date": "2025-10-25",
+   "season": "s25"
+  },
+  {
+   "op": "event",
+   "type": "plantio",
+   "date": "2025-11-03",
+   "field": "t1",
+   "season": "s25",
+   "title": "Plantio · Soja · Talhão 1",
+   "details": {
+    "crop": "Soja"
+   },
+   "uses": [
+    [
+     "soja_sem",
+     290
+    ],
+    [
+     "npk",
+     1500
+    ],
+    [
+     "diesel",
+     180
+    ]
+   ]
+  },
+  {
+   "op": "event",
+   "type": "aplicacao",
+   "date": "2025-12-10",
+   "field": "t1",
+   "season": "s25",
+   "title": "Aplicação · Glufos Bestar · Talhão 1",
+   "uses": [
+    [
+     "glufos",
+     8
+    ]
+   ]
+  },
+  {
+   "op": "buy",
+   "item": "ureia",
+   "qty": 600,
+   "price": 3.4,
+   "date": "2026-01-15",
+   "season": "s25"
+  },
+  {
+   "op": "buy",
+   "item": "milho2_sem",
+   "qty": 64,
+   "price": 38.0,
+   "date": "2026-02-20",
+   "season": "s25"
+  },
+  {
+   "op": "buy",
+   "item": "elestal",
+   "qty": 4,
+   "price": 118.0,
+   "date": "2026-02-20",
+   "season": "s25"
+  },
+  {
+   "op": "event",
+   "type": "colheita",
+   "date": "2026-03-05",
+   "field": "t1",
+   "season": "s25",
+   "title": "Colheita · Soja · Talhão 1",
+   "details": {
+    "crop": "Soja",
+    "harvested_qty": 300,
+    "harvested_unit": "sc 60 kg"
+   },
+   "uses": [
+    [
+     "diesel",
+     150
+    ]
+   ]
+  },
+  {
+   "op": "event",
+   "type": "plantio",
+   "date": "2026-03-08",
+   "field": "t2",
+   "season": "s25",
+   "title": "Plantio · Milho 2ª Safra · Talhão 2",
+   "details": {
+    "crop": "Milho 2ª Safra"
+   },
+   "uses": [
+    [
+     "milho2_sem",
+     64
+    ],
+    [
+     "ureia",
+     300
+    ],
+    [
+     "diesel",
+     90
+    ]
+   ]
+  },
+  {
+   "op": "event",
+   "type": "aplicacao",
+   "date": "2026-04-02",
+   "field": "t2",
+   "season": "s25",
+   "title": "Aplicação · Elestal Neo · Talhão 2",
+   "uses": [
+    [
+     "elestal",
+     2
+    ]
+   ]
+  },
+  {
+   "op": "event",
+   "type": "colheita",
+   "date": "2026-07-20",
+   "field": "t2",
+   "season": "s25",
+   "title": "Colheita · Milho 2ª Safra · Talhão 2",
+   "details": {
+    "crop": "Milho 2ª Safra",
+    "harvested_qty": 165,
+    "harvested_unit": "sc 60 kg"
+   },
+   "uses": [
+    [
+     "diesel",
+     80
+    ]
+   ]
+  },
+  {
+   "op": "buy",
+   "item": "feijao_sem",
+   "qty": 150,
+   "price": 14.0,
+   "date": "2026-08-05",
+   "season": "s26"
+  },
+  {
+   "op": "buy",
+   "item": "diesel",
+   "qty": 300,
+   "price": 6.1,
+   "date": "2026-08-05",
+   "season": "s26"
+  },
+  {
+   "op": "event",
+   "type": "plantio",
+   "date": "2026-08-12",
+   "field": "t3",
+   "season": "s26",
+   "title": "Plantio · Feijão (irrigado) · Talhão 3",
+   "details": {
+    "crop": "Feijão"
+   },
+   "uses": [
+    [
+     "feijao_sem",
+     128
+    ],
+    [
+     "npk",
+     350
+    ],
+    [
+     "diesel",
+     60
+    ]
+   ]
+  },
+  {
+   "op": "buy",
+   "item": "magic",
+   "qty": 5,
+   "price": 96.0,
+   "date": "2026-08-25",
+   "season": "s26"
+  },
+  {
+   "op": "event",
+   "type": "aplicacao",
+   "date": "2026-08-30",
+   "field": "t3",
+   "season": "s26",
+   "title": "Aplicação · Magic · Talhão 3",
+   "uses": [
+    [
+     "magic",
+     1.5
+    ]
+   ]
+  },
+  {
+   "op": "buy",
+   "item": "milho_sem",
+   "qty": 40,
+   "price": 39.0,
+   "date": "2026-09-10",
+   "season": "s26"
+  },
+  {
+   "op": "buy",
+   "item": "npk",
+   "qty": 1000,
+   "price": 3.05,
+   "date": "2026-09-15",
+   "season": "s26"
+  },
+  {
+   "op": "buy",
+   "item": "ureia",
+   "qty": 500,
+   "price": 3.5,
+   "date": "2026-09-15",
+   "season": "s26"
+  },
+  {
+   "op": "event",
+   "type": "outro",
+   "date": "2026-09-20",
+   "field": "t2",
+   "season": "s26",
+   "title": "Preparo do solo · Talhão 2",
+   "uses": [
+    [
+     "diesel",
+     120
+    ]
+   ]
+  },
+  {
+   "op": "event",
+   "type": "observacao",
+   "date": "2026-09-25",
+   "field": "t3",
+   "season": "s26",
+   "title": "Observação · Talhão 3",
+   "details": {
+    "text": "Feijão com bom desenvolvimento; algumas folhas com manchas no canto norte."
+   }
+  }
+ ],
+ "facts": [
+  [
+   "Nome",
+   "João da Silva (personagem fictício de demonstração)",
+   "declarado"
+  ],
+  [
+   "Localização",
+   "Araraquara/SP — zona rural",
+   "declarado"
+  ],
+  [
+   "Área total",
+   "14 ha (3 talhões cadastrados)",
+   "registro"
+  ],
+  [
+   "Culturas",
+   "Soja, milho e feijão irrigado",
+   "registro"
+  ],
+  [
+   "Irrigação",
+   "Aspersão no Talhão 3",
+   "declarado"
+  ],
+  [
+   "Maquinário",
+   "Trator 75 cv, plantadeira 4 linhas, pulverizador de barra 600 L",
+   "declarado"
+  ],
+  [
+   "Objetivos",
+   "Reduzir perdas por clima e saber o custo de cada talhão",
+   "declarado"
+  ],
+  [
+   "Preferência",
+   "Explicações simples, sem termos técnicos",
+   "declarado"
+  ]
+ ],
+ "interview": {
+  "profile": "familiar",
+  "municipality": {
+   "name": "Araraquara",
+   "uf": "SP",
+   "ibge": "3503208",
+   "lat": -21.7945,
+   "lon": -48.1756
+  },
+  "fields": [
+   {
+    "id": 1,
+    "name": "Talhão 1",
+    "areaHa": 5.61,
+    "color": "#2E7D4F",
+    "crop": "soja",
+    "soil": "argiloso",
+    "irrigation": "nao",
+    "ring": [
+     [
+      -48.2385,
+      -21.8316
+     ],
+     [
+      -48.236,
+      -21.8316
+     ],
+     [
+      -48.2359,
+      -21.8297
+     ],
+     [
+      -48.2384,
+      -21.8296
+     ],
+     [
+      -48.2385,
+      -21.8316
+     ]
+    ]
+   },
+   {
+    "id": 2,
+    "name": "Talhão 2",
+    "areaHa": 3.06,
+    "color": "#B7791F",
+    "crop": "milho",
+    "soil": "argiloso",
+    "irrigation": "nao",
+    "ring": [
+     [
+      -48.2358,
+      -21.8316
+     ],
+     [
+      -48.2339,
+      -21.8315
+     ],
+     [
+      -48.2339,
+      -21.8301
+     ],
+     [
+      -48.2358,
+      -21.8302
+     ],
+     [
+      -48.2358,
+      -21.8316
+     ]
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Talhão 3",
+    "areaHa": 2.02,
+    "color": "#3B82A6",
+    "crop": "feijao",
+    "soil": "medio",
+    "irrigation": "aspersao",
+    "ring": [
+     [
+      -48.2372,
+      -21.8335
+     ],
+     [
+      -48.2356,
+      -21.8335
+     ],
+     [
+      -48.2356,
+      -21.8324
+     ],
+     [
+      -48.2372,
+      -21.8324
+     ],
+     [
+      -48.2372,
+      -21.8335
+     ]
+    ]
+   }
+  ],
+  "income": "150a360",
+  "budget": "30a60",
+  "credit": [
+   "pronaf"
+  ],
+  "machines": [
+   "trator",
+   "plantadeira",
+   "pulverizador"
+  ],
+  "concerns": [
+   "seca",
+   "insumos",
+   "pragas"
+  ],
+  "goals": [
+   "perdas",
+   "gastos",
+   "credito"
+  ],
+  "internet": "instavel"
+ },
+ "cases": [
+  {
+   "protocol": "AB-0901",
+   "topic_key": "manchas-feijao",
+   "field": "t3",
+   "expert_id": "cati",
+   "channel": "whatsapp",
+   "path": "pedir-visita",
+   "note": "Folhas com manchas no canto norte do feijão. Mandei foto pelo WhatsApp.",
+   "snapshot": {
+    "question": "O que são as manchas nas folhas do feijão do Talhão 3?",
+    "field": "Talhão 3",
+    "crop": "Feijão (irrigado)",
+    "observed": "2026-09-25"
+   },
+   "created_at": "2026-09-26T09:12:00",
+   "consent_at": "2026-09-26T09:12:00",
+   "status": "respondido",
+   "reply_is_example": true,
+   "reply": "Olá, João. Pelas fotos parece mancha-angular, comum com folha molhada por muito tempo. Prefira irrigar de manhã e observe se as manchas avançam. Se aumentarem, marcamos uma visita para confirmar antes de qualquer aplicação. (resposta de exemplo — conta de demonstração)"
+  }
+ ]
+}

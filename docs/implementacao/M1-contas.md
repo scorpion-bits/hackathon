@@ -79,3 +79,13 @@ Um `app.db` antigo é recriado sozinho ao subir.
 
 ## 👥 Ações humanas
 Nenhuma.
+
+## ✅ Feito (02/10) — notas para as próximas etapas
+- Conta atual: `auth.current_producer` (dependência de todo `/api/*`) põe o id em `session.info["producer_id"]`;
+  `farmdata.get_farm(session)` / `find_farm` já filtram por ele (inclusive nas ferramentas da IA). Sem token → João.
+- `get_or_404` em `routers/api.py` confere o dono (talhão/evento/item/safra pela fazenda; fato pelo produtor).
+- Conta sem fazenda: `/api/me` → `farm: null`; `GET /api/farm` → `null`; demais rotas → 404. A IA responde "configure sua propriedade".
+- Fixture `backend/app/fixtures/demo/joao.json` (sem dado aberto). `demo.load_demo` mantém a conta e os tokens (outros celulares logados como João continuam).
+- Áreas reais dos polígonos do `mock.ts`: **5,61 / 3,06 / 2,02 ha** (o mock tinha 5,36/3,08/2,05 escritos à mão; o teste aceita ±0,3).
+- Front: `prototype/api/client.ts` (`apiGet/Post/Put/Delete`, `ApiError`, `OFFLINE_MSG`) e `api/session.ts` (`useMe`, `refreshMe`, `signIn`, `logout`).
+  `DemoSeal` exportado de `Shell.tsx`. As outras telas ainda usam o mock (M2–M4).
