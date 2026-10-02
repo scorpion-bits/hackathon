@@ -34,3 +34,4 @@ data/interim/
 data/restricted/
 data/opendata.db
 data/app.db
+data/weather_cache.json
