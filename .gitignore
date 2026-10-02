@@ -35,3 +35,5 @@ data/restricted/
 data/opendata.db
 data/app.db
 data/weather_cache.json
+data/test_app.db
+.env

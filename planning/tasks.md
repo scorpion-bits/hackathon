@@ -9,17 +9,17 @@
 | ID | Nome | Tipo | Responsável | Agente / Modelo | Prio | Est. | Depende | Status |
 |---|---|---|---|---|---|---|---|---|
 | T-000…T-005 | Preparação, contexto, análise de dados, candidatas | 🤖 | Claude | Opus | P0 | — | — | DONE |
-| T-010 | Modelo de dados + contrato `docs/api.md` + esqueleto backend | 🤖 | Claude | Software Architect / Opus | P0 | 1h | H-006 | READY |
-| T-011 | Esqueleto frontend: layout, navegação, tema, cliente API | 🤖 | Claude | Frontend / Sonnet | P0 | 1h | H-006 | READY |
-| T-012 | Pipeline dados abertos (Zarc 25-26/26-27, Agrofit, região) + `data_sources` | 🤖 | Claude + Maria | Data Engineer / Sonnet | P0 | 1h | H-006 | READY |
-| T-013 | Seed demo: João, 3 talhões, ~6 meses de histórico | 🤖 | Claude + Milan | Backend / Sonnet | P0 | 45m | T-010 | BACKLOG |
-| T-014 | Mapa: desenhar/editar talhão + ficha + Zarc por talhão (M3, M6) | 🤖 | Claude | Frontend / Sonnet | P0 | 2h | T-010, T-011 | BACKLOG |
-| T-015 | Estoque: itens, entradas/saídas, histórico (M5) | 🤖 | Claude | Frontend+Backend / Sonnet | P0 | 1h30 | T-010, T-011 | BACKLOG |
-| T-016 | Produção: safras, linha do tempo, plantio/aplicação/colheita → estoque/custo (M4) | 🤖 | Claude | Backend+Frontend / Sonnet | P0 | 2h | T-015 | BACKLOG |
-| T-017 | Painel + alertas (M2, M7) | 🤖 | Claude | Frontend+Backend / Sonnet | P0 | 1h30 | T-016 | BACKLOG |
-| T-018 | Assistente IA: orquestrador, ferramentas, cartão de fontes, botões contextuais (M8) | 🤖 | Claude | AI Engineer / Opus | P0 | 2h30 | T-010, H-014 | BACKLOG |
-| T-019 | Clima, Relatórios, Minha Região, Agrofit no estoque (S1–S4) | 🤖 | Claude | Sonnet | P1 | 3h | T-017 | BACKLOG |
-| T-020 | Testes: fluxo principal, Zarc vs CSV, custos, 10 perguntas da IA | 🤖 | Claude + Victor | QA / Sonnet | P0 | contínuo | T-016 | BACKLOG |
+| T-010 | Modelo de dados + API backend (contrato em /docs da API) | 🤖 | Claude | Opus | P0 | 1h | — | DONE |
+| T-011 | Esqueleto frontend: layout, navegação, tema, cliente API, + Registrar, Painel | 🤖 | Claude | Opus | P0 | 1h | — | DONE |
+| T-012 | Pipeline dados abertos (Zarc 25-26/26-27, Agrofit, região) + `data_sources` | 🤖 | Claude | Opus | P0 | 1h | — | DONE |
+| T-013 | Seed demo: João, 3 talhões, histórico desde 2025/26 | 🤖 | Claude | Opus | P0 | 45m | — | DONE |
+| T-014 | Mapa: desenhar/editar talhão + ficha + Zarc + Planejador (M3, M6) | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | IN_PROGRESS |
+| T-015 | Estoque: itens, entradas/saídas, histórico, Agrofit (M5, S4) | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | IN_PROGRESS |
+| T-016 | Produção: safras, linha do tempo (M4) — backend DONE | 🤖 | agente | Frontend / Sonnet | P0 | 1h15 | — | IN_PROGRESS |
+| T-017 | Painel (DONE) + tela de Alertas (agente) (M2, M7) | 🤖 | Claude + agente | Sonnet | P0 | 1h | — | IN_PROGRESS |
+| T-018 | Assistente IA: backend DONE (LLM + offline + rascunho); tela + voz (agente) (M8, S5) | 🤖 | Claude + agente | Opus/Sonnet | P0 | 1h15 | — | IN_PROGRESS |
+| T-019 | Clima, Relatórios, Perfil/fontes (S1, S2, S6) | 🤖 | agente | Sonnet | P1 | 1h | — | IN_PROGRESS |
+| T-020 | Testes: fluxo principal, Zarc vs CSV, custos, privacidade (7 ok) + 10 perguntas da IA | 🤖 | Claude + Victor | Opus | P0 | contínuo | — | IN_PROGRESS |
 
 ## Ações humanas (👥 HUMAN ACTION REQUIRED → espelhar no Hub)
 
