@@ -8,7 +8,7 @@ from datetime import date
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from ..models import Event, Farm, Field, Season, StockItem, StockMovement
+from ..models import Event, Farm, Field, Season, Simulation, StockItem, StockMovement
 
 
 def today() -> date:
@@ -161,4 +161,17 @@ def costs_report(session: Session, farm: Farm, season: Season | None) -> dict:
                         for k, v in sorted(consumption.items(), key=lambda kv: -kv[1]["value"])],
         "harvest": harvest,
         "method": "Comprado = entradas no período da safra (qtd × preço). Aplicado = saídas vinculadas a eventos da safra × preço médio de compra.",
+    }
+
+
+# ---------- simulações ----------
+def simulation_dict(s: Simulation) -> dict:
+    return {
+        "id": s.id, "farm_id": s.farm_id, "field_id": s.field_id,
+        "season_id": s.season_id, "name": s.name, "crop": s.crop,
+        "area_ha": s.area_ha, "productivity": s.productivity,
+        "price_saca": s.price_saca, "cost_ha": s.cost_ha,
+        "price_var_pct": s.price_var_pct, "prod_var_pct": s.prod_var_pct,
+        "sources": s.sources, "results": s.results,
+        "notes": s.notes, "created_at": s.created_at.isoformat(),
     }

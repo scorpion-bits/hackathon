@@ -1,6 +1,6 @@
 // Casca do PROTÓTIPO VISUAL (D-009). Navegação centrada em dados abertos.
 import clsx from 'clsx'
-import { Bot, Database, FileText, Globe2, Home, Inbox, LogOut, Sprout } from 'lucide-react'
+import { Bot, Database, FileText, Globe2, Home, Inbox, LogOut, Sprout, Calculator } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { PRODUCER } from '../mock'
@@ -12,6 +12,7 @@ const NAV = [
   { to: '/prototipo/mapa', label: 'Mapa vivo', icon: Globe2 },
   { to: '/prototipo/dados', label: 'Dados abertos', icon: Database },
   { to: '/prototipo/propriedade', label: 'Minha propriedade', icon: Sprout },
+  { to: '/prototipo/simulacao', label: 'Simulação', icon: Calculator },
   { to: '/prototipo/assistente', label: 'Pergunte à IA', icon: Bot },
   { to: '/prototipo/contexto', label: 'Meu contexto', icon: FileText },
 ]

@@ -82,6 +82,63 @@ export type AgrofitT = {
   crops?: string[]; pests_for_crop?: string | null; disclaimer?: string; source: Source
 }
 
+export type ScenarioT = {
+  label: string
+  productivity: number
+  price_saca: number
+  production_total: number
+  revenue: number
+  cost_total: number
+  profit: number
+  margin_pct: number
+  margin_negative: boolean
+}
+
+export type SimulationResultT = {
+  area_ha: number
+  crop: string
+  cost_ha: number
+  breakeven_sacas_ha: number
+  breakeven_text: string
+  pessimistic: ScenarioT
+  medium: ScenarioT
+  optimistic: ScenarioT
+  baseline_text: string
+  sources: Record<string, string>
+}
+
+export type SimulationDefaultsT = {
+  crop: string
+  uf: string | null
+  productivity_sacas_ha: number
+  price_saca: number
+  cost_ha: number
+  price_var_pct: number
+  prod_var_pct: number
+  price_source: string
+  prod_source: string
+  cost_source: string
+  confidence: string
+  updated_at: string
+}
+
+export type SavedSimulationT = {
+  id: number
+  farm_id: number
+  field_id: number | null
+  season_id: number | null
+  name: string
+  crop: string
+  area_ha: number
+  productivity: number
+  price_saca: number
+  cost_ha: number
+  results: SimulationResultT
+  sources: Record<string, string>
+  notes: string | null
+  created_at: string
+}
+
 async function req<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`/api${path}`, { headers: { 'Content-Type': 'application/json' }, ...init })
   if (!res.ok) {
@@ -132,6 +189,24 @@ export const api = {
   addFact: (f: { label: string; value: string; origin?: string }) => post<{ id: number }>('/profile/facts', f),
   updateFact: (id: number, f: { label: string; value: string; origin: string }) => put<{ id: number }>(`/profile/facts/${id}`, f),
   deleteFact: (id: number) => del(`/profile/facts/${id}`),
+  simulationCrops: () => req<{ crops: string[] }>('/simulation/crops'),
+  simulationDefaults: (crop: string, uf?: string) => req<SimulationDefaultsT>(`/simulation/defaults${qs({ crop, uf })}`),
+  simulationCalculate: (params: {
+    area_ha: number; crop: string; productivity: number
+    price_saca: number; cost_ha: number
+    price_var_pct?: number; prod_var_pct?: number
+    sources?: Record<string, string>
+  }) => post<SimulationResultT>('/simulation/calculate', params),
+  saveSimulation: (sim: {
+    field_id?: number | null; season_id?: number | null
+    name?: string; crop: string; area_ha: number
+    productivity: number; price_saca: number; cost_ha: number
+    price_var_pct?: number; prod_var_pct?: number
+    sources?: Record<string, string>; results?: SimulationResultT
+    notes?: string
+  }) => post<SavedSimulationT>('/simulations', sim),
+  simulations: () => req<SavedSimulationT[]>('/simulations'),
+  deleteSimulation: (id: number) => del(`/simulations/${id}`),
   chat: (message: string, context?: Record<string, unknown>) => post<ChatReply>('/assistant/chat', { message, context }),
   chatHistory: () => req<{ role: 'user' | 'assistant'; content: string; sources: Source[]; created_at: string }[]>('/assistant/history'),
   clearChat: () => del('/assistant/history'),

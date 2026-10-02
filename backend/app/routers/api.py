@@ -403,3 +403,98 @@ def update_fact(fact_id: int, body: FactIn, session: Session = DB):
 def delete_fact(fact_id: int, session: Session = DB):
     session.delete(get_or_404(session, ProfileFact, fact_id))
     session.commit()
+
+
+# ---------------- simulação financeira ----------------
+
+@router.get("/simulation/crops")
+def simulation_crops():
+    """Culturas com dados de referência disponíveis."""
+    return {"crops": od.available_simulation_crops()}
+
+
+@router.get("/simulation/defaults")
+def simulation_defaults(crop: str, uf: str | None = None):
+    """Valores-padrão de preço, produtividade e custo para uma cultura."""
+    defaults = od.crop_defaults(crop, uf)
+    if not defaults:
+        raise HTTPException(404, f"Sem dados de referência para '{crop}'")
+    return defaults
+
+
+@router.post("/simulation/calculate")
+def simulation_calculate(body: dict):
+    """Calcula os 3 cenários sem salvar. Usado para recálculo em tempo real."""
+    from dataclasses import asdict
+    from ..services.simulation import run_simulation, validate_input, LIMITS
+    errors = {}
+    for field in LIMITS:
+        if field in body:
+            err = validate_input(field, body[field])
+            if err:
+                errors[field] = err
+    if errors:
+        raise HTTPException(422, errors)
+    result = run_simulation(
+        area_ha=body["area_ha"],
+        crop=body["crop"],
+        productivity=body["productivity"],
+        price_saca=body["price_saca"],
+        cost_ha=body["cost_ha"],
+        price_var_pct=body.get("price_var_pct", 12),
+        prod_var_pct=body.get("prod_var_pct", 15),
+        sources=body.get("sources"),
+    )
+    return asdict(result)
+
+
+@router.post("/simulations")
+def save_simulation(body: dict, session: Session = DB):
+    """Salva uma simulação para histórico/comparação."""
+    from ..models import Simulation
+    farm = farm_or_404(session)
+    sim = Simulation(
+        farm_id=farm.id,
+        field_id=body.get("field_id"),
+        season_id=body.get("season_id"),
+        name=body.get("name", f"{body['crop']} — simulação"),
+        crop=body["crop"],
+        area_ha=body["area_ha"],
+        productivity=body["productivity"],
+        price_saca=body["price_saca"],
+        cost_ha=body["cost_ha"],
+        price_var_pct=body.get("price_var_pct", 12.0),
+        prod_var_pct=body.get("prod_var_pct", 15.0),
+        sources=body.get("sources", {}),
+        results=body.get("results", {}),
+        notes=body.get("notes"),
+    )
+    session.add(sim)
+    session.commit()
+    session.refresh(sim)
+    return fd.simulation_dict(sim)
+
+
+@router.get("/simulations")
+def list_simulations(session: Session = DB):
+    from ..models import Simulation
+    farm = farm_or_404(session)
+    sims = session.scalars(select(Simulation).where(Simulation.farm_id == farm.id).order_by(
+        Simulation.created_at.desc()
+    )).all()
+    return [fd.simulation_dict(s) for s in sims]
+
+
+@router.get("/simulations/{sim_id}")
+def get_simulation(sim_id: int, session: Session = DB):
+    from ..models import Simulation
+    sim = get_or_404(session, Simulation, sim_id)
+    return fd.simulation_dict(sim)
+
+
+@router.delete("/simulations/{sim_id}", status_code=204)
+def delete_simulation(sim_id: int, session: Session = DB):
+    from ..models import Simulation
+    sim = get_or_404(session, Simulation, sim_id)
+    session.delete(sim)
+    session.commit()

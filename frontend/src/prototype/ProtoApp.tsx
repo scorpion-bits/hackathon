@@ -12,6 +12,7 @@ import Login from './pages/Login'
 import OpenData from './pages/OpenData'
 import Property from './pages/Property'
 import Resolve from './pages/Resolve'
+import ProtoSimulationPage from './pages/Simulation'
 
 export default function ProtoApp() {
   return (
@@ -22,6 +23,7 @@ export default function ProtoApp() {
       <Route path="talhoes" element={<Shell full><FieldsEditor /></Shell>} />
       <Route path="dados" element={<Shell><OpenData /></Shell>} />
       <Route path="propriedade" element={<Shell><Property /></Shell>} />
+      <Route path="simulacao" element={<Shell><ProtoSimulationPage /></Shell>} />
       <Route path="assistente" element={<Shell><Assistant /></Shell>} />
       <Route path="resolver/:id" element={<Shell><Resolve /></Shell>} />
       <Route path="casos" element={<Shell><Cases /></Shell>} />

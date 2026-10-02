@@ -9,6 +9,7 @@ import Profile from './pages/Profile'
 import Reports from './pages/Reports'
 import Stock from './pages/Stock'
 import Weather from './pages/Weather'
+import Simulation from './pages/Simulation'
 import ProtoApp from './prototype/ProtoApp'
 
 /** App funcional (backend real) em "/"; protótipo visual (dados de exemplo) em "/prototipo" — D-009. */
@@ -22,6 +23,7 @@ function FunctionalApp() {
         <Route path="/estoque" element={<Stock />} />
         <Route path="/clima" element={<Weather />} />
         <Route path="/alertas" element={<Alerts />} />
+        <Route path="/simulacao" element={<Simulation />} />
         <Route path="/relatorios" element={<Reports />} />
         <Route path="/assistente" element={<Assistant />} />
         <Route path="/perfil" element={<Profile />} />

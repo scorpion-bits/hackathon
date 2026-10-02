@@ -177,3 +177,32 @@ def source(key: str) -> dict:
 def all_sources() -> list[dict]:
     with opendata() as con:
         return [dict(r) for r in con.execute("SELECT * FROM data_sources")]
+
+
+def crop_defaults(crop: str, uf: str | None = None) -> dict | None:
+    """Busca valores-padrão de preço, produtividade e custo para uma cultura.
+    Prioridade: UF específica > nacional (uf=NULL)."""
+    with opendata() as con:
+        # Tenta UF específica primeiro
+        if uf:
+            row = con.execute(
+                "SELECT * FROM crop_defaults WHERE crop=? AND uf=? LIMIT 1",
+                (crop, uf)
+            ).fetchone()
+            if row:
+                return dict(row)
+        # Fallback para nacional
+        row = con.execute(
+            "SELECT * FROM crop_defaults WHERE crop=? AND uf IS NULL LIMIT 1",
+            (crop,)
+        ).fetchone()
+        return dict(row) if row else None
+
+
+def available_simulation_crops() -> list[str]:
+    """Culturas com dados de referência para simulação."""
+    with opendata() as con:
+        rows = con.execute(
+            "SELECT DISTINCT crop FROM crop_defaults ORDER BY crop"
+        ).fetchall()
+    return [r["crop"] for r in rows]

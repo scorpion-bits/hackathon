@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { BarChart3, Bell, Bot, CloudSun, Home, Map, Package, Plus, Settings, Sprout } from 'lucide-react'
+import { BarChart3, Bell, Bot, CloudSun, Home, Map, Package, Plus, Settings, Sprout, Calculator } from 'lucide-react'
 import { useState, type ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { api } from '../lib/api'
@@ -14,6 +14,7 @@ const NAV = [
   { to: '/estoque', label: 'Estoque', icon: Package },
   { to: '/clima', label: 'Clima', icon: CloudSun },
   { to: '/alertas', label: 'Alertas', icon: Bell },
+  { to: '/simulacao', label: 'Simulação', icon: Calculator },
   { to: '/relatorios', label: 'Relatórios', icon: BarChart3 },
 ]
 

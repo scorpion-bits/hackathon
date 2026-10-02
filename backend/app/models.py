@@ -126,3 +126,24 @@ class ChatMessage(Base):
     content: Mapped[str] = mapped_column(Text)
     sources: Mapped[list] = mapped_column(JSON, default=list)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+
+
+class Simulation(Base):
+    """Simulação financeira salva pelo produtor."""
+    __tablename__ = "simulation"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    farm_id: Mapped[int] = mapped_column(ForeignKey("farm.id"))
+    field_id: Mapped[int | None] = mapped_column(ForeignKey("field.id"))
+    season_id: Mapped[int | None] = mapped_column(ForeignKey("season.id"))
+    name: Mapped[str] = mapped_column(String(120))              # ex.: "Soja Talhão 1 — out/2026"
+    crop: Mapped[str] = mapped_column(String(80))
+    area_ha: Mapped[float] = mapped_column(Float)
+    productivity: Mapped[float] = mapped_column(Float)           # sacas/ha (cenário médio)
+    price_saca: Mapped[float] = mapped_column(Float)             # R$/saca (cenário médio)
+    cost_ha: Mapped[float] = mapped_column(Float)                # R$/ha
+    price_var_pct: Mapped[float] = mapped_column(Float, default=12.0)
+    prod_var_pct: Mapped[float] = mapped_column(Float, default=15.0)
+    sources: Mapped[dict] = mapped_column(JSON, default=dict)    # { price_source, prod_source, cost_source, ... }
+    results: Mapped[dict] = mapped_column(JSON, default=dict)    # snapshot dos 3 cenários calculados
+    notes: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
