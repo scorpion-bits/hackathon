@@ -65,7 +65,7 @@ Cada assunto leva as evidências com **fonte e data**, de 2 a 3 "caminhos possí
 
 ## 🧪 Como a equipe testa
 1. `./iniciar.sh atualizar` → http://localhost:8000/docs → `GET /api/topics` (sem token = João). Os números batem com o "porquê"?
-2. Pela tela, a conta nova da M2 (Ribeirão Preto); no /docs, `POST /api/auth/login` com o contato e a senha dela → copiar o `token` → em `GET /api/topics`, preencher o campo `authorization` com `Bearer <token>` (não há botão "Authorize").
+2. Pela tela, a conta nova da M2 (Ribeirão Preto); no /docs, `POST /api/auth/login` com o contato e a senha dela → copiar o `token` → botão **Authorize** (cadeado, topo do /docs) → colar só o token (sem "Bearer") → `GET /api/topics`. Confira o campo `farm` no fim da resposta.
 
 ## 👥 Ações humanas
 Quem entende de campo lê os textos de `services/topics_text.py` (~15 min) e aponta o que soa como receita.

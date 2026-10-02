@@ -10,7 +10,8 @@ import hashlib
 import hmac
 import secrets
 
-from fastapi import Depends, Header, HTTPException
+from fastapi import Depends, HTTPException
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -18,6 +19,9 @@ from .db import get_session
 from .models import AuthToken, Producer
 
 DEMO_CONTACT = "joao@demo.agrobits"
+# Esquema "Bearer" no OpenAPI: faz aparecer o botão "Authorize" no /docs (o Swagger não envia um
+# parâmetro de cabeçalho chamado Authorization). auto_error=False: sem token continua valendo o João.
+BEARER = HTTPBearer(auto_error=False, description="Cole só o token (sem a palavra Bearer)")
 PBKDF2_ROUNDS = 200_000
 
 
@@ -54,8 +58,9 @@ def bearer(authorization: str | None) -> str | None:
     return None
 
 
-def current_producer(session: Session = Depends(get_session), authorization: str | None = Header(None)) -> Producer:
-    token = bearer(authorization)
+def current_producer(session: Session = Depends(get_session),
+                     credentials: HTTPAuthorizationCredentials | None = Depends(BEARER)) -> Producer:
+    token = credentials.credentials.strip() if credentials else None
     if token:
         row = session.get(AuthToken, token)
         producer = session.get(Producer, row.producer_id) if row else None

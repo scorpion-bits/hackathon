@@ -3,13 +3,14 @@ from __future__ import annotations
 
 from typing import Literal
 
-from fastapi import APIRouter, Depends, Header, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import HTTPAuthorizationCredentials
 from pydantic import BaseModel, Field as PField
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from .. import demo
-from ..auth import bearer, check_password, current_producer, hash_password, new_token
+from ..auth import BEARER, check_password, current_producer, hash_password, new_token
 from ..db import get_session
 from ..models import AuthToken, Case, Event, Field, Interview, Producer, StockItem
 from ..services import farmdata as fd
@@ -67,8 +68,8 @@ def demo_login(body: DemoIn, session: Session = DB):
 
 
 @router.post("/auth/logout", status_code=204)
-def logout(session: Session = DB, authorization: str | None = Header(None)):
-    token = bearer(authorization)
+def logout(session: Session = DB, credentials: HTTPAuthorizationCredentials | None = Depends(BEARER)):
+    token = credentials.credentials.strip() if credentials else None
     row = session.get(AuthToken, token) if token else None
     if row:
         session.delete(row)
