@@ -65,6 +65,27 @@ Fonte: MAPA/CGRA, dicionário em `data/raw/zarc/*.pdf`. Perfil: `docs/data-profi
 - **Limitação (antiga):** safras 2016–2018 têm menos culturas. O arquivo consolidado atual (`dados-abertos-tabua-de-risco.csv`, atualização diária) deve trazer safras recentes e mais culturas _[a verificar]_.
 - **Valor para IA:** matriz pronta "quando plantar × quanto risco" por município/solo → otimização de calendário, camada de risco para gêmeo digital, alvo para modelos.
 
+## Agrofit (analisado ✅)
+- Formulados: 280.159 linhas = produto × cultura × praga · 4.409 produtos · 243 culturas · 1.472 pragas. Todos `SITUACAO=TRUE`.
+- Classe: Herbicida 79% das linhas; Fungicida 7%; Inseticida 6%. Toxicológica: Cat. 5 (improvável dano agudo) 72%, Cat. 1–2 (extrema/altamente tóxico) 2,3%.
+- Ambiental: "Perigoso" 72%, "Muito perigoso" 21%. Orgânicos = SIM em 1.375 linhas.
+- Culturas: Soja 2.286 produtos; Milho 1.707; **Cana 1.206; Citros 1.136** (relevância regional Araraquara).
+- Sem dado pessoal (titulares = empresas).
+
+## SIPEAGRO Aviação Agrícola (analisado ✅ — contém dado pessoal → só agregado)
+- Registro: 3.931 estabelecimentos; **16.156 linhas de Aeronave Remotamente Pilotada (drones)** vs 8.166 convencionais.
+- Agregado anônimo (`data/processed/aviacao_registro_por_municipio.csv`): **6.257 drones e 2.527 aviões agrícolas ativos** em 1.420 municípios.
+- **SP lidera em drones**; topo: Lençóis Paulista (101), Charqueada (85), Artur Nogueira (76), Imperatriz/MA (72), Ribeirão Preto (65). **Araraquara: 15 drones registrados, 87 autorizações.**
+- Autorizações de operação (por município autorizado): 2021: 1.234 → 2022: 76.794 → 2023: 188.006 → 2024: 194.513 → 2025: 155.979 → 2026 (parcial): 124.921 → **adoção de drones explodiu desde 2021**.
+- Registro tem nome de pessoa física, e-mail e telefone → arquivo bruto fora do git.
+
+## SISSER / PSR 2025 (analisado ✅ — dado pessoal sensível)
+- 46.137 apólices; Milho 2ª safra 51%, Trigo 15%, Uva 8%, Café 7%; SP = 7.472; Araraquara = 2.
+- **Contém nome do segurado, CPF parcial e lat/long da propriedade** → uso somente agregado. Colunas de indenização/evento vazias ("-") nesta extração.
+
+## Outras SIPEAGRO recebidas (baixa relevância p/ candidatas)
+Alimentação animal, aves de reprodução, multiplicação animal, fertilizante, produto veterinário, vinhos e bebidas — cadastros de estabelecimentos; guardados em `restricted/`.
+
 ## Leitura inicial (sem abrir arquivos)
 1. **As bases ANA são as mais "prontas para IA":** estruturadas, geográficas, agregadas, sem dado pessoal e com série histórica longa (35 anos) → ética segura e análise rica.
 2. **Pivôs + Atlas combinam naturalmente:** mesmo órgão, mesma chave (código IBGE do município) _[a verificar]_; Atlas traz o **potencial**, Pivôs traz a **trajetória**.

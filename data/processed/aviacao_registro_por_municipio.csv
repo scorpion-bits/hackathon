@@ -1,0 +1,1421 @@
+uf,municipio,avioes,drones
+AC,Brasiléia,0,4
+AC,Bujari,0,1
+AC,Cruzeiro do Sul,0,2
+AC,Epitaciolândia,0,1
+AC,Rio Branco,0,7
+AC,Sena Madureira,0,1
+AC,Xapuri,0,1
+AL,Arapiraca,0,3
+AL,Cajueiro,0,1
+AL,Coruripe,0,2
+AL,Igreja Nova,0,5
+AL,Jequiá da Praia,0,1
+AL,Maceió,0,13
+AL,Major Isidoro,0,1
+AL,Marechal Deodoro,6,9
+AL,Penedo,0,4
+AL,Porto Real do Colégio,0,2
+AL,Rio Largo,12,0
+AL,São José da Laje,0,3
+AL,São Sebastião,0,2
+AL,Traipu,0,2
+AL,União dos Palmares,0,4
+AM,Humaitá,1,0
+AM,Manaus,0,5
+AM,Presidente Figueiredo,0,1
+AM,Santo Antônio do Matupi,0,1
+BA,Adustina,0,12
+BA,Alagoinhas,0,1
+BA,Angical,0,1
+BA,Barreiras,24,19
+BA,Bom Jesus da Lapa,0,11
+BA,Castro Alves,0,1
+BA,Correntina,20,2
+BA,Entre Rios,0,2
+BA,Eunápolis,0,9
+BA,Feira de Santana,0,3
+BA,Formosa do Rio Preto,20,0
+BA,Guanambi,2,4
+BA,Guaratinga,0,1
+BA,Ipirá,0,3
+BA,Irecê,0,3
+BA,Itabatan,0,1
+BA,Itabela,0,3
+BA,Itabuna,0,1
+BA,Itagibá,0,5
+BA,Itamaraju,0,8
+BA,Itapetinga,0,10
+BA,Itapicuru,0,1
+BA,Itaítu,0,2
+BA,Jaborandi,6,1
+BA,Jiquiriçá,0,6
+BA,Juazeiro,0,4
+BA,Livramento de Nossa Senhora,0,3
+BA,Luís Eduardo Magalhães,67,11
+BA,Medeiros Neto,0,4
+BA,Mucugê,0,4
+BA,Mucuri,0,2
+BA,Muquém do São Francisco,0,1
+BA,Pindobaçu,0,6
+BA,Pojuca,0,1
+BA,Porto Seguro,0,2
+BA,Posto da Mata,0,2
+BA,Prado,0,1
+BA,Riachão das Neves,17,0
+BA,Rio Real,0,4
+BA,Ruy Barbosa,0,1
+BA,Santa Rita de Cássia,0,8
+BA,Santana,3,0
+BA,Santo Antônio de Jesus,0,1
+BA,Sebastião Laranjeiras,0,1
+BA,Serra do Ramalho,1,0
+BA,São Desidério,82,1
+BA,Teixeira de Freitas,0,13
+BA,Trancoso,0,1
+BA,Utinga,0,1
+BA,Vitória da Conquista,0,8
+BA,Wanderley,0,1
+CE,Acopiara,0,4
+CE,Barro,0,1
+CE,Boa Viagem,0,2
+CE,Brejo Santo,0,2
+CE,Fortaleza,0,4
+CE,Icapuí,0,6
+CE,Iguatu,0,2
+CE,Juazeiro do Norte,0,6
+CE,Limoeiro do Norte,0,9
+CE,Maracanaú,0,1
+CE,Mombaça,0,3
+CE,Porteiras,0,1
+CE,Russas,0,1
+CE,Senador Pompeu,0,1
+CE,Sobral,0,4
+CE,Tabuleiro do Norte,0,2
+DF,Brasília,1,8
+ES,Afonso Cláudio,0,2
+ES,Alegre,0,9
+ES,Alto Rio Novo,0,1
+ES,Apiacá,0,2
+ES,Aracruz,1,8
+ES,Atílio Vivácqua,0,1
+ES,Baixo Guandu,0,22
+ES,Barra de São Francisco,0,1
+ES,Boa Esperança,0,10
+ES,Brejetuba,0,2
+ES,Cachoeiro de Itapemirim,0,1
+ES,Cariacica,0,1
+ES,Castelo,0,6
+ES,Colatina,0,14
+ES,Conceição da Barra,0,4
+ES,Domingos Martins,0,1
+ES,Ecoporanga,0,11
+ES,Fundão,0,3
+ES,Governador Lindenberg,0,18
+ES,Guarapari,0,2
+ES,Guararema,0,2
+ES,Guaçuí,0,1
+ES,Ibatiba,0,4
+ES,Ibitirama,0,1
+ES,Irupi,0,2
+ES,Itaguaçu,0,9
+ES,Itaipava,0,1
+ES,Itapemirim,0,1
+ES,Itaperuna,0,4
+ES,Itarana,0,11
+ES,Iúna,0,3
+ES,Jaguaré,0,2
+ES,Jerônimo Monteiro,0,1
+ES,João Neiva,0,2
+ES,Lajinha,0,4
+ES,Laranja da Terra,0,4
+ES,Linhares,0,45
+ES,Marechal Floriano,0,3
+ES,Marilândia,0,25
+ES,Menino Jesus,0,2
+ES,Mimoso do Sul,0,6
+ES,Montanha,0,10
+ES,Mucurici,0,3
+ES,Muniz Freire,0,10
+ES,Muqui,0,6
+ES,Nova Venécia,0,12
+ES,Pancas,0,9
+ES,Pedro Canário,0,1
+ES,Pinheiros,0,10
+ES,Presidente Kennedy,0,7
+ES,Rio Bananal,0,11
+ES,Rive,0,1
+ES,Santa Maria de Jetibá,0,9
+ES,Sooretama,0,1
+ES,São Domingos do Norte,0,9
+ES,São Gabriel da Palha,0,16
+ES,São José do Calçado,0,2
+ES,São Mateus,0,12
+ES,São Rafael,0,1
+ES,Vargem Grande do Soturno,0,1
+ES,Venda Nova do Imigrante,0,2
+ES,Vila Pavão,0,2
+ES,Vila Valério,0,8
+ES,Vila Velha,0,12
+ES,Vitória,0,6
+ES,Águia Branca,0,4
+GO,Abadiânia,0,1
+GO,Acreúna,13,12
+GO,Anicuns,0,1
+GO,Anápolis,0,6
+GO,Cachoeira Alta,3,0
+GO,Cachoeira Dourada,0,12
+GO,Caiapônia,3,3
+GO,Campo Alegre de Goiás,0,2
+GO,Carmo do Rio Verde,0,12
+GO,Catalão,34,11
+GO,Chapadão do Céu,8,2
+GO,Corumbá de Goiás,0,2
+GO,Cristalina,4,4
+GO,Divinópolis de Goiás,0,2
+GO,Formosa,15,14
+GO,Goianira,2,4
+GO,Goianápolis,0,3
+GO,Goianésia,5,5
+GO,Goiatuba,0,7
+GO,Goiânia,29,21
+GO,Gouvelândia,0,1
+GO,Hidrolina,0,5
+GO,Iaciara,1,2
+GO,Inaciolândia,0,1
+GO,Ipiranga de Goiás,0,1
+GO,Iporá,0,1
+GO,Itaberaí,0,3
+GO,Itajá,0,1
+GO,Itapaci,0,6
+GO,Itapuranga,0,1
+GO,Itumbiara,1,1
+GO,Jandaia,0,9
+GO,Jaraguá,0,3
+GO,Jataí,26,8
+GO,Luziânia,8,1
+GO,Mineiros,20,9
+GO,Montividiu,16,0
+GO,Mozarlândia,0,2
+GO,Nerópolis,0,2
+GO,Niquelândia,0,1
+GO,Nova Crixás,1,0
+GO,Nova Iguaçu de Goiás,0,1
+GO,Nova Veneza,0,1
+GO,Orizona,0,10
+GO,Paraúna,0,5
+GO,Piracanjuba,0,3
+GO,Pirenópolis,0,1
+GO,Porteirão,0,1
+GO,Portelândia,1,0
+GO,Posse,9,0
+GO,Quirinópolis,24,14
+GO,Rio Verde,24,19
+GO,Rubiataba,0,18
+GO,Santa Cruz de Goiás,0,2
+GO,Santa Helena de Goiás,12,25
+GO,Santo Antônio de Goiás,1,0
+GO,Senador Canedo,0,3
+GO,Silvânia,0,6
+GO,São Luís de Montes Belos,0,1
+GO,São Miguel do Araguaia,0,4
+GO,São Miguel do Passa Quatro,1,0
+GO,Sítio D'Abadia,1,0
+GO,Turvânia,1,0
+GO,Uruaçu,0,12
+GO,Vianópolis,0,1
+GO,Vicentinópolis,19,2
+MA,Alto Alegre do Pindaré,0,2
+MA,Alto Parnaíba,1,1
+MA,Açailândia,5,10
+MA,Bacabal,0,15
+MA,Balsas,19,36
+MA,Barra do Corda,1,1
+MA,Brejo de Areia,0,1
+MA,Caxias,0,1
+MA,Chapadinha,0,3
+MA,Cidelândia,0,1
+MA,Codó,0,5
+MA,Colinas,0,2
+MA,Davinópolis,44,1
+MA,Dom Pedro,0,3
+MA,Esperantinópolis,0,6
+MA,Estreito,0,2
+MA,Formosa da Serra Negra,0,3
+MA,Fortaleza dos Nogueiras,0,1
+MA,Governador Archer,0,2
+MA,Imperatriz,4,72
+MA,Itinga do Maranhão,2,0
+MA,Joselândia,0,3
+MA,João Lisboa,0,1
+MA,Lago da Pedra,0,3
+MA,Lago do Junco,0,4
+MA,Lagoa Grande do Maranhão,0,2
+MA,Loreto,4,0
+MA,Magalhães de Almeida,0,1
+MA,Maranhãozinho,0,3
+MA,Mirador,1,0
+MA,Olho D'Água das Cunhãs,0,1
+MA,Parnarama,2,0
+MA,Pastos Bons,1,0
+MA,Pedro do Rosário,0,1
+MA,Peritoró,0,1
+MA,Pinheiro,0,4
+MA,Porto Franco,0,4
+MA,Poção de Pedras,0,2
+MA,Presidente Dutra,0,15
+MA,Riachão,0,2
+MA,Sambaíba,1,0
+MA,Santa Inês,0,9
+MA,Santa Luzia,1,1
+MA,Santa Rita,0,1
+MA,Sucupira do Norte,1,0
+MA,São Domingos do Maranhão,0,1
+MA,São Francisco do Brejão,0,2
+MA,São Luís,0,10
+MA,São Mateus do Maranhão,4,8
+MA,São Pedro dos Crentes,0,2
+MA,São Raimundo das Mangabeiras,0,2
+MA,Tasso Fragoso,7,2
+MA,Timon,0,1
+MA,Vargem Grande,0,3
+MA,Vila Nova dos Martírios,0,5
+MA,Vitorino Freire,0,1
+MA,Zé Doca,0,2
+MG,Abaeté,0,6
+MG,Abre Campo,0,1
+MG,Aimorés,0,5
+MG,Alfenas,0,11
+MG,Almenara,0,1
+MG,Alpinópolis,0,1
+MG,Alterosa,0,1
+MG,Além Paraíba,0,2
+MG,Andradas,0,3
+MG,Araporã,0,1
+MG,Araçuaí,0,1
+MG,Arcos,0,2
+MG,Arinos,0,2
+MG,Ataléia,0,1
+MG,Bambuí,0,6
+MG,Barbacena,0,2
+MG,Barão de Cocais,0,1
+MG,Belo Horizonte,0,18
+MG,Betim,0,2
+MG,Biquinhas,0,1
+MG,Boa Esperança,0,1
+MG,Bocaiúva,0,7
+MG,Bom Jesus da Penha,0,1
+MG,Bom Repouso,0,1
+MG,Brumadinho,0,1
+MG,Buenópolis,0,1
+MG,Buritis,8,0
+MG,Cabeceira Grande,1,0
+MG,Cabo Verde,0,5
+MG,Cachoeira de Minas,0,3
+MG,Campo Florido,1,3
+MG,Cana Verde,0,2
+MG,Capinópolis,2,14
+MG,Carangola,0,4
+MG,Caratinga,0,1
+MG,Carmo da Cachoeira,0,2
+MG,Carmo do Rio Claro,0,2
+MG,Carneirinho,0,2
+MG,Casa Grande,0,1
+MG,Caxambu,0,2
+MG,Chalé,0,2
+MG,Chapada Gaúcha,0,1
+MG,Conceição da Aparecida,0,3
+MG,Conceição das Alagoas,0,1
+MG,Conceição do Mato Dentro,0,1
+MG,Coqueiral,0,2
+MG,Corinto,0,1
+MG,Coroaci,0,3
+MG,Coromandel,8,2
+MG,Curvelo,0,1
+MG,Cássia,0,1
+MG,Delfinópolis,0,2
+MG,Delta,0,3
+MG,Divino,0,3
+MG,Divinolândia de Minas,0,1
+MG,Divinópolis,0,1
+MG,Dom Bosco,0,1
+MG,Dores de Guanhães,0,1
+MG,Ervália,0,2
+MG,Espera Feliz,0,5
+MG,Eugenópolis,0,1
+MG,Formiga,0,1
+MG,Frutal,1,16
+MG,Goiabal,0,1
+MG,Governador Valadares,0,21
+MG,Grão Mogol,0,1
+MG,Guanhães,0,13
+MG,Guarani,0,17
+MG,Guaranésia,0,3
+MG,Guarda-Mor,1,1
+MG,Ibiá,0,2
+MG,Igarapé,0,1
+MG,Ilicínea,0,1
+MG,Inconfidentes,0,1
+MG,Ipatinga,0,6
+MG,Itabirito,0,1
+MG,Itajubá,0,2
+MG,Itamarandiba,0,5
+MG,Itambacuri,0,1
+MG,Itamonte,0,1
+MG,Itapagipe,0,2
+MG,Itatiaiuçu,0,1
+MG,Itaú de Minas,0,2
+MG,Itaúna,0,2
+MG,Ituiutaba,0,15
+MG,Iturama,1,9
+MG,Janaúba,3,13
+MG,Japaraíba,0,1
+MG,Jaíba,2,14
+MG,Jequitinhonha,0,3
+MG,Jesuânia,0,1
+MG,Jordânia,0,2
+MG,João Pinheiro,3,2
+MG,Juruaia,0,6
+MG,Ladainha,0,2
+MG,Lagoa Dourada,0,3
+MG,Lagoa da Prata,0,2
+MG,Lajinha,0,1
+MG,Lambari,0,1
+MG,Lavras,0,6
+MG,Limeira do Oeste,0,1
+MG,Luz,0,15
+MG,Machado,0,1
+MG,Madre de Deus de Minas,0,5
+MG,Malacacheta,0,9
+MG,Manga,0,4
+MG,Manhuaçu,0,2
+MG,Matias Cardoso,0,3
+MG,Matipó,0,3
+MG,Mato Verde,0,1
+MG,Monte Carmelo,0,2
+MG,Montes Claros,0,6
+MG,Muriaé,0,1
+MG,Mutum,0,2
+MG,Muzambinho,0,1
+MG,Nanuque,0,3
+MG,Nepomuceno,0,1
+MG,Nova Belém,0,1
+MG,Nova Ponte,3,3
+MG,Nova Resende,0,2
+MG,Novo Cruzeiro,0,2
+MG,Ouro Fino,0,2
+MG,Ouro Preto,0,2
+MG,Paracatu,7,6
+MG,Paraguaçu,0,2
+MG,Paraopeba,1,0
+MG,Pará de Minas,0,3
+MG,Passos,0,8
+MG,Patos de Minas,1,20
+MG,Patrocínio,0,5
+MG,Pavão,0,5
+MG,Pedra Azul,0,2
+MG,Pedra Bonita,0,6
+MG,Perdizes,1,0
+MG,Perpétuo Socorro,0,2
+MG,Pescador,0,1
+MG,Pirapora,2,5
+MG,Piumhi,0,2
+MG,Planura,0,2
+MG,Pocrane,0,1
+MG,Pompéu,0,12
+MG,Ponte Nova,0,3
+MG,Porteirinha,0,2
+MG,Poté,0,1
+MG,Pouso Alegre,0,1
+MG,Poço Fundo,0,2
+MG,Poços de Caldas,0,1
+MG,Prata,0,6
+MG,Presidente Olegário,2,1
+MG,Quartel Geral,0,2
+MG,Queluzito,0,2
+MG,Raul Soares,0,4
+MG,Reduto,0,1
+MG,Resplendor,0,1
+MG,Rio Casca,0,5
+MG,Rio Paranaíba,0,1
+MG,Rio Pomba,0,1
+MG,Rosário da Limeira,0,1
+MG,Rubim,0,3
+MG,Sacramento,2,1
+MG,Santa Juliana,3,12
+MG,Santa Rita do Itueto,0,1
+MG,Santa Rita do Sapucaí,0,1
+MG,Santo Antônio do Amparo,0,2
+MG,Sem Peixe,0,1
+MG,Senador Firmino,0,1
+MG,Senhora do Porto,0,1
+MG,Sericita,0,2
+MG,Serro,0,2
+MG,Sete Lagoas,0,2
+MG,São Domingos do Prata,0,3
+MG,São Gotardo,0,2
+MG,São José do Itueto,0,1
+MG,São João Batista do Glória,0,2
+MG,São João Evangelista,0,1
+MG,São João da Mata,0,1
+MG,São João do Manhuaçu,0,4
+MG,São Sebastião do Paraíso,0,2
+MG,Taiobeiras,0,1
+MG,Tapira,0,4
+MG,Teófilo Otoni,0,10
+MG,Três Corações,1,0
+MG,Três Pontas,2,0
+MG,Tupaciguara,18,0
+MG,Uberaba,0,38
+MG,Uberlândia,2,57
+MG,Unaí,6,3
+MG,Vargem Bonita,0,1
+MG,Varginha,0,3
+MG,Varjão de Minas,1,1
+MG,Vazante,2,0
+MG,Veríssimo,0,1
+MG,Vila Nova Floresta,0,2
+MG,Virgínia,0,1
+MG,Viçosa,0,5
+MG,Várzea da Palma,0,1
+MG,Água Boa,0,1
+MG,Águas Formosas,0,8
+MS,Alcinópolis,0,1
+MS,Amambai,2,0
+MS,Angélica,0,1
+MS,Antônio João,0,1
+MS,Aquidauana,0,3
+MS,Aral Moreira,5,0
+MS,Bandeirantes,0,4
+MS,Bataguassu,0,4
+MS,Bonito,0,1
+MS,Caarapó,4,0
+MS,Camapuã,0,3
+MS,Campo Grande,9,44
+MS,Cassilândia,2,5
+MS,Chapadão do Sul,32,7
+MS,Costa Rica,5,5
+MS,Coxim,3,0
+MS,Dourados,19,27
+MS,Fátima do Sul,15,8
+MS,Glória de Dourados,0,1
+MS,Iguatemi,0,1
+MS,Inocência,0,1
+MS,Itahum,1,0
+MS,Itaporã,0,2
+MS,Itaquiraí,0,7
+MS,Ivinhema,0,17
+MS,Jardim,1,0
+MS,Jateí,0,1
+MS,Jutí,2,0
+MS,Laguna Carapã,3,0
+MS,Maracaju,14,8
+MS,Mundo Novo,0,3
+MS,Naviraí,11,8
+MS,Nova Alvorada do Sul,0,2
+MS,Nova Andradina,0,14
+MS,Paranaíba,0,3
+MS,Paraíso das Águas,2,0
+MS,Pedro Gomes,0,2
+MS,Ponta Porã,5,10
+MS,Ribas do Rio Pardo,1,11
+MS,Rio Brilhante,11,6
+MS,Sidrolândia,4,0
+MS,Sonora,2,0
+MS,São Gabriel do Oeste,27,6
+MS,Taquarussu,0,2
+MS,Três Lagoas,0,31
+MS,Água Clara,0,2
+MT,Alta Floresta,12,45
+MT,Alto Araguaia,0,2
+MT,Alto Garças,4,2
+MT,Alto Taquari,5,0
+MT,Apiacás,1,14
+MT,Araputanga,0,4
+MT,Aripuanã,1,21
+MT,Barra do Bugres,1,7
+MT,Barra do Garças,4,3
+MT,Boa Esperanca,1,0
+MT,Boa Esperança do Norte,4,0
+MT,Bom Jesus do Araguaia,2,0
+MT,Brasnorte,8,3
+MT,Campo Novo do Parecis,41,5
+MT,Campo Verde,14,17
+MT,Campos de Júlio,4,0
+MT,Canarana,11,3
+MT,Caravagio,2,0
+MT,Carlinda,0,2
+MT,Castanheira,0,9
+MT,Chapada dos Guimarães,2,0
+MT,Cocalinho,6,2
+MT,Colniza,2,25
+MT,Colíder,2,12
+MT,Comodoro,2,9
+MT,Confresa,4,17
+MT,Conquista D'Oeste,1,0
+MT,Cotriguaçu,0,25
+MT,Cuiabá,18,43
+MT,Cáceres,2,16
+MT,Diamantino,9,4
+MT,Dom Aquino,0,1
+MT,Feliz Natal,8,0
+MT,Gaúcha do Norte,2,1
+MT,General Carneiro,2,0
+MT,Guarantã do Norte,3,20
+MT,Guariba,0,3
+MT,Guiratinga,1,1
+MT,Indiavaí,0,2
+MT,Ipiranga do Norte,7,0
+MT,Itanhangá,2,0
+MT,Itaúba,1,0
+MT,Itiquira,18,1
+MT,Jaciara,1,4
+MT,Jauru,0,2
+MT,Juara,2,13
+MT,Juruena,0,9
+MT,Juína,1,44
+MT,Lucas do Rio Verde,33,11
+MT,Marcelândia,9,3
+MT,Matupá,0,4
+MT,Mirassol D'Oeste,2,12
+MT,Nortelândia,6,1
+MT,Nova Bandeirantes,0,15
+MT,Nova Brasilândia,0,2
+MT,Nova Canaã do Norte,1,8
+MT,Nova Guarita,0,4
+MT,Nova Marilândia,0,1
+MT,Nova Maringá,1,0
+MT,Nova Monte Verde,7,10
+MT,Nova Mutum,23,1
+MT,Nova Olímpia,0,3
+MT,Nova Santa Helena,0,4
+MT,Nova Ubiratã,8,0
+MT,Nova Xavantina,19,1
+MT,Novo Diamantino,0,12
+MT,Novo Horizonte do Norte,0,2
+MT,Novo Mundo,2,1
+MT,Novo São Joaquim,2,0
+MT,Paranaita,0,3
+MT,Paranatinga,4,4
+MT,Pedra Preta,9,3
+MT,Piratininga,1,0
+MT,Pontal do Araguaia,0,2
+MT,Pontes e Lacerda,0,18
+MT,Porto Alegre do Norte,6,2
+MT,Porto Esperidião,0,5
+MT,Porto Estrela,0,1
+MT,Porto dos Gaúchos,2,4
+MT,Poxoréu,2,1
+MT,Primavera do Leste,62,14
+MT,Querência,21,2
+MT,Ribeirão Cascalheira,4,0
+MT,Ribeirãozinho,0,2
+MT,Rio Branco,0,9
+MT,Rondolândia,0,2
+MT,Rondonópolis,7,16
+MT,Salto do Céu,0,12
+MT,Santa Carmem,1,0
+MT,Santa Rita do Trivelato,4,0
+MT,Santa Terezinha,0,1
+MT,Santo Antônio do Leverger,0,1
+MT,Sapezal,31,6
+MT,Sinop,19,22
+MT,Sorriso,49,55
+MT,São Félix do Araguaia,1,0
+MT,São José do Rio Claro,8,9
+MT,São José do Xingu,1,3
+MT,São José dos Quatro Marcos,2,3
+MT,Tabaporã,3,3
+MT,Tangará da Serra,42,13
+MT,Tapurah,13,2
+MT,Terra Nova do Norte,0,3
+MT,União do Sul,2,0
+MT,Vera,12,0
+MT,Vila Bela da Santíssima Trindade,1,6
+MT,Vila Rica,7,15
+MT,Várzea Grande,0,6
+MT,Água Boa,0,1
+PA,Alenquer,0,1
+PA,Bannach,0,6
+PA,Bom Jesus do Tocantins,0,3
+PA,Brejo Grande do Araguaia,0,2
+PA,Breu Branco,0,1
+PA,Cachoeira do Arari,1,2
+PA,Conceição do Araguaia,0,15
+PA,Cumaru do Norte,0,2
+PA,Eldorado do Carajás,0,3
+PA,Floresta do Araguaia,0,1
+PA,Goianésia do Pará,0,2
+PA,Itupiranga,0,2
+PA,Marabá,0,13
+PA,Nova Ipixuna,0,4
+PA,Novo Repartimento,0,1
+PA,Ourilândia do Norte,2,3
+PA,Pacajá,0,4
+PA,Paragominas,10,6
+PA,Piçarra,0,2
+PA,Redenção,19,43
+PA,Rio Maria,0,11
+PA,Rio Vermelho,0,2
+PA,Santa Maria das Barreiras,0,8
+PA,Santana do Araguaia,2,3
+PA,Santarém,0,4
+PA,Sapucaia,0,1
+PA,São Domingos do Araguaia,0,4
+PA,São Félix do Xingu,2,7
+PA,São Geraldo do Araguaia,0,4
+PA,São Luiz do Tapajós,0,5
+PA,São Miguel do Guamá,0,3
+PA,Tailândia,1,2
+PA,Ulianópolis,0,5
+PA,Vigia,0,1
+PA,Xinguara,2,9
+PA,Água Azul do Norte,0,5
+PB,Campina Grande,0,1
+PB,Conde,0,1
+PB,Curral de Cima,0,11
+PB,João Pessoa,0,7
+PE,Barra de Guabiraba,0,3
+PE,Barreiros,0,4
+PE,Belém do São Francisco,0,2
+PE,Bom Conselho,0,2
+PE,Bonito,0,1
+PE,Camocim de São Félix,0,1
+PE,Carpina,0,7
+PE,Gameleira,0,2
+PE,Goiana,0,2
+PE,Jaboatão dos Guararapes,0,2
+PE,Lagoa do Itaenga,0,3
+PE,Laje de São José,0,1
+PE,Petrolina,0,12
+PE,Quipapá,0,1
+PE,Recife,3,12
+PE,Ribeirão,0,3
+PE,Sirinhaém,0,5
+PE,Vicência,0,2
+PI,Baixa Grande do Ribeiro,9,14
+PI,Bom Jesus,8,2
+PI,Currais,1,0
+PI,Floriano,1,0
+PI,Gilbués,7,0
+PI,Piripiri,0,1
+PI,Regeneração,2,0
+PI,Ribeiro Gonçalves,2,0
+PI,Sebastião Leal,0,1
+PI,Teresina,2,3
+PI,Uruçuí,2,0
+PI,Água Branca,0,1
+PR,Altamira do Paraná,0,2
+PR,Alto Alegre,0,2
+PR,Alto Paraná,0,2
+PR,Alto Piquiri,0,1
+PR,Alto Santa Fé,0,1
+PR,Andirá,8,3
+PR,Apucarana,0,3
+PR,Arapongas,0,1
+PR,Araucária,0,4
+PR,Assis Chateaubriand,0,6
+PR,Astorga,0,1
+PR,Atalaia,0,1
+PR,Bandeirantes,0,6
+PR,Bituruna,0,2
+PR,Boa Esperança,9,0
+PR,Boa Vista,7,0
+PR,Bom Sucesso,0,1
+PR,Braganey,0,7
+PR,Brasilândia do Sul,0,1
+PR,Cambará,0,1
+PR,Cambé,0,1
+PR,Campina Grande do Sul,0,1
+PR,Campina da Lagoa,0,2
+PR,Campo Mourão,2,8
+PR,Capitão Leônidas Marques,0,3
+PR,Cascavel,0,10
+PR,Chopinzinho,0,2
+PR,Cianorte,0,2
+PR,Cidade Gaúcha,0,2
+PR,Clevelândia,0,1
+PR,Colônia Vitória,1,0
+PR,Corbélia,0,6
+PR,Cornélio Procópio,3,2
+PR,Coronel Domingos Soares,0,1
+PR,Cruzeiro do Oeste,0,1
+PR,Curitiba,0,30
+PR,Céu Azul,0,2
+PR,Dois Vizinhos,0,1
+PR,Doutor Camargo,0,1
+PR,Doutor Ulysses,0,1
+PR,Engenheiro Beltrão,10,0
+PR,Figueira,0,1
+PR,Floresta,0,1
+PR,Florestópolis,0,1
+PR,Flórida,0,1
+PR,Foz do Jordão,0,1
+PR,Francisco Alves,0,1
+PR,Francisco Beltrão,0,1
+PR,Goioerê,0,3
+PR,Grandes Rios,0,4
+PR,Guaraci,4,4
+PR,Guarapuava,12,9
+PR,Guaratuba,0,3
+PR,Guaíra,0,2
+PR,Ibaiti,0,17
+PR,Ibema,0,1
+PR,Ibiporã,0,1
+PR,Imbituva,0,10
+PR,Ipiranga,0,1
+PR,Iporã,0,2
+PR,Itaipulândia,0,29
+PR,Itambaracá,2,0
+PR,Ivailândia,2,0
+PR,Ivaí,0,1
+PR,Jacarezinho,0,1
+PR,Jaguariaíva,0,1
+PR,Juranda,0,1
+PR,Lapa,0,1
+PR,Lidianópolis,3,1
+PR,Londrina,0,7
+PR,Mamborê,0,2
+PR,Mandaguari,0,4
+PR,Mandaguaçu,0,3
+PR,Mangueirinha,1,0
+PR,Manoel Ribas,0,1
+PR,Marechal Cândido Rondon,0,2
+PR,Mariluz,0,1
+PR,Maringá,1,9
+PR,Maripá,0,2
+PR,Marumbi,1,0
+PR,Matelândia,0,2
+PR,Medianeira,0,6
+PR,Miraselva,8,0
+PR,Missal,0,2
+PR,Nova Aurora,0,1
+PR,Nova Cantu,0,3
+PR,Nova Esperança,0,2
+PR,Nova Laranjeiras,0,1
+PR,Nova Olímpia,0,1
+PR,Nova Santa Rosa,0,3
+PR,Novo Sarandi,0,1
+PR,Novo Sobradinho,0,2
+PR,Ortigueira,0,19
+PR,Palmas,0,6
+PR,Palmeira,0,10
+PR,Palotina,29,2
+PR,Paranacity,0,1
+PR,Paranavaí,0,6
+PR,Paraíso do Norte,0,5
+PR,Paulistânia,0,1
+PR,Peabiru,0,1
+PR,Pinhão,0,1
+PR,Piquirivaí,0,1
+PR,Pitanga,0,5
+PR,Planaltina do Paraná,0,1
+PR,Planalto,0,1
+PR,Ponta Grossa,7,21
+PR,Prudentópolis,0,2
+PR,Pérola Independente,0,1
+PR,Pérola d'Oeste,0,1
+PR,Querência do Norte,2,0
+PR,Quinta do Sol,0,2
+PR,Realeza,0,1
+PR,Ribeirão Claro,0,1
+PR,Rio Azul,0,8
+PR,Rio Branco do Sul,0,1
+PR,Rio Negro,0,1
+PR,Rolândia,0,6
+PR,Roncador,0,2
+PR,Rosário do Ivaí,0,2
+PR,Salto do Lontra,0,2
+PR,Santa Cruz de Monte Castelo,1,1
+PR,Santa Isabel do Ivaí,1,0
+PR,Santa Mônica,2,0
+PR,Santa Rita do Oeste,0,1
+PR,Santo Antônio da Platina,0,1
+PR,Sarandi,0,1
+PR,Saudade do Iguaçu,0,1
+PR,Sede Alvorada,0,4
+PR,Sengés,0,2
+PR,Sertaneja,2,0
+PR,Sertanópolis,0,2
+PR,Siqueira Campos,0,2
+PR,São Carlos do Ivaí,1,0
+PR,São Jorge D'Oeste,0,1
+PR,São Jorge do Ivaí,0,1
+PR,São José da Boa Vista,0,1
+PR,São João,0,1
+PR,São João do Ivaí,0,1
+PR,São João do Triunfo,0,3
+PR,São Luiz do Oeste,0,1
+PR,São Mateus do Sul,0,1
+PR,São Miguel do Iguaçu,0,3
+PR,São Pedro do Paraná,0,1
+PR,Tapejara,0,1
+PR,Terra Boa,0,1
+PR,Terra Rica,0,1
+PR,Terra Roxa,5,3
+PR,Toledo,5,19
+PR,Três Barras do Paraná,0,2
+PR,Tunas do Paraná,0,12
+PR,Tupinambá,0,1
+PR,Tupãssi,0,1
+PR,Turvo,0,1
+PR,Ubiratã,0,2
+PR,Umuarama,0,4
+PR,Vidigal,0,1
+PR,Vila Ipiranga,0,1
+PR,Vila Nova,1,1
+PR,Warta,13,0
+RJ,Bom Jesus do Itabapoana,0,1
+RJ,Campos dos Goytacazes,0,5
+RJ,Casimiro de Abreu,0,1
+RJ,Guapimirim,0,1
+RJ,Itaocara,0,3
+RJ,Itaperuna,0,3
+RJ,Niterói,0,1
+RJ,Resende,0,1
+RJ,Santa Maria Madalena,0,1
+RJ,São Fidélis,0,1
+RJ,São José do Vale do Rio Preto,0,1
+RJ,São Sebastião do Alto,0,1
+RJ,Visconde de Mauá,0,1
+RN,Apodi,0,6
+RN,Assú,0,3
+RN,Ipanguaçu,0,3
+RN,Mossoró,0,18
+RN,Parnamirim,0,2
+RO,Alta Floresta D'Oeste,0,3
+RO,Alto Alegre dos Parecis,0,2
+RO,Alto Paraíso,0,6
+RO,Alvorada D'Oeste,0,2
+RO,Ariquemes,0,31
+RO,Buritis,0,20
+RO,Cabixi,0,2
+RO,Cacoal,0,25
+RO,Campo Novo de Rondônia,0,6
+RO,Cerejeiras,6,1
+RO,Chupinguaia,8,6
+RO,Colorado do Oeste,0,4
+RO,Cujubim,0,2
+RO,Espigão D'Oeste,0,16
+RO,Guajará-Mirim,0,5
+RO,Jaci Paraná,1,0
+RO,Jaru,1,8
+RO,Ji-Paraná,1,10
+RO,Machadinho D'Oeste,0,6
+RO,Ministro Andreazza,0,5
+RO,Mirante da Serra,0,2
+RO,Monte Negro,0,2
+RO,Nova Brasilândia D'Oeste,0,2
+RO,Nova Mamoré,0,5
+RO,Ouro Preto do Oeste,0,1
+RO,Parecis,0,1
+RO,Pimenta Bueno,0,3
+RO,Porto Velho,0,2
+RO,Presidente Médici,0,3
+RO,Rolim de Moura,0,5
+RO,Santa Luzia D'Oeste,0,1
+RO,São Francisco do Guaporé,0,2
+RO,São Miguel do Guaporé,0,18
+RO,União Bandeirante,0,7
+RO,Vale do Anari,0,2
+RO,Vilhena,16,14
+RR,Alto Alegre,0,1
+RR,Boa Vista,0,24
+RR,Bonfim,13,2
+RR,Normandia,0,1
+RR,Rorainópolis,0,7
+RR,São Luiz,0,7
+RS,Aceguá,3,3
+RS,Agudo,0,1
+RS,Alegrete,21,10
+RS,Almirante Tamandaré do Sul,0,1
+RS,Anta Gorda,0,1
+RS,Aratiba,0,1
+RS,Arroio Grande,18,4
+RS,Bagé,0,3
+RS,Barra do Ribeiro,0,6
+RS,Barra do Rio Azul,0,1
+RS,Benjamin Constant do Sul,0,2
+RS,Boa Vista do Incra,0,1
+RS,Bom Jesus,0,1
+RS,Bozano,0,1
+RS,Cacequi,0,1
+RS,Cachoeira do Sul,11,3
+RS,Caiçara,0,2
+RS,Camaquã,8,5
+RS,Candelária,0,1
+RS,Canguçu,0,1
+RS,Canoas,0,1
+RS,Capivari do Sul,10,1
+RS,Capão do Leão,1,1
+RS,Carazinho,2,1
+RS,Caxias do Sul,0,3
+RS,Caçapava do Sul,0,2
+RS,Centenário,0,2
+RS,Cerro Grande do Sul,0,2
+RS,Charqueadas,0,1
+RS,Chiapetta,0,1
+RS,Constantina,0,3
+RS,Cristal,6,1
+RS,Cruz Alta,19,2
+RS,David Canabarro,0,1
+RS,Dom Pedrito,14,6
+RS,Encantado,0,1
+RS,Entre-Ijuís,1,0
+RS,Erechim,0,6
+RS,Ernestina,0,1
+RS,Espumoso,7,2
+RS,Estrela Velha,1,0
+RS,Eugênio de Castro,1,0
+RS,Faxinal do Soturno,0,4
+RS,Flores da Cunha,0,1
+RS,Frederico Westphalen,0,7
+RS,Frei Sebastião,1,0
+RS,Getúlio Vargas,0,1
+RS,Giruá,0,1
+RS,Guaíba,0,14
+RS,Ibiaçá,0,1
+RS,Ibirubá,0,1
+RS,Ijuí,5,1
+RS,Imigrante,0,2
+RS,Ipiranga do Sul,0,1
+RS,Itaqui,19,21
+RS,Jaguari,0,2
+RS,Jari,2,0
+RS,Lajeado,0,2
+RS,Machadinho,0,1
+RS,Mata,0,10
+RS,Maçambará,4,1
+RS,Monte Bonito,7,0
+RS,Montenegro,2,0
+RS,Morrinhos do Sul,0,1
+RS,Mostardas,8,7
+RS,Muçum,0,2
+RS,Nicolau Vergueiro,0,3
+RS,Nova Pádua,0,1
+RS,Nova Ramada,0,1
+RS,Novo Cabrais,0,1
+RS,Osório,0,8
+RS,Palmares do Sul,0,1
+RS,Palmeira das Missões,11,2
+RS,Palmitinho,0,1
+RS,Panambi,0,3
+RS,Pantano Grande,8,4
+RS,Passo Fundo,0,3
+RS,Pelotas,5,0
+RS,Pinheiro Machado,0,1
+RS,Planalto,0,2
+RS,Pontão,0,1
+RS,Porto Alegre,1,22
+RS,Porto Mauá,0,1
+RS,Restinga Seca,1,1
+RS,Rondinha,0,2
+RS,Rosário do Sul,9,1
+RS,Saldanha Marinho,0,2
+RS,Sant'Ana do Livramento,0,3
+RS,Santa Bárbara do Sul,1,1
+RS,Santa Margarida do Sul,1,0
+RS,Santa Maria,3,5
+RS,Santa Vitória do Palmar,13,8
+RS,Santiago,0,4
+RS,Santo Antônio da Patrulha,1,0
+RS,Santo Antônio das Missões,0,2
+RS,Santo Cristo,0,2
+RS,Santo Ângelo,0,2
+RS,Sarandi,0,1
+RS,Sertão,10,1
+RS,Sertão Santana,0,4
+RS,São Borja,9,8
+RS,São Francisco de Paula,0,1
+RS,São Gabriel,14,19
+RS,São Lourenço do Sul,0,3
+RS,São Nicolau,1,0
+RS,São Pedro do Sul,4,1
+RS,São Sepé,13,4
+RS,São Valentim,0,3
+RS,São Vicente do Sul,2,2
+RS,Taim,6,0
+RS,Tapejara,1,0
+RS,Tapera,0,1
+RS,Tapes,14,5
+RS,Taquari,0,4
+RS,Tenente Portela,0,3
+RS,Tio Hugo,0,1
+RS,Torres,0,2
+RS,Três Cachoeiras,0,2
+RS,Três Palmeiras,0,3
+RS,Uruguaiana,30,2
+RS,Vacaria,0,7
+RS,Vale Verde,1,0
+RS,Vale do Sol,0,1
+RS,Vanini,0,3
+RS,Venâncio Aires,0,1
+RS,Vera Cruz,0,3
+RS,Viadutos,0,2
+RS,Viamão,0,1
+RS,Água Santa,0,2
+SC,Abelardo Luz,0,1
+SC,Agronômica,0,1
+SC,Alfredo Wagner,0,2
+SC,Alto Bela Vista,0,2
+SC,Angelina,0,2
+SC,Anitápolis,0,1
+SC,Arabutã,0,1
+SC,Araranguá,0,1
+SC,Aurora,0,3
+SC,Balneário Piçarras,0,7
+SC,Barra Velha,0,6
+SC,Bela Vista do Toldo,0,2
+SC,Biguaçu,0,2
+SC,Bom Jesus,0,1
+SC,Brusque,0,2
+SC,Campo Belo do Sul,0,3
+SC,Campo Erê,0,2
+SC,Campos Novos,0,4
+SC,Canoinhas,0,1
+SC,Caçador,0,1
+SC,Concórdia,0,10
+SC,Corupá,0,4
+SC,Curitibanos,0,1
+SC,Florianópolis,4,14
+SC,Formosa do Sul,0,4
+SC,Forquilhinha,0,3
+SC,Frei Rogério,0,2
+SC,Garuva,0,4
+SC,Gaspar,0,1
+SC,Gravatal,0,1
+SC,Guaramirim,0,8
+SC,Imbuia,0,3
+SC,Iomerê,0,1
+SC,Iporã do Oeste,0,1
+SC,Irani,0,1
+SC,Irineópolis,0,5
+SC,Itajaí,2,4
+SC,Itapema,0,1
+SC,Ituporanga,0,2
+SC,Jacinto Machado,0,3
+SC,Jaguaruna,0,3
+SC,Jaraguá do Sul,0,28
+SC,Joinville,0,8
+SC,Jupiá,0,1
+SC,Lacerdópolis,0,1
+SC,Lages,0,7
+SC,Laurentino,0,1
+SC,Lebon Régis,0,2
+SC,Leoberto Leal,0,1
+SC,Luiz Alves,3,14
+SC,Mafra,0,7
+SC,Marema,0,1
+SC,Massaranduba,0,6
+SC,Meleiro,0,2
+SC,Mondaí,0,1
+SC,Monte Castelo,0,2
+SC,Nova Teutônia,0,1
+SC,Novo Horizonte,0,1
+SC,Otacílio Costa,0,2
+SC,Ouro Verde,0,2
+SC,Paial,0,2
+SC,Palmitos,0,1
+SC,Papanduva,0,1
+SC,Ponte Alta do Norte,0,1
+SC,Ponte Serrada,0,2
+SC,Porto União,0,2
+SC,Pouso Redondo,0,1
+SC,Presidente Castello Branco,0,2
+SC,Princesa,0,1
+SC,Rio Fortuna,0,1
+SC,Rio Negrinho,0,2
+SC,Rio do Oeste,0,2
+SC,Rio do Sul,0,6
+SC,Salete,0,1
+SC,Santa Rosa do Sul,0,3
+SC,Santa Terezinha,0,1
+SC,Seara,0,1
+SC,Sul Brasil,0,2
+SC,São Bento do Sul,0,1
+SC,São Cristóvão do Sul,0,2
+SC,São Joaquim,0,1
+SC,São José do Cedro,0,1
+SC,São José do Cerrito,0,2
+SC,São João do Itaperiú,0,4
+SC,São João do Sul,0,1
+SC,Tangará,0,1
+SC,Timbé do Sul,0,1
+SC,Timbó Grande,0,1
+SC,Treze Tílias,0,2
+SC,Tunápolis,0,2
+SC,Turvo,0,8
+SC,Vargeão,0,1
+SC,Vidal Ramos,0,1
+SC,Videira,0,3
+SC,Xanxerê,0,9
+SC,Xavantina,0,3
+SC,Xaxim,0,3
+SC,Águas de Chapecó,0,1
+SE,Aquidabã,0,3
+SE,Aracaju,0,3
+SE,Carira,0,2
+SE,Frei Paulo,0,5
+SE,Gararu,0,3
+SE,Gracho Cardoso,0,6
+SE,Itabaianinha,0,1
+SE,Itaporanga D'Ajuda,0,1
+SE,Nossa Senhora de Lourdes,0,3
+SE,Nossa Senhora do Socorro,0,1
+SE,Pinhão,0,1
+SE,Poço Verde,0,1
+SE,Simão Dias,0,2
+SP,Adamantina,5,14
+SP,Aguai,0,1
+SP,Agudos,0,2
+SP,Alfredo Marcondes,0,1
+SP,Altair,0,1
+SP,Americana,0,2
+SP,Américo Brasiliense,0,18
+SP,Andradina,0,4
+SP,Angatuba,0,6
+SP,Aramina,0,1
+SP,Arandu,0,1
+SP,Araraquara,0,14
+SP,Araras,0,4
+SP,Araçatuba,2,19
+SP,Arealva,0,1
+SP,Areiópolis,0,1
+SP,Artur Nogueira,0,76
+SP,Assis,7,18
+SP,Atibaia,0,2
+SP,Avaré,0,5
+SP,Bady Bassitt,0,1
+SP,Bariri,0,2
+SP,Barretos,23,13
+SP,Barueri,0,1
+SP,Bastos,0,2
+SP,Bauru,0,2
+SP,Bebedouro,4,0
+SP,Bertioga,0,12
+SP,Birigui,0,2
+SP,Boa Esperança do Sul,1,1
+SP,Bofete,0,1
+SP,Boituva,0,1
+SP,Borborema,0,5
+SP,Botucatu,0,8
+SP,Brodowski,0,1
+SP,Brotas,1,5
+SP,Buri,0,1
+SP,Buritizal,0,3
+SP,Cachoeira Paulista,0,1
+SP,Caconde,0,1
+SP,Cafelândia,0,1
+SP,Cajati,4,2
+SP,Cajuru,0,1
+SP,Campinas,0,9
+SP,Capão Bonito,0,8
+SP,Casa Branca,7,0
+SP,Castilho,2,0
+SP,Catanduva,0,9
+SP,Charqueada,0,85
+SP,Colina,0,4
+SP,Conchal,0,2
+SP,Cravinhos,0,26
+SP,Cândido Mota,0,4
+SP,Descalvado,0,1
+SP,Dobrada,0,3
+SP,Dois Córregos,0,1
+SP,Dracena,2,3
+SP,Duartina,0,4
+SP,Dumont,0,1
+SP,Duplo Céu,0,1
+SP,Eldorado,0,9
+SP,Fernandópolis,0,6
+SP,Flórida Paulista,0,7
+SP,Franca,0,7
+SP,Garça,1,0
+SP,General Salgado,0,4
+SP,Guaiçara,0,8
+SP,Guaraci,0,2
+SP,Guararapes,13,1
+SP,Guariba,0,2
+SP,Guará,0,1
+SP,Guaíra,1,15
+SP,Holambra,0,1
+SP,Holambra II,3,1
+SP,Ibaté,0,2
+SP,Ibirarema,0,2
+SP,Ibirá,0,3
+SP,Ibitinga,11,1
+SP,Igarapava,0,5
+SP,Ilha Solteira,0,5
+SP,Inúbia Paulista,0,1
+SP,Iracemápolis,0,19
+SP,Itaberá,3,1
+SP,Itajobi,0,1
+SP,Itapetininga,0,21
+SP,Itapeva,5,14
+SP,Itarare,0,19
+SP,Itariri,0,1
+SP,Itaí,0,1
+SP,Itu,0,1
+SP,Itupeva,0,1
+SP,Ituverava,2,5
+SP,Itápolis,10,8
+SP,Jaboticabal,5,2
+SP,Jacupiranga,0,5
+SP,Jardinópolis,0,3
+SP,Jaú,0,3
+SP,José Bonifácio,0,6
+SP,Jundiaí,0,3
+SP,Junqueirópolis,0,2
+SP,Laranjal Paulista,0,3
+SP,Leme,12,2
+SP,Lençóis Paulista,0,101
+SP,Limeira,0,1
+SP,Luís Antônio,6,0
+SP,Maracaí,0,5
+SP,Maristela,0,2
+SP,Martinópolis,2,1
+SP,Marília,0,1
+SP,Matão,1,14
+SP,Miguelópolis,0,2
+SP,Miracatu,0,4
+SP,Mirassol,6,1
+SP,Mococa,6,3
+SP,Mogi Guaçu,1,9
+SP,Mogi Mirim,0,5
+SP,Mogi das Cruzes,0,1
+SP,Monte Alto,0,3
+SP,Monte Mor,3,5
+SP,Monções,20,0
+SP,Neves Paulista,0,1
+SP,Nhandeara,0,4
+SP,Nipoã,0,1
+SP,Nova Granada,1,0
+SP,Nova Independência,0,3
+SP,Nova Odessa,0,1
+SP,Novais,0,13
+SP,Novo Horizonte,0,4
+SP,Nuporanga,0,1
+SP,Ocaucu,0,1
+SP,Olímpia,7,10
+SP,Orindiúva,0,1
+SP,Orlândia,35,2
+SP,Ourinhos,7,2
+SP,Pacaembu,0,3
+SP,Palestina,0,2
+SP,Palmares Paulista,0,2
+SP,Palmeira D'Oeste,0,2
+SP,Palmital,0,3
+SP,Panorama,0,4
+SP,Paraguaçu Paulista,0,4
+SP,Paraíso,0,1
+SP,Paulicéia,0,4
+SP,Paulínia,0,5
+SP,Pederneiras,10,0
+SP,Pedrinhas Paulista,7,1
+SP,Penápolis,0,28
+SP,Pereira Barreto,6,2
+SP,Piacatu,0,3
+SP,Piedade,1,1
+SP,Pilar do Sul,0,1
+SP,Pindorama,0,1
+SP,Piracicaba,0,6
+SP,Pirangi,0,4
+SP,Pirassununga,0,9
+SP,Pitangueiras,3,0
+SP,Planalto,0,6
+SP,Poloni,0,3
+SP,Pontal,11,8
+SP,Potirendaba,0,1
+SP,Pradópolis,0,32
+SP,Pratânia,0,1
+SP,Presidente Prudente,0,6
+SP,Presidente Venceslau,0,1
+SP,Queluz,0,1
+SP,Rancharia,8,6
+SP,Reginopolis,0,1
+SP,Registro,2,24
+SP,Ribeirão Bonito,0,1
+SP,Ribeirão Branco,0,3
+SP,Ribeirão Preto,9,65
+SP,Rinópolis,0,4
+SP,Riolândia,0,1
+SP,Riversul,0,5
+SP,Rosana,0,1
+SP,Sales Oliveira,0,2
+SP,Saltinho,0,1
+SP,Santa Albertina,0,4
+SP,Santa Bárbara D'Oeste,0,11
+SP,Santa Cruz da Conceic?o,0,1
+SP,Santa Cruz das Palmeiras,0,4
+SP,Santa Cruz do Rio Pardo,0,1
+SP,Santa Fé do Sul,0,15
+SP,Santa Isabel,0,1
+SP,Santa Rita do Passa Quatro,0,4
+SP,Santos,5,0
+SP,Serrana,0,12
+SP,Sertãozinho,0,26
+SP,Sete Barras,8,22
+SP,Sorocaba,0,2
+SP,Sud Mennucci,0,1
+SP,São Caetano do Sul,0,1
+SP,São Carlos,0,11
+SP,São Joaquim da Barra,0,5
+SP,São José do Barreiro,0,1
+SP,São José do Rio Pardo,0,7
+SP,São José do Rio Preto,0,14
+SP,São José dos Campos,0,5
+SP,São João da Boa Vista,0,2
+SP,São Paulo,0,31
+SP,São Pedro,0,1
+SP,São Roque,0,1
+SP,São Sebastião da Grama,0,3
+SP,Taciba,0,5
+SP,Taguaí,0,1
+SP,Taiúva,0,4
+SP,Tanabi,0,1
+SP,Taquaritinga,1,2
+SP,Taquarituba,3,2
+SP,Tarumã,0,9
+SP,Taubaté,0,8
+SP,Teodoro Sampaio,0,3
+SP,Terra Roxa,0,5
+SP,Tietê,0,1
+SP,Tupi Paulista,0,4
+SP,União Paulista,0,1
+SP,Urânia,0,1
+SP,Valentim Gentil,0,1
+SP,Valparaíso,0,6
+SP,Vargem Grande do Sul,3,8
+SP,Votuporanga,0,14
+TO,Aguiarnópolis,0,1
+TO,Aragominas,0,1
+TO,Araguatins,0,2
+TO,Araguaína,16,31
+TO,Augustinópolis,0,1
+TO,Bandeirantes do Tocantins,0,3
+TO,Campos Lindos,1,0
+TO,Caseara,2,0
+TO,Colinas do Tocantins,0,2
+TO,Couto de Magalhães,0,1
+TO,Dianópolis,2,0
+TO,Dois Irmãos do Tocantins,0,5
+TO,Formoso do Araguaia,3,2
+TO,Goianorte,0,1
+TO,Guaraí,0,2
+TO,Lagoa da Confusão,21,1
+TO,Lajeado,0,18
+TO,Miracema do Tocantins,0,2
+TO,Miranorte,17,3
+TO,Natividade,0,1
+TO,Nova Olinda,0,2
+TO,Palmas,0,16
+TO,Paranã,0,1
+TO,Paraíso do Tocantins,5,3
+TO,Pedro Afonso,0,1
+TO,Piraquê,0,2
+TO,Porto Alegre do Tocantins,0,1
+TO,Porto Nacional,9,17
+TO,Presidente Kennedy,0,3
+TO,Pé da Serra,5,0
+TO,Sítio Novo do Tocantins,0,10
+TO,Talismã,0,1
+TO,Xambioá,0,4

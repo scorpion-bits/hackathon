@@ -28,3 +28,7 @@ Thumbs.db
 
 # CSVs descompactados das safras Zarc (zips ficam em data/raw/zarc/)
 data/interim/
+
+# Bases com DADO PESSOAL (nomes, CPF parcial, e-mail, telefone, coordenadas de propriedade).
+# Ficam só localmente; no git entram apenas agregados anônimos (data/processed/).
+data/restricted/

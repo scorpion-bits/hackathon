@@ -1,0 +1,7791 @@
+uf,municipio,ano,autorizacoes
+AL,Anadia,2024,1
+AL,Anadia,2025,1
+AL,Arapiraca,2024,1
+AL,Atalaia,2024,1
+AL,Atalaia,2025,1
+AL,Baixa da Onça,2025,1
+AL,Boca da Mata,2024,1
+AL,Boca da Mata,2025,1
+AL,Campo Alegre,2024,1
+AL,Campo Alegre,2025,1
+AL,Jundiá,2025,1
+AL,Messias,2024,1
+AL,Murici,2024,1
+AL,Penedo,2024,1
+AL,Penedo,2025,1
+AL,Pilar,2024,1
+AL,Pilar,2025,1
+AL,Rio Largo,2024,1
+AL,São Miguel dos Campos,2024,1
+AL,São Miguel dos Campos,2025,1
+AL,Teotônio Vilela,2024,1
+AM,Alvarães,2025,1
+AM,Amaturá,2025,1
+AM,Anamã,2025,1
+AM,Anori,2025,1
+AM,Apuí,2025,1
+AM,Atalaia do Norte,2025,1
+AM,Autazes,2025,1
+AM,Barcelos,2025,1
+AM,Barreirinha,2025,1
+AM,Benjamin Constant,2025,1
+AM,Beruri,2025,1
+AM,Boa Vista do Ramos,2025,1
+AM,Boca do Acre,2025,1
+AM,Borba,2025,1
+AM,Caapiranga,2025,1
+AM,Canutama,2025,1
+AM,Carauari,2025,1
+AM,Careiro Parauá,2025,1
+AM,Careiro da Várzea,2025,1
+AM,Coari,2025,1
+AM,Codajás,2025,1
+AM,Eirunepé,2025,1
+AM,Envira,2025,1
+AM,Fonte Boa,2025,1
+AM,Guajará,2025,1
+AM,Humaitá,2025,1
+AM,Ipixuna,2025,1
+AM,Iranduba,2025,1
+AM,Itacoatiara,2025,1
+AM,Itamarati,2025,1
+AM,Itapiranga,2025,1
+AM,Japurá,2025,1
+AM,Juruá,2025,1
+AM,Jutaí,2025,1
+AM,Lábrea,2025,1
+AM,Manacapuru,2025,1
+AM,Manaquiri,2025,1
+AM,Manaus,2025,1
+AM,Manicoré,2025,1
+AM,Maraã,2025,1
+AM,Maués,2025,1
+AM,Nhamundá,2025,1
+AM,Nova Olinda do Norte,2025,1
+AM,Novo Airão,2025,1
+AM,Novo Aripuanã,2025,1
+AM,Parintins,2025,1
+AM,Pauini,2025,1
+AM,Presidente Figueiredo,2023,1
+AM,Presidente Figueiredo,2025,1
+AM,Rio Preto da Eva,2025,1
+AM,Santa Isabel do Rio Negro,2025,1
+AM,Santo Antônio do Içá,2025,1
+AM,Silves,2025,1
+AM,São Gabriel da Cachoeira,2025,1
+AM,São Paulo de Olivença,2025,1
+AM,São Sebastião do Uatumã,2025,1
+AM,Tabatinga,2025,1
+AM,Tapauá,2025,1
+AM,Tefé,2025,1
+AM,Tonantins,2025,1
+AM,Uarini,2025,1
+AM,Urucará,2025,1
+AM,Urucurituba,2025,1
+BA,Acajutiba,2022,1
+BA,Acajutiba,2023,1
+BA,Acajutiba,2024,1
+BA,Alagoinhas,2022,1
+BA,Alagoinhas,2023,1
+BA,Alagoinhas,2024,1
+BA,Alcobaça,2022,1
+BA,Alcobaça,2023,1
+BA,Alcobaça,2024,1
+BA,Aporá,2022,1
+BA,Aporá,2023,1
+BA,Aporá,2024,1
+BA,Aramari,2022,1
+BA,Aramari,2023,1
+BA,Aramari,2024,1
+BA,Baianópolis,2022,3
+BA,Baianópolis,2023,1
+BA,Baianópolis,2024,2
+BA,Baianópolis,2025,1
+BA,Barra,2022,2
+BA,Barra,2023,1
+BA,Barra,2025,1
+BA,Barra,2026,1
+BA,Barreiras,2022,4
+BA,Barreiras,2023,3
+BA,Barreiras,2024,3
+BA,Barreiras,2025,2
+BA,Barreiras,2026,1
+BA,Belmonte,2022,1
+BA,Belmonte,2023,1
+BA,Belmonte,2024,1
+BA,Bom Jesus da Lapa,2022,2
+BA,Boquira,2022,2
+BA,Botuporã,2022,2
+BA,Brotas de Macaúbas,2022,2
+BA,Buritirama,2022,3
+BA,Buritirama,2024,1
+BA,Canápolis,2022,2
+BA,Caravelas,2022,1
+BA,Caravelas,2023,1
+BA,Caravelas,2024,1
+BA,Carinhanha,2022,2
+BA,Caripare,2022,2
+BA,Catolândia,2022,3
+BA,Catolândia,2024,1
+BA,Cocos,2022,4
+BA,Cocos,2023,1
+BA,Cocos,2024,3
+BA,Cocos,2025,2
+BA,Conde,2022,1
+BA,Conde,2023,1
+BA,Conde,2024,1
+BA,Coribe,2024,1
+BA,Coribe,2025,1
+BA,Correntina,2022,4
+BA,Correntina,2023,2
+BA,Correntina,2024,2
+BA,Correntina,2025,2
+BA,Correntina,2026,1
+BA,Cotegipe,2022,3
+BA,Cotegipe,2024,1
+BA,Cristópolis,2022,2
+BA,Crisópolis,2022,2
+BA,Crisópolis,2023,1
+BA,Crisópolis,2024,2
+BA,Descoberto,2024,1
+BA,Descoberto,2025,1
+BA,Entre Rios,2022,1
+BA,Entre Rios,2023,1
+BA,Entre Rios,2024,1
+BA,Esplanada,2022,1
+BA,Esplanada,2023,1
+BA,Esplanada,2024,1
+BA,Eunápolis,2022,1
+BA,Eunápolis,2023,1
+BA,Eunápolis,2024,1
+BA,Feira da Mata,2024,1
+BA,Feira da Mata,2025,1
+BA,Formosa do Rio Preto,2022,3
+BA,Formosa do Rio Preto,2023,1
+BA,Formosa do Rio Preto,2024,1
+BA,Formosa do Rio Preto,2025,1
+BA,Formosa do Rio Preto,2026,1
+BA,Gentio do Ouro,2022,2
+BA,Guaratinga,2022,1
+BA,Guaratinga,2023,1
+BA,Guaratinga,2024,1
+BA,Ibipitanga,2022,2
+BA,Ibirapuã,2022,1
+BA,Ibirapuã,2023,1
+BA,Ibirapuã,2024,1
+BA,Ibotirama,2022,3
+BA,Ibotirama,2024,1
+BA,Inhambupe,2022,1
+BA,Inhambupe,2023,1
+BA,Inhambupe,2024,1
+BA,Ipupiara,2022,2
+BA,Itabela,2022,1
+BA,Itabela,2023,1
+BA,Itabela,2024,1
+BA,Itagimirim,2022,1
+BA,Itagimirim,2023,1
+BA,Itagimirim,2024,1
+BA,Itamaraju,2022,1
+BA,Itamaraju,2023,1
+BA,Itamaraju,2024,1
+BA,Itanhém,2022,1
+BA,Itanhém,2023,1
+BA,Itanhém,2024,1
+BA,Jaborandi,2022,4
+BA,Jaborandi,2023,1
+BA,Jaborandi,2024,3
+BA,Jaborandi,2025,2
+BA,Juazeiro,2024,1
+BA,Lajedão,2022,1
+BA,Lajedão,2023,1
+BA,Lajedão,2024,1
+BA,Luís Eduardo Magalhães,2022,4
+BA,Luís Eduardo Magalhães,2023,2
+BA,Luís Eduardo Magalhães,2024,3
+BA,Luís Eduardo Magalhães,2025,2
+BA,Luís Eduardo Magalhães,2026,1
+BA,Mansidão,2022,2
+BA,Mata de São João,2022,1
+BA,Mata de São João,2023,1
+BA,Mata de São João,2024,1
+BA,Medeiros Neto,2022,1
+BA,Medeiros Neto,2023,1
+BA,Medeiros Neto,2024,1
+BA,Morpará,2022,2
+BA,Mucuri,2022,1
+BA,Mucuri,2023,1
+BA,Mucuri,2024,1
+BA,Muquém do São Francisco,2022,1
+BA,Muquém do São Francisco,2024,1
+BA,Nova Viçosa,2022,1
+BA,Nova Viçosa,2023,1
+BA,Nova Viçosa,2024,1
+BA,Oliveira dos Brejinhos,2022,2
+BA,Porto Seguro,2022,1
+BA,Porto Seguro,2023,1
+BA,Porto Seguro,2024,1
+BA,Prado,2022,1
+BA,Prado,2023,1
+BA,Prado,2024,1
+BA,Riacho de Santana,2022,2
+BA,Riachão das Neves,2022,3
+BA,Riachão das Neves,2024,1
+BA,Rio Real,2022,1
+BA,Rio Real,2023,1
+BA,Rio Real,2024,1
+BA,Rosário,2023,1
+BA,Rosário,2025,1
+BA,Rosário,2026,1
+BA,Santa Cruz Cabrália,2022,1
+BA,Santa Cruz Cabrália,2023,1
+BA,Santa Cruz Cabrália,2024,1
+BA,Santa Maria da Vitória,2022,2
+BA,Santa Maria da Vitória,2023,1
+BA,Santa Maria da Vitória,2024,1
+BA,Santa Maria da Vitória,2025,1
+BA,Santa Rita de Cássia,2022,2
+BA,Santana,2022,2
+BA,Santana,2023,1
+BA,Santana,2024,1
+BA,Santana,2025,1
+BA,Serra Dourada,2022,2
+BA,Serra do Ramalho,2022,2
+BA,Sátiro Dias,2022,1
+BA,Sátiro Dias,2023,1
+BA,Sátiro Dias,2024,1
+BA,São Desidério,2022,4
+BA,São Desidério,2023,1
+BA,São Desidério,2024,2
+BA,São Desidério,2025,1
+BA,São Félix do Coribe,2022,2
+BA,Sítio Grande,2022,2
+BA,Sítio do Mato,2022,4
+BA,Sítio do Mato,2024,1
+BA,Tabocas do Brejo Velho,2023,1
+BA,Tabocas do Brejo Velho,2024,1
+BA,Tabocas do Brejo Velho,2025,1
+BA,Tanque Novo,2022,2
+BA,Teixeira de Freitas,2022,1
+BA,Teixeira de Freitas,2023,1
+BA,Teixeira de Freitas,2024,1
+BA,Vereda,2022,1
+BA,Vereda,2023,1
+BA,Vereda,2024,1
+BA,Wanderley,2022,3
+BA,Wanderley,2024,1
+BA,Xique-Xique,2022,2
+DF,Brasília,2022,1
+DF,Brasília,2025,1
+DF,Brasília,2026,1
+ES,Aracruz,2022,1
+ES,Aracruz,2023,1
+ES,Conceição da Barra,2022,1
+ES,Conceição da Barra,2023,1
+ES,Jaguaré,2022,1
+ES,Jaguaré,2023,1
+ES,Montanha,2022,1
+ES,Montanha,2023,1
+ES,Pedro Canário,2022,1
+ES,Pedro Canário,2023,1
+ES,Pinheiros,2022,1
+ES,Pinheiros,2023,1
+ES,São Mateus,2022,1
+ES,São Mateus,2023,1
+GO,Acreúna,2023,3
+GO,Acreúna,2024,4
+GO,Acreúna,2025,2
+GO,Acreúna,2026,3
+GO,Alto Paraíso de Goiás,2022,1
+GO,Alto Paraíso de Goiás,2023,3
+GO,Alto Paraíso de Goiás,2024,4
+GO,Alto Paraíso de Goiás,2025,2
+GO,Alvorada do Norte,2022,1
+GO,Alvorada do Norte,2023,3
+GO,Alvorada do Norte,2024,4
+GO,Alvorada do Norte,2025,2
+GO,Americano do Brasil,2022,1
+GO,Americano do Brasil,2023,1
+GO,Anhangüera,2022,1
+GO,Anhangüera,2023,1
+GO,Aparecida do Rio Doce,2024,2
+GO,Aparecida do Rio Doce,2025,1
+GO,Aparecida do Rio Doce,2026,1
+GO,Aporé,2023,3
+GO,Aporé,2024,3
+GO,Aporé,2025,2
+GO,Aporé,2026,2
+GO,Arenópolis,2024,2
+GO,Arenópolis,2025,1
+GO,Aruanã,2025,1
+GO,Aruanã,2026,1
+GO,Barro Alto,2023,1
+GO,Barro Alto,2024,2
+GO,Barro Alto,2025,1
+GO,Bela Vista de Goiás,2025,1
+GO,Bom Jardim de Goiás,2024,2
+GO,Bom Jardim de Goiás,2025,1
+GO,Bom Jesus de Goiás,2021,1
+GO,Bom Jesus de Goiás,2022,2
+GO,Bom Jesus de Goiás,2023,5
+GO,Bom Jesus de Goiás,2024,3
+GO,Bom Jesus de Goiás,2025,2
+GO,Bom Jesus de Goiás,2026,4
+GO,Bonópolis,2024,1
+GO,Brazabrantes,2022,1
+GO,Brazabrantes,2023,1
+GO,Britânia,2023,1
+GO,Britânia,2025,1
+GO,Britânia,2026,1
+GO,Buriti Alegre,2021,1
+GO,Buriti Alegre,2022,2
+GO,Buriti Alegre,2023,2
+GO,Buriti Alegre,2024,1
+GO,Buriti Alegre,2025,1
+GO,Buriti Alegre,2026,1
+GO,Buriti de Goiás,2023,2
+GO,Buriti de Goiás,2024,3
+GO,Buriti de Goiás,2025,1
+GO,Buritinópolis,2022,1
+GO,Buritinópolis,2023,1
+GO,Cabeceiras,2022,1
+GO,Cabeceiras,2023,2
+GO,Cabeceiras,2025,1
+GO,Cachoeira Alta,2023,1
+GO,Cachoeira Alta,2024,2
+GO,Cachoeira Alta,2025,2
+GO,Cachoeira Alta,2026,1
+GO,Cachoeira Dourada,2021,1
+GO,Cachoeira Dourada,2022,1
+GO,Cachoeira Dourada,2023,1
+GO,Cachoeira Dourada,2024,1
+GO,Cachoeira Dourada,2025,2
+GO,Cachoeira Dourada,2026,4
+GO,Cachoeira de Goiás,2022,1
+GO,Cachoeira de Goiás,2023,1
+GO,Cachoeira de Goiás,2024,1
+GO,Cachoeira de Goiás,2025,1
+GO,Cachoeira de Goiás,2026,1
+GO,Caiapônia,2023,1
+GO,Caiapônia,2024,2
+GO,Caiapônia,2025,2
+GO,Caiapônia,2026,3
+GO,Caldas Novas,2021,1
+GO,Caldas Novas,2022,2
+GO,Caldas Novas,2023,2
+GO,Caldas Novas,2024,1
+GO,Caldas Novas,2025,2
+GO,Caldas Novas,2026,1
+GO,Campinorte,2022,1
+GO,Campinorte,2023,1
+GO,Campinorte,2024,2
+GO,Campinorte,2025,1
+GO,Campo Alegre,2022,1
+GO,Campo Alegre,2023,1
+GO,Campo Alegre de Goiás,2021,1
+GO,Campo Alegre de Goiás,2022,2
+GO,Campo Alegre de Goiás,2023,2
+GO,Campo Alegre de Goiás,2024,1
+GO,Campo Alegre de Goiás,2025,1
+GO,Campo Alegre de Goiás,2026,1
+GO,Campos Belos,2023,2
+GO,Campos Belos,2024,4
+GO,Campos Belos,2025,3
+GO,Campos Lindos,2025,1
+GO,Capelinha,2022,1
+GO,Capelinha,2023,1
+GO,Carmo do Rio Verde,2022,1
+GO,Carmo do Rio Verde,2023,1
+GO,Carmo do Rio Verde,2024,2
+GO,Carmo do Rio Verde,2025,1
+GO,Castelândia,2024,2
+GO,Castelândia,2025,1
+GO,Catalão,2021,1
+GO,Catalão,2022,2
+GO,Catalão,2023,2
+GO,Catalão,2024,1
+GO,Catalão,2025,3
+GO,Catalão,2026,2
+GO,Cavalcante,2023,2
+GO,Cavalcante,2024,4
+GO,Cavalcante,2025,2
+GO,Caçu,2023,1
+GO,Caçu,2024,2
+GO,Caçu,2025,1
+GO,Caçu,2026,1
+GO,Ceres,2023,1
+GO,Ceres,2024,2
+GO,Ceres,2025,1
+GO,Chapadão do Céu,2022,1
+GO,Chapadão do Céu,2023,6
+GO,Chapadão do Céu,2024,5
+GO,Chapadão do Céu,2025,4
+GO,Chapadão do Céu,2026,5
+GO,Colinas do Sul,2023,2
+GO,Colinas do Sul,2024,4
+GO,Colinas do Sul,2025,2
+GO,Corumbaíba,2021,1
+GO,Corumbaíba,2022,1
+GO,Corumbaíba,2023,1
+GO,Corumbaíba,2024,1
+GO,Corumbaíba,2025,1
+GO,Corumbaíba,2026,1
+GO,Cristalina,2021,2
+GO,Cristalina,2022,2
+GO,Cristalina,2023,3
+GO,Cristalina,2024,1
+GO,Cristalina,2025,4
+GO,Cristalina,2026,3
+GO,Damianópolis,2022,1
+GO,Damianópolis,2023,3
+GO,Damianópolis,2024,4
+GO,Damianópolis,2025,2
+GO,Davidópolis,2022,1
+GO,Davinópolis,2023,1
+GO,Davinópolis,2024,1
+GO,Davinópolis,2025,1
+GO,Davinópolis,2026,1
+GO,Divinópolis de Goiás,2023,2
+GO,Divinópolis de Goiás,2024,4
+GO,Divinópolis de Goiás,2025,2
+GO,Domiciano Ribeiro,2022,1
+GO,Domiciano Ribeiro,2023,1
+GO,Doverlândia,2023,1
+GO,Doverlândia,2024,2
+GO,Doverlândia,2025,2
+GO,Doverlândia,2026,1
+GO,Edealina,2023,3
+GO,Edealina,2024,2
+GO,Edealina,2025,1
+GO,Edealina,2026,3
+GO,Edéia,2022,1
+GO,Edéia,2023,3
+GO,Edéia,2024,2
+GO,Edéia,2025,1
+GO,Edéia,2026,3
+GO,Flores de Goiás,2023,3
+GO,Flores de Goiás,2024,5
+GO,Flores de Goiás,2025,2
+GO,Formosa,2023,1
+GO,Formosa,2025,1
+GO,Formoso,2023,2
+GO,Formoso,2024,4
+GO,Formoso,2025,1
+GO,Goiandira,2021,1
+GO,Goiandira,2022,1
+GO,Goiandira,2023,1
+GO,Goiandira,2024,1
+GO,Goiandira,2025,1
+GO,Goiandira,2026,1
+GO,Goiatuba,2021,1
+GO,Goiatuba,2022,1
+GO,Goiatuba,2023,1
+GO,Goiatuba,2024,1
+GO,Goiatuba,2025,1
+GO,Goiatuba,2026,1
+GO,Guarani de Goiás,2023,2
+GO,Guarani de Goiás,2024,4
+GO,Guarani de Goiás,2025,2
+GO,Hidrolina,2024,1
+GO,Hidrolina,2025,1
+GO,Iaciara,2022,1
+GO,Iaciara,2023,1
+GO,Indiara,2023,3
+GO,Indiara,2024,2
+GO,Indiara,2025,1
+GO,Indiara,2026,3
+GO,Ipameri,2021,1
+GO,Ipameri,2022,2
+GO,Ipameri,2023,2
+GO,Ipameri,2024,1
+GO,Ipameri,2025,3
+GO,Ipameri,2026,2
+GO,Ipiranga de Goiás,2023,1
+GO,Ipiranga de Goiás,2024,2
+GO,Ipiranga de Goiás,2025,1
+GO,Iporá,2025,1
+GO,Itapaci,2023,1
+GO,Itapaci,2024,2
+GO,Itapaci,2025,1
+GO,Itarumã,2024,2
+GO,Itarumã,2025,1
+GO,Itarumã,2026,1
+GO,Itumbiara,2021,1
+GO,Itumbiara,2022,1
+GO,Itumbiara,2023,1
+GO,Itumbiara,2024,3
+GO,Itumbiara,2025,2
+GO,Itumbiara,2026,4
+GO,Jataí,2022,1
+GO,Jataí,2023,1
+GO,Jataí,2024,2
+GO,Jataí,2025,2
+GO,Jataí,2026,1
+GO,Joviânia,2021,1
+GO,Joviânia,2022,1
+GO,Joviânia,2023,1
+GO,Joviânia,2024,1
+GO,Joviânia,2025,1
+GO,Joviânia,2026,1
+GO,Lagoa Santa,2024,2
+GO,Lagoa Santa,2025,1
+GO,Luziânia,2021,1
+GO,Luziânia,2022,1
+GO,Luziânia,2023,2
+GO,Luziânia,2025,2
+GO,Luziânia,2026,1
+GO,Mairipotaba,2022,1
+GO,Mairipotaba,2023,1
+GO,Mambaí,2023,2
+GO,Mambaí,2024,4
+GO,Mambaí,2025,4
+GO,Mambaí,2026,1
+GO,Mara Rosa,2022,1
+GO,Mara Rosa,2023,3
+GO,Mara Rosa,2024,4
+GO,Mara Rosa,2025,2
+GO,Marzagão,2022,1
+GO,Marzagão,2023,1
+GO,Maurilândia,2023,3
+GO,Maurilândia,2024,4
+GO,Maurilândia,2025,2
+GO,Maurilândia,2026,4
+GO,Minaçu,2023,2
+GO,Minaçu,2024,4
+GO,Minaçu,2025,2
+GO,Mineiros,2022,1
+GO,Mineiros,2023,2
+GO,Mineiros,2024,2
+GO,Mineiros,2025,2
+GO,Mineiros,2026,1
+GO,Monte Alegre de Goiás,2023,2
+GO,Monte Alegre de Goiás,2024,4
+GO,Monte Alegre de Goiás,2025,2
+GO,Monte Alegre de Goiás,2026,1
+GO,Montes Claros de Goiás,2024,1
+GO,Montividiu,2022,1
+GO,Montividiu,2024,2
+GO,Montividiu,2025,1
+GO,Montividiu,2026,3
+GO,Morrinhos,2021,1
+GO,Morrinhos,2022,1
+GO,Morrinhos,2023,1
+GO,Morrinhos,2024,1
+GO,Morrinhos,2025,1
+GO,Morrinhos,2026,1
+GO,Mozarlândia,2022,1
+GO,Mozarlândia,2023,1
+GO,Mozarlândia,2024,1
+GO,Mozarlândia,2025,1
+GO,Mozarlândia,2026,1
+GO,Mundo Novo,2022,1
+GO,Mundo Novo,2023,1
+GO,Mundo Novo,2024,1
+GO,Mundo Novo,2025,1
+GO,Mundo Novo,2026,1
+GO,Niquelândia,2022,2
+GO,Niquelândia,2023,3
+GO,Niquelândia,2024,4
+GO,Niquelândia,2025,2
+GO,Nova América,2023,1
+GO,Nova América,2024,2
+GO,Nova América,2025,1
+GO,Nova Crixás,2022,1
+GO,Nova Crixás,2023,1
+GO,Nova Crixás,2024,1
+GO,Nova Crixás,2025,1
+GO,Nova Crixás,2026,1
+GO,Nova Glória,2023,1
+GO,Nova Glória,2024,2
+GO,Nova Glória,2025,1
+GO,Nova Roma,2023,2
+GO,Nova Roma,2024,4
+GO,Nova Roma,2025,2
+GO,Novo Planalto,2022,1
+GO,Novo Planalto,2023,1
+GO,Novo Planalto,2024,2
+GO,Novo Planalto,2025,1
+GO,Novo Planalto,2026,1
+GO,Ouvidor,2021,1
+GO,Ouvidor,2022,1
+GO,Ouvidor,2023,1
+GO,Ouvidor,2024,1
+GO,Ouvidor,2025,1
+GO,Ouvidor,2026,1
+GO,Padre Bernardo,2023,2
+GO,Padre Bernardo,2024,4
+GO,Padre Bernardo,2025,2
+GO,Palestina de Goiás,2024,2
+GO,Palestina de Goiás,2025,1
+GO,Palmeiras de Goiás,2022,1
+GO,Palmeiras de Goiás,2023,1
+GO,Palmelo,2022,1
+GO,Palmelo,2023,1
+GO,Panamá,2021,1
+GO,Panamá,2022,1
+GO,Panamá,2023,1
+GO,Panamá,2024,1
+GO,Panamá,2025,2
+GO,Panamá,2026,4
+GO,Paranaiguara,2025,1
+GO,Paranaiguara,2026,1
+GO,Perolândia,2023,1
+GO,Perolândia,2024,2
+GO,Perolândia,2025,2
+GO,Perolândia,2026,1
+GO,Piracanjuba,2021,1
+GO,Piracanjuba,2022,1
+GO,Piracanjuba,2023,1
+GO,Piracanjuba,2024,1
+GO,Piracanjuba,2025,1
+GO,Piracanjuba,2026,1
+GO,Piranhas,2024,2
+GO,Piranhas,2025,1
+GO,Pires Belo,2022,1
+GO,Pires Belo,2023,2
+GO,Pires Belo,2024,1
+GO,Pires Belo,2025,1
+GO,Pires Belo,2026,1
+GO,Pires do Rio,2021,1
+GO,Pires do Rio,2022,2
+GO,Pires do Rio,2023,2
+GO,Pires do Rio,2024,1
+GO,Pires do Rio,2025,3
+GO,Pires do Rio,2026,2
+GO,Planaltina,2023,2
+GO,Planaltina,2024,4
+GO,Planaltina,2025,2
+GO,Pontalina,2023,3
+GO,Pontalina,2024,2
+GO,Pontalina,2025,1
+GO,Pontalina,2026,3
+GO,Porangatu,2022,1
+GO,Porangatu,2023,3
+GO,Porangatu,2024,5
+GO,Porangatu,2025,3
+GO,Porangatu,2026,1
+GO,Porteirão,2023,3
+GO,Porteirão,2024,2
+GO,Porteirão,2025,1
+GO,Porteirão,2026,3
+GO,Portelândia,2023,1
+GO,Portelândia,2024,2
+GO,Portelândia,2025,2
+GO,Portelândia,2026,1
+GO,Posse,2022,1
+GO,Posse,2023,3
+GO,Posse,2024,4
+GO,Posse,2025,2
+GO,Quirinópolis,2021,1
+GO,Quirinópolis,2022,2
+GO,Quirinópolis,2023,4
+GO,Quirinópolis,2024,5
+GO,Quirinópolis,2025,3
+GO,Quirinópolis,2026,5
+GO,Rialma,2022,1
+GO,Rialma,2023,1
+GO,Rialma,2024,2
+GO,Rialma,2025,1
+GO,Rianápolis,2023,1
+GO,Rianápolis,2024,2
+GO,Rianápolis,2025,1
+GO,Rio Verde,2022,1
+GO,Rio Verde,2023,4
+GO,Rio Verde,2024,4
+GO,Rio Verde,2025,3
+GO,Rio Verde,2026,6
+GO,Rubiataba,2022,1
+GO,Rubiataba,2023,1
+GO,Rubiataba,2024,2
+GO,Rubiataba,2025,1
+GO,Santa Cruz de Goiás,2021,1
+GO,Santa Cruz de Goiás,2022,1
+GO,Santa Cruz de Goiás,2023,1
+GO,Santa Cruz de Goiás,2024,1
+GO,Santa Cruz de Goiás,2025,1
+GO,Santa Cruz de Goiás,2026,1
+GO,Santa Helena de Goiás,2022,1
+GO,Santa Helena de Goiás,2023,3
+GO,Santa Helena de Goiás,2024,4
+GO,Santa Helena de Goiás,2025,2
+GO,Santa Helena de Goiás,2026,5
+GO,Santa Isabel,2023,1
+GO,Santa Isabel,2024,2
+GO,Santa Isabel,2025,1
+GO,Santa Tereza de Goiás,2022,1
+GO,Santa Terezinha de Goiás,2023,1
+GO,Santo Antônio da Barra,2024,2
+GO,Santo Antônio da Barra,2025,1
+GO,Santo Antônio da Barra,2026,1
+GO,Santo Antônio do Rio Verde,2021,1
+GO,Santo Antônio do Rio Verde,2022,1
+GO,Santo Antônio do Rio Verde,2023,1
+GO,Santo Antônio do Rio Verde,2024,1
+GO,Santo Antônio do Rio Verde,2025,1
+GO,Santo Antônio do Rio Verde,2026,1
+GO,Serranópolis,2023,4
+GO,Serranópolis,2024,5
+GO,Serranópolis,2025,2
+GO,Serranópolis,2026,4
+GO,Silvânia,2022,1
+GO,Silvânia,2023,1
+GO,São Domingos,2022,1
+GO,São Domingos,2023,3
+GO,São Domingos,2024,4
+GO,São Domingos,2025,2
+GO,São João D'Aliança,2022,1
+GO,São João D'Aliança,2023,3
+GO,São João D'Aliança,2024,4
+GO,São João D'Aliança,2025,2
+GO,São Luiz do Norte,2022,1
+GO,São Luiz do Norte,2023,1
+GO,São Luiz do Norte,2024,2
+GO,São Luiz do Norte,2025,1
+GO,São Miguel do Araguaia,2022,1
+GO,São Miguel do Araguaia,2023,1
+GO,São Miguel do Araguaia,2024,2
+GO,São Miguel do Araguaia,2025,3
+GO,São Miguel do Araguaia,2026,1
+GO,São Patrício,2023,1
+GO,São Patrício,2024,2
+GO,São Patrício,2025,1
+GO,São Simão,2025,1
+GO,São Simão,2026,1
+GO,Teresina de Goiás,2023,2
+GO,Teresina de Goiás,2024,4
+GO,Teresina de Goiás,2025,2
+GO,Turvelândia,2023,3
+GO,Turvelândia,2024,2
+GO,Turvelândia,2025,1
+GO,Turvelândia,2026,3
+GO,Uruana,2022,1
+GO,Uruana,2023,1
+GO,Uruana,2024,2
+GO,Uruana,2025,1
+GO,Uruaçu,2022,1
+GO,Uruaçu,2023,3
+GO,Uruaçu,2024,6
+GO,Uruaçu,2025,3
+GO,Urutaí,2021,1
+GO,Urutaí,2022,2
+GO,Urutaí,2023,2
+GO,Urutaí,2024,1
+GO,Urutaí,2025,1
+GO,Urutaí,2026,1
+GO,Valparaíso de Goiás,2022,1
+GO,Valparaíso de Goiás,2023,1
+GO,Vicentinópolis,2023,3
+GO,Vicentinópolis,2024,2
+GO,Vicentinópolis,2025,1
+GO,Vicentinópolis,2026,3
+GO,Água Fria de Goiás,2023,2
+GO,Água Fria de Goiás,2024,4
+GO,Água Fria de Goiás,2025,2
+MA,Afonso Cunha,2022,1
+MA,Alcântara,2022,1
+MA,Aldeias Altas,2022,1
+MA,Aldeias Altas,2023,1
+MA,Aldeias Altas,2024,1
+MA,Aldeias Altas,2025,4
+MA,Altamira do Maranhão,2022,1
+MA,Alto Alegre do Maranhão,2022,1
+MA,Alto Alegre do Pindaré,2022,1
+MA,Alto Parnaíba,2022,3
+MA,Alto Parnaíba,2023,2
+MA,Alto Parnaíba,2024,3
+MA,Alto Parnaíba,2025,6
+MA,Alto Parnaíba,2026,3
+MA,Amapá do Maranhão,2022,1
+MA,Amarante do Maranhão,2022,1
+MA,Amarante do Maranhão,2025,1
+MA,Anajatuba,2022,1
+MA,Anapurus,2022,1
+MA,Anapurus,2023,1
+MA,Anapurus,2024,1
+MA,Anapurus,2025,4
+MA,Anil,2022,1
+MA,Apicum-Açu,2022,1
+MA,Araguanã,2022,1
+MA,Araioses,2022,1
+MA,Arame,2022,1
+MA,Arame,2023,2
+MA,Arame,2024,1
+MA,Arame,2025,5
+MA,Arari,2022,1
+MA,Arari,2023,1
+MA,Arari,2024,1
+MA,Arari,2025,4
+MA,Aurizona,2022,1
+MA,Axixá,2022,1
+MA,Açailândia,2022,1
+MA,Açailândia,2023,2
+MA,Açailândia,2024,2
+MA,Açailândia,2025,6
+MA,Açailândia,2026,1
+MA,Bacabal,2022,1
+MA,Bacabal,2023,1
+MA,Bacabal,2024,1
+MA,Bacabal,2025,5
+MA,Bacabeira,2022,1
+MA,Bacatuba,2022,1
+MA,Bacuri,2022,3
+MA,Bacuri,2023,1
+MA,Bacuri,2024,2
+MA,Bacuri,2025,1
+MA,Bacuri,2026,2
+MA,Bacurituba,2022,1
+MA,Balsas,2022,3
+MA,Balsas,2023,3
+MA,Balsas,2024,5
+MA,Balsas,2025,8
+MA,Balsas,2026,5
+MA,Barra do Corda,2022,1
+MA,Barra do Corda,2023,2
+MA,Barra do Corda,2024,2
+MA,Barra do Corda,2025,6
+MA,Barra do Corda,2026,1
+MA,Barreirinhas,2022,1
+MA,Barro Duro,2022,1
+MA,Barão de Grajaú,2022,1
+MA,Barão de Grajaú,2025,1
+MA,Barão de Grajaú,2026,1
+MA,Barão de Tromai,2022,1
+MA,Bela Vista do Maranhão,2022,1
+MA,Bela Vista do Maranhão,2025,1
+MA,Bela Vista do Maranhão,2026,1
+MA,Benedito Leite,2022,2
+MA,Benedito Leite,2024,3
+MA,Benedito Leite,2025,2
+MA,Benedito Leite,2026,3
+MA,Boa Vista do Gurupi,2022,1
+MA,Bom Jardim,2022,1
+MA,Bom Jardim,2023,1
+MA,Bom Jardim,2024,1
+MA,Bom Jardim,2025,4
+MA,Bom Jesus das Selvas,2022,1
+MA,Bom Jesus das Selvas,2023,2
+MA,Bom Jesus das Selvas,2024,2
+MA,Bom Jesus das Selvas,2025,5
+MA,Bom Jesus das Selvas,2026,1
+MA,Brejo de São Félix,2022,1
+MA,Buriti,2022,2
+MA,Buriti,2024,2
+MA,Buriti,2025,1
+MA,Buriti,2026,2
+MA,Buriti Bravo,2023,1
+MA,Buriti Bravo,2024,1
+MA,Buriti Bravo,2025,4
+MA,Buriticupu,2022,1
+MA,Buriticupu,2023,2
+MA,Buriticupu,2024,1
+MA,Buriticupu,2025,5
+MA,Buritirana,2022,2
+MA,Buritirana,2023,2
+MA,Buritirana,2024,3
+MA,Buritirana,2025,5
+MA,Buritirana,2026,2
+MA,Campestre do Maranhão,2023,2
+MA,Campestre do Maranhão,2024,1
+MA,Campestre do Maranhão,2025,5
+MA,Carolina,2022,3
+MA,Carolina,2023,3
+MA,Carolina,2024,3
+MA,Carolina,2025,6
+MA,Carolina,2026,3
+MA,Centro Novo do Maranhão,2022,1
+MA,Centro Novo do Maranhão,2024,1
+MA,Chapadinha,2022,1
+MA,Chapadinha,2023,1
+MA,Chapadinha,2024,1
+MA,Chapadinha,2025,4
+MA,Cidelândia,2022,1
+MA,Cidelândia,2023,1
+MA,Cidelândia,2024,1
+MA,Cidelândia,2025,4
+MA,Codó,2023,1
+MA,Codó,2024,1
+MA,Codó,2025,4
+MA,Coelho Neto,2023,1
+MA,Coelho Neto,2024,1
+MA,Coelho Neto,2025,4
+MA,Colinas,2022,1
+MA,Colinas,2023,2
+MA,Colinas,2024,1
+MA,Colinas,2025,4
+MA,Curupa,2022,1
+MA,Davinópolis,2023,1
+MA,Davinópolis,2024,1
+MA,Davinópolis,2025,4
+MA,Dom Pedro,2022,1
+MA,Estreito,2022,2
+MA,Estreito,2023,2
+MA,Estreito,2024,3
+MA,Estreito,2025,7
+MA,Estreito,2026,2
+MA,Feira Nova do Maranhão,2022,2
+MA,Feira Nova do Maranhão,2024,2
+MA,Feira Nova do Maranhão,2025,1
+MA,Feira Nova do Maranhão,2026,2
+MA,Formosa da Serra Negra,2022,2
+MA,Formosa da Serra Negra,2023,2
+MA,Formosa da Serra Negra,2024,3
+MA,Formosa da Serra Negra,2025,6
+MA,Formosa da Serra Negra,2026,2
+MA,Fortaleza dos Nogueiras,2022,3
+MA,Fortaleza dos Nogueiras,2023,1
+MA,Fortaleza dos Nogueiras,2024,3
+MA,Fortaleza dos Nogueiras,2025,6
+MA,Fortaleza dos Nogueiras,2026,2
+MA,Fortuna,2023,2
+MA,Fortuna,2024,1
+MA,Fortuna,2025,4
+MA,Governador Edison Lobão,2023,2
+MA,Governador Edison Lobão,2024,1
+MA,Governador Edison Lobão,2025,5
+MA,Grajaú,2023,2
+MA,Grajaú,2024,2
+MA,Grajaú,2025,5
+MA,Ibipira,2022,1
+MA,Imperatriz,2023,2
+MA,Imperatriz,2024,1
+MA,Imperatriz,2025,5
+MA,Imperatriz,2026,1
+MA,Itinga do Maranhão,2022,1
+MA,Itinga do Maranhão,2023,2
+MA,Itinga do Maranhão,2024,1
+MA,Itinga do Maranhão,2025,5
+MA,Itinga do Maranhão,2026,1
+MA,João Lisboa,2023,1
+MA,João Lisboa,2024,1
+MA,João Lisboa,2025,4
+MA,Lago da Pedra,2023,2
+MA,Lago da Pedra,2024,1
+MA,Lago da Pedra,2025,5
+MA,Lagoa do Mato,2023,1
+MA,Lagoa do Mato,2024,1
+MA,Lagoa do Mato,2025,4
+MA,Lajeado Novo,2023,2
+MA,Lajeado Novo,2024,1
+MA,Lajeado Novo,2025,4
+MA,Loreto,2022,3
+MA,Loreto,2023,1
+MA,Loreto,2024,3
+MA,Loreto,2025,2
+MA,Loreto,2026,3
+MA,Luís Domingues,2022,1
+MA,Magalhães de Almeida,2023,1
+MA,Magalhães de Almeida,2024,1
+MA,Magalhães de Almeida,2025,4
+MA,Matões,2022,1
+MA,Matões,2023,1
+MA,Matões,2024,1
+MA,Matões,2025,4
+MA,Mirador,2022,1
+MA,Mirador,2023,1
+MA,Mirador,2024,1
+MA,Mirador,2025,4
+MA,Monção,2022,1
+MA,Morros,2022,2
+MA,Morros,2023,1
+MA,Morros,2024,2
+MA,Morros,2025,1
+MA,Morros,2026,2
+MA,Nova Colinas,2022,3
+MA,Nova Colinas,2023,1
+MA,Nova Colinas,2024,2
+MA,Nova Colinas,2025,1
+MA,Nova Colinas,2026,3
+MA,Paraibano,2023,1
+MA,Paraibano,2024,1
+MA,Paraibano,2025,4
+MA,Parnarama,2023,2
+MA,Parnarama,2024,1
+MA,Parnarama,2025,4
+MA,Passagem Franca,2023,2
+MA,Passagem Franca,2024,1
+MA,Passagem Franca,2025,4
+MA,Pastos Bons,2023,1
+MA,Pastos Bons,2024,1
+MA,Pastos Bons,2025,4
+MA,Porto Franco,2022,1
+MA,Porto Franco,2023,2
+MA,Porto Franco,2024,1
+MA,Porto Franco,2025,6
+MA,Porto Franco,2026,1
+MA,Presidente Dutra,2023,2
+MA,Presidente Dutra,2024,1
+MA,Presidente Dutra,2025,5
+MA,Presidente Vargas,2022,1
+MA,Riachão,2022,3
+MA,Riachão,2023,2
+MA,Riachão,2024,3
+MA,Riachão,2025,7
+MA,Riachão,2026,3
+MA,Ribamar Fiquene,2023,2
+MA,Ribamar Fiquene,2024,1
+MA,Ribamar Fiquene,2025,6
+MA,Ribamar Fiquene,2026,1
+MA,Sambaíba,2022,3
+MA,Sambaíba,2023,2
+MA,Sambaíba,2024,2
+MA,Sambaíba,2025,4
+MA,Sambaíba,2026,3
+MA,Santa Filomena do Maranhão,2022,1
+MA,Santa Inês,2022,1
+MA,Santa Inês,2023,1
+MA,Santa Inês,2024,1
+MA,Santa Inês,2025,4
+MA,Santa Luzia,2022,2
+MA,Santa Luzia,2023,1
+MA,Santa Luzia,2024,3
+MA,Santa Luzia,2025,5
+MA,Santa Luzia,2026,2
+MA,Senador La Rocque,2023,1
+MA,Senador La Rocque,2024,1
+MA,Senador La Rocque,2025,4
+MA,Sucupira do Norte,2022,1
+MA,Sucupira do Norte,2023,2
+MA,Sucupira do Norte,2024,1
+MA,Sucupira do Norte,2025,4
+MA,São Benedito do Rio Preto,2023,1
+MA,São Bernardo,2023,1
+MA,São Bernardo,2024,1
+MA,São Bernardo,2025,4
+MA,São Domingos do Azeitão,2022,3
+MA,São Domingos do Azeitão,2023,1
+MA,São Domingos do Azeitão,2024,3
+MA,São Domingos do Azeitão,2025,6
+MA,São Domingos do Azeitão,2026,2
+MA,São Francisco do Brejão,2023,1
+MA,São Francisco do Brejão,2024,1
+MA,São Francisco do Brejão,2025,4
+MA,São Francisco do Maranhão,2023,1
+MA,São Francisco do Maranhão,2024,1
+MA,São Francisco do Maranhão,2025,4
+MA,São Félix de Balsas,2022,2
+MA,São Félix de Balsas,2024,2
+MA,São Félix de Balsas,2025,2
+MA,São Félix de Balsas,2026,3
+MA,São João do Paraíso,2022,2
+MA,São João do Paraíso,2023,2
+MA,São João do Paraíso,2024,3
+MA,São João do Paraíso,2025,5
+MA,São João do Paraíso,2026,2
+MA,São João dos Patos,2023,1
+MA,São João dos Patos,2024,1
+MA,São João dos Patos,2025,4
+MA,São Mateus do Maranhão,2023,1
+MA,São Mateus do Maranhão,2024,1
+MA,São Mateus do Maranhão,2025,4
+MA,São Pedro da Água Branca,2023,1
+MA,São Pedro da Água Branca,2024,1
+MA,São Pedro da Água Branca,2025,4
+MA,São Pedro dos Crentes,2022,2
+MA,São Pedro dos Crentes,2023,1
+MA,São Pedro dos Crentes,2024,3
+MA,São Pedro dos Crentes,2025,6
+MA,São Pedro dos Crentes,2026,2
+MA,São Raimundo das Mangabeiras,2022,3
+MA,São Raimundo das Mangabeiras,2023,2
+MA,São Raimundo das Mangabeiras,2024,3
+MA,São Raimundo das Mangabeiras,2025,7
+MA,São Raimundo das Mangabeiras,2026,4
+MA,São Raimundo do Doca Bezerra,2025,1
+MA,Sítio Novo,2023,2
+MA,Sítio Novo,2024,1
+MA,Sítio Novo,2025,4
+MA,Tasso Fragoso,2022,3
+MA,Tasso Fragoso,2023,3
+MA,Tasso Fragoso,2024,4
+MA,Tasso Fragoso,2025,6
+MA,Tasso Fragoso,2026,3
+MA,Tufilândia,2022,1
+MA,Vargem Grande,2022,1
+MA,Vila Nova dos Martírios,2023,1
+MA,Vila Nova dos Martírios,2024,2
+MA,Vila Nova dos Martírios,2025,4
+MA,Vitória do Mearim,2023,1
+MA,Vitória do Mearim,2024,1
+MA,Vitória do Mearim,2025,4
+MA,Água Doce do Maranhão,2022,1
+MG,Abadia dos Dourados,2022,2
+MG,Abadia dos Dourados,2023,1
+MG,Abadia dos Dourados,2024,3
+MG,Abadia dos Dourados,2025,4
+MG,Abadia dos Dourados,2026,2
+MG,Abaeté,2022,2
+MG,Abaeté,2023,1
+MG,Abaeté,2024,2
+MG,Abaeté,2025,3
+MG,Abaeté,2026,2
+MG,Abaeté dos Mendes,2022,1
+MG,Abaíba,2022,1
+MG,Abre Campo,2022,2
+MG,Abre Campo,2023,1
+MG,Abre Campo,2024,1
+MG,Abre Campo,2025,2
+MG,Abre Campo,2026,1
+MG,Abreus,2022,1
+MG,Acaiaca,2022,2
+MG,Acaiaca,2023,1
+MG,Acaiaca,2024,1
+MG,Acaiaca,2025,2
+MG,Acaiaca,2026,1
+MG,Acurui,2022,1
+MG,Adão Colares,2022,1
+MG,Aguanil,2022,3
+MG,Aguanil,2023,2
+MG,Aguanil,2024,1
+MG,Aguanil,2025,3
+MG,Aguanil,2026,1
+MG,Aimorés,2022,3
+MG,Aimorés,2023,2
+MG,Aimorés,2024,2
+MG,Aimorés,2025,2
+MG,Aimorés,2026,1
+MG,Aiuruoca,2022,2
+MG,Aiuruoca,2023,1
+MG,Aiuruoca,2024,1
+MG,Aiuruoca,2025,2
+MG,Aiuruoca,2026,1
+MG,Alagoa,2022,2
+MG,Alagoa,2023,1
+MG,Alagoa,2024,1
+MG,Alagoa,2025,3
+MG,Alagoa,2026,1
+MG,Albertina,2022,2
+MG,Albertina,2023,1
+MG,Albertina,2024,1
+MG,Albertina,2025,2
+MG,Albertina,2026,1
+MG,Alberto Isaacson,2022,1
+MG,Albertos,2022,1
+MG,Albertos,2023,1
+MG,Albertos,2025,1
+MG,Aldeia,2022,1
+MG,Alegre,2024,1
+MG,Alegre,2025,1
+MG,Alegre,2026,1
+MG,Alexandrita,2025,1
+MG,Alfenas,2022,2
+MG,Alfenas,2023,2
+MG,Alfenas,2024,1
+MG,Alfenas,2025,3
+MG,Alfenas,2026,1
+MG,Alfredo Vasconcelos,2022,1
+MG,Alfredo Vasconcelos,2023,1
+MG,Alfredo Vasconcelos,2024,1
+MG,Alfredo Vasconcelos,2025,2
+MG,Alfredo Vasconcelos,2026,1
+MG,Almenara,2022,3
+MG,Almenara,2023,2
+MG,Almenara,2024,3
+MG,Almenara,2025,3
+MG,Almenara,2026,2
+MG,Alpercata,2022,2
+MG,Alpercata,2023,1
+MG,Alpercata,2024,1
+MG,Alpercata,2025,2
+MG,Alpercata,2026,1
+MG,Alpinópolis,2022,3
+MG,Alpinópolis,2023,2
+MG,Alpinópolis,2024,1
+MG,Alpinópolis,2025,4
+MG,Alpinópolis,2026,1
+MG,Alterosa,2022,3
+MG,Alterosa,2023,2
+MG,Alterosa,2024,1
+MG,Alterosa,2025,4
+MG,Alterosa,2026,1
+MG,Alto Belo,2022,1
+MG,Alto Caparaó,2022,2
+MG,Alto Caparaó,2023,1
+MG,Alto Caparaó,2024,1
+MG,Alto Caparaó,2026,1
+MG,Alto Capim,2022,1
+MG,Alto Jequitibá,2022,2
+MG,Alto Jequitibá,2023,1
+MG,Alto Jequitibá,2024,1
+MG,Alto Jequitibá,2025,2
+MG,Alto Jequitibá,2026,1
+MG,Alto Maranhão,2022,1
+MG,Alto Rio Doce,2022,2
+MG,Alto Rio Doce,2023,1
+MG,Alto Rio Doce,2024,1
+MG,Alto Rio Doce,2025,2
+MG,Alto Rio Doce,2026,1
+MG,Alto de Santa Helena,2022,1
+MG,Altolândia,2022,1
+MG,Altolândia,2025,1
+MG,Alvarenga,2022,2
+MG,Alvarenga,2023,1
+MG,Alvarenga,2024,1
+MG,Alvarenga,2025,2
+MG,Alvarenga,2026,1
+MG,Alvação,2022,1
+MG,Alvinópolis,2022,2
+MG,Alvinópolis,2023,1
+MG,Alvinópolis,2024,1
+MG,Alvinópolis,2025,2
+MG,Alvinópolis,2026,1
+MG,Alvorada,2022,1
+MG,Alvorada,2025,1
+MG,Alvorada de Minas,2022,1
+MG,Alvorada de Minas,2023,1
+MG,Alvorada de Minas,2024,1
+MG,Alvorada de Minas,2025,2
+MG,Alvorada de Minas,2026,1
+MG,Além Paraíba,2022,1
+MG,Além Paraíba,2023,1
+MG,Além Paraíba,2024,1
+MG,Além Paraíba,2025,2
+MG,Além Paraíba,2026,1
+MG,Amanda,2022,1
+MG,Amanhece,2022,1
+MG,Amanhece,2025,1
+MG,Amarantina,2022,1
+MG,Amparo do Serra,2022,2
+MG,Amparo do Serra,2023,1
+MG,Amparo do Serra,2024,1
+MG,Amparo do Serra,2026,1
+MG,Andiroba,2022,1
+MG,Andradas,2022,3
+MG,Andradas,2023,2
+MG,Andradas,2024,1
+MG,Andradas,2025,4
+MG,Andradas,2026,1
+MG,Andrelândia,2022,3
+MG,Andrelândia,2023,2
+MG,Andrelândia,2024,1
+MG,Andrelândia,2025,3
+MG,Andrelândia,2026,1
+MG,Andrequicé,2022,1
+MG,Angaturama,2022,1
+MG,Angelândia,2022,2
+MG,Angelândia,2023,1
+MG,Angelândia,2024,1
+MG,Angelândia,2025,2
+MG,Angelândia,2026,1
+MG,Angicos de Minas,2022,1
+MG,Antônio Carlos,2022,1
+MG,Antônio Carlos,2023,1
+MG,Antônio Carlos,2024,1
+MG,Antônio Carlos,2025,3
+MG,Antônio Carlos,2026,1
+MG,Antônio Dias,2022,1
+MG,Antônio Dias,2023,1
+MG,Antônio Dias,2024,1
+MG,Antônio Dias,2025,2
+MG,Antônio Dias,2026,1
+MG,Antônio Pereira,2025,1
+MG,Antônio Prado de Minas,2022,1
+MG,Antônio Prado de Minas,2023,1
+MG,Antônio Prado de Minas,2024,1
+MG,Antônio Prado de Minas,2025,2
+MG,Antônio Prado de Minas,2026,1
+MG,Aparecida de Minas,2023,1
+MG,Aparecida de Minas,2024,1
+MG,Aparecida de Minas,2025,3
+MG,Aparecida de Minas,2026,1
+MG,Aracitaba,2022,1
+MG,Aracitaba,2023,1
+MG,Aracitaba,2024,1
+MG,Aracitaba,2025,2
+MG,Aracitaba,2026,1
+MG,Araguari,2022,3
+MG,Araguari,2023,3
+MG,Araguari,2024,2
+MG,Araguari,2025,2
+MG,Araguari,2026,3
+MG,Arantina,2022,1
+MG,Arantina,2023,1
+MG,Arantina,2024,1
+MG,Arantina,2025,2
+MG,Arantina,2026,1
+MG,Araponga,2022,1
+MG,Araponga,2023,1
+MG,Araponga,2024,1
+MG,Araponga,2025,2
+MG,Araponga,2026,1
+MG,Araporã,2022,2
+MG,Araporã,2023,2
+MG,Araporã,2024,2
+MG,Araporã,2025,3
+MG,Araporã,2026,2
+MG,Arapuá,2022,1
+MG,Arapuá,2023,1
+MG,Arapuá,2024,1
+MG,Arapuá,2025,2
+MG,Arapuá,2026,1
+MG,Araxá,2022,4
+MG,Araxá,2023,6
+MG,Araxá,2024,3
+MG,Araxá,2025,7
+MG,Araxá,2026,6
+MG,Araçaí,2022,1
+MG,Araçaí,2023,1
+MG,Araçaí,2024,1
+MG,Araçaí,2025,2
+MG,Araçaí,2026,1
+MG,Araçuaí,2022,1
+MG,Araçuaí,2023,1
+MG,Araçuaí,2024,1
+MG,Araçuaí,2025,2
+MG,Araçuaí,2026,1
+MG,Araújos,2022,1
+MG,Araújos,2023,1
+MG,Araújos,2024,1
+MG,Araújos,2025,2
+MG,Araújos,2026,1
+MG,Arceburgo,2022,2
+MG,Arceburgo,2023,2
+MG,Arceburgo,2024,2
+MG,Arceburgo,2025,4
+MG,Arceburgo,2026,1
+MG,Arcos,2022,2
+MG,Arcos,2023,2
+MG,Arcos,2024,1
+MG,Arcos,2025,3
+MG,Arcos,2026,1
+MG,Areado,2022,2
+MG,Areado,2023,2
+MG,Areado,2024,1
+MG,Areado,2025,4
+MG,Areado,2026,1
+MG,Argenita,2025,1
+MG,Argirita,2022,1
+MG,Argirita,2023,1
+MG,Argirita,2024,1
+MG,Argirita,2025,2
+MG,Argirita,2026,1
+MG,Aricanduva,2022,1
+MG,Aricanduva,2023,1
+MG,Aricanduva,2024,1
+MG,Aricanduva,2025,2
+MG,Aricanduva,2026,1
+MG,Arinos,2022,2
+MG,Arinos,2023,2
+MG,Arinos,2024,3
+MG,Arinos,2025,5
+MG,Arinos,2026,4
+MG,Astolfo Dutra,2022,1
+MG,Astolfo Dutra,2023,1
+MG,Astolfo Dutra,2024,1
+MG,Astolfo Dutra,2025,2
+MG,Astolfo Dutra,2026,1
+MG,Ataléia,2022,2
+MG,Ataléia,2023,2
+MG,Ataléia,2024,2
+MG,Ataléia,2025,2
+MG,Ataléia,2026,1
+MG,Augusto de Lima,2022,1
+MG,Augusto de Lima,2023,1
+MG,Augusto de Lima,2024,2
+MG,Augusto de Lima,2025,3
+MG,Augusto de Lima,2026,2
+MG,Açucena,2022,2
+MG,Açucena,2023,1
+MG,Açucena,2024,2
+MG,Açucena,2025,2
+MG,Açucena,2026,1
+MG,Babilônia,2025,1
+MG,Baependi,2022,1
+MG,Baependi,2023,2
+MG,Baependi,2024,1
+MG,Baependi,2025,3
+MG,Baependi,2026,1
+MG,Baixa,2025,1
+MG,Baldim,2022,1
+MG,Baldim,2023,1
+MG,Baldim,2024,1
+MG,Baldim,2025,2
+MG,Baldim,2026,1
+MG,Bambuí,2022,2
+MG,Bambuí,2023,4
+MG,Bambuí,2024,3
+MG,Bambuí,2025,6
+MG,Bambuí,2026,3
+MG,Bandeira,2022,1
+MG,Bandeira,2023,1
+MG,Bandeira,2024,1
+MG,Bandeira,2025,3
+MG,Bandeira,2026,1
+MG,Bandeira do Sul,2022,2
+MG,Bandeira do Sul,2023,2
+MG,Bandeira do Sul,2024,1
+MG,Bandeira do Sul,2025,4
+MG,Bandeira do Sul,2026,1
+MG,Barbacena,2022,2
+MG,Barbacena,2023,2
+MG,Barbacena,2024,1
+MG,Barbacena,2025,3
+MG,Barbacena,2026,1
+MG,Barra Longa,2022,1
+MG,Barra Longa,2023,1
+MG,Barra Longa,2024,1
+MG,Barra Longa,2025,2
+MG,Barra Longa,2026,1
+MG,Barranco Alto,2023,1
+MG,Barranco Alto,2025,1
+MG,Barroso,2022,1
+MG,Barroso,2023,1
+MG,Barroso,2024,1
+MG,Barroso,2025,3
+MG,Barroso,2026,1
+MG,Barão de Cocais,2022,1
+MG,Barão de Cocais,2023,1
+MG,Barão de Cocais,2024,1
+MG,Barão de Cocais,2025,2
+MG,Barão de Cocais,2026,1
+MG,Barão de Monte Alto,2022,1
+MG,Barão de Monte Alto,2023,1
+MG,Barão de Monte Alto,2024,1
+MG,Barão de Monte Alto,2025,2
+MG,Barão de Monte Alto,2026,1
+MG,Bela Vista de Minas,2022,1
+MG,Bela Vista de Minas,2023,1
+MG,Bela Vista de Minas,2024,1
+MG,Bela Vista de Minas,2025,2
+MG,Bela Vista de Minas,2026,1
+MG,Belmiro Braga,2022,1
+MG,Belmiro Braga,2023,1
+MG,Belmiro Braga,2024,1
+MG,Belmiro Braga,2025,2
+MG,Belmiro Braga,2026,1
+MG,Belo Horizonte,2022,2
+MG,Belo Horizonte,2023,2
+MG,Belo Horizonte,2024,4
+MG,Belo Horizonte,2025,4
+MG,Belo Horizonte,2026,3
+MG,Belo Oriente,2022,1
+MG,Belo Oriente,2023,1
+MG,Belo Oriente,2024,1
+MG,Belo Oriente,2025,2
+MG,Belo Oriente,2026,1
+MG,Belo Vale,2022,1
+MG,Belo Vale,2023,1
+MG,Belo Vale,2024,1
+MG,Belo Vale,2025,2
+MG,Belo Vale,2026,1
+MG,Berilo,2022,1
+MG,Berilo,2023,1
+MG,Berilo,2024,1
+MG,Berilo,2025,2
+MG,Berilo,2026,1
+MG,Berizal,2022,1
+MG,Berizal,2023,1
+MG,Berizal,2024,1
+MG,Berizal,2025,2
+MG,Berizal,2026,1
+MG,Bertópolis,2022,1
+MG,Bertópolis,2023,1
+MG,Bertópolis,2024,1
+MG,Bertópolis,2025,2
+MG,Bertópolis,2026,1
+MG,Betim,2022,1
+MG,Betim,2023,2
+MG,Betim,2024,2
+MG,Betim,2025,2
+MG,Betim,2026,2
+MG,Bias Fortes,2022,1
+MG,Bias Fortes,2023,1
+MG,Bias Fortes,2024,1
+MG,Bias Fortes,2025,2
+MG,Bias Fortes,2026,1
+MG,Bicas,2022,1
+MG,Bicas,2023,1
+MG,Bicas,2024,1
+MG,Bicas,2025,2
+MG,Bicas,2026,1
+MG,Biquinhas,2022,1
+MG,Biquinhas,2023,1
+MG,Biquinhas,2024,2
+MG,Biquinhas,2025,3
+MG,Biquinhas,2026,2
+MG,Boa Esperança,2022,2
+MG,Boa Esperança,2023,2
+MG,Boa Esperança,2024,1
+MG,Boa Esperança,2025,4
+MG,Boa Esperança,2026,1
+MG,Boa Vista,2024,1
+MG,Boa Vista,2025,1
+MG,Boa Vista,2026,1
+MG,Bocaina de Minas,2022,1
+MG,Bocaina de Minas,2023,1
+MG,Bocaina de Minas,2024,1
+MG,Bocaina de Minas,2025,2
+MG,Bocaina de Minas,2026,1
+MG,Bocaiúva,2022,1
+MG,Bocaiúva,2023,1
+MG,Bocaiúva,2024,2
+MG,Bocaiúva,2025,3
+MG,Bocaiúva,2026,3
+MG,Bom Despacho,2022,1
+MG,Bom Despacho,2023,1
+MG,Bom Despacho,2024,2
+MG,Bom Despacho,2025,3
+MG,Bom Despacho,2026,2
+MG,Bom Jardim de Minas,2022,1
+MG,Bom Jardim de Minas,2023,1
+MG,Bom Jardim de Minas,2024,1
+MG,Bom Jardim de Minas,2025,2
+MG,Bom Jardim de Minas,2026,1
+MG,Bom Jesus da Penha,2022,2
+MG,Bom Jesus da Penha,2023,2
+MG,Bom Jesus da Penha,2024,1
+MG,Bom Jesus da Penha,2025,4
+MG,Bom Jesus da Penha,2026,1
+MG,Bom Jesus do Amparo,2022,1
+MG,Bom Jesus do Amparo,2023,1
+MG,Bom Jesus do Amparo,2024,1
+MG,Bom Jesus do Amparo,2025,2
+MG,Bom Jesus do Amparo,2026,1
+MG,Bom Jesus do Galho,2022,1
+MG,Bom Jesus do Galho,2023,1
+MG,Bom Jesus do Galho,2024,1
+MG,Bom Jesus do Galho,2025,2
+MG,Bom Jesus do Galho,2026,1
+MG,Bom Repouso,2022,1
+MG,Bom Repouso,2023,1
+MG,Bom Repouso,2024,1
+MG,Bom Repouso,2025,2
+MG,Bom Repouso,2026,1
+MG,Bom Sucesso,2022,1
+MG,Bom Sucesso,2023,2
+MG,Bom Sucesso,2024,1
+MG,Bom Sucesso,2025,4
+MG,Bom Sucesso,2026,1
+MG,Bonfim,2022,1
+MG,Bonfim,2023,1
+MG,Bonfim,2024,1
+MG,Bonfim,2025,2
+MG,Bonfim,2026,1
+MG,Bonfinópolis de Minas,2022,2
+MG,Bonfinópolis de Minas,2023,2
+MG,Bonfinópolis de Minas,2024,3
+MG,Bonfinópolis de Minas,2025,5
+MG,Bonfinópolis de Minas,2026,6
+MG,Bonito de Minas,2025,1
+MG,Bonito de Minas,2026,1
+MG,Borda da Mata,2025,2
+MG,Botelhos,2022,1
+MG,Botelhos,2023,1
+MG,Botelhos,2025,2
+MG,Brasilândia de Minas,2022,1
+MG,Brasilândia de Minas,2023,1
+MG,Brasilândia de Minas,2024,2
+MG,Brasilândia de Minas,2025,2
+MG,Brasilândia de Minas,2026,4
+MG,Brasília de Minas,2025,1
+MG,Brasília de Minas,2026,1
+MG,Buenópolis,2022,1
+MG,Buenópolis,2024,2
+MG,Buenópolis,2025,2
+MG,Buenópolis,2026,2
+MG,Buritis,2022,2
+MG,Buritis,2023,4
+MG,Buritis,2024,3
+MG,Buritis,2025,5
+MG,Buritis,2026,5
+MG,Buritizeiro,2022,1
+MG,Buritizeiro,2023,2
+MG,Buritizeiro,2024,2
+MG,Buritizeiro,2025,2
+MG,Buritizeiro,2026,1
+MG,Caatinga,2024,1
+MG,Caatinga,2025,1
+MG,Caatinga,2026,1
+MG,Cabeceira Grande,2022,1
+MG,Cabeceira Grande,2023,1
+MG,Cabeceira Grande,2024,1
+MG,Cabeceira Grande,2025,1
+MG,Cabeceira Grande,2026,2
+MG,Cabo Verde,2022,1
+MG,Cabo Verde,2023,1
+MG,Cabo Verde,2025,2
+MG,Caeté,2025,1
+MG,Caldas,2022,1
+MG,Caldas,2023,1
+MG,Caldas,2025,1
+MG,Camanducaia,2022,1
+MG,Camanducaia,2023,1
+MG,Camanducaia,2025,1
+MG,Cambuquira,2022,1
+MG,Cambuquira,2023,1
+MG,Cambuquira,2025,1
+MG,Campanha,2023,1
+MG,Campanha,2025,1
+MG,Campestre,2022,1
+MG,Campestre,2023,1
+MG,Campestre,2025,2
+MG,Campestrinho,2022,1
+MG,Campestrinho,2023,1
+MG,Campestrinho,2025,1
+MG,Campina Verde,2023,1
+MG,Campina Verde,2024,2
+MG,Campina Verde,2025,4
+MG,Campina Verde,2026,2
+MG,Campo Belo,2022,1
+MG,Campo Belo,2023,1
+MG,Campo Belo,2025,1
+MG,Campo Florido,2022,1
+MG,Campo Florido,2023,2
+MG,Campo Florido,2024,3
+MG,Campo Florido,2025,5
+MG,Campo Florido,2026,3
+MG,Campo do Meio,2022,1
+MG,Campo do Meio,2023,1
+MG,Campo do Meio,2025,2
+MG,Campos Altos,2025,1
+MG,Campos Gerais,2022,1
+MG,Campos Gerais,2023,1
+MG,Campos Gerais,2025,1
+MG,Canabrava,2024,1
+MG,Canabrava,2025,1
+MG,Canabrava,2026,2
+MG,Candeias,2023,1
+MG,Candeias,2025,1
+MG,Canápolis,2022,2
+MG,Canápolis,2023,2
+MG,Canápolis,2024,3
+MG,Canápolis,2025,5
+MG,Canápolis,2026,5
+MG,Caparaó,2025,2
+MG,Capelinha,2024,1
+MG,Capelinha,2025,1
+MG,Capelinha,2026,1
+MG,Capetinga,2025,1
+MG,Capinópolis,2023,2
+MG,Capinópolis,2024,1
+MG,Capinópolis,2025,2
+MG,Capinópolis,2026,4
+MG,Capitão Enéas,2023,1
+MG,Capitólio,2025,1
+MG,Carbonita,2024,1
+MG,Carbonita,2025,1
+MG,Carbonita,2026,1
+MG,Careaçu,2023,1
+MG,Careaçu,2025,1
+MG,Carlos Chagas,2022,1
+MG,Carlos Chagas,2023,1
+MG,Carlos Chagas,2024,1
+MG,Carmo da Cachoeira,2023,1
+MG,Carmo da Cachoeira,2025,1
+MG,Carmo do Paranaíba,2024,1
+MG,Carmo do Paranaíba,2025,2
+MG,Carmo do Paranaíba,2026,1
+MG,Carmo do Rio Claro,2022,1
+MG,Carmo do Rio Claro,2023,1
+MG,Carmo do Rio Claro,2025,2
+MG,Carneirinho,2023,1
+MG,Carneirinho,2024,2
+MG,Carneirinho,2025,2
+MG,Carrancas,2022,1
+MG,Carrancas,2023,1
+MG,Carrancas,2025,1
+MG,Cascalho Rico,2025,1
+MG,Caxambu,2022,1
+MG,Caxambu,2023,1
+MG,Caxambu,2025,1
+MG,Centralina,2022,1
+MG,Centralina,2023,2
+MG,Centralina,2024,2
+MG,Centralina,2025,4
+MG,Centralina,2026,2
+MG,Chapada Gaúcha,2022,1
+MG,Chapada Gaúcha,2023,1
+MG,Chapada Gaúcha,2025,1
+MG,Chapada Gaúcha,2026,1
+MG,Chapada de Minas,2025,1
+MG,Claraval,2025,1
+MG,Cláudio,2022,1
+MG,Cláudio,2023,1
+MG,Cláudio,2025,1
+MG,Comendador Gomes,2022,1
+MG,Comendador Gomes,2023,2
+MG,Comendador Gomes,2024,1
+MG,Comendador Gomes,2025,4
+MG,Comendador Gomes,2026,2
+MG,Conceição da Aparecida,2022,1
+MG,Conceição da Aparecida,2023,1
+MG,Conceição da Aparecida,2025,2
+MG,Conceição das Alagoas,2022,4
+MG,Conceição das Alagoas,2023,6
+MG,Conceição das Alagoas,2024,4
+MG,Conceição das Alagoas,2025,7
+MG,Conceição das Alagoas,2026,3
+MG,Conceição do Rio Verde,2022,1
+MG,Conceição do Rio Verde,2023,1
+MG,Conceição do Rio Verde,2025,1
+MG,Congonhal,2022,2
+MG,Congonhal,2023,2
+MG,Congonhal,2024,1
+MG,Congonhal,2025,3
+MG,Congonhal,2026,1
+MG,Congonhas,2022,1
+MG,Congonhas,2023,1
+MG,Congonhas,2024,1
+MG,Congonhas,2025,2
+MG,Congonhas,2026,1
+MG,Congonhas do Norte,2022,1
+MG,Congonhas do Norte,2023,1
+MG,Congonhas do Norte,2024,1
+MG,Congonhas do Norte,2025,2
+MG,Congonhas do Norte,2026,1
+MG,Conquista,2022,2
+MG,Conquista,2023,5
+MG,Conquista,2024,3
+MG,Conquista,2025,6
+MG,Conquista,2026,4
+MG,Conselheiro Lafaiete,2022,2
+MG,Conselheiro Lafaiete,2023,1
+MG,Conselheiro Lafaiete,2024,2
+MG,Conselheiro Lafaiete,2025,3
+MG,Conselheiro Lafaiete,2026,2
+MG,Conselheiro Pena,2022,1
+MG,Conselheiro Pena,2023,1
+MG,Conselheiro Pena,2024,1
+MG,Conselheiro Pena,2025,2
+MG,Conselheiro Pena,2026,1
+MG,Consolação,2022,1
+MG,Consolação,2023,1
+MG,Consolação,2024,1
+MG,Consolação,2025,2
+MG,Consolação,2026,1
+MG,Contagem,2022,1
+MG,Contagem,2023,1
+MG,Contagem,2024,1
+MG,Contagem,2025,2
+MG,Contagem,2026,2
+MG,Coqueiral,2022,1
+MG,Coqueiral,2023,1
+MG,Coqueiral,2024,1
+MG,Coqueiral,2025,2
+MG,Coqueiral,2026,1
+MG,Coração de Jesus,2022,1
+MG,Coração de Jesus,2023,2
+MG,Coração de Jesus,2024,1
+MG,Coração de Jesus,2025,2
+MG,Coração de Jesus,2026,1
+MG,Cordisburgo,2022,1
+MG,Cordisburgo,2023,1
+MG,Cordisburgo,2024,1
+MG,Cordisburgo,2025,2
+MG,Cordisburgo,2026,1
+MG,Cordislândia,2022,1
+MG,Cordislândia,2023,1
+MG,Cordislândia,2024,1
+MG,Cordislândia,2025,2
+MG,Cordislândia,2026,1
+MG,Corinto,2022,1
+MG,Corinto,2023,2
+MG,Corinto,2024,2
+MG,Corinto,2025,3
+MG,Corinto,2026,2
+MG,Coroaci,2022,1
+MG,Coroaci,2023,1
+MG,Coroaci,2024,1
+MG,Coroaci,2025,2
+MG,Coroaci,2026,1
+MG,Coromandel,2022,2
+MG,Coromandel,2023,3
+MG,Coromandel,2024,5
+MG,Coromandel,2025,7
+MG,Coromandel,2026,3
+MG,Coronel Fabriciano,2022,1
+MG,Coronel Fabriciano,2023,1
+MG,Coronel Fabriciano,2024,1
+MG,Coronel Fabriciano,2025,2
+MG,Coronel Fabriciano,2026,1
+MG,Coronel Murta,2022,1
+MG,Coronel Murta,2023,1
+MG,Coronel Murta,2024,1
+MG,Coronel Murta,2025,2
+MG,Coronel Murta,2026,1
+MG,Coronel Pacheco,2022,1
+MG,Coronel Pacheco,2023,1
+MG,Coronel Pacheco,2024,1
+MG,Coronel Pacheco,2025,2
+MG,Coronel Pacheco,2026,1
+MG,Coronel Xavier Chaves,2022,1
+MG,Coronel Xavier Chaves,2023,1
+MG,Coronel Xavier Chaves,2024,1
+MG,Coronel Xavier Chaves,2025,2
+MG,Coronel Xavier Chaves,2026,1
+MG,Couto de Magalhães de Minas,2022,1
+MG,Couto de Magalhães de Minas,2023,1
+MG,Couto de Magalhães de Minas,2024,1
+MG,Couto de Magalhães de Minas,2025,2
+MG,Couto de Magalhães de Minas,2026,1
+MG,Cristais,2022,1
+MG,Cristais,2023,1
+MG,Cristais,2024,1
+MG,Cristais,2025,2
+MG,Cristais,2026,1
+MG,Cristiano Otoni,2022,1
+MG,Cristiano Otoni,2023,1
+MG,Cristiano Otoni,2024,1
+MG,Cristiano Otoni,2025,2
+MG,Cristiano Otoni,2026,1
+MG,Cristina,2022,1
+MG,Cristina,2023,1
+MG,Cristina,2024,1
+MG,Cristina,2025,2
+MG,Cristina,2026,1
+MG,Cristália,2022,1
+MG,Cristália,2023,1
+MG,Cristália,2024,1
+MG,Cristália,2025,2
+MG,Cristália,2026,1
+MG,Crisólita,2022,1
+MG,Crisólita,2023,1
+MG,Crisólita,2024,1
+MG,Crisólita,2025,2
+MG,Crisólita,2026,1
+MG,Crucilândia,2022,1
+MG,Crucilândia,2023,1
+MG,Crucilândia,2024,1
+MG,Crucilândia,2025,3
+MG,Crucilândia,2026,1
+MG,Cruzeiro da Fortaleza,2022,1
+MG,Cruzeiro da Fortaleza,2023,2
+MG,Cruzeiro da Fortaleza,2024,2
+MG,Cruzeiro da Fortaleza,2025,4
+MG,Cruzeiro da Fortaleza,2026,2
+MG,Cruzeiro dos Peixotos,2025,1
+MG,Cruzília,2022,1
+MG,Cruzília,2023,2
+MG,Cruzília,2024,1
+MG,Cruzília,2025,3
+MG,Cruzília,2026,1
+MG,Cuparaque,2022,1
+MG,Cuparaque,2023,1
+MG,Cuparaque,2024,1
+MG,Cuparaque,2025,2
+MG,Cuparaque,2026,1
+MG,Curral de Dentro,2022,1
+MG,Curral de Dentro,2023,1
+MG,Curral de Dentro,2024,1
+MG,Curral de Dentro,2025,2
+MG,Curral de Dentro,2026,1
+MG,Curvelo,2022,2
+MG,Curvelo,2023,3
+MG,Curvelo,2024,4
+MG,Curvelo,2025,4
+MG,Curvelo,2026,3
+MG,Cássia,2022,1
+MG,Cássia,2023,1
+MG,Cássia,2025,2
+MG,Córrego Danta,2022,1
+MG,Córrego Danta,2023,1
+MG,Córrego Danta,2024,1
+MG,Córrego Danta,2025,2
+MG,Córrego Danta,2026,1
+MG,Córrego Fundo,2022,1
+MG,Córrego Fundo,2023,1
+MG,Córrego Fundo,2024,1
+MG,Córrego Fundo,2025,2
+MG,Córrego Fundo,2026,1
+MG,Córrego Novo,2022,1
+MG,Córrego Novo,2023,1
+MG,Córrego Novo,2024,1
+MG,Córrego Novo,2025,2
+MG,Córrego Novo,2026,1
+MG,Córrego do Bom Jesus,2022,1
+MG,Córrego do Bom Jesus,2023,1
+MG,Córrego do Bom Jesus,2024,1
+MG,Córrego do Bom Jesus,2025,2
+MG,Córrego do Bom Jesus,2026,1
+MG,Datas,2022,1
+MG,Datas,2023,1
+MG,Datas,2024,1
+MG,Datas,2025,2
+MG,Datas,2026,1
+MG,Delfim Moreira,2022,1
+MG,Delfim Moreira,2023,1
+MG,Delfim Moreira,2024,1
+MG,Delfim Moreira,2025,2
+MG,Delfim Moreira,2026,1
+MG,Delfinópolis,2022,1
+MG,Delfinópolis,2023,2
+MG,Delfinópolis,2024,1
+MG,Delfinópolis,2025,3
+MG,Delfinópolis,2026,1
+MG,Delta,2022,3
+MG,Delta,2023,5
+MG,Delta,2024,3
+MG,Delta,2025,5
+MG,Delta,2026,3
+MG,Descoberto,2022,1
+MG,Descoberto,2023,1
+MG,Descoberto,2024,1
+MG,Descoberto,2025,2
+MG,Descoberto,2026,1
+MG,Desemboque,2022,1
+MG,Desemboque,2025,1
+MG,Desterro de Entre Rios,2022,1
+MG,Desterro de Entre Rios,2023,1
+MG,Desterro de Entre Rios,2024,1
+MG,Desterro de Entre Rios,2025,2
+MG,Desterro de Entre Rios,2026,1
+MG,Diamantina,2022,1
+MG,Diamantina,2023,2
+MG,Diamantina,2024,3
+MG,Diamantina,2025,3
+MG,Diamantina,2026,2
+MG,Diogo de Vasconcelos,2022,1
+MG,Diogo de Vasconcelos,2023,1
+MG,Diogo de Vasconcelos,2024,1
+MG,Diogo de Vasconcelos,2025,2
+MG,Diogo de Vasconcelos,2026,1
+MG,Dionísio,2022,1
+MG,Dionísio,2023,1
+MG,Dionísio,2024,1
+MG,Dionísio,2025,2
+MG,Dionísio,2026,1
+MG,Divino,2022,1
+MG,Divino,2023,1
+MG,Divino,2024,1
+MG,Divino,2025,2
+MG,Divino,2026,1
+MG,Divino das Laranjeiras,2022,1
+MG,Divino das Laranjeiras,2023,1
+MG,Divino das Laranjeiras,2024,1
+MG,Divino das Laranjeiras,2025,2
+MG,Divino das Laranjeiras,2026,1
+MG,Divinolândia de Minas,2022,1
+MG,Divinolândia de Minas,2023,1
+MG,Divinolândia de Minas,2024,1
+MG,Divinolândia de Minas,2025,2
+MG,Divinolândia de Minas,2026,1
+MG,Divinésia,2022,1
+MG,Divinésia,2023,1
+MG,Divinésia,2024,1
+MG,Divinésia,2025,2
+MG,Divinésia,2026,1
+MG,Divinópolis,2022,1
+MG,Divinópolis,2023,1
+MG,Divinópolis,2024,1
+MG,Divinópolis,2025,2
+MG,Divinópolis,2026,1
+MG,Divisa Alegre,2022,1
+MG,Divisa Alegre,2023,1
+MG,Divisa Alegre,2024,1
+MG,Divisa Alegre,2025,2
+MG,Divisa Alegre,2026,1
+MG,Divisa Nova,2022,1
+MG,Divisa Nova,2023,1
+MG,Divisa Nova,2024,1
+MG,Divisa Nova,2025,3
+MG,Divisa Nova,2026,1
+MG,Divisópolis,2022,1
+MG,Divisópolis,2023,1
+MG,Divisópolis,2024,1
+MG,Divisópolis,2025,2
+MG,Divisópolis,2026,1
+MG,Dom Bosco,2022,1
+MG,Dom Bosco,2023,1
+MG,Dom Bosco,2024,2
+MG,Dom Bosco,2025,4
+MG,Dom Bosco,2026,3
+MG,Dom Cavati,2022,1
+MG,Dom Cavati,2023,1
+MG,Dom Cavati,2024,1
+MG,Dom Cavati,2025,2
+MG,Dom Cavati,2026,1
+MG,Dom Joaquim,2022,1
+MG,Dom Joaquim,2023,1
+MG,Dom Joaquim,2024,1
+MG,Dom Joaquim,2025,2
+MG,Dom Joaquim,2026,1
+MG,Dom Silvério,2022,1
+MG,Dom Silvério,2023,1
+MG,Dom Silvério,2024,1
+MG,Dom Silvério,2025,2
+MG,Dom Silvério,2026,1
+MG,Dom Viçoso,2022,1
+MG,Dom Viçoso,2023,1
+MG,Dom Viçoso,2024,1
+MG,Dom Viçoso,2025,2
+MG,Dom Viçoso,2026,1
+MG,Dona Euzébia,2022,1
+MG,Dona Euzébia,2023,1
+MG,Dona Euzébia,2024,1
+MG,Dona Euzébia,2025,2
+MG,Dona Euzébia,2026,1
+MG,Dores de Campos,2022,1
+MG,Dores de Campos,2023,1
+MG,Dores de Campos,2024,1
+MG,Dores de Campos,2025,2
+MG,Dores de Campos,2026,1
+MG,Dores de Guanhães,2022,1
+MG,Dores de Guanhães,2023,1
+MG,Dores de Guanhães,2024,1
+MG,Dores de Guanhães,2025,2
+MG,Dores de Guanhães,2026,1
+MG,Douradinho,2025,1
+MG,Douradoquara,2024,1
+MG,Douradoquara,2025,1
+MG,Douradoquara,2026,1
+MG,Elói Mendes,2022,2
+MG,Elói Mendes,2023,2
+MG,Elói Mendes,2024,1
+MG,Elói Mendes,2025,3
+MG,Elói Mendes,2026,1
+MG,Engenheiro Caldas,2022,1
+MG,Engenheiro Caldas,2023,1
+MG,Engenheiro Caldas,2024,1
+MG,Engenheiro Caldas,2025,2
+MG,Engenheiro Caldas,2026,1
+MG,Engenheiro Navarro,2022,1
+MG,Engenheiro Navarro,2023,1
+MG,Engenheiro Navarro,2024,1
+MG,Engenheiro Navarro,2025,2
+MG,Engenheiro Navarro,2026,1
+MG,Entre Folhas,2022,1
+MG,Entre Folhas,2023,1
+MG,Entre Folhas,2024,1
+MG,Entre Folhas,2025,2
+MG,Entre Folhas,2026,1
+MG,Entre Rios de Minas,2022,1
+MG,Entre Rios de Minas,2023,1
+MG,Entre Rios de Minas,2024,1
+MG,Entre Rios de Minas,2025,2
+MG,Entre Rios de Minas,2026,1
+MG,Ervália,2022,1
+MG,Ervália,2023,1
+MG,Ervália,2024,1
+MG,Ervália,2025,2
+MG,Ervália,2026,1
+MG,Esmeraldas,2022,1
+MG,Esmeraldas,2023,1
+MG,Esmeraldas,2024,1
+MG,Esmeraldas,2025,2
+MG,Esmeraldas,2026,1
+MG,Espera Feliz,2022,1
+MG,Espera Feliz,2023,1
+MG,Espera Feliz,2024,1
+MG,Espera Feliz,2025,2
+MG,Espera Feliz,2026,1
+MG,Espinosa,2022,1
+MG,Espinosa,2023,1
+MG,Espinosa,2024,1
+MG,Espinosa,2025,2
+MG,Espinosa,2026,1
+MG,Espírito Santo do Dourado,2022,1
+MG,Espírito Santo do Dourado,2023,1
+MG,Espírito Santo do Dourado,2024,1
+MG,Espírito Santo do Dourado,2025,2
+MG,Espírito Santo do Dourado,2026,1
+MG,Estiva,2022,1
+MG,Estiva,2023,1
+MG,Estiva,2024,1
+MG,Estiva,2025,3
+MG,Estiva,2026,1
+MG,Estrela Dalva,2022,1
+MG,Estrela Dalva,2023,1
+MG,Estrela Dalva,2024,1
+MG,Estrela Dalva,2025,2
+MG,Estrela Dalva,2026,1
+MG,Estrela do Indaiá,2022,1
+MG,Estrela do Indaiá,2023,1
+MG,Estrela do Indaiá,2024,1
+MG,Estrela do Indaiá,2025,2
+MG,Estrela do Indaiá,2026,1
+MG,Estrela do Sul,2022,1
+MG,Estrela do Sul,2023,1
+MG,Estrela do Sul,2024,1
+MG,Estrela do Sul,2025,3
+MG,Estrela do Sul,2026,1
+MG,Eugenópolis,2022,1
+MG,Eugenópolis,2023,1
+MG,Eugenópolis,2024,1
+MG,Eugenópolis,2025,2
+MG,Eugenópolis,2026,1
+MG,Ewbank da Câmara,2022,1
+MG,Ewbank da Câmara,2023,1
+MG,Ewbank da Câmara,2024,1
+MG,Ewbank da Câmara,2025,2
+MG,Ewbank da Câmara,2026,1
+MG,Extrema,2022,1
+MG,Extrema,2026,1
+MG,Fama,2022,1
+MG,Fama,2023,2
+MG,Fama,2024,1
+MG,Fama,2025,3
+MG,Fama,2026,1
+MG,Faria Lemos,2022,1
+MG,Faria Lemos,2023,1
+MG,Faria Lemos,2024,1
+MG,Faria Lemos,2025,2
+MG,Faria Lemos,2026,1
+MG,Felisburgo,2022,1
+MG,Felisburgo,2023,1
+MG,Felisburgo,2024,1
+MG,Felisburgo,2025,2
+MG,Felisburgo,2026,1
+MG,Felixlândia,2022,1
+MG,Felixlândia,2023,1
+MG,Felixlândia,2024,2
+MG,Felixlândia,2025,4
+MG,Felixlândia,2026,3
+MG,Felício dos Santos,2022,1
+MG,Felício dos Santos,2023,1
+MG,Felício dos Santos,2024,1
+MG,Felício dos Santos,2025,2
+MG,Felício dos Santos,2026,1
+MG,Fernandes Tourinho,2022,1
+MG,Fernandes Tourinho,2023,1
+MG,Fernandes Tourinho,2024,1
+MG,Fernandes Tourinho,2025,2
+MG,Fernandes Tourinho,2026,1
+MG,Ferros,2022,1
+MG,Ferros,2023,1
+MG,Ferros,2024,1
+MG,Ferros,2025,2
+MG,Ferros,2026,1
+MG,Fervedouro,2022,1
+MG,Fervedouro,2023,1
+MG,Fervedouro,2024,1
+MG,Fervedouro,2025,2
+MG,Fervedouro,2026,1
+MG,Flor de Minas,2023,2
+MG,Flor de Minas,2024,1
+MG,Flor de Minas,2025,2
+MG,Flor de Minas,2026,2
+MG,Florestal,2022,1
+MG,Florestal,2023,1
+MG,Florestal,2024,1
+MG,Florestal,2025,2
+MG,Florestal,2026,1
+MG,Florestina,2025,1
+MG,Formiga,2022,2
+MG,Formiga,2023,2
+MG,Formiga,2024,1
+MG,Formiga,2025,3
+MG,Formiga,2026,1
+MG,Formoso,2022,2
+MG,Formoso,2023,3
+MG,Formoso,2024,2
+MG,Formoso,2025,3
+MG,Formoso,2026,2
+MG,Fortaleza de Minas,2022,1
+MG,Fortaleza de Minas,2023,1
+MG,Fortaleza de Minas,2024,1
+MG,Fortaleza de Minas,2025,3
+MG,Fortaleza de Minas,2026,1
+MG,Fortuna de Minas,2022,1
+MG,Fortuna de Minas,2023,1
+MG,Fortuna de Minas,2024,1
+MG,Fortuna de Minas,2025,2
+MG,Fortuna de Minas,2026,1
+MG,Francisco Badaró,2022,1
+MG,Francisco Badaró,2023,1
+MG,Francisco Badaró,2024,1
+MG,Francisco Badaró,2025,2
+MG,Francisco Badaró,2026,1
+MG,Francisco Dumont,2022,1
+MG,Francisco Dumont,2023,1
+MG,Francisco Dumont,2024,2
+MG,Francisco Dumont,2025,1
+MG,Francisco Dumont,2026,2
+MG,Francisco Sá,2022,1
+MG,Francisco Sá,2023,1
+MG,Francisco Sá,2024,1
+MG,Francisco Sá,2025,2
+MG,Francisco Sá,2026,1
+MG,Franciscópolis,2022,1
+MG,Franciscópolis,2023,1
+MG,Franciscópolis,2024,1
+MG,Franciscópolis,2025,2
+MG,Franciscópolis,2026,1
+MG,Frei Gaspar,2022,1
+MG,Frei Gaspar,2023,1
+MG,Frei Gaspar,2024,1
+MG,Frei Gaspar,2025,2
+MG,Frei Gaspar,2026,1
+MG,Frei Inocêncio,2022,1
+MG,Frei Inocêncio,2023,1
+MG,Frei Inocêncio,2024,1
+MG,Frei Inocêncio,2025,2
+MG,Frei Inocêncio,2026,1
+MG,Frei Lagonegro,2022,1
+MG,Frei Lagonegro,2023,1
+MG,Frei Lagonegro,2024,1
+MG,Frei Lagonegro,2025,2
+MG,Frei Lagonegro,2026,1
+MG,Fronteira,2022,1
+MG,Fronteira,2023,2
+MG,Fronteira,2024,2
+MG,Fronteira,2025,5
+MG,Fronteira,2026,2
+MG,Fronteira dos Vales,2022,1
+MG,Fronteira dos Vales,2023,1
+MG,Fronteira dos Vales,2024,1
+MG,Fronteira dos Vales,2025,2
+MG,Fronteira dos Vales,2026,1
+MG,Fruta de Leite,2022,1
+MG,Fruta de Leite,2023,1
+MG,Fruta de Leite,2024,1
+MG,Fruta de Leite,2025,2
+MG,Fruta de Leite,2026,1
+MG,Frutal,2022,3
+MG,Frutal,2023,7
+MG,Frutal,2024,4
+MG,Frutal,2025,7
+MG,Frutal,2026,3
+MG,Funilândia,2022,1
+MG,Funilândia,2023,1
+MG,Funilândia,2024,1
+MG,Funilândia,2025,2
+MG,Funilândia,2026,1
+MG,Galiléia,2022,1
+MG,Galiléia,2023,1
+MG,Galiléia,2024,1
+MG,Galiléia,2025,2
+MG,Galiléia,2026,1
+MG,Gameleiras,2022,1
+MG,Gameleiras,2023,1
+MG,Gameleiras,2024,1
+MG,Gameleiras,2025,2
+MG,Gameleiras,2026,1
+MG,Garapuava,2024,1
+MG,Garapuava,2025,1
+MG,Garapuava,2026,1
+MG,Glaucilândia,2022,1
+MG,Glaucilândia,2023,1
+MG,Glaucilândia,2024,1
+MG,Glaucilândia,2025,2
+MG,Glaucilândia,2026,1
+MG,Goiabeira,2022,1
+MG,Goiabeira,2023,1
+MG,Goiabeira,2024,1
+MG,Goiabeira,2025,2
+MG,Goiabeira,2026,1
+MG,Goianá,2022,1
+MG,Goianá,2023,1
+MG,Goianá,2024,1
+MG,Goianá,2025,2
+MG,Goianá,2026,1
+MG,Gonzaga,2022,1
+MG,Gonzaga,2023,1
+MG,Gonzaga,2024,1
+MG,Gonzaga,2025,2
+MG,Gonzaga,2026,1
+MG,Gonçalves,2022,1
+MG,Gonçalves,2023,1
+MG,Gonçalves,2024,1
+MG,Gonçalves,2025,2
+MG,Gonçalves,2026,1
+MG,Gouveia,2022,1
+MG,Gouveia,2023,1
+MG,Gouveia,2024,1
+MG,Gouveia,2025,2
+MG,Gouveia,2026,1
+MG,Governador Valadares,2022,1
+MG,Governador Valadares,2023,1
+MG,Governador Valadares,2024,2
+MG,Governador Valadares,2025,3
+MG,Governador Valadares,2026,2
+MG,Grupiara,2022,1
+MG,Grupiara,2023,1
+MG,Grupiara,2024,2
+MG,Grupiara,2025,3
+MG,Grupiara,2026,2
+MG,Grão Mogol,2022,1
+MG,Grão Mogol,2023,2
+MG,Grão Mogol,2024,3
+MG,Grão Mogol,2025,3
+MG,Grão Mogol,2026,2
+MG,Guanhães,2022,1
+MG,Guanhães,2023,1
+MG,Guanhães,2024,2
+MG,Guanhães,2025,3
+MG,Guanhães,2026,2
+MG,Guapé,2022,2
+MG,Guapé,2023,2
+MG,Guapé,2024,1
+MG,Guapé,2025,1
+MG,Guapé,2026,1
+MG,Guaraciaba,2022,1
+MG,Guaraciaba,2023,1
+MG,Guaraciaba,2024,1
+MG,Guaraciaba,2026,1
+MG,Guaraciama,2022,1
+MG,Guaraciama,2023,1
+MG,Guaraciama,2024,2
+MG,Guaraciama,2025,1
+MG,Guaraciama,2026,2
+MG,Guarani,2022,1
+MG,Guarani,2023,1
+MG,Guarani,2024,1
+MG,Guarani,2026,1
+MG,Guaranésia,2022,3
+MG,Guaranésia,2023,3
+MG,Guaranésia,2024,2
+MG,Guaranésia,2025,2
+MG,Guaranésia,2026,1
+MG,Guarará,2022,1
+MG,Guarará,2023,1
+MG,Guarará,2024,1
+MG,Guarará,2025,2
+MG,Guarará,2026,1
+MG,Guarda-Mor,2022,2
+MG,Guarda-Mor,2023,2
+MG,Guarda-Mor,2024,4
+MG,Guarda-Mor,2025,5
+MG,Guarda-Mor,2026,3
+MG,Guardinha,2025,1
+MG,Guaxima,2025,1
+MG,Guaxupé,2022,3
+MG,Guaxupé,2023,3
+MG,Guaxupé,2024,2
+MG,Guaxupé,2025,4
+MG,Guaxupé,2026,1
+MG,Guidoval,2022,1
+MG,Guidoval,2023,1
+MG,Guidoval,2024,1
+MG,Guidoval,2025,2
+MG,Guidoval,2026,1
+MG,Guimarânia,2022,1
+MG,Guimarânia,2023,1
+MG,Guimarânia,2024,1
+MG,Guimarânia,2025,2
+MG,Guimarânia,2026,1
+MG,Guiricema,2022,1
+MG,Guiricema,2023,1
+MG,Guiricema,2024,1
+MG,Guiricema,2025,2
+MG,Guiricema,2026,1
+MG,Gurinhatã,2022,1
+MG,Gurinhatã,2023,1
+MG,Gurinhatã,2024,1
+MG,Gurinhatã,2025,4
+MG,Gurinhatã,2026,2
+MG,Heliodora,2022,1
+MG,Heliodora,2023,2
+MG,Heliodora,2024,1
+MG,Heliodora,2025,3
+MG,Heliodora,2026,1
+MG,Honorópolis,2025,1
+MG,Iapu,2022,1
+MG,Iapu,2023,1
+MG,Iapu,2024,1
+MG,Iapu,2026,1
+MG,Ibertioga,2022,1
+MG,Ibertioga,2023,1
+MG,Ibertioga,2024,1
+MG,Ibertioga,2025,2
+MG,Ibertioga,2026,1
+MG,Ibiaí,2022,1
+MG,Ibiaí,2023,2
+MG,Ibiaí,2024,1
+MG,Ibiaí,2025,1
+MG,Ibiaí,2026,1
+MG,Ibiracatu,2022,1
+MG,Ibiracatu,2023,1
+MG,Ibiracatu,2024,1
+MG,Ibiracatu,2025,2
+MG,Ibiracatu,2026,1
+MG,Ibiraci,2022,1
+MG,Ibiraci,2023,1
+MG,Ibiraci,2024,1
+MG,Ibiraci,2025,3
+MG,Ibiraci,2026,1
+MG,Ibitiúra de Minas,2022,2
+MG,Ibitiúra de Minas,2023,1
+MG,Ibitiúra de Minas,2025,1
+MG,Ibitiúra de Minas,2026,1
+MG,Ibituruna,2022,1
+MG,Ibituruna,2023,2
+MG,Ibituruna,2024,1
+MG,Ibituruna,2025,3
+MG,Ibituruna,2026,1
+MG,Ibiá,2022,3
+MG,Ibiá,2023,6
+MG,Ibiá,2024,4
+MG,Ibiá,2025,7
+MG,Ibiá,2026,4
+MG,Icaraí de Minas,2022,1
+MG,Icaraí de Minas,2023,1
+MG,Icaraí de Minas,2024,1
+MG,Icaraí de Minas,2025,2
+MG,Icaraí de Minas,2026,1
+MG,Igarapé,2022,1
+MG,Igarapé,2023,1
+MG,Igarapé,2024,1
+MG,Igarapé,2025,2
+MG,Igarapé,2026,1
+MG,Igaratinga,2022,1
+MG,Igaratinga,2023,1
+MG,Igaratinga,2024,1
+MG,Igaratinga,2025,2
+MG,Igaratinga,2026,1
+MG,Iguatama,2022,2
+MG,Iguatama,2023,2
+MG,Iguatama,2024,1
+MG,Iguatama,2025,3
+MG,Iguatama,2026,1
+MG,Ijaci,2022,1
+MG,Ijaci,2023,1
+MG,Ijaci,2024,1
+MG,Ijaci,2025,2
+MG,Ijaci,2026,1
+MG,Ilicínea,2022,2
+MG,Ilicínea,2023,2
+MG,Ilicínea,2024,1
+MG,Ilicínea,2025,3
+MG,Ilicínea,2026,1
+MG,Imbé de Minas,2022,1
+MG,Imbé de Minas,2023,1
+MG,Imbé de Minas,2024,1
+MG,Imbé de Minas,2025,2
+MG,Imbé de Minas,2026,1
+MG,Inconfidentes,2022,1
+MG,Inconfidentes,2023,1
+MG,Inconfidentes,2024,1
+MG,Inconfidentes,2025,2
+MG,Inconfidentes,2026,1
+MG,Indaiabira,2022,1
+MG,Indaiabira,2023,1
+MG,Indaiabira,2024,1
+MG,Indaiabira,2025,2
+MG,Indaiabira,2026,1
+MG,Indianópolis,2022,3
+MG,Indianópolis,2023,4
+MG,Indianópolis,2024,3
+MG,Indianópolis,2025,5
+MG,Indianópolis,2026,4
+MG,Ingaí,2022,1
+MG,Ingaí,2023,2
+MG,Ingaí,2024,1
+MG,Ingaí,2025,3
+MG,Ingaí,2026,1
+MG,Inhapim,2022,1
+MG,Inhapim,2023,1
+MG,Inhapim,2024,1
+MG,Inhapim,2025,2
+MG,Inhapim,2026,1
+MG,Inhaúma,2022,1
+MG,Inhaúma,2023,1
+MG,Inhaúma,2024,2
+MG,Inhaúma,2025,3
+MG,Inhaúma,2026,2
+MG,Inimutaba,2022,1
+MG,Inimutaba,2023,1
+MG,Inimutaba,2024,2
+MG,Inimutaba,2025,3
+MG,Inimutaba,2026,2
+MG,Ipaba,2022,1
+MG,Ipaba,2023,1
+MG,Ipaba,2024,1
+MG,Ipaba,2025,2
+MG,Ipaba,2026,1
+MG,Ipanema,2022,1
+MG,Ipanema,2023,1
+MG,Ipanema,2024,1
+MG,Ipanema,2025,2
+MG,Ipanema,2026,1
+MG,Ipatinga,2022,1
+MG,Ipatinga,2023,1
+MG,Ipatinga,2024,3
+MG,Ipatinga,2025,4
+MG,Ipatinga,2026,3
+MG,Ipiaçu,2022,1
+MG,Ipiaçu,2023,1
+MG,Ipiaçu,2024,1
+MG,Ipiaçu,2025,2
+MG,Ipiaçu,2026,2
+MG,Ipuiúna,2022,2
+MG,Ipuiúna,2023,2
+MG,Ipuiúna,2024,1
+MG,Ipuiúna,2025,3
+MG,Ipuiúna,2026,1
+MG,Iraí de Minas,2022,4
+MG,Iraí de Minas,2023,6
+MG,Iraí de Minas,2024,4
+MG,Iraí de Minas,2025,7
+MG,Iraí de Minas,2026,4
+MG,Itabira,2022,1
+MG,Itabira,2023,1
+MG,Itabira,2024,1
+MG,Itabira,2025,2
+MG,Itabira,2026,1
+MG,Itabirinha,2022,1
+MG,Itabirinha,2023,1
+MG,Itabirinha,2024,1
+MG,Itabirinha,2025,2
+MG,Itabirinha,2026,1
+MG,Itabirito,2022,1
+MG,Itabirito,2023,1
+MG,Itabirito,2024,1
+MG,Itabirito,2025,2
+MG,Itabirito,2026,1
+MG,Itacambira,2022,1
+MG,Itacambira,2023,1
+MG,Itacambira,2024,1
+MG,Itacambira,2025,2
+MG,Itacambira,2026,2
+MG,Itacarambi,2022,1
+MG,Itacarambi,2023,1
+MG,Itacarambi,2024,1
+MG,Itacarambi,2025,2
+MG,Itaguara,2022,1
+MG,Itaguara,2023,1
+MG,Itaguara,2024,1
+MG,Itaguara,2025,2
+MG,Itaguara,2026,1
+MG,Itamarandiba,2024,1
+MG,Itamarandiba,2025,1
+MG,Itamarandiba,2026,1
+MG,Itamogi,2022,1
+MG,Itamogi,2023,1
+MG,Itamogi,2025,2
+MG,Itapagipe,2022,1
+MG,Itapagipe,2023,3
+MG,Itapagipe,2024,2
+MG,Itapagipe,2025,4
+MG,Itapagipe,2026,1
+MG,Itaú de Minas,2022,1
+MG,Itaú de Minas,2023,1
+MG,Itaú de Minas,2025,2
+MG,Ituiutaba,2022,2
+MG,Ituiutaba,2023,7
+MG,Ituiutaba,2024,5
+MG,Ituiutaba,2025,7
+MG,Ituiutaba,2026,7
+MG,Itumirim,2023,1
+MG,Itumirim,2025,1
+MG,Iturama,2022,1
+MG,Iturama,2023,2
+MG,Iturama,2024,3
+MG,Iturama,2025,4
+MG,Iturama,2026,1
+MG,Itutinga,2023,1
+MG,Itutinga,2025,1
+MG,Jaboticatubas,2022,1
+MG,Jaboticatubas,2023,1
+MG,Jaboticatubas,2024,1
+MG,Jaboticatubas,2026,1
+MG,Jacinto,2022,1
+MG,Jacinto,2023,1
+MG,Jacinto,2024,1
+MG,Jacinto,2026,1
+MG,Jacutinga,2022,1
+MG,Jacutinga,2023,1
+MG,Jacutinga,2024,1
+MG,Jacutinga,2025,1
+MG,Jacutinga,2026,1
+MG,Jacuí,2022,1
+MG,Jacuí,2023,1
+MG,Jacuí,2024,1
+MG,Jacuí,2025,1
+MG,Jacuí,2026,1
+MG,Jaguara,2025,1
+MG,Jaguaraçu,2022,1
+MG,Jaguaraçu,2023,1
+MG,Jaguaraçu,2024,1
+MG,Jaguaraçu,2026,1
+MG,Jampruca,2022,1
+MG,Jampruca,2023,1
+MG,Jampruca,2024,1
+MG,Jampruca,2026,1
+MG,Janaúba,2022,1
+MG,Janaúba,2023,1
+MG,Janaúba,2024,1
+MG,Janaúba,2025,1
+MG,Janaúba,2026,3
+MG,Januária,2022,1
+MG,Januária,2023,2
+MG,Januária,2024,3
+MG,Januária,2025,2
+MG,Januária,2026,5
+MG,Japaraíba,2022,1
+MG,Japaraíba,2023,1
+MG,Japaraíba,2024,1
+MG,Japaraíba,2026,1
+MG,Japonvar,2022,1
+MG,Japonvar,2023,1
+MG,Japonvar,2024,1
+MG,Japonvar,2026,1
+MG,Jardinésia,2025,1
+MG,Jaíba,2025,1
+MG,Jaíba,2026,2
+MG,Jeceaba,2022,1
+MG,Jeceaba,2023,1
+MG,Jeceaba,2024,1
+MG,Jeceaba,2026,1
+MG,Jenipapo de Minas,2022,1
+MG,Jenipapo de Minas,2023,1
+MG,Jenipapo de Minas,2024,1
+MG,Jenipapo de Minas,2026,1
+MG,Jequeri,2022,1
+MG,Jequeri,2023,1
+MG,Jequeri,2024,1
+MG,Jequeri,2026,1
+MG,Jequitaí,2022,1
+MG,Jequitaí,2023,2
+MG,Jequitaí,2024,2
+MG,Jequitaí,2025,1
+MG,Jequitaí,2026,2
+MG,Jequitibá,2022,1
+MG,Jequitibá,2023,1
+MG,Jequitibá,2024,1
+MG,Jequitibá,2025,2
+MG,Jequitibá,2026,1
+MG,Jequitinhonha,2022,1
+MG,Jequitinhonha,2023,1
+MG,Jequitinhonha,2024,1
+MG,Jequitinhonha,2026,1
+MG,Jesuânia,2022,1
+MG,Jesuânia,2023,2
+MG,Jesuânia,2024,1
+MG,Jesuânia,2025,1
+MG,Jesuânia,2026,1
+MG,Joanésia,2022,1
+MG,Joanésia,2023,1
+MG,Joanésia,2024,1
+MG,Joanésia,2026,1
+MG,Joaquim Felício,2022,1
+MG,Joaquim Felício,2023,1
+MG,Joaquim Felício,2024,1
+MG,Joaquim Felício,2025,2
+MG,Joaquim Felício,2026,1
+MG,Joaíma,2022,1
+MG,Joaíma,2023,1
+MG,Joaíma,2024,1
+MG,Joaíma,2026,1
+MG,Joselândia,2022,1
+MG,Joselândia,2023,1
+MG,Joselândia,2024,1
+MG,Joselândia,2025,2
+MG,Joselândia,2026,1
+MG,João Pinheiro,2022,1
+MG,João Pinheiro,2023,3
+MG,João Pinheiro,2024,3
+MG,João Pinheiro,2025,4
+MG,João Pinheiro,2026,4
+MG,Jubaí,2025,1
+MG,Juiz de Fora,2026,1
+MG,Juruaia,2022,2
+MG,Juruaia,2023,2
+MG,Juruaia,2024,1
+MG,Juruaia,2025,4
+MG,Juruaia,2026,1
+MG,Juréia,2025,1
+MG,Ladainha,2022,1
+MG,Ladainha,2023,1
+MG,Ladainha,2024,1
+MG,Ladainha,2025,2
+MG,Ladainha,2026,1
+MG,Lagamar,2022,1
+MG,Lagamar,2023,1
+MG,Lagamar,2024,2
+MG,Lagamar,2025,3
+MG,Lagamar,2026,2
+MG,Lagoa Formosa,2022,1
+MG,Lagoa Formosa,2023,1
+MG,Lagoa Formosa,2024,1
+MG,Lagoa Formosa,2025,1
+MG,Lagoa Grande,2024,2
+MG,Lagoa Grande,2025,2
+MG,Lagoa Grande,2026,2
+MG,Lagoa Santa,2026,1
+MG,Lagoa Seca,2025,1
+MG,Lagoa da Prata,2022,1
+MG,Lagoa da Prata,2023,1
+MG,Lagoa da Prata,2024,1
+MG,Lagoa da Prata,2025,1
+MG,Lagoa dos Patos,2022,1
+MG,Lagoa dos Patos,2023,1
+MG,Lagoa dos Patos,2024,1
+MG,Lagoa dos Patos,2025,2
+MG,Lagoa dos Patos,2026,1
+MG,Laranjeiras de Caldas,2025,1
+MG,Lassance,2023,1
+MG,Lavras,2022,1
+MG,Lavras,2023,1
+MG,Lavras,2025,1
+MG,Limeira do Oeste,2023,1
+MG,Limeira do Oeste,2024,3
+MG,Limeira do Oeste,2025,4
+MG,Limeira do Oeste,2026,2
+MG,Luislândia,2024,1
+MG,Luislândia,2025,1
+MG,Luislândia,2026,1
+MG,Luminárias,2022,1
+MG,Luminárias,2023,1
+MG,Luminárias,2025,1
+MG,Machado,2022,1
+MG,Machado,2023,1
+MG,Machado,2025,1
+MG,Macuco,2025,1
+MG,Macuco de Minas,2023,1
+MG,Macuco de Minas,2025,1
+MG,Madre de Deus de Minas,2022,1
+MG,Madre de Deus de Minas,2023,1
+MG,Madre de Deus de Minas,2025,1
+MG,Manga,2026,1
+MG,Mantena,2022,1
+MG,Mantena,2023,1
+MG,Mantena,2024,1
+MG,Maravilhas,2024,2
+MG,Maravilhas,2025,2
+MG,Maravilhas,2026,2
+MG,Mariana,2024,1
+MG,Mariana,2025,1
+MG,Mariana,2026,1
+MG,Martinho Campos,2024,1
+MG,Martinho Campos,2025,2
+MG,Martinho Campos,2026,2
+MG,Martinésia,2025,1
+MG,Matias Cardoso,2026,1
+MG,Medeiros,2025,1
+MG,Medeiros,2026,1
+MG,Milagre,2025,1
+MG,Minas Novas,2024,1
+MG,Minas Novas,2025,1
+MG,Minas Novas,2026,1
+MG,Minduri,2022,1
+MG,Minduri,2023,1
+MG,Minduri,2025,1
+MG,Miragaia,2022,1
+MG,Moeda,2025,1
+MG,Monte Alegre de Minas,2022,3
+MG,Monte Alegre de Minas,2023,5
+MG,Monte Alegre de Minas,2024,4
+MG,Monte Alegre de Minas,2025,7
+MG,Monte Alegre de Minas,2026,6
+MG,Monte Belo,2022,1
+MG,Monte Belo,2023,1
+MG,Monte Belo,2025,2
+MG,Monte Carmelo,2022,2
+MG,Monte Carmelo,2023,3
+MG,Monte Carmelo,2024,2
+MG,Monte Carmelo,2025,4
+MG,Monte Carmelo,2026,2
+MG,Monte Santo de Minas,2022,2
+MG,Monte Santo de Minas,2023,2
+MG,Monte Santo de Minas,2024,1
+MG,Monte Santo de Minas,2025,2
+MG,Montes Claros,2023,2
+MG,Montes Claros,2024,3
+MG,Montes Claros,2025,1
+MG,Montes Claros,2026,4
+MG,Morada Nova de Minas,2023,2
+MG,Morada Nova de Minas,2024,2
+MG,Morada Nova de Minas,2025,3
+MG,Morada Nova de Minas,2026,4
+MG,Morro Vermelho,2025,1
+MG,Muzambinho,2022,1
+MG,Muzambinho,2023,1
+MG,Muzambinho,2025,2
+MG,Nanuque,2022,2
+MG,Nanuque,2023,2
+MG,Nanuque,2024,3
+MG,Nanuque,2025,3
+MG,Nanuque,2026,2
+MG,Natalândia,2022,1
+MG,Natalândia,2023,1
+MG,Natalândia,2024,1
+MG,Natalândia,2025,2
+MG,Natalândia,2026,4
+MG,Natércia,2023,1
+MG,Natércia,2025,1
+MG,Nazareno,2022,1
+MG,Nazareno,2023,1
+MG,Nazareno,2025,1
+MG,Nepomuceno,2022,1
+MG,Nepomuceno,2023,1
+MG,Nepomuceno,2025,1
+MG,Nova Era,2024,1
+MG,Nova Era,2025,1
+MG,Nova Era,2026,1
+MG,Nova Ponte,2022,3
+MG,Nova Ponte,2023,5
+MG,Nova Ponte,2024,5
+MG,Nova Ponte,2025,7
+MG,Nova Ponte,2026,6
+MG,Nova Resende,2022,1
+MG,Nova Resende,2023,1
+MG,Nova Resende,2025,2
+MG,Novo Horizonte,2025,1
+MG,Olhos D'Água,2024,1
+MG,Olhos D'Água,2025,2
+MG,Olhos D'Água,2026,1
+MG,Oliveira,2022,1
+MG,Oliveira,2023,1
+MG,Oliveira,2025,1
+MG,Padrolândia,2025,1
+MG,Paineiras,2024,1
+MG,Paineiras,2025,1
+MG,Paineiras,2026,1
+MG,Palmeiral,2025,1
+MG,Palmital de Minas,2024,1
+MG,Palmital de Minas,2025,1
+MG,Palmital de Minas,2026,2
+MG,Papagaios,2024,1
+MG,Papagaios,2025,1
+MG,Papagaios,2026,1
+MG,Paracatu,2022,2
+MG,Paracatu,2023,2
+MG,Paracatu,2024,4
+MG,Paracatu,2025,5
+MG,Paracatu,2026,6
+MG,Paraguaçu,2022,1
+MG,Paraguaçu,2023,1
+MG,Paraguaçu,2025,1
+MG,Paraopeba,2024,1
+MG,Paraopeba,2025,1
+MG,Paraopeba,2026,1
+MG,Passos,2022,2
+MG,Passos,2023,2
+MG,Passos,2024,1
+MG,Passos,2025,2
+MG,Patos de Minas,2022,1
+MG,Patos de Minas,2023,2
+MG,Patos de Minas,2024,2
+MG,Patos de Minas,2025,2
+MG,Patos de Minas,2026,2
+MG,Patos de Minas ,2024,1
+MG,Patos de Minas ,2025,1
+MG,Patrimônio,2025,1
+MG,Patrocínio,2022,2
+MG,Patrocínio,2023,4
+MG,Patrocínio,2024,4
+MG,Patrocínio,2025,6
+MG,Patrocínio,2026,4
+MG,Pedra Azul,2022,1
+MG,Pedra Azul,2023,1
+MG,Pedra Azul,2024,1
+MG,Pedras de Maria da Cruz,2023,1
+MG,Pedrinópolis,2022,2
+MG,Pedrinópolis,2023,3
+MG,Pedrinópolis,2024,2
+MG,Pedrinópolis,2025,5
+MG,Pedrinópolis,2026,3
+MG,Perdizes,2022,4
+MG,Perdizes,2023,5
+MG,Perdizes,2024,4
+MG,Perdizes,2025,7
+MG,Perdizes,2026,4
+MG,Perdões,2022,1
+MG,Perdões,2023,1
+MG,Perdões,2025,1
+MG,Petúnia,2025,1
+MG,Pimenta,2022,1
+MG,Pimenta,2023,1
+MG,Pimenta,2025,1
+MG,Pintópolis,2022,1
+MG,Pintópolis,2023,1
+MG,Pintópolis,2024,1
+MG,Pintópolis,2025,1
+MG,Pintópolis,2026,2
+MG,Piracaiba,2025,1
+MG,Pirajuba,2022,2
+MG,Pirajuba,2023,3
+MG,Pirajuba,2024,3
+MG,Pirajuba,2025,5
+MG,Pirajuba,2026,1
+MG,Pirapora,2023,1
+MG,Pirapora,2024,1
+MG,Pirapora,2025,1
+MG,Pirapora,2026,3
+MG,Pitangui,2024,1
+MG,Pitangui,2025,1
+MG,Pitangui,2026,1
+MG,Piumhi,2022,1
+MG,Piumhi,2023,1
+MG,Piumhi,2025,1
+MG,Planura,2022,1
+MG,Planura,2023,2
+MG,Planura,2024,2
+MG,Planura,2025,4
+MG,Planura,2026,1
+MG,Pompéu,2024,1
+MG,Pompéu,2025,3
+MG,Pompéu,2026,2
+MG,Poncianos,2025,1
+MG,Ponte Alta,2022,1
+MG,Ponte Alta,2023,2
+MG,Ponte Alta,2024,2
+MG,Ponte Alta,2025,3
+MG,Ponte Alta,2026,3
+MG,Ponte Alta de Minas,2022,1
+MG,Ponte Alta de Minas,2023,2
+MG,Ponte Alta de Minas,2024,1
+MG,Ponte Alta de Minas,2025,1
+MG,Ponte Alta de Minas,2026,2
+MG,Ponto Chique,2026,1
+MG,Posses,2025,1
+MG,Pouso Alegre,2022,1
+MG,Pouso Alegre,2023,1
+MG,Pouso Alegre,2025,1
+MG,Pouso Alto,2025,1
+MG,Poço Fundo,2022,1
+MG,Poço Fundo,2023,1
+MG,Poço Fundo,2025,1
+MG,Poços de Caldas,2022,1
+MG,Poços de Caldas,2023,2
+MG,Poços de Caldas,2024,1
+MG,Poços de Caldas,2025,2
+MG,Prata,2022,1
+MG,Prata,2023,5
+MG,Prata,2024,5
+MG,Prata,2025,7
+MG,Prata,2026,7
+MG,Pratinha,2023,1
+MG,Pratinha,2024,1
+MG,Pratinha,2025,4
+MG,Pratinha,2026,1
+MG,Pratápolis,2022,1
+MG,Pratápolis,2023,1
+MG,Pratápolis,2025,2
+MG,Presidente Juscelino,2024,1
+MG,Presidente Juscelino,2025,1
+MG,Presidente Juscelino,2026,1
+MG,Presidente Olegário,2023,1
+MG,Presidente Olegário,2024,1
+MG,Presidente Olegário,2025,1
+MG,Presidente Olegário,2026,1
+MG,Quartel Geral,2024,1
+MG,Quartel Geral,2025,1
+MG,Quartel Geral,2026,1
+MG,Quilombo,2025,1
+MG,Rancho Novo,2025,1
+MG,Recreio,2025,1
+MG,Retiro,2025,1
+MG,Riachinho,2022,1
+MG,Riachinho,2023,1
+MG,Riachinho,2024,2
+MG,Riachinho,2025,3
+MG,Riachinho,2026,4
+MG,Rio Paranaíba,2022,1
+MG,Rio Paranaíba,2023,1
+MG,Rio Paranaíba,2025,1
+MG,Rio das Mortes,2023,1
+MG,Rio das Mortes,2025,1
+MG,Romaria,2022,2
+MG,Romaria,2023,3
+MG,Romaria,2024,2
+MG,Romaria,2025,3
+MG,Romaria,2026,2
+MG,Sacramento,2022,4
+MG,Sacramento,2023,8
+MG,Sacramento,2024,6
+MG,Sacramento,2025,9
+MG,Sacramento,2026,5
+MG,Salinas,2024,1
+MG,Salinas,2025,1
+MG,Salinas,2026,2
+MG,Santa Cruz da Aparecida,2025,1
+MG,Santa Cruz do Prata,2025,1
+MG,Santa Fé de Minas,2024,2
+MG,Santa Fé de Minas,2025,2
+MG,Santa Fé de Minas,2026,3
+MG,Santa Juliana,2022,4
+MG,Santa Juliana,2023,4
+MG,Santa Juliana,2024,3
+MG,Santa Juliana,2025,4
+MG,Santa Juliana,2026,3
+MG,Santa Luzia,2025,1
+MG,Santa Luzia da Serra,2024,1
+MG,Santa Luzia da Serra,2025,1
+MG,Santa Luzia da Serra,2026,1
+MG,Santa Luzia dos Barros,2022,1
+MG,Santa Luzia dos Barros,2023,2
+MG,Santa Luzia dos Barros,2024,1
+MG,Santa Luzia dos Barros,2025,2
+MG,Santa Luzia dos Barros,2026,2
+MG,Santa Rita de Caldas,2022,1
+MG,Santa Rita de Caldas,2023,1
+MG,Santa Rita de Caldas,2025,1
+MG,Santa Rita do Sapucaí,2022,1
+MG,Santa Rita do Sapucaí,2023,1
+MG,Santa Rita do Sapucaí,2025,1
+MG,Santa Rosa dos Dourados,2025,1
+MG,Santa Vitória,2023,1
+MG,Santa Vitória,2025,1
+MG,Santa Vitória,2026,2
+MG,Santana de Caldas,2025,1
+MG,Santana de Patos,2023,1
+MG,Santana de Patos,2024,1
+MG,Santana de Patos,2025,2
+MG,Santana de Patos,2026,1
+MG,Santo Antônio do Amparo,2023,1
+MG,Santo Antônio do Amparo,2025,1
+MG,Santo Antônio do Boqueirão,2024,1
+MG,Santo Antônio do Boqueirão,2025,1
+MG,Santo Antônio do Boqueirão,2026,1
+MG,Santo Hipólito,2024,1
+MG,Santo Hipólito,2025,1
+MG,Santo Hipólito,2026,1
+MG,Senador Modestino Gonçalves,2024,1
+MG,Senador Modestino Gonçalves,2025,1
+MG,Senador Modestino Gonçalves,2026,1
+MG,Senador Mourão,2024,1
+MG,Senador Mourão,2025,1
+MG,Senador Mourão,2026,1
+MG,Serra Bonita,2024,1
+MG,Serra Bonita,2025,2
+MG,Serra Bonita,2026,2
+MG,Serra da Canastra,2025,1
+MG,Serra das Araras,2025,1
+MG,Serra das Araras,2026,1
+MG,Serra do Salitre,2023,1
+MG,Serra do Salitre,2024,1
+MG,Serra do Salitre,2025,2
+MG,Serra do Salitre,2026,1
+MG,Serra dos Lemes,2025,1
+MG,Serrania,2023,1
+MG,Serrania,2025,1
+MG,Sertãozinho,2025,1
+MG,Sete Lagoas,2024,1
+MG,Sete Lagoas,2025,1
+MG,Sete Lagoas,2026,1
+MG,Silvano,2025,1
+MG,São Bartolomeu,2025,1
+MG,São Bento Abade,2022,1
+MG,São Bento Abade,2023,1
+MG,São Bento Abade,2025,1
+MG,São Francisco,2023,1
+MG,São Francisco,2026,2
+MG,São Francisco de Sales,2023,2
+MG,São Francisco de Sales,2024,3
+MG,São Francisco de Sales,2025,4
+MG,São Francisco de Sales,2026,1
+MG,São Gonçalo de Botelhos,2023,1
+MG,São Gonçalo de Botelhos,2025,2
+MG,São Gonçalo do Sapucaí,2023,1
+MG,São Gonçalo do Sapucaí,2025,1
+MG,São Gotardo,2022,1
+MG,São Gotardo,2023,3
+MG,São Gotardo,2024,1
+MG,São Gotardo,2025,3
+MG,São Gotardo,2026,1
+MG,São Jerônimo dos Poções,2025,1
+MG,São José,2025,1
+MG,São José da Barra,2022,1
+MG,São José da Barra,2023,1
+MG,São José da Barra,2024,1
+MG,São José da Barra,2025,2
+MG,São José do Barreiro,2025,1
+MG,São João Batista do Glória,2022,1
+MG,São João Batista do Glória,2023,1
+MG,São João Batista do Glória,2025,2
+MG,São João Del Rei,2022,1
+MG,São João Del Rei,2023,1
+MG,São João Del Rei,2025,1
+MG,São Pedro da União,2022,1
+MG,São Pedro da União,2023,1
+MG,São Pedro da União,2025,2
+MG,São Pedro do Passa Três,2025,1
+MG,São Pedro do Passa Três,2026,1
+MG,São Romão,2024,2
+MG,São Romão,2025,2
+MG,São Romão,2026,1
+MG,São Roque de Minas,2025,1
+MG,São Sebastião da Bela Vista,2023,1
+MG,São Sebastião da Bela Vista,2025,1
+MG,São Sebastião da Vitória,2023,1
+MG,São Sebastião da Vitória,2025,1
+MG,São Sebastião do Paraíso,2022,1
+MG,São Sebastião do Paraíso,2023,1
+MG,São Sebastião do Paraíso,2025,2
+MG,São Thomé das Letras,2022,1
+MG,São Thomé das Letras,2023,1
+MG,São Thomé das Letras,2025,1
+MG,São Tomás de Aquino,2025,1
+MG,São Vicente,2025,1
+MG,São Vicente de Minas,2023,1
+MG,São Vicente de Minas,2025,1
+MG,Taiobeiras,2026,1
+MG,Tapira,2022,1
+MG,Tapira,2023,1
+MG,Tapira,2025,2
+MG,Tapuirama,2022,1
+MG,Tapuirama,2023,2
+MG,Tapuirama,2024,1
+MG,Tapuirama,2025,2
+MG,Tapuirama,2026,2
+MG,Teófilo Otoni,2022,1
+MG,Teófilo Otoni,2023,1
+MG,Teófilo Otoni,2024,1
+MG,Tobati,2025,1
+MG,Três Corações,2022,1
+MG,Três Corações,2023,1
+MG,Três Corações,2025,1
+MG,Três Marias,2022,2
+MG,Três Marias,2023,1
+MG,Três Marias,2024,2
+MG,Três Marias,2025,2
+MG,Três Marias,2026,2
+MG,Três Pontas,2022,1
+MG,Três Pontas,2023,1
+MG,Três Pontas,2025,1
+MG,Tupaciguara,2022,2
+MG,Tupaciguara,2023,3
+MG,Tupaciguara,2024,3
+MG,Tupaciguara,2025,4
+MG,Tupaciguara,2026,2
+MG,Turmalina,2024,1
+MG,Turmalina,2025,1
+MG,Turmalina,2026,1
+MG,Uberaba,2022,5
+MG,Uberaba,2023,9
+MG,Uberaba,2024,7
+MG,Uberaba,2025,10
+MG,Uberaba,2026,9
+MG,Uberlândia,2022,4
+MG,Uberlândia,2023,8
+MG,Uberlândia,2024,7
+MG,Uberlândia,2025,9
+MG,Uberlândia,2026,10
+MG,Unaí,2022,4
+MG,Unaí,2023,5
+MG,Unaí,2024,5
+MG,Unaí,2025,5
+MG,Unaí,2026,6
+MG,União de Minas,2023,1
+MG,União de Minas,2024,1
+MG,União de Minas,2025,2
+MG,União de Minas,2026,1
+MG,Uruana de Minas,2022,2
+MG,Uruana de Minas,2023,1
+MG,Uruana de Minas,2024,1
+MG,Uruana de Minas,2025,2
+MG,Uruana de Minas,2026,3
+MG,Urucuia,2024,1
+MG,Urucuia,2025,2
+MG,Urucuia,2026,3
+MG,Vargem Bonita,2025,1
+MG,Varginha,2022,1
+MG,Varginha,2023,1
+MG,Varginha,2025,1
+MG,Varjão de Minas,2023,2
+MG,Varjão de Minas,2024,1
+MG,Varjão de Minas,2025,2
+MG,Varjão de Minas,2026,1
+MG,Vazante,2022,1
+MG,Vazante,2023,1
+MG,Vazante,2024,4
+MG,Vazante,2025,4
+MG,Vazante,2026,3
+MG,Veredinha,2024,1
+MG,Veredinha,2025,1
+MG,Veredinha,2026,1
+MG,Veríssimo,2023,1
+MG,Veríssimo,2024,3
+MG,Veríssimo,2025,5
+MG,Veríssimo,2026,4
+MG,Viçosa,2024,1
+MG,Viçosa,2025,1
+MG,Viçosa,2026,1
+MG,Volta Grande,2025,1
+MG,Várzea da Palma,2023,1
+MG,Várzea da Palma,2024,1
+MG,Várzea da Palma,2025,1
+MG,Várzea da Palma,2026,1
+MG,Zelândia,2022,2
+MG,Zelândia,2023,2
+MG,Zelândia,2024,1
+MG,Zelândia,2025,2
+MG,Zelândia,2026,2
+MG,Água Boa,2022,2
+MG,Água Boa,2023,1
+MG,Água Boa,2024,1
+MG,Água Boa,2025,2
+MG,Água Boa,2026,1
+MG,Água Branca de Minas,2022,1
+MG,Água Comprida,2022,2
+MG,Água Comprida,2023,3
+MG,Água Comprida,2024,2
+MG,Água Comprida,2025,6
+MG,Água Comprida,2026,2
+MG,Água Santa de Minas,2022,1
+MG,Água Viva,2022,1
+MG,Águas Claras,2022,1
+MG,Águas Formosas,2022,2
+MG,Águas Formosas,2023,1
+MG,Águas Formosas,2024,1
+MG,Águas Formosas,2025,2
+MG,Águas Formosas,2026,1
+MG,Águas Férreas,2022,1
+MG,Águas Vermelhas,2022,3
+MG,Águas Vermelhas,2023,2
+MG,Águas Vermelhas,2024,2
+MG,Águas Vermelhas,2025,2
+MG,Águas Vermelhas,2026,1
+MG,Águas de Araxá,2022,1
+MG,Águas de Araxá,2023,1
+MG,Águas de Araxá,2025,1
+MG,Águas de Contendas,2022,1
+MG,Águas de Contendas,2023,1
+MG,Águas de Contendas,2025,1
+MG,Óleo,2025,1
+MS,Alcinópolis,2022,2
+MS,Alcinópolis,2023,1
+MS,Alcinópolis,2024,4
+MS,Alcinópolis,2025,5
+MS,Alcinópolis,2026,1
+MS,Alto Sucuriú,2022,1
+MS,Alto Sucuriú,2023,1
+MS,Amambai,2022,2
+MS,Amambai,2023,6
+MS,Amambai,2024,5
+MS,Amambai,2025,5
+MS,Amambai,2026,3
+MS,Amandina,2023,1
+MS,Amandina,2024,1
+MS,Amandina,2025,1
+MS,Amandina,2026,1
+MS,Anastácio,2022,1
+MS,Anastácio,2024,2
+MS,Anastácio,2025,2
+MS,Anastácio,2026,1
+MS,Anaurilândia,2022,4
+MS,Anaurilândia,2023,4
+MS,Anaurilândia,2024,5
+MS,Anaurilândia,2025,6
+MS,Anaurilândia,2026,4
+MS,Angélica,2022,4
+MS,Angélica,2023,6
+MS,Angélica,2024,5
+MS,Angélica,2025,6
+MS,Angélica,2026,5
+MS,Antônio João,2022,1
+MS,Antônio João,2024,2
+MS,Antônio João,2025,3
+MS,Antônio João,2026,2
+MS,Aparecida do Taboado,2022,2
+MS,Aparecida do Taboado,2023,7
+MS,Aparecida do Taboado,2024,9
+MS,Aparecida do Taboado,2025,10
+MS,Aparecida do Taboado,2026,4
+MS,Aquidauana,2022,1
+MS,Aquidauana,2024,3
+MS,Aquidauana,2025,3
+MS,Aquidauana,2026,1
+MS,Aral Moreira,2022,1
+MS,Aral Moreira,2023,3
+MS,Aral Moreira,2024,4
+MS,Aral Moreira,2025,4
+MS,Aral Moreira,2026,3
+MS,Arapuã,2024,1
+MS,Arapuã,2025,1
+MS,Areado,2025,1
+MS,Bandeirantes,2022,1
+MS,Bandeirantes,2024,3
+MS,Bandeirantes,2025,4
+MS,Bandeirantes,2026,2
+MS,Bataguassu,2022,5
+MS,Bataguassu,2023,8
+MS,Bataguassu,2024,7
+MS,Bataguassu,2025,8
+MS,Bataguassu,2026,6
+MS,Batayporã,2022,5
+MS,Batayporã,2023,7
+MS,Batayporã,2024,5
+MS,Batayporã,2025,5
+MS,Batayporã,2026,4
+MS,Baús,2024,1
+MS,Baús,2025,1
+MS,Bela Alvorada,2024,1
+MS,Bela Vista,2022,2
+MS,Bela Vista,2023,1
+MS,Bela Vista,2024,3
+MS,Bela Vista,2025,4
+MS,Bela Vista,2026,2
+MS,Bodoquena,2022,1
+MS,Bodoquena,2024,2
+MS,Bodoquena,2025,2
+MS,Bodoquena,2026,1
+MS,Bonito,2022,1
+MS,Bonito,2024,3
+MS,Bonito,2025,4
+MS,Bonito,2026,1
+MS,Brasilândia,2022,4
+MS,Brasilândia,2023,8
+MS,Brasilândia,2024,10
+MS,Brasilândia,2025,9
+MS,Brasilândia,2026,6
+MS,Caarapó,2022,1
+MS,Caarapó,2023,6
+MS,Caarapó,2024,6
+MS,Caarapó,2025,7
+MS,Caarapó,2026,5
+MS,Cachoeira,2024,1
+MS,Cachoeira,2025,1
+MS,Camapuã,2022,1
+MS,Camapuã,2023,1
+MS,Camapuã,2024,4
+MS,Camapuã,2025,5
+MS,Camapuã,2026,1
+MS,Campo Grande,2022,2
+MS,Campo Grande,2024,5
+MS,Campo Grande,2025,5
+MS,Campo Grande,2026,3
+MS,Caracol,2022,1
+MS,Caracol,2024,2
+MS,Caracol,2025,2
+MS,Caracol,2026,1
+MS,Cassilândia,2022,2
+MS,Cassilândia,2023,3
+MS,Cassilândia,2024,4
+MS,Cassilândia,2025,6
+MS,Cassilândia,2026,3
+MS,Chapadão do Sul,2022,2
+MS,Chapadão do Sul,2023,3
+MS,Chapadão do Sul,2024,5
+MS,Chapadão do Sul,2025,6
+MS,Chapadão do Sul,2026,4
+MS,Corguinho,2022,1
+MS,Corguinho,2024,2
+MS,Corguinho,2025,2
+MS,Corguinho,2026,1
+MS,Coronel Sapucaia,2022,1
+MS,Coronel Sapucaia,2023,3
+MS,Coronel Sapucaia,2024,4
+MS,Coronel Sapucaia,2025,4
+MS,Coronel Sapucaia,2026,3
+MS,Corumbá,2022,1
+MS,Corumbá,2024,3
+MS,Corumbá,2025,4
+MS,Corumbá,2026,2
+MS,Costa Rica,2022,2
+MS,Costa Rica,2023,4
+MS,Costa Rica,2024,6
+MS,Costa Rica,2025,7
+MS,Costa Rica,2026,3
+MS,Coxim,2022,2
+MS,Coxim,2023,1
+MS,Coxim,2024,3
+MS,Coxim,2025,5
+MS,Coxim,2026,2
+MS,Cristalina,2024,1
+MS,Cristalina,2025,1
+MS,Deodápolis,2022,3
+MS,Deodápolis,2023,3
+MS,Deodápolis,2024,4
+MS,Deodápolis,2025,5
+MS,Deodápolis,2026,4
+MS,Dois Irmãos do Buriti,2022,1
+MS,Dois Irmãos do Buriti,2024,2
+MS,Dois Irmãos do Buriti,2025,3
+MS,Dois Irmãos do Buriti,2026,2
+MS,Douradina,2022,1
+MS,Douradina,2023,3
+MS,Douradina,2024,4
+MS,Douradina,2025,4
+MS,Douradina,2026,4
+MS,Dourados,2022,1
+MS,Dourados,2023,4
+MS,Dourados,2024,6
+MS,Dourados,2025,6
+MS,Dourados,2026,5
+MS,Eldorado,2022,3
+MS,Eldorado,2023,4
+MS,Eldorado,2024,4
+MS,Eldorado,2025,5
+MS,Eldorado,2026,4
+MS,Figueirão,2022,2
+MS,Figueirão,2023,1
+MS,Figueirão,2024,3
+MS,Figueirão,2025,3
+MS,Figueirão,2026,1
+MS,Fátima do Sul,2022,1
+MS,Fátima do Sul,2023,2
+MS,Fátima do Sul,2024,4
+MS,Fátima do Sul,2025,5
+MS,Fátima do Sul,2026,4
+MS,Glória de Dourados,2022,2
+MS,Glória de Dourados,2023,3
+MS,Glória de Dourados,2024,4
+MS,Glória de Dourados,2025,5
+MS,Glória de Dourados,2026,4
+MS,Guaçu,2024,1
+MS,Guia Lopes da Laguna,2022,1
+MS,Guia Lopes da Laguna,2024,2
+MS,Guia Lopes da Laguna,2025,2
+MS,Guia Lopes da Laguna,2026,1
+MS,Iguatemi,2022,2
+MS,Iguatemi,2023,6
+MS,Iguatemi,2024,5
+MS,Iguatemi,2025,5
+MS,Iguatemi,2026,4
+MS,Indaiá Grande,2024,1
+MS,Indaiá Grande,2025,1
+MS,Indaiá do Sul,2022,1
+MS,Indaiá do Sul,2023,1
+MS,Indaiá do Sul,2024,1
+MS,Indaiá do Sul,2025,1
+MS,Indápolis,2024,1
+MS,Indápolis,2025,2
+MS,Indápolis,2026,1
+MS,Inocência,2022,2
+MS,Inocência,2023,4
+MS,Inocência,2024,8
+MS,Inocência,2025,8
+MS,Inocência,2026,5
+MS,Itaporã,2022,1
+MS,Itaporã,2023,3
+MS,Itaporã,2024,4
+MS,Itaporã,2025,4
+MS,Itaporã,2026,4
+MS,Itaquiraí,2022,4
+MS,Itaquiraí,2023,6
+MS,Itaquiraí,2024,6
+MS,Itaquiraí,2025,6
+MS,Itaquiraí,2026,5
+MS,Ivinhema,2022,5
+MS,Ivinhema,2023,6
+MS,Ivinhema,2024,5
+MS,Ivinhema,2025,6
+MS,Ivinhema,2026,5
+MS,Jacareí,2023,1
+MS,Jacareí,2024,1
+MS,Jacareí,2025,1
+MS,Jacareí,2026,1
+MS,Japorã,2022,1
+MS,Japorã,2023,2
+MS,Japorã,2024,3
+MS,Japorã,2025,3
+MS,Japorã,2026,2
+MS,Jaraguari,2022,2
+MS,Jaraguari,2024,3
+MS,Jaraguari,2025,5
+MS,Jaraguari,2026,3
+MS,Jardim,2022,1
+MS,Jardim,2024,2
+MS,Jardim,2025,2
+MS,Jardim,2026,1
+MS,Jateí,2022,3
+MS,Jateí,2023,8
+MS,Jateí,2024,6
+MS,Jateí,2025,5
+MS,Jateí,2026,4
+MS,Jauru,2022,1
+MS,Jauru,2023,1
+MS,Jauru,2024,1
+MS,Jauru,2025,2
+MS,Juscelândia,2025,1
+MS,Jutí,2022,3
+MS,Jutí,2023,6
+MS,Jutí,2024,5
+MS,Jutí,2025,5
+MS,Jutí,2026,4
+MS,Ladário,2022,1
+MS,Ladário,2024,2
+MS,Ladário,2025,2
+MS,Ladário,2026,1
+MS,Laguna Carapã,2022,2
+MS,Laguna Carapã,2023,5
+MS,Laguna Carapã,2024,5
+MS,Laguna Carapã,2025,5
+MS,Laguna Carapã,2026,4
+MS,Maracaju,2022,1
+MS,Maracaju,2023,2
+MS,Maracaju,2024,4
+MS,Maracaju,2025,5
+MS,Maracaju,2026,5
+MS,Miranda,2022,1
+MS,Miranda,2024,2
+MS,Miranda,2025,3
+MS,Miranda,2026,2
+MS,Mundo Novo,2022,2
+MS,Mundo Novo,2023,3
+MS,Mundo Novo,2024,4
+MS,Mundo Novo,2025,5
+MS,Mundo Novo,2026,4
+MS,Naviraí,2022,3
+MS,Naviraí,2023,8
+MS,Naviraí,2024,9
+MS,Naviraí,2025,8
+MS,Naviraí,2026,6
+MS,Nioaque,2022,1
+MS,Nioaque,2024,2
+MS,Nioaque,2025,3
+MS,Nioaque,2026,2
+MS,Nova Alvorada do Sul,2022,1
+MS,Nova Alvorada do Sul,2023,4
+MS,Nova Alvorada do Sul,2024,4
+MS,Nova Alvorada do Sul,2025,5
+MS,Nova Alvorada do Sul,2026,5
+MS,Nova Andradina,2022,5
+MS,Nova Andradina,2023,7
+MS,Nova Andradina,2024,8
+MS,Nova Andradina,2025,8
+MS,Nova Andradina,2026,6
+MS,Nova Casa Verde,2023,1
+MS,Nova Casa Verde,2024,1
+MS,Nova Casa Verde,2025,1
+MS,Nova Casa Verde,2026,1
+MS,Nova Esperança,2025,1
+MS,Nova Jales,2023,1
+MS,Novo Horizonte do Sul,2022,4
+MS,Novo Horizonte do Sul,2023,6
+MS,Novo Horizonte do Sul,2024,5
+MS,Novo Horizonte do Sul,2025,6
+MS,Novo Horizonte do Sul,2026,5
+MS,Paranaíba,2022,2
+MS,Paranaíba,2023,5
+MS,Paranaíba,2024,7
+MS,Paranaíba,2025,9
+MS,Paranaíba,2026,4
+MS,Paranhos,2022,1
+MS,Paranhos,2023,4
+MS,Paranhos,2024,4
+MS,Paranhos,2025,3
+MS,Paranhos,2026,3
+MS,Paraíso das Águas,2022,2
+MS,Paraíso das Águas,2023,2
+MS,Paraíso das Águas,2024,3
+MS,Paraíso das Águas,2025,5
+MS,Paraíso das Águas,2026,3
+MS,Pedro Gomes,2022,1
+MS,Pedro Gomes,2024,3
+MS,Pedro Gomes,2025,4
+MS,Pedro Gomes,2026,1
+MS,Ponta Porã,2022,2
+MS,Ponta Porã,2023,2
+MS,Ponta Porã,2024,5
+MS,Ponta Porã,2025,5
+MS,Ponta Porã,2026,4
+MS,Pontinha do Cocho,2022,1
+MS,Pontinha do Cocho,2023,1
+MS,Pontinha do Cocho,2025,1
+MS,Porto Murtinho,2022,1
+MS,Porto Murtinho,2024,2
+MS,Porto Murtinho,2025,2
+MS,Porto Murtinho,2026,1
+MS,Ribas do Rio Pardo,2021,1
+MS,Ribas do Rio Pardo,2022,4
+MS,Ribas do Rio Pardo,2023,4
+MS,Ribas do Rio Pardo,2024,8
+MS,Ribas do Rio Pardo,2025,8
+MS,Ribas do Rio Pardo,2026,6
+MS,Rio Brilhante,2022,1
+MS,Rio Brilhante,2023,5
+MS,Rio Brilhante,2024,5
+MS,Rio Brilhante,2025,5
+MS,Rio Brilhante,2026,5
+MS,Rio Negro,2022,1
+MS,Rio Negro,2024,2
+MS,Rio Negro,2025,3
+MS,Rio Negro,2026,1
+MS,Rio Verde de Mato Grosso,2022,1
+MS,Rio Verde de Mato Grosso,2024,3
+MS,Rio Verde de Mato Grosso,2025,4
+MS,Rio Verde de Mato Grosso,2026,1
+MS,Rochedo,2022,1
+MS,Rochedo,2024,3
+MS,Rochedo,2025,3
+MS,Rochedo,2026,1
+MS,Santa Rita do Pardo,2021,1
+MS,Santa Rita do Pardo,2022,5
+MS,Santa Rita do Pardo,2023,7
+MS,Santa Rita do Pardo,2024,7
+MS,Santa Rita do Pardo,2025,8
+MS,Santa Rita do Pardo,2026,6
+MS,Selvíria,2021,1
+MS,Selvíria,2022,3
+MS,Selvíria,2023,8
+MS,Selvíria,2024,9
+MS,Selvíria,2025,8
+MS,Selvíria,2026,4
+MS,Sete Quedas,2022,1
+MS,Sete Quedas,2023,5
+MS,Sete Quedas,2024,5
+MS,Sete Quedas,2025,5
+MS,Sete Quedas,2026,4
+MS,Sidrolândia,2022,1
+MS,Sidrolândia,2023,1
+MS,Sidrolândia,2024,3
+MS,Sidrolândia,2025,5
+MS,Sidrolândia,2026,3
+MS,Sonora,2022,2
+MS,Sonora,2023,1
+MS,Sonora,2024,2
+MS,Sonora,2025,3
+MS,Sonora,2026,1
+MS,São Gabriel do Oeste,2022,1
+MS,São Gabriel do Oeste,2024,2
+MS,São Gabriel do Oeste,2025,5
+MS,São Gabriel do Oeste,2026,2
+MS,Tacuru,2022,2
+MS,Tacuru,2023,6
+MS,Tacuru,2024,5
+MS,Tacuru,2025,5
+MS,Tacuru,2026,4
+MS,Taquarussu,2022,4
+MS,Taquarussu,2023,7
+MS,Taquarussu,2024,5
+MS,Taquarussu,2025,5
+MS,Taquarussu,2026,4
+MS,Terenos,2022,1
+MS,Terenos,2024,2
+MS,Terenos,2025,2
+MS,Terenos,2026,1
+MS,Três Lagoas,2021,1
+MS,Três Lagoas,2022,5
+MS,Três Lagoas,2023,13
+MS,Três Lagoas,2024,15
+MS,Três Lagoas,2025,13
+MS,Três Lagoas,2026,8
+MS,Vicentina,2022,1
+MS,Vicentina,2023,1
+MS,Vicentina,2024,3
+MS,Vicentina,2025,4
+MS,Vicentina,2026,3
+MS,Água Boa,2024,1
+MS,Água Boa,2025,2
+MS,Água Boa,2026,1
+MS,Água Clara,2021,1
+MS,Água Clara,2022,3
+MS,Água Clara,2023,4
+MS,Água Clara,2024,8
+MS,Água Clara,2025,6
+MS,Água Clara,2026,4
+MT,Acorizal,2023,1
+MT,Acorizal,2024,2
+MT,Acorizal,2025,2
+MT,Alta Floresta,2022,1
+MT,Alta Floresta,2023,1
+MT,Alta Floresta,2024,3
+MT,Alta Floresta,2025,3
+MT,Alta Floresta,2026,4
+MT,Alto Araguaia,2022,2
+MT,Alto Araguaia,2023,1
+MT,Alto Araguaia,2024,1
+MT,Alto Araguaia,2025,1
+MT,Alto Araguaia,2026,2
+MT,Alto Garças,2022,2
+MT,Alto Garças,2023,1
+MT,Alto Garças,2024,2
+MT,Alto Garças,2025,1
+MT,Alto Juruena,2024,1
+MT,Alto Paraguai,2023,2
+MT,Alto Paraguai,2024,2
+MT,Alto Paraguai,2025,3
+MT,Alto Paraguai,2026,1
+MT,Alto Paraíso,2025,1
+MT,Alto Taquari,2022,1
+MT,Alto Taquari,2023,1
+MT,Alto Taquari,2024,2
+MT,Alto Taquari,2025,1
+MT,Apiacás,2025,1
+MT,Apiacás,2026,2
+MT,Araguaiana,2025,2
+MT,Araguainha,2022,2
+MT,Araguainha,2023,1
+MT,Araguainha,2024,1
+MT,Araguainha,2026,1
+MT,Araputanga,2024,1
+MT,Araputanga,2025,1
+MT,Arenápolis,2023,2
+MT,Arenápolis,2024,3
+MT,Arenápolis,2025,3
+MT,Arenápolis,2026,1
+MT,Aripuanã,2025,2
+MT,Barra do Bugres,2023,1
+MT,Barra do Bugres,2024,3
+MT,Barra do Bugres,2025,2
+MT,Barra do Bugres,2026,2
+MT,Barra do Garças,2022,2
+MT,Barra do Garças,2023,2
+MT,Barra do Garças,2024,3
+MT,Barra do Garças,2025,2
+MT,Barra do Garças,2026,1
+MT,Barão de Melgaço,2022,2
+MT,Barão de Melgaço,2023,1
+MT,Barão de Melgaço,2024,1
+MT,Boa Esperança do Norte,2025,1
+MT,Boa Esperança do Norte,2026,2
+MT,Boa Vista,2024,1
+MT,Boa Vista,2025,1
+MT,Bocaiuval,2023,1
+MT,Bocaiuval,2024,2
+MT,Bocaiuval,2025,2
+MT,Brasnorte,2023,4
+MT,Brasnorte,2024,5
+MT,Brasnorte,2025,5
+MT,Brasnorte,2026,3
+MT,Buriti,2023,1
+MT,Buriti,2024,2
+MT,Buriti,2025,2
+MT,Campinápolis,2022,2
+MT,Campinápolis,2023,1
+MT,Campinápolis,2024,1
+MT,Campo Novo do Parecis,2023,3
+MT,Campo Novo do Parecis,2024,5
+MT,Campo Novo do Parecis,2025,5
+MT,Campo Novo do Parecis,2026,2
+MT,Campo Verde,2022,2
+MT,Campo Verde,2023,1
+MT,Campo Verde,2024,2
+MT,Campo Verde,2025,7
+MT,Campo Verde,2026,3
+MT,Campos de Júlio,2023,2
+MT,Campos de Júlio,2024,5
+MT,Campos de Júlio,2025,4
+MT,Campos de Júlio,2026,1
+MT,Canarana,2024,1
+MT,Canarana,2025,1
+MT,Canarana,2026,2
+MT,Caramujo,2023,1
+MT,Caramujo,2024,2
+MT,Caramujo,2025,2
+MT,Carlinda,2023,1
+MT,Carlinda,2025,1
+MT,Carlinda,2026,1
+MT,Chapada dos Guimarães,2022,2
+MT,Chapada dos Guimarães,2023,1
+MT,Chapada dos Guimarães,2024,1
+MT,Cláudia,2023,1
+MT,Cláudia,2025,2
+MT,Cláudia,2026,3
+MT,Colniza,2024,1
+MT,Colniza,2025,2
+MT,Colniza,2026,2
+MT,Colíder,2023,1
+MT,Colíder,2025,2
+MT,Colíder,2026,3
+MT,Comodoro,2023,2
+MT,Comodoro,2024,3
+MT,Comodoro,2025,4
+MT,Confresa,2026,2
+MT,Conquista D'Oeste,2024,1
+MT,Conselvan,2024,1
+MT,Conselvan,2025,1
+MT,Coqueiral,2023,1
+MT,Coqueiral,2024,2
+MT,Coqueiral,2025,2
+MT,Cotriguaçu,2024,1
+MT,Cotriguaçu,2025,1
+MT,Cuiabá,2022,2
+MT,Cuiabá,2023,1
+MT,Cuiabá,2024,3
+MT,Cuiabá,2025,3
+MT,Curvelândia,2024,1
+MT,Cáceres,2024,1
+MT,Cáceres,2025,1
+MT,Denise,2023,1
+MT,Denise,2024,3
+MT,Denise,2025,1
+MT,Diamantino,2023,3
+MT,Diamantino,2024,4
+MT,Diamantino,2025,6
+MT,Diamantino,2026,4
+MT,Dom Aquino,2022,2
+MT,Dom Aquino,2023,1
+MT,Dom Aquino,2024,1
+MT,Feliz Natal,2023,1
+MT,Feliz Natal,2024,1
+MT,Feliz Natal,2025,2
+MT,Feliz Natal,2026,1
+MT,Figueirópolis D'Oeste,2023,1
+MT,Figueirópolis D'Oeste,2024,3
+MT,Figueirópolis D'Oeste,2025,2
+MT,Gaúcha do Norte,2022,3
+MT,Gaúcha do Norte,2023,3
+MT,Gaúcha do Norte,2024,3
+MT,Gaúcha do Norte,2026,2
+MT,General Carneiro,2022,2
+MT,General Carneiro,2023,1
+MT,General Carneiro,2024,1
+MT,Glória D'Oeste,2023,1
+MT,Glória D'Oeste,2024,2
+MT,Glória D'Oeste,2025,2
+MT,Guarantã do Norte,2023,1
+MT,Guarantã do Norte,2025,2
+MT,Guarantã do Norte,2026,2
+MT,Guariba,2025,1
+MT,Guiratinga,2022,2
+MT,Guiratinga,2023,1
+MT,Indiavaí,2023,1
+MT,Indiavaí,2024,2
+MT,Indiavaí,2025,2
+MT,Ipiranga do Norte,2023,1
+MT,Ipiranga do Norte,2024,3
+MT,Ipiranga do Norte,2025,3
+MT,Ipiranga do Norte,2026,2
+MT,Itanhangá,2023,2
+MT,Itanhangá,2024,3
+MT,Itanhangá,2025,3
+MT,Itanhangá,2026,3
+MT,Itaúba,2023,1
+MT,Itaúba,2024,1
+MT,Itaúba,2025,2
+MT,Itaúba,2026,2
+MT,Itiquira,2022,2
+MT,Itiquira,2023,3
+MT,Itiquira,2024,3
+MT,Itiquira,2025,1
+MT,Itiquira,2026,1
+MT,Jaciara,2022,2
+MT,Jaciara,2023,1
+MT,Jaciara,2024,1
+MT,Jangada,2023,1
+MT,Jangada,2024,3
+MT,Jangada,2025,2
+MT,Jauru,2023,1
+MT,Jauru,2024,3
+MT,Jauru,2025,2
+MT,Juara,2023,3
+MT,Juara,2024,5
+MT,Juara,2025,5
+MT,Juara,2026,1
+MT,Juruena,2023,1
+MT,Juruena,2024,3
+MT,Juruena,2025,4
+MT,Juscimeira,2022,2
+MT,Juscimeira,2023,1
+MT,Juscimeira,2024,1
+MT,Juína,2023,2
+MT,Juína,2024,3
+MT,Juína,2025,4
+MT,Lambari D'Oeste,2024,1
+MT,Lambari D'Oeste,2025,1
+MT,Lucas do Rio Verde,2023,4
+MT,Lucas do Rio Verde,2024,6
+MT,Lucas do Rio Verde,2025,7
+MT,Lucas do Rio Verde,2026,3
+MT,Luciara,2025,1
+MT,Marcelândia,2023,1
+MT,Marcelândia,2025,4
+MT,Marcelândia,2026,4
+MT,Matupá,2023,1
+MT,Matupá,2024,1
+MT,Matupá,2025,3
+MT,Matupá,2026,3
+MT,Mirassol D'Oeste,2023,1
+MT,Mirassol D'Oeste,2024,4
+MT,Mirassol D'Oeste,2025,3
+MT,Nobres,2022,2
+MT,Nobres,2023,3
+MT,Nobres,2024,4
+MT,Nobres,2025,4
+MT,Nobres,2026,3
+MT,Nortelândia,2023,1
+MT,Nortelândia,2024,2
+MT,Nortelândia,2025,2
+MT,Nossa Senhora do Livramento,2024,1
+MT,Nova Bandeirantes,2023,2
+MT,Nova Bandeirantes,2024,3
+MT,Nova Bandeirantes,2025,4
+MT,Nova Bandeirantes,2026,2
+MT,Nova Brasilândia,2022,3
+MT,Nova Brasilândia,2023,2
+MT,Nova Brasilândia,2024,2
+MT,Nova Brasilândia,2025,3
+MT,Nova Canaã do Norte,2023,1
+MT,Nova Canaã do Norte,2025,1
+MT,Nova Canaã do Norte,2026,1
+MT,Nova Guarita,2023,1
+MT,Nova Lacerda,2023,1
+MT,Nova Lacerda,2024,3
+MT,Nova Lacerda,2025,3
+MT,Nova Marilândia,2023,1
+MT,Nova Maringá,2023,1
+MT,Nova Maringá,2024,1
+MT,Nova Monte Verde,2023,2
+MT,Nova Monte Verde,2024,3
+MT,Nova Monte Verde,2025,2
+MT,Nova Monte Verde,2026,2
+MT,Nova Mutum,2023,4
+MT,Nova Mutum,2024,5
+MT,Nova Mutum,2025,8
+MT,Nova Mutum,2026,4
+MT,Nova Olímpia,2023,1
+MT,Nova Olímpia,2024,3
+MT,Nova Olímpia,2025,2
+MT,Nova Santa Helena,2023,1
+MT,Nova Santa Helena,2025,2
+MT,Nova Santa Helena,2026,4
+MT,Nova Ubiratã,2023,1
+MT,Nova Ubiratã,2024,1
+MT,Nova Ubiratã,2025,4
+MT,Nova Ubiratã,2026,3
+MT,Nova Xavantina,2022,2
+MT,Nova Xavantina,2023,1
+MT,Nova Xavantina,2024,1
+MT,Novo Horizonte do Norte,2024,1
+MT,Novo Mundo,2023,1
+MT,Novo Paraná,2023,1
+MT,Novo Paraná,2024,2
+MT,Novo Paraná,2025,2
+MT,Novo São Joaquim,2022,2
+MT,Novo São Joaquim,2023,1
+MT,Paranatinga,2022,3
+MT,Paranatinga,2023,3
+MT,Paranatinga,2024,3
+MT,Paranatinga,2025,5
+MT,Paranatinga,2026,4
+MT,Pedra Preta,2022,2
+MT,Pedra Preta,2023,1
+MT,Pedra Preta,2024,2
+MT,Pedra Preta,2025,1
+MT,Peixoto de Azevedo,2023,1
+MT,Peixoto de Azevedo,2025,3
+MT,Peixoto de Azevedo,2026,3
+MT,Planalto da Serra,2022,3
+MT,Planalto da Serra,2023,2
+MT,Planalto da Serra,2024,1
+MT,Planalto da Serra,2025,5
+MT,Planalto da Serra,2026,1
+MT,Poconé,2025,1
+MT,Ponte Branca,2022,2
+MT,Ponte Branca,2023,1
+MT,Ponte Branca,2024,1
+MT,Pontes e Lacerda,2023,3
+MT,Pontes e Lacerda,2024,5
+MT,Pontes e Lacerda,2025,4
+MT,Porto Alegre do Norte,2026,1
+MT,Porto Esperidião,2024,1
+MT,Porto Estrela,2023,1
+MT,Porto Estrela,2024,2
+MT,Porto Estrela,2025,2
+MT,Porto dos Gaúchos,2023,3
+MT,Porto dos Gaúchos,2024,4
+MT,Porto dos Gaúchos,2025,4
+MT,Porto dos Gaúchos,2026,4
+MT,Poxoréu,2022,2
+MT,Poxoréu,2023,1
+MT,Poxoréu,2024,2
+MT,Poxoréu,2025,1
+MT,Primavera,2023,1
+MT,Primavera,2024,3
+MT,Primavera,2025,3
+MT,Primavera do Leste,2022,2
+MT,Primavera do Leste,2023,1
+MT,Primavera do Leste,2024,4
+MT,Primavera do Leste,2025,7
+MT,Primavera do Leste,2026,3
+MT,Progresso,2024,1
+MT,Progresso,2025,1
+MT,Querência,2023,1
+MT,Querência,2024,2
+MT,Querência,2025,3
+MT,Querência,2026,3
+MT,Reserva do Cabaçal,2024,1
+MT,Ribeirãozinho,2022,2
+MT,Ribeirãozinho,2023,1
+MT,Ribeirãozinho,2024,2
+MT,Ribeirãozinho,2025,1
+MT,Rio Branco,2024,1
+MT,Rondolândia,2023,1
+MT,Rondolândia,2024,1
+MT,Rondolândia,2025,2
+MT,Rondonópolis,2022,2
+MT,Rondonópolis,2023,1
+MT,Rondonópolis,2024,1
+MT,Rosário Oeste,2022,2
+MT,Rosário Oeste,2023,2
+MT,Rosário Oeste,2024,3
+MT,Rosário Oeste,2025,2
+MT,Salto do Céu,2024,1
+MT,Santa Carmem,2023,1
+MT,Santa Carmem,2025,1
+MT,Santa Carmem,2026,3
+MT,Santa Rita do Trivelato,2022,2
+MT,Santa Rita do Trivelato,2023,1
+MT,Santa Rita do Trivelato,2025,1
+MT,Santa Rita do Trivelato,2026,3
+MT,Santa Terezinha,2024,1
+MT,Santa Terezinha,2026,1
+MT,Santo Antônio do Leste,2024,1
+MT,Santo Antônio do Leverger,2022,2
+MT,Santo Antônio do Leverger,2023,2
+MT,Sapezal,2023,4
+MT,Sapezal,2024,7
+MT,Sapezal,2025,8
+MT,Sapezal,2026,3
+MT,Sinop,2022,1
+MT,Sinop,2023,3
+MT,Sinop,2024,3
+MT,Sinop,2025,5
+MT,Sinop,2026,3
+MT,Sorriso,2022,1
+MT,Sorriso,2023,3
+MT,Sorriso,2024,5
+MT,Sorriso,2025,5
+MT,Sorriso,2026,3
+MT,São José,2025,1
+MT,São José do Povo,2022,2
+MT,São José do Povo,2023,1
+MT,São José do Rio Claro,2023,3
+MT,São José do Rio Claro,2024,3
+MT,São José do Rio Claro,2025,2
+MT,São José do Xingu,2023,1
+MT,São José do Xingu,2026,3
+MT,São Pedro da Cipa,2022,2
+MT,São Pedro da Cipa,2023,1
+MT,Tabaporã,2023,1
+MT,Tabaporã,2025,1
+MT,Tabaporã,2026,1
+MT,Tangará da Serra,2023,3
+MT,Tangará da Serra,2024,6
+MT,Tangará da Serra,2025,6
+MT,Tangará da Serra,2026,2
+MT,Tapurah,2023,2
+MT,Tapurah,2024,3
+MT,Tapurah,2025,5
+MT,Tapurah,2026,3
+MT,Teles Pires,2024,1
+MT,Teles Pires,2025,1
+MT,Tesouro,2022,2
+MT,Tesouro,2023,1
+MT,Torixoréu,2022,2
+MT,Torixoréu,2023,1
+MT,Torixoréu,2024,2
+MT,Torixoréu,2025,1
+MT,União do Norte,2025,1
+MT,União do Norte,2026,1
+MT,União do Sul,2023,1
+MT,União do Sul,2026,3
+MT,Vera,2023,1
+MT,Vera,2025,2
+MT,Vera,2026,3
+MT,Vila Bela da Santíssima Trindade,2023,1
+MT,Vila Bela da Santíssima Trindade,2024,3
+MT,Vila Bela da Santíssima Trindade,2025,3
+MT,Vila Rica,2023,1
+MT,Vila Rica,2024,1
+MT,Vila Rica,2025,1
+MT,Vila Rica,2026,1
+MT,Várzea Grande,2022,2
+MT,Várzea Grande,2023,1
+MT,Várzea Grande,2024,3
+MT,Várzea Grande,2025,1
+MT,Água Boa,2024,1
+MT,Água Boa,2025,1
+MT,Água Boa,2026,2
+MT,Águas Claras,2024,1
+MT,Águas Claras,2025,1
+PA,Abel Figueiredo,2022,1
+PA,Abel Figueiredo,2023,2
+PA,Abel Figueiredo,2024,3
+PA,Abel Figueiredo,2025,6
+PA,Abel Figueiredo,2026,2
+PA,Acará,2022,2
+PA,Acará,2023,2
+PA,Acará,2024,2
+PA,Acará,2025,4
+PA,Acará,2026,2
+PA,Altamira,2022,1
+PA,Altamira,2023,1
+PA,Altamira,2025,2
+PA,Altamira,2026,3
+PA,Anapu,2022,1
+PA,Anapu,2025,1
+PA,Anapu,2026,1
+PA,Bannach,2022,1
+PA,Bannach,2023,1
+PA,Bannach,2024,1
+PA,Bannach,2025,2
+PA,Bannach,2026,5
+PA,Barreira Branca,2023,2
+PA,Barreira Branca,2024,1
+PA,Barreira Branca,2025,1
+PA,Barreira Branca,2026,1
+PA,Barreira dos Campos,2023,2
+PA,Barreira dos Campos,2024,4
+PA,Barreira dos Campos,2025,6
+PA,Barreira dos Campos,2026,1
+PA,Barreiras,2023,1
+PA,Barreiras,2024,1
+PA,Bela Vista,2023,3
+PA,Bela Vista,2024,4
+PA,Bela Vista,2025,4
+PA,Bela Vista,2026,1
+PA,Belo Monte,2022,1
+PA,Belo Monte,2024,1
+PA,Boa Esperança,2023,1
+PA,Boa Esperança,2024,1
+PA,Boa Sorte,2023,1
+PA,Boa Sorte,2024,1
+PA,Boa Sorte,2026,1
+PA,Bom Jesus do Tocantins,2022,1
+PA,Bom Jesus do Tocantins,2023,1
+PA,Bom Jesus do Tocantins,2024,3
+PA,Bom Jesus do Tocantins,2025,6
+PA,Bom Jesus do Tocantins,2026,1
+PA,Bonito,2023,1
+PA,Bonito,2024,1
+PA,Brejo Grande do Araguaia,2022,1
+PA,Brejo Grande do Araguaia,2023,1
+PA,Brejo Grande do Araguaia,2025,1
+PA,Brejo Grande do Araguaia,2026,2
+PA,Brejo do Meio,2023,1
+PA,Brejo do Meio,2025,1
+PA,Breu Branco,2022,3
+PA,Breu Branco,2023,2
+PA,Breu Branco,2024,2
+PA,Breu Branco,2025,5
+PA,Breu Branco,2026,3
+PA,Cachoeira do Arari,2025,1
+PA,Cametá,2026,1
+PA,Canaã dos Carajás,2022,4
+PA,Canaã dos Carajás,2023,6
+PA,Canaã dos Carajás,2024,6
+PA,Canaã dos Carajás,2025,11
+PA,Canaã dos Carajás,2026,7
+PA,Capanema,2022,2
+PA,Capanema,2023,2
+PA,Capanema,2024,2
+PA,Capanema,2025,4
+PA,Capanema,2026,2
+PA,Casa de Tábua,2023,3
+PA,Casa de Tábua,2024,5
+PA,Casa de Tábua,2025,6
+PA,Casa de Tábua,2026,2
+PA,Castanhal,2025,2
+PA,Castanhal,2026,1
+PA,Castelo dos Sonhos,2026,1
+PA,Conceição,2026,1
+PA,Conceição do Araguaia,2022,3
+PA,Conceição do Araguaia,2023,4
+PA,Conceição do Araguaia,2024,6
+PA,Conceição do Araguaia,2025,13
+PA,Conceição do Araguaia,2026,10
+PA,Concórdia do Pará,2022,3
+PA,Concórdia do Pará,2023,2
+PA,Concórdia do Pará,2024,2
+PA,Concórdia do Pará,2025,5
+PA,Concórdia do Pará,2026,3
+PA,Cumaru do Norte,2022,3
+PA,Cumaru do Norte,2023,6
+PA,Cumaru do Norte,2024,6
+PA,Cumaru do Norte,2025,14
+PA,Cumaru do Norte,2026,10
+PA,Curionópolis,2022,1
+PA,Curionópolis,2023,3
+PA,Curionópolis,2024,3
+PA,Curionópolis,2025,7
+PA,Curionópolis,2026,3
+PA,Dom Eliseu,2021,1
+PA,Dom Eliseu,2022,4
+PA,Dom Eliseu,2023,5
+PA,Dom Eliseu,2024,6
+PA,Dom Eliseu,2025,13
+PA,Dom Eliseu,2026,7
+PA,Eldorado do Carajás,2022,3
+PA,Eldorado do Carajás,2023,5
+PA,Eldorado do Carajás,2024,5
+PA,Eldorado do Carajás,2025,11
+PA,Eldorado do Carajás,2026,7
+PA,Floresta do Araguaia,2022,3
+PA,Floresta do Araguaia,2023,5
+PA,Floresta do Araguaia,2024,6
+PA,Floresta do Araguaia,2025,11
+PA,Floresta do Araguaia,2026,7
+PA,Goianésia do Pará,2022,1
+PA,Goianésia do Pará,2023,1
+PA,Goianésia do Pará,2025,2
+PA,Goianésia do Pará,2026,2
+PA,Gradaus,2026,1
+PA,Ipixuna do Pará,2025,1
+PA,Ipixuna do Pará,2026,1
+PA,Itupiranga,2022,1
+PA,Itupiranga,2023,1
+PA,Itupiranga,2025,2
+PA,Itupiranga,2026,2
+PA,Jacundá,2022,1
+PA,Jacundá,2023,1
+PA,Jacundá,2025,2
+PA,Jacundá,2026,2
+PA,Ligação do Pará,2022,2
+PA,Ligação do Pará,2023,2
+PA,Ligação do Pará,2024,2
+PA,Ligação do Pará,2025,4
+PA,Ligação do Pará,2026,2
+PA,Marabá,2022,3
+PA,Marabá,2023,5
+PA,Marabá,2024,5
+PA,Marabá,2025,12
+PA,Marabá,2026,7
+PA,Marajoara,2026,2
+PA,Mata Geral,2025,2
+PA,Mata Geral,2026,3
+PA,Moju,2022,2
+PA,Moju,2023,2
+PA,Moju,2024,2
+PA,Moju,2025,4
+PA,Moju,2026,2
+PA,Nova Ipixuna,2022,1
+PA,Nova Ipixuna,2023,1
+PA,Nova Ipixuna,2025,2
+PA,Nova Ipixuna,2026,2
+PA,Novo Progresso,2026,1
+PA,Novo Repartimento,2022,3
+PA,Novo Repartimento,2023,2
+PA,Novo Repartimento,2024,2
+PA,Novo Repartimento,2025,5
+PA,Novo Repartimento,2026,3
+PA,Ourilândia do Norte,2022,3
+PA,Ourilândia do Norte,2023,6
+PA,Ourilândia do Norte,2024,6
+PA,Ourilândia do Norte,2025,11
+PA,Ourilândia do Norte,2026,9
+PA,Pacajá,2022,3
+PA,Pacajá,2023,2
+PA,Pacajá,2024,2
+PA,Pacajá,2025,5
+PA,Pacajá,2026,3
+PA,Palestina do Pará,2022,1
+PA,Palestina do Pará,2023,1
+PA,Palestina do Pará,2024,1
+PA,Palestina do Pará,2025,4
+PA,Palestina do Pará,2026,3
+PA,Paragominas,2021,1
+PA,Paragominas,2022,4
+PA,Paragominas,2023,5
+PA,Paragominas,2024,6
+PA,Paragominas,2025,11
+PA,Paragominas,2026,5
+PA,Parauapebas,2021,1
+PA,Parauapebas,2022,4
+PA,Parauapebas,2023,5
+PA,Parauapebas,2024,6
+PA,Parauapebas,2025,11
+PA,Parauapebas,2026,6
+PA,Pau D'Arco,2022,1
+PA,Pau D'Arco,2025,2
+PA,Pau D'Arco,2026,4
+PA,Piçarra,2022,1
+PA,Piçarra,2023,3
+PA,Piçarra,2024,3
+PA,Piçarra,2025,7
+PA,Piçarra,2026,5
+PA,Placas,2022,2
+PA,Placas,2023,2
+PA,Placas,2024,2
+PA,Placas,2025,4
+PA,Placas,2026,2
+PA,Primavera,2023,1
+PA,Primavera,2024,1
+PA,Redenção,2022,3
+PA,Redenção,2023,7
+PA,Redenção,2024,7
+PA,Redenção,2025,15
+PA,Redenção,2026,8
+PA,Rio Maria,2022,1
+PA,Rio Maria,2023,3
+PA,Rio Maria,2024,4
+PA,Rio Maria,2025,6
+PA,Rio Maria,2026,6
+PA,Rio Vermelho,2023,4
+PA,Rio Vermelho,2024,3
+PA,Rio Vermelho,2025,4
+PA,Rio Vermelho,2026,1
+PA,Rondon do Pará,2021,1
+PA,Rondon do Pará,2022,3
+PA,Rondon do Pará,2023,5
+PA,Rondon do Pará,2024,5
+PA,Rondon do Pará,2025,12
+PA,Rondon do Pará,2026,5
+PA,Salvaterra,2025,1
+PA,Santa Maria das Barreiras,2022,1
+PA,Santa Maria das Barreiras,2023,3
+PA,Santa Maria das Barreiras,2024,4
+PA,Santa Maria das Barreiras,2025,10
+PA,Santa Maria das Barreiras,2026,10
+PA,Santa Maria do Pará,2022,1
+PA,Santa Maria do Pará,2025,1
+PA,Santa Maria do Pará,2026,1
+PA,Santa Terezinha,2023,1
+PA,Santa Terezinha,2024,1
+PA,Santana do Araguaia,2022,3
+PA,Santana do Araguaia,2023,6
+PA,Santana do Araguaia,2024,7
+PA,Santana do Araguaia,2025,14
+PA,Santana do Araguaia,2026,12
+PA,Santarém,2025,1
+PA,Sapucaia,2022,1
+PA,Sapucaia,2023,2
+PA,Sapucaia,2024,1
+PA,Sapucaia,2025,5
+PA,Sapucaia,2026,5
+PA,Serra Pelada,2025,1
+PA,São Domingos do Araguaia,2022,1
+PA,São Domingos do Araguaia,2023,3
+PA,São Domingos do Araguaia,2024,3
+PA,São Domingos do Araguaia,2025,6
+PA,São Domingos do Araguaia,2026,4
+PA,São Domingos do Capim,2025,1
+PA,São Félix do Xingu,2022,3
+PA,São Félix do Xingu,2023,3
+PA,São Félix do Xingu,2024,2
+PA,São Félix do Xingu,2025,9
+PA,São Félix do Xingu,2026,9
+PA,São Geraldo do Araguaia,2022,1
+PA,São Geraldo do Araguaia,2023,3
+PA,São Geraldo do Araguaia,2024,4
+PA,São Geraldo do Araguaia,2025,9
+PA,São Geraldo do Araguaia,2026,6
+PA,São João do Araguaia,2022,2
+PA,São João do Araguaia,2023,2
+PA,São João do Araguaia,2024,4
+PA,São João do Araguaia,2025,5
+PA,São João do Araguaia,2026,1
+PA,Tailândia,2022,3
+PA,Tailândia,2023,2
+PA,Tailândia,2024,2
+PA,Tailândia,2025,5
+PA,Tailândia,2026,2
+PA,Tomé-Açu,2022,2
+PA,Tomé-Açu,2023,2
+PA,Tomé-Açu,2024,2
+PA,Tomé-Açu,2025,3
+PA,Tomé-Açu,2026,1
+PA,Tucumã,2022,3
+PA,Tucumã,2023,3
+PA,Tucumã,2024,3
+PA,Tucumã,2025,5
+PA,Tucumã,2026,7
+PA,Tucuruí,2022,3
+PA,Tucuruí,2023,2
+PA,Tucuruí,2024,2
+PA,Tucuruí,2025,5
+PA,Tucuruí,2026,2
+PA,Ulianópolis,2021,1
+PA,Ulianópolis,2022,4
+PA,Ulianópolis,2023,5
+PA,Ulianópolis,2024,6
+PA,Ulianópolis,2025,10
+PA,Ulianópolis,2026,4
+PA,Uruará,2022,2
+PA,Uruará,2023,2
+PA,Uruará,2024,2
+PA,Uruará,2025,3
+PA,Uruará,2026,1
+PA,Vila Mandi,2023,2
+PA,Vila Mandi,2024,4
+PA,Vila Mandi,2025,6
+PA,Vila Mandi,2026,2
+PA,Xinguara,2022,3
+PA,Xinguara,2023,6
+PA,Xinguara,2024,6
+PA,Xinguara,2025,11
+PA,Xinguara,2026,9
+PA,Xinguarinha,2025,1
+PA,Xinguarinha,2026,1
+PA,Água Azul do Norte,2022,3
+PA,Água Azul do Norte,2023,3
+PA,Água Azul do Norte,2024,3
+PA,Água Azul do Norte,2025,6
+PA,Água Azul do Norte,2026,4
+PA,Água Fria,2023,2
+PA,Água Fria,2024,1
+PA,Água Fria,2026,1
+PB,Aguiar,2024,1
+PB,Alagoa Grande,2024,1
+PB,Alagoa Nova,2024,1
+PB,Alagoinha,2024,1
+PB,Alcantil,2024,1
+PB,Algodão de Jandaíra,2024,1
+PB,Alhandra,2023,1
+PB,Alhandra,2024,2
+PB,Alhandra,2025,1
+PB,Alhandra,2026,1
+PB,Amparo,2024,1
+PB,Aparecida,2024,1
+PB,Arara,2024,1
+PB,Araruna,2024,1
+PB,Araçagi,2024,1
+PB,Areia,2024,1
+PB,Areia de Baraúnas,2024,1
+PB,Areial,2024,1
+PB,Aroeiras,2024,1
+PB,Assunção,2024,1
+PB,Bananeiras,2024,1
+PB,Baraúna,2024,1
+PB,Barra de Camaratuba,2023,1
+PB,Barra de Santa Rosa,2024,1
+PB,Barra de Santana,2024,1
+PB,Bayeux,2024,1
+PB,Baía da Traição,2024,1
+PB,Belém,2024,1
+PB,Belém do Brejo do Cruz,2024,1
+PB,Bernardino Batista,2024,1
+PB,Boa Ventura,2024,1
+PB,Boa Vista,2024,1
+PB,Bom Jesus,2024,1
+PB,Bom Sucesso,2024,1
+PB,Bonito de Santa Fé,2024,1
+PB,Boqueirão,2024,1
+PB,Borborema,2024,1
+PB,Brejo do Cruz,2024,1
+PB,Brejo dos Santos,2024,1
+PB,Caaporã,2023,1
+PB,Caaporã,2024,2
+PB,Caaporã,2025,1
+PB,Caaporã,2026,2
+PB,Cabaceiras,2024,1
+PB,Cabedelo,2024,1
+PB,Cachoeira dos Índios,2024,1
+PB,Cacimba de Areia,2024,1
+PB,Cacimba de Dentro,2024,1
+PB,Cacimbas,2024,1
+PB,Caiçara,2024,1
+PB,Cajazeirinhas,2024,1
+PB,Caldas Brandão,2024,1
+PB,Campina Grande,2024,1
+PB,Capim,2023,1
+PB,Capim,2024,2
+PB,Capim,2025,1
+PB,Capim,2026,1
+PB,Caraúbas,2024,1
+PB,Carrapateira,2024,1
+PB,Casserengue,2024,1
+PB,Catingueira,2024,1
+PB,Catolé do Rocha,2024,1
+PB,Caturité,2024,1
+PB,Conceição,2024,1
+PB,Conde,2024,1
+PB,Congo,2024,1
+PB,Coremas,2024,1
+PB,Coxixola,2024,1
+PB,Cruz do Espírito Santo,2024,1
+PB,Cubati,2024,1
+PB,Cuitegi,2024,1
+PB,Cuité,2024,1
+PB,Cuité de Mamanguape,2024,1
+PB,Curral Velho,2024,1
+PB,Curral de Cima,2024,1
+PB,Damião,2024,1
+PB,Desterro,2024,1
+PB,Diamante,2024,1
+PB,Dona Inês,2024,1
+PB,Duas Estradas,2024,1
+PB,Emas,2024,1
+PB,Esperança,2024,1
+PB,Fagundes,2024,1
+PB,Frei Martinho,2024,1
+PB,Gado Bravo,2024,1
+PB,Guarabira,2024,1
+PB,Gurinhém,2024,1
+PB,Gurjão,2024,1
+PB,Ibiara,2024,1
+PB,Igaracy,2024,1
+PB,Imaculada,2024,1
+PB,Ingá,2024,1
+PB,Itabaiana,2024,1
+PB,Itaporanga,2024,1
+PB,Itapororoca,2024,1
+PB,Itatuba,2024,1
+PB,Jacaraú,2024,1
+PB,Jericó,2024,1
+PB,João Pessoa,2024,1
+PB,Juarez Távora,2024,1
+PB,Juazeirinho,2024,1
+PB,Junco do Seridó,2024,1
+PB,Juripiranga,2023,1
+PB,Juripiranga,2024,2
+PB,Juripiranga,2025,1
+PB,Juripiranga,2026,1
+PB,Juru,2024,1
+PB,Lagoa,2024,1
+PB,Lagoa Seca,2024,1
+PB,Lagoa de Dentro,2024,1
+PB,Lastro,2024,1
+PB,Livramento,2024,1
+PB,Logradouro,2024,1
+PB,Lucena,2023,1
+PB,Lucena,2024,2
+PB,Lucena,2025,1
+PB,Lucena,2026,1
+PB,Malta,2024,1
+PB,Mamanguape,2023,2
+PB,Mamanguape,2024,2
+PB,Mamanguape,2025,1
+PB,Mamanguape,2026,1
+PB,Manaíra,2024,1
+PB,Marcação,2024,1
+PB,Mari,2024,1
+PB,Marizópolis,2024,1
+PB,Massaranduba,2024,1
+PB,Mataraca,2023,1
+PB,Mataraca,2024,1
+PB,Matinhas,2024,1
+PB,Mato Grosso,2024,1
+PB,Maturéia,2024,1
+PB,Mogeiro,2024,1
+PB,Montadas,2024,1
+PB,Mulungu,2024,1
+PB,Mãe D'Água,2024,1
+PB,Natuba,2024,1
+PB,Nazarezinho,2024,1
+PB,Nova Floresta,2024,1
+PB,Nova Olinda,2024,1
+PB,Nova Palmeira,2024,1
+PB,Olho D'Água,2024,1
+PB,Olivedos,2024,1
+PB,Parari,2024,1
+PB,Passagem,2024,1
+PB,Paulista,2024,1
+PB,Pedra Branca,2024,1
+PB,Pedra Lavrada,2024,1
+PB,Pedras de Fogo,2023,2
+PB,Pedras de Fogo,2024,2
+PB,Pedras de Fogo,2025,1
+PB,Pedras de Fogo,2026,1
+PB,Pedro Régis,2024,1
+PB,Piancó,2024,1
+PB,Picuí,2024,1
+PB,Pilar,2024,1
+PB,Pilões,2024,1
+PB,Pilõezinhos,2024,1
+PB,Pirpirituba,2024,1
+PB,Pitanga de Estrada,2023,1
+PB,Pitimbu,2024,1
+PB,Pombal,2024,1
+PB,Poço de José de Moura,2024,1
+PB,Prata,2024,1
+PB,Princesa Isabel,2024,1
+PB,Puxinanã,2024,1
+PB,Queimadas,2024,1
+PB,Quixabá,2024,1
+PB,Remígio,2024,1
+PB,Riacho de Santo Antônio,2024,1
+PB,Riacho dos Cavalos,2024,1
+PB,Riachão,2024,1
+PB,Riachão do Bacamarte,2024,1
+PB,Rio Tinto,2023,1
+PB,Rio Tinto,2024,2
+PB,Rio Tinto,2025,1
+PB,Rio Tinto,2026,1
+PB,Salgadinho,2024,1
+PB,Santa Cecília,2024,1
+PB,Santa Cruz,2024,1
+PB,Santa Helena,2024,1
+PB,Santa Luzia,2024,1
+PB,Santa Rita,2023,1
+PB,Santa Rita,2024,2
+PB,Santa Rita,2025,1
+PB,Santa Rita,2026,1
+PB,Santa Teresinha,2024,1
+PB,Santana de Mangueira,2024,1
+PB,Santana dos Garrotes,2024,1
+PB,Sapé,2023,2
+PB,Sapé,2024,2
+PB,Sapé,2025,1
+PB,Sapé,2026,1
+PB,Seridó,2024,1
+PB,Serra Branca,2024,1
+PB,Serra Grande,2024,1
+PB,Serra Redonda,2024,1
+PB,Serra da Raiz,2024,1
+PB,Serraria,2024,1
+PB,Sertãozinho,2024,1
+PB,Sobrado,2024,1
+PB,Soledade,2024,1
+PB,Solânea,2024,1
+PB,Sossego,2024,1
+PB,Sousa,2024,1
+PB,Sumé,2024,1
+PB,São Bentinho,2024,1
+PB,São Bento,2024,1
+PB,São Domingos do Cariri,2024,1
+PB,São Francisco,2024,1
+PB,São José da Lagoa Tapada,2024,1
+PB,São José de Caiana,2024,1
+PB,São José de Espinharas,2024,1
+PB,São José de Piranhas,2024,1
+PB,São José de Princesa,2024,1
+PB,São José do Bonfim,2024,1
+PB,São José do Sabugi,2024,1
+PB,São José dos Cordeiros,2024,1
+PB,São José dos Ramos,2024,1
+PB,São João do Cariri,2024,1
+PB,São João do Rio do Peixe,2024,1
+PB,São Mamede,2024,1
+PB,São Miguel de Taipu,2024,1
+PB,São Sebastião de Lagoa de Roça,2024,1
+PB,São Sebastião do Umbuzeiro,2024,1
+PB,Taperoá,2024,1
+PB,Teixeira,2024,1
+PB,Tenório,2024,1
+PB,Uiraúna,2024,1
+PB,Umbuzeiro,2024,1
+PB,Vieirópolis,2024,1
+PB,Vista Serrana,2024,1
+PB,Várzea,2024,1
+PB,Zabelê,2024,1
+PB,Água Branca,2024,1
+PE,Altinho,2024,1
+PE,Altinho,2025,1
+PE,Araçoiaba,2023,2
+PE,Araçoiaba,2025,3
+PE,Araçoiaba,2026,1
+PE,Barreiros,2024,1
+PE,Belo Jardim,2024,1
+PE,Belo Jardim,2025,1
+PE,Bezerros,2024,1
+PE,Bezerros,2025,1
+PE,Bonito,2024,1
+PE,Bonito,2025,1
+PE,Brejo da Madre de Deus,2024,1
+PE,Brejo da Madre de Deus,2025,1
+PE,Cachoeirinha,2024,1
+PE,Cachoeirinha,2025,1
+PE,Camocim de São Félix,2024,1
+PE,Camocim de São Félix,2025,1
+PE,Carpina,2023,1
+PE,Carpina,2024,1
+PE,Carpina,2025,4
+PE,Carpina,2026,1
+PE,Caruaru,2024,1
+PE,Caruaru,2025,1
+PE,Catende,2024,1
+PE,Catende,2025,1
+PE,Chã de Alegria,2023,1
+PE,Chã de Alegria,2025,3
+PE,Chã de Alegria,2026,1
+PE,Cupira,2024,1
+PE,Cupira,2025,1
+PE,Escada,2024,1
+PE,Escada,2025,1
+PE,Gameleira,2024,2
+PE,Goiana,2023,2
+PE,Goiana,2024,1
+PE,Goiana,2025,4
+PE,Goiana,2026,1
+PE,Gravatá,2024,1
+PE,Gravatá,2025,1
+PE,Igarassu,2023,2
+PE,Igarassu,2025,3
+PE,Igarassu,2026,1
+PE,Ipojuca,2024,1
+PE,Ipojuca,2025,1
+PE,Itapissuma,2023,2
+PE,Itapissuma,2025,3
+PE,Itapissuma,2026,1
+PE,Itaquitinga,2023,2
+PE,Itaquitinga,2025,3
+PE,Itaquitinga,2026,1
+PE,Jaboatão dos Guararapes,2024,1
+PE,Jaboatão dos Guararapes,2025,1
+PE,Jataúba,2024,1
+PE,Jataúba,2025,1
+PE,Lagoa do Itaenga,2023,1
+PE,Lagoa do Itaenga,2025,3
+PE,Lagoa do Itaenga,2026,1
+PE,Lajedo,2024,1
+PE,Lajedo,2025,1
+PE,Limoeiro,2024,1
+PE,Limoeiro,2025,1
+PE,Nazaré da Mata,2023,1
+PE,Nazaré da Mata,2024,1
+PE,Nazaré da Mata,2025,4
+PE,Nazaré da Mata,2026,1
+PE,Palmares,2024,1
+PE,Palmares,2025,1
+PE,Passira,2024,1
+PE,Passira,2025,1
+PE,Paudalho,2023,1
+PE,Paudalho,2024,1
+PE,Paudalho,2025,4
+PE,Paudalho,2026,1
+PE,Quipapá,2024,1
+PE,Quipapá,2025,1
+PE,Recife,2024,1
+PE,Recife,2025,1
+PE,Ribeirão,2024,1
+PE,Ribeirão,2025,1
+PE,Rio Formoso,2024,2
+PE,Santa Cruz do Capibaribe,2024,1
+PE,Santa Cruz do Capibaribe,2025,1
+PE,Sirinhaém,2024,2
+PE,Surubim,2024,1
+PE,Surubim,2025,1
+PE,São Bento do Una,2024,1
+PE,São Bento do Una,2025,1
+PE,São Caitano,2024,1
+PE,São Caitano,2025,1
+PE,São Lourenço da Mata,2023,2
+PE,São Lourenço da Mata,2025,3
+PE,São Lourenço da Mata,2026,1
+PE,Tamandaré,2024,1
+PE,Tamandaré,2025,1
+PE,Timbaúba,2024,1
+PE,Timbaúba,2025,1
+PE,Toritama,2024,1
+PE,Toritama,2025,1
+PE,Tracunhaém,2023,2
+PE,Tracunhaém,2025,3
+PE,Tracunhaém,2026,1
+PE,Vitória de Santo Antão,2024,1
+PE,Vitória de Santo Antão,2025,1
+PI,Alvorada do Gurguéia,2022,3
+PI,Alvorada do Gurguéia,2023,5
+PI,Alvorada do Gurguéia,2024,4
+PI,Alvorada do Gurguéia,2025,5
+PI,Alvorada do Gurguéia,2026,2
+PI,Antônio Almeida,2022,3
+PI,Antônio Almeida,2023,5
+PI,Antônio Almeida,2024,4
+PI,Antônio Almeida,2025,5
+PI,Antônio Almeida,2026,3
+PI,Anísio de Abreu,2022,3
+PI,Anísio de Abreu,2023,5
+PI,Anísio de Abreu,2024,4
+PI,Anísio de Abreu,2025,5
+PI,Anísio de Abreu,2026,2
+PI,Baixa Grande do Ribeiro,2022,5
+PI,Baixa Grande do Ribeiro,2023,8
+PI,Baixa Grande do Ribeiro,2024,8
+PI,Baixa Grande do Ribeiro,2025,11
+PI,Baixa Grande do Ribeiro,2026,3
+PI,Barras,2024,1
+PI,Barreiras do Piauí,2022,1
+PI,Barreiras do Piauí,2023,1
+PI,Barreiras do Piauí,2024,1
+PI,Bertolínia,2022,3
+PI,Bertolínia,2023,5
+PI,Bertolínia,2024,4
+PI,Bertolínia,2025,5
+PI,Bertolínia,2026,2
+PI,Bom Jesus,2022,5
+PI,Bom Jesus,2023,8
+PI,Bom Jesus,2024,8
+PI,Bom Jesus,2025,11
+PI,Bom Jesus,2026,3
+PI,Bonfim do Piauí,2022,3
+PI,Bonfim do Piauí,2023,5
+PI,Bonfim do Piauí,2024,3
+PI,Bonfim do Piauí,2025,4
+PI,Bonfim do Piauí,2026,2
+PI,Canavieira,2022,3
+PI,Canavieira,2023,5
+PI,Canavieira,2024,4
+PI,Canavieira,2025,5
+PI,Canavieira,2026,2
+PI,Canto do Buriti,2022,3
+PI,Canto do Buriti,2023,5
+PI,Canto do Buriti,2024,4
+PI,Canto do Buriti,2025,5
+PI,Canto do Buriti,2026,2
+PI,Caracol,2022,3
+PI,Caracol,2023,5
+PI,Caracol,2024,4
+PI,Caracol,2025,5
+PI,Caracol,2026,2
+PI,Colônia do Gurguéia,2022,3
+PI,Colônia do Gurguéia,2023,5
+PI,Colônia do Gurguéia,2024,4
+PI,Colônia do Gurguéia,2025,5
+PI,Colônia do Gurguéia,2026,2
+PI,Corrente,2022,3
+PI,Corrente,2023,6
+PI,Corrente,2024,5
+PI,Corrente,2025,5
+PI,Corrente,2026,2
+PI,Cristalândia do Piauí,2022,3
+PI,Cristalândia do Piauí,2023,6
+PI,Cristalândia do Piauí,2024,5
+PI,Cristalândia do Piauí,2025,5
+PI,Cristalândia do Piauí,2026,2
+PI,Cristino Castro,2022,3
+PI,Cristino Castro,2023,5
+PI,Cristino Castro,2024,4
+PI,Cristino Castro,2025,5
+PI,Cristino Castro,2026,2
+PI,Curimatá,2022,3
+PI,Curimatá,2023,5
+PI,Curimatá,2024,4
+PI,Curimatá,2025,5
+PI,Curimatá,2026,2
+PI,Currais,2022,2
+PI,Currais,2023,4
+PI,Currais,2024,5
+PI,Currais,2025,7
+PI,Currais,2026,2
+PI,Elesbão Veloso,2024,1
+PI,Eliseu Martins,2022,3
+PI,Eliseu Martins,2023,5
+PI,Eliseu Martins,2024,4
+PI,Eliseu Martins,2025,5
+PI,Eliseu Martins,2026,2
+PI,Flores do Piauí,2022,3
+PI,Flores do Piauí,2023,5
+PI,Flores do Piauí,2024,4
+PI,Flores do Piauí,2025,5
+PI,Flores do Piauí,2026,2
+PI,Gilbués,2022,4
+PI,Gilbués,2023,6
+PI,Gilbués,2024,7
+PI,Gilbués,2025,8
+PI,Gilbués,2026,3
+PI,Guadalupe,2022,3
+PI,Guadalupe,2023,5
+PI,Guadalupe,2024,4
+PI,Guadalupe,2025,5
+PI,Guadalupe,2026,2
+PI,Guaribas,2022,3
+PI,Guaribas,2023,5
+PI,Guaribas,2024,4
+PI,Guaribas,2025,4
+PI,Guaribas,2026,2
+PI,Hugo Napoleão,2024,1
+PI,Itaueira,2022,3
+PI,Itaueira,2023,5
+PI,Itaueira,2024,4
+PI,Itaueira,2025,5
+PI,Itaueira,2026,2
+PI,Jerumenha,2022,3
+PI,Jerumenha,2023,5
+PI,Jerumenha,2024,4
+PI,Jerumenha,2025,5
+PI,Jerumenha,2026,2
+PI,Joaquim Pires,2024,1
+PI,José de Freitas,2024,1
+PI,Jurema,2022,3
+PI,Jurema,2023,5
+PI,Jurema,2024,3
+PI,Jurema,2025,4
+PI,Jurema,2026,2
+PI,Júlio Borges,2022,3
+PI,Júlio Borges,2023,5
+PI,Júlio Borges,2024,4
+PI,Júlio Borges,2025,5
+PI,Júlio Borges,2026,2
+PI,Landri Sales,2022,3
+PI,Landri Sales,2023,5
+PI,Landri Sales,2024,3
+PI,Landri Sales,2025,4
+PI,Landri Sales,2026,2
+PI,Marcos Parente,2022,3
+PI,Marcos Parente,2023,5
+PI,Marcos Parente,2024,4
+PI,Marcos Parente,2025,6
+PI,Marcos Parente,2026,3
+PI,Miguel Alves,2024,1
+PI,Monte Alegre do Piauí,2022,1
+PI,Monte Alegre do Piauí,2023,1
+PI,Monte Alegre do Piauí,2024,3
+PI,Monte Alegre do Piauí,2025,3
+PI,Monte Alegre do Piauí,2026,1
+PI,Nova Santa Rita,2022,1
+PI,Nova Santa Rita,2023,1
+PI,Palmeira do Piauí,2022,4
+PI,Palmeira do Piauí,2023,6
+PI,Palmeira do Piauí,2024,6
+PI,Palmeira do Piauí,2025,6
+PI,Palmeira do Piauí,2026,2
+PI,Palmeirais,2023,1
+PI,Parnaguá,2022,3
+PI,Parnaguá,2023,5
+PI,Parnaguá,2024,3
+PI,Parnaguá,2025,4
+PI,Parnaguá,2026,2
+PI,Parnaíba,2025,1
+PI,Pavussu,2022,3
+PI,Pavussu,2023,5
+PI,Pavussu,2024,3
+PI,Pavussu,2025,4
+PI,Pavussu,2026,2
+PI,Piracuruca,2024,1
+PI,Porto Alegre do Piauí,2022,3
+PI,Porto Alegre do Piauí,2023,5
+PI,Porto Alegre do Piauí,2024,3
+PI,Porto Alegre do Piauí,2025,4
+PI,Porto Alegre do Piauí,2026,1
+PI,Redenção do Gurguéia,2022,3
+PI,Redenção do Gurguéia,2023,5
+PI,Redenção do Gurguéia,2024,6
+PI,Redenção do Gurguéia,2025,8
+PI,Redenção do Gurguéia,2026,3
+PI,Regeneração,2022,1
+PI,Regeneração,2023,1
+PI,Regeneração,2024,2
+PI,Riacho Frio,2022,1
+PI,Riacho Frio,2023,2
+PI,Riacho Frio,2024,2
+PI,Riacho Frio,2025,1
+PI,Riacho Frio,2026,1
+PI,Ribeira do Piauí,2022,3
+PI,Ribeira do Piauí,2023,5
+PI,Ribeira do Piauí,2024,4
+PI,Ribeira do Piauí,2025,5
+PI,Ribeira do Piauí,2026,2
+PI,Ribeiro Gonçalves,2022,1
+PI,Ribeiro Gonçalves,2023,1
+PI,Ribeiro Gonçalves,2024,3
+PI,Ribeiro Gonçalves,2025,3
+PI,Ribeiro Gonçalves,2026,1
+PI,Rio Grande do Piauí,2022,3
+PI,Rio Grande do Piauí,2023,5
+PI,Rio Grande do Piauí,2024,4
+PI,Rio Grande do Piauí,2025,5
+PI,Rio Grande do Piauí,2026,2
+PI,Santa Filomena,2022,4
+PI,Santa Filomena,2023,6
+PI,Santa Filomena,2024,6
+PI,Santa Filomena,2025,8
+PI,Santa Filomena,2026,3
+PI,Santa Luz,2022,3
+PI,Santa Luz,2023,5
+PI,Santa Luz,2024,3
+PI,Santa Luz,2025,4
+PI,Santa Luz,2026,2
+PI,Santa Rosa do Piauí,2022,1
+PI,Santa Rosa do Piauí,2023,1
+PI,Sebastião Leal,2022,3
+PI,Sebastião Leal,2023,5
+PI,Sebastião Leal,2024,6
+PI,Sebastião Leal,2025,9
+PI,Sebastião Leal,2026,3
+PI,São Gonçalo do Gurguéia,2022,1
+PI,São Gonçalo do Gurguéia,2023,1
+PI,São Gonçalo do Gurguéia,2024,1
+PI,São Raimundo Nonato,2022,3
+PI,São Raimundo Nonato,2023,5
+PI,São Raimundo Nonato,2024,3
+PI,São Raimundo Nonato,2025,4
+PI,São Raimundo Nonato,2026,2
+PI,Tamboril do Piauí,2022,3
+PI,Tamboril do Piauí,2023,5
+PI,Tamboril do Piauí,2024,4
+PI,Tamboril do Piauí,2025,5
+PI,Tamboril do Piauí,2026,2
+PI,Tanque do Piauí,2024,1
+PI,Teresina,2024,1
+PI,União,2024,1
+PI,União,2025,1
+PI,Uruçuí,2022,5
+PI,Uruçuí,2023,8
+PI,Uruçuí,2024,8
+PI,Uruçuí,2025,11
+PI,Uruçuí,2026,3
+PI,Várzea Branca,2022,3
+PI,Várzea Branca,2023,5
+PI,Várzea Branca,2024,4
+PI,Várzea Branca,2025,5
+PI,Várzea Branca,2026,2
+PI,Água Branca,2024,2
+PI,Água Branca,2025,3
+PI,Água Branca,2026,1
+PR,Abapã,2022,2
+PR,Abatiá,2023,3
+PR,Abatiá,2024,1
+PR,Abatiá,2025,3
+PR,Abatiá,2026,1
+PR,Adrianópolis,2025,1
+PR,Agudos do Sul,2025,1
+PR,Almirante Tamandaré,2025,1
+PR,Altamira do Paraná,2023,2
+PR,Altamira do Paraná,2025,2
+PR,Alto Paraná,2023,3
+PR,Alto Paraná,2025,3
+PR,Alto Paraná,2026,1
+PR,Alto Paraíso,2025,1
+PR,Alto Piquiri,2023,2
+PR,Alto Piquiri,2025,2
+PR,Altônia,2025,1
+PR,Alvorada do Sul,2023,3
+PR,Alvorada do Sul,2024,1
+PR,Alvorada do Sul,2025,3
+PR,Alvorada do Sul,2026,1
+PR,Amaporã,2023,3
+PR,Amaporã,2025,3
+PR,Amaporã,2026,1
+PR,Ampére,2025,1
+PR,Anahy,2023,2
+PR,Anahy,2025,2
+PR,Andirá,2022,1
+PR,Andirá,2023,4
+PR,Andirá,2024,2
+PR,Andirá,2025,4
+PR,Andirá,2026,1
+PR,Antonina,2025,1
+PR,Antônio Olinto,2025,1
+PR,Apucarana,2022,1
+PR,Apucarana,2023,3
+PR,Apucarana,2025,2
+PR,Arapongas,2022,1
+PR,Arapongas,2023,3
+PR,Arapongas,2025,2
+PR,Arapoti,2023,2
+PR,Arapoti,2024,1
+PR,Arapoti,2025,3
+PR,Arapoti,2026,1
+PR,Arapuã,2024,1
+PR,Arapuã,2025,1
+PR,Araruna,2023,2
+PR,Araruna,2025,2
+PR,Araucária,2025,1
+PR,Ariranha do Ivaí,2023,2
+PR,Ariranha do Ivaí,2025,2
+PR,Assaí,2023,3
+PR,Assaí,2024,1
+PR,Assaí,2025,3
+PR,Assaí,2026,1
+PR,Assis Chateaubriand,2022,1
+PR,Assis Chateaubriand,2023,3
+PR,Assis Chateaubriand,2025,2
+PR,Astorga,2023,2
+PR,Astorga,2025,2
+PR,Atalaia,2023,2
+PR,Atalaia,2025,2
+PR,Balsa Nova,2025,1
+PR,Bandeirantes,2023,4
+PR,Bandeirantes,2024,1
+PR,Bandeirantes,2025,3
+PR,Bandeirantes,2026,1
+PR,Barbosa Ferraz,2023,2
+PR,Barbosa Ferraz,2025,2
+PR,Barra do Jacaré,2022,1
+PR,Barra do Jacaré,2023,4
+PR,Barra do Jacaré,2024,2
+PR,Barra do Jacaré,2025,5
+PR,Barra do Jacaré,2026,1
+PR,Barracão,2025,1
+PR,Bela Vista da Caroba,2025,1
+PR,Bela Vista do Paraíso,2023,3
+PR,Bela Vista do Paraíso,2024,1
+PR,Bela Vista do Paraíso,2025,3
+PR,Bela Vista do Paraíso,2026,1
+PR,Bituruna,2025,1
+PR,Boa Esperança,2025,1
+PR,Boa Esperança do Iguaçu,2025,1
+PR,Boa Ventura de São Roque,2023,2
+PR,Boa Ventura de São Roque,2025,2
+PR,Boa Vista da Aparecida,2025,1
+PR,Bocaiúva do Sul,2025,1
+PR,Bom Jesus do Sul,2025,1
+PR,Bom Sucesso,2023,2
+PR,Bom Sucesso,2025,2
+PR,Bom Sucesso do Sul,2025,1
+PR,Borrazópolis,2023,2
+PR,Borrazópolis,2025,2
+PR,Braganey,2025,1
+PR,Brasilândia do Sul,2025,1
+PR,Cafeara,2023,3
+PR,Cafeara,2024,1
+PR,Cafeara,2025,3
+PR,Cafeara,2026,1
+PR,Cafelândia,2023,2
+PR,Cafelândia,2025,2
+PR,Cafezal do Sul,2025,1
+PR,Califórnia,2025,1
+PR,Cambará,2022,1
+PR,Cambará,2023,4
+PR,Cambará,2024,2
+PR,Cambará,2025,5
+PR,Cambará,2026,1
+PR,Cambira,2025,1
+PR,Cambé,2023,2
+PR,Cambé,2025,2
+PR,Campina Grande do Sul,2025,1
+PR,Campina da Lagoa,2023,2
+PR,Campina da Lagoa,2025,2
+PR,Campina do Simão,2023,2
+PR,Campina do Simão,2025,2
+PR,Campo Bonito,2024,1
+PR,Campo Bonito,2025,1
+PR,Campo Largo,2025,1
+PR,Campo Magro,2025,1
+PR,Campo Mourão,2022,1
+PR,Campo Mourão,2023,3
+PR,Campo Mourão,2025,2
+PR,Campo do Tenente,2025,1
+PR,Candói,2025,1
+PR,Cantagalo,2025,1
+PR,Capanema,2025,1
+PR,Capitão Leônidas Marques,2025,1
+PR,Carambeí,2024,1
+PR,Carambeí,2025,2
+PR,Carambeí,2026,1
+PR,Carlópolis,2023,2
+PR,Carlópolis,2025,2
+PR,Cascavel,2025,2
+PR,Cascavel,2026,1
+PR,Castro,2022,1
+PR,Castro,2023,1
+PR,Castro,2024,1
+PR,Castro,2025,2
+PR,Castro,2026,1
+PR,Catanduvas,2025,1
+PR,Centenário do Sul,2023,3
+PR,Centenário do Sul,2024,1
+PR,Centenário do Sul,2025,3
+PR,Centenário do Sul,2026,1
+PR,Cerro Azul,2025,1
+PR,Chopinzinho,2025,1
+PR,Cianorte,2023,2
+PR,Cianorte,2025,2
+PR,Cidade Gaúcha,2023,2
+PR,Cidade Gaúcha,2025,2
+PR,Clevelândia,2025,1
+PR,Colombo,2025,1
+PR,Colorado,2022,1
+PR,Colorado,2023,4
+PR,Colorado,2024,1
+PR,Colorado,2025,3
+PR,Colorado,2026,1
+PR,Congonhinhas,2023,2
+PR,Congonhinhas,2025,2
+PR,Conselheiro Mairinck,2023,2
+PR,Conselheiro Mairinck,2025,2
+PR,Contenda,2025,1
+PR,Corbélia,2023,2
+PR,Corbélia,2025,2
+PR,Cornélio Procópio,2023,3
+PR,Cornélio Procópio,2024,1
+PR,Cornélio Procópio,2025,3
+PR,Cornélio Procópio,2026,1
+PR,Coronel Domingos Soares,2025,1
+PR,Coronel Vivida,2025,1
+PR,Corumbataí do Sul,2023,2
+PR,Corumbataí do Sul,2025,2
+PR,Cruz Machado,2025,1
+PR,Cruzeiro do Oeste,2022,1
+PR,Cruzeiro do Oeste,2023,3
+PR,Cruzeiro do Oeste,2025,1
+PR,Cruzeiro do Sul,2023,2
+PR,Cruzeiro do Sul,2025,2
+PR,Cruzmaltina,2025,1
+PR,Curitiba,2025,1
+PR,Curiúva,2022,1
+PR,Curiúva,2023,3
+PR,Curiúva,2025,2
+PR,Cândido de Abreu,2022,1
+PR,Cândido de Abreu,2023,3
+PR,Cândido de Abreu,2025,2
+PR,Céu Azul,2025,1
+PR,Diamante D'Oeste,2025,1
+PR,Diamante do Norte,2023,2
+PR,Diamante do Norte,2025,2
+PR,Diamante do Sul,2022,1
+PR,Diamante do Sul,2023,1
+PR,Diamante do Sul,2025,1
+PR,Dois Vizinhos,2025,1
+PR,Douradina,2023,2
+PR,Douradina,2025,2
+PR,Doutor Camargo,2023,2
+PR,Doutor Camargo,2025,2
+PR,Doutor Ulysses,2025,1
+PR,Engenheiro Beltrão,2023,2
+PR,Engenheiro Beltrão,2025,2
+PR,Entre Rios do Oeste,2025,1
+PR,Enéas Marques,2025,1
+PR,Esperança Nova,2023,2
+PR,Esperança Nova,2025,2
+PR,Espigão Alto do Iguaçu,2025,1
+PR,Farol,2025,1
+PR,Faxinal,2023,2
+PR,Faxinal,2025,2
+PR,Fazenda Rio Grande,2025,1
+PR,Fernandes Pinheiro,2025,1
+PR,Figueira,2023,2
+PR,Figueira,2025,2
+PR,Flor da Serra do Sul,2025,1
+PR,Floraí,2023,3
+PR,Floraí,2025,3
+PR,Floraí,2026,1
+PR,Floresta,2025,1
+PR,Florestópolis,2023,3
+PR,Florestópolis,2024,1
+PR,Florestópolis,2025,3
+PR,Florestópolis,2026,1
+PR,Flórida,2023,2
+PR,Flórida,2025,2
+PR,Formosa do Oeste,2023,2
+PR,Formosa do Oeste,2025,2
+PR,Foz do Jordão,2025,1
+PR,Francisco Alves,2025,1
+PR,Francisco Beltrão,2025,1
+PR,Fênix,2023,2
+PR,Fênix,2025,2
+PR,General Carneiro,2025,1
+PR,Godoy Moreira,2023,2
+PR,Godoy Moreira,2025,2
+PR,Goioerê,2023,2
+PR,Goioerê,2025,2
+PR,Goioxim,2022,1
+PR,Goioxim,2023,1
+PR,Goioxim,2025,1
+PR,Grandes Rios,2023,2
+PR,Grandes Rios,2025,2
+PR,Guairaçá,2023,3
+PR,Guairaçá,2024,1
+PR,Guairaçá,2025,3
+PR,Guairaçá,2026,1
+PR,Guamiranga,2025,1
+PR,Guapirama,2023,2
+PR,Guapirama,2025,2
+PR,Guaporema,2023,3
+PR,Guaporema,2025,3
+PR,Guaporema,2026,1
+PR,Guaraci,2023,3
+PR,Guaraci,2024,1
+PR,Guaraci,2025,3
+PR,Guaraci,2026,1
+PR,Guaraniaçu,2025,1
+PR,Guarapuava,2025,1
+PR,Guaraqueçaba,2025,1
+PR,Guaratuba,2022,1
+PR,Guaratuba,2025,1
+PR,Guaíra,2025,2
+PR,Guaíra,2026,1
+PR,Honório Serpa,2025,1
+PR,Ibaiti,2022,1
+PR,Ibaiti,2023,3
+PR,Ibaiti,2025,2
+PR,Ibema,2025,1
+PR,Ibiporã,2023,3
+PR,Ibiporã,2024,1
+PR,Ibiporã,2025,3
+PR,Ibiporã,2026,1
+PR,Icaraíma,2023,2
+PR,Icaraíma,2025,2
+PR,Iguaraçu,2023,2
+PR,Iguaraçu,2025,2
+PR,Iguatu,2025,1
+PR,Imbaú,2023,2
+PR,Imbaú,2025,2
+PR,Imbituva,2025,1
+PR,Inajá,2023,3
+PR,Inajá,2024,1
+PR,Inajá,2025,3
+PR,Inajá,2026,1
+PR,Indianópolis,2023,2
+PR,Indianópolis,2025,2
+PR,Inácio Martins,2025,1
+PR,Ipiranga,2022,1
+PR,Ipiranga,2023,1
+PR,Ipiranga,2025,1
+PR,Iporã,2023,2
+PR,Iporã,2025,2
+PR,Iracema do Oeste,2025,1
+PR,Irati,2025,1
+PR,Iretama,2022,1
+PR,Iretama,2023,3
+PR,Iretama,2025,2
+PR,Itaguajé,2023,3
+PR,Itaguajé,2024,1
+PR,Itaguajé,2025,3
+PR,Itaguajé,2026,1
+PR,Itaipulândia,2025,1
+PR,Itambaracá,2023,3
+PR,Itambaracá,2024,1
+PR,Itambaracá,2025,3
+PR,Itambaracá,2026,1
+PR,Itambé,2023,2
+PR,Itambé,2025,2
+PR,Itapejara d'Oeste,2025,1
+PR,Itaúna do Sul,2023,2
+PR,Itaúna do Sul,2025,2
+PR,Ivaiporã,2023,2
+PR,Ivaiporã,2025,2
+PR,Ivatuba,2025,1
+PR,Ivaté,2025,1
+PR,Ivaí,2023,2
+PR,Ivaí,2025,2
+PR,Jaboti,2023,2
+PR,Jaboti,2025,2
+PR,Jacarezinho,2022,1
+PR,Jacarezinho,2023,4
+PR,Jacarezinho,2024,2
+PR,Jacarezinho,2025,5
+PR,Jacarezinho,2026,1
+PR,Jaguapitã,2023,2
+PR,Jaguapitã,2025,2
+PR,Jaguariaíva,2023,2
+PR,Jaguariaíva,2024,1
+PR,Jaguariaíva,2025,3
+PR,Jaguariaíva,2026,1
+PR,Jandaia do Sul,2023,2
+PR,Jandaia do Sul,2025,2
+PR,Janiópolis,2023,2
+PR,Janiópolis,2025,2
+PR,Japira,2023,2
+PR,Japira,2025,2
+PR,Japurá,2023,2
+PR,Japurá,2025,2
+PR,Jardim Alegre,2023,2
+PR,Jardim Alegre,2025,2
+PR,Jardim Olinda,2023,1
+PR,Jardim Olinda,2024,1
+PR,Jardim Olinda,2025,2
+PR,Jardim Olinda,2026,1
+PR,Jataizinho,2023,1
+PR,Jataizinho,2024,1
+PR,Jataizinho,2025,2
+PR,Jataizinho,2026,1
+PR,Jesuítas,2023,2
+PR,Jesuítas,2025,2
+PR,Joaquim Távora,2023,2
+PR,Joaquim Távora,2025,1
+PR,Joá,2025,1
+PR,Jundiaí do Sul,2025,1
+PR,Juranda,2023,2
+PR,Juranda,2025,2
+PR,Jussara,2025,1
+PR,Kaloré,2023,2
+PR,Kaloré,2025,2
+PR,Lapa,2025,1
+PR,Laranjal,2023,2
+PR,Laranjal,2025,2
+PR,Laranjeiras do Sul,2025,1
+PR,Leópolis,2023,3
+PR,Leópolis,2024,1
+PR,Leópolis,2025,3
+PR,Leópolis,2026,1
+PR,Lidianópolis,2025,1
+PR,Lindoeste,2025,1
+PR,Loanda,2022,1
+PR,Loanda,2023,3
+PR,Loanda,2025,2
+PR,Lobato,2023,2
+PR,Lobato,2025,2
+PR,Londrina,2022,1
+PR,Londrina,2023,3
+PR,Londrina,2025,2
+PR,Luiziana,2023,2
+PR,Luiziana,2025,2
+PR,Lunardelli,2023,2
+PR,Lunardelli,2025,2
+PR,Lupionópolis,2023,3
+PR,Lupionópolis,2024,1
+PR,Lupionópolis,2025,3
+PR,Lupionópolis,2026,1
+PR,Mallet,2025,1
+PR,Mamborê,2022,1
+PR,Mamborê,2023,3
+PR,Mamborê,2025,2
+PR,Mandaguari,2023,2
+PR,Mandaguari,2025,2
+PR,Mandaguaçu,2023,2
+PR,Mandaguaçu,2025,2
+PR,Mandirituba,2025,1
+PR,Manfrinópolis,2025,1
+PR,Mangueirinha,2025,1
+PR,Manoel Ribas,2022,1
+PR,Manoel Ribas,2023,3
+PR,Manoel Ribas,2025,2
+PR,Marechal Cândido Rondon,2025,1
+PR,Maria Helena,2025,1
+PR,Marialva,2023,2
+PR,Marialva,2025,2
+PR,Marilena,2023,2
+PR,Marilena,2025,2
+PR,Mariluz,2023,2
+PR,Mariluz,2025,2
+PR,Marilândia do Sul,2023,2
+PR,Marilândia do Sul,2025,2
+PR,Maringá,2022,1
+PR,Maringá,2023,3
+PR,Maringá,2025,2
+PR,Maripá,2025,1
+PR,Mariópolis,2025,1
+PR,Marmeleiro,2025,1
+PR,Marquinho,2022,1
+PR,Marquinho,2023,1
+PR,Marquinho,2025,1
+PR,Marumbi,2023,2
+PR,Marumbi,2025,2
+PR,Matelândia,2025,1
+PR,Matinhos,2025,1
+PR,Mato Rico,2023,2
+PR,Mato Rico,2025,2
+PR,Mauá da Serra,2023,2
+PR,Mauá da Serra,2025,2
+PR,Medianeira,2025,1
+PR,Mercedes,2025,1
+PR,Mirador,2023,3
+PR,Mirador,2025,3
+PR,Mirador,2026,1
+PR,Miraselva,2023,3
+PR,Miraselva,2024,1
+PR,Miraselva,2025,3
+PR,Miraselva,2026,1
+PR,Missal,2025,1
+PR,Moreira Sales,2023,2
+PR,Moreira Sales,2025,2
+PR,Morretes,2025,1
+PR,Munhoz de Melo,2023,2
+PR,Munhoz de Melo,2025,2
+PR,Nossa Senhora das Graças,2023,3
+PR,Nossa Senhora das Graças,2024,1
+PR,Nossa Senhora das Graças,2025,3
+PR,Nossa Senhora das Graças,2026,1
+PR,Nova Aliança do Ivaí,2023,3
+PR,Nova Aliança do Ivaí,2025,3
+PR,Nova Aliança do Ivaí,2026,1
+PR,Nova América da Colina,2025,1
+PR,Nova Aurora,2023,2
+PR,Nova Aurora,2025,2
+PR,Nova Cantu,2022,1
+PR,Nova Cantu,2023,3
+PR,Nova Cantu,2025,2
+PR,Nova Esperança,2023,2
+PR,Nova Esperança,2025,2
+PR,Nova Esperança do Sudoeste,2025,1
+PR,Nova Fátima,2023,2
+PR,Nova Fátima,2025,2
+PR,Nova Laranjeiras,2025,1
+PR,Nova Londrina,2023,2
+PR,Nova Londrina,2025,2
+PR,Nova Olímpia,2025,1
+PR,Nova Prata do Iguaçu,2025,1
+PR,Nova Santa Bárbara,2023,2
+PR,Nova Santa Bárbara,2025,2
+PR,Nova Santa Rosa,2025,1
+PR,Nova Tebas,2023,2
+PR,Nova Tebas,2025,2
+PR,Novo Itacolomi,2023,2
+PR,Novo Itacolomi,2025,2
+PR,Ortigueira,2022,1
+PR,Ortigueira,2023,3
+PR,Ortigueira,2025,2
+PR,Ourizona,2023,3
+PR,Ourizona,2025,2
+PR,Ouro Verde do Oeste,2025,1
+PR,Paiçandu,2023,2
+PR,Paiçandu,2025,2
+PR,Palmas,2025,1
+PR,Palmeira,2025,1
+PR,Palmital,2022,1
+PR,Palmital,2023,3
+PR,Palmital,2025,2
+PR,Palotina,2025,1
+PR,Palotina,2026,1
+PR,Paranacity,2023,3
+PR,Paranacity,2024,1
+PR,Paranacity,2025,3
+PR,Paranacity,2026,1
+PR,Paranaguá,2025,1
+PR,Paranapoema,2023,3
+PR,Paranapoema,2024,1
+PR,Paranapoema,2025,3
+PR,Paranapoema,2026,1
+PR,Paranavaí,2022,1
+PR,Paranavaí,2023,5
+PR,Paranavaí,2024,1
+PR,Paranavaí,2025,4
+PR,Paranavaí,2026,2
+PR,Paraíso do Norte,2023,3
+PR,Paraíso do Norte,2025,3
+PR,Paraíso do Norte,2026,1
+PR,Pato Bragado,2025,1
+PR,Pato Branco,2025,1
+PR,Paula Freitas,2025,1
+PR,Paulo Frontin,2025,1
+PR,Peabiru,2023,2
+PR,Peabiru,2025,2
+PR,Perobal,2023,2
+PR,Perobal,2025,2
+PR,Pinhais,2025,1
+PR,Pinhal de São Bento,2025,1
+PR,Pinhalão,2023,2
+PR,Pinhalão,2025,2
+PR,Pinhão,2025,1
+PR,Piraquara,2025,1
+PR,Piraí do Sul,2022,1
+PR,Piraí do Sul,2023,3
+PR,Piraí do Sul,2024,1
+PR,Piraí do Sul,2025,2
+PR,Pitanga,2022,1
+PR,Pitanga,2023,3
+PR,Pitanga,2025,1
+PR,Pitangueiras,2023,2
+PR,Pitangueiras,2025,2
+PR,Piên,2025,1
+PR,Planaltina do Paraná,2023,2
+PR,Planaltina do Paraná,2025,2
+PR,Planalto,2025,1
+PR,Ponta Grossa,2024,1
+PR,Ponta Grossa,2025,2
+PR,Ponta Grossa,2026,1
+PR,Pontal do Paraná,2025,1
+PR,Porecatu,2023,3
+PR,Porecatu,2024,1
+PR,Porecatu,2025,3
+PR,Porecatu,2026,1
+PR,Porto Amazonas,2025,1
+PR,Porto Barreiro,2025,1
+PR,Porto Rico,2023,2
+PR,Porto Rico,2025,2
+PR,Porto Vitória,2025,1
+PR,Prado Ferreira,2023,2
+PR,Prado Ferreira,2025,2
+PR,Pranchita,2025,1
+PR,Presidente Castelo Branco,2025,1
+PR,Primeiro de Maio,2023,3
+PR,Primeiro de Maio,2024,1
+PR,Primeiro de Maio,2025,3
+PR,Primeiro de Maio,2026,1
+PR,Prudentópolis,2022,1
+PR,Prudentópolis,2023,3
+PR,Prudentópolis,2025,2
+PR,Pérola,2023,2
+PR,Pérola,2025,2
+PR,Pérola d'Oeste,2025,1
+PR,Quarto Centenário,2025,1
+PR,Quatiguá,2023,2
+PR,Quatiguá,2025,2
+PR,Quatro Barras,2025,1
+PR,Quatro Pontes,2025,1
+PR,Quedas do Iguaçu,2025,1
+PR,Querência do Norte,2023,2
+PR,Querência do Norte,2025,2
+PR,Querência do Norte,2026,1
+PR,Quinta do Sol,2023,2
+PR,Quinta do Sol,2025,2
+PR,Quitandinha,2025,1
+PR,Ramilândia,2025,1
+PR,Rancho Alegre,2023,3
+PR,Rancho Alegre,2024,1
+PR,Rancho Alegre,2025,3
+PR,Rancho Alegre,2026,1
+PR,Rancho Alegre d'Oeste,2025,1
+PR,Realeza,2025,1
+PR,Rebouças,2025,1
+PR,Renascença,2025,1
+PR,Reserva,2022,1
+PR,Reserva,2023,3
+PR,Reserva,2025,2
+PR,Reserva do Iguaçu,2025,1
+PR,Ribeirão Claro,2023,4
+PR,Ribeirão Claro,2024,1
+PR,Ribeirão Claro,2025,3
+PR,Ribeirão Claro,2026,1
+PR,Ribeirão do Pinhal,2022,1
+PR,Ribeirão do Pinhal,2023,3
+PR,Ribeirão do Pinhal,2025,2
+PR,Rio Azul,2025,1
+PR,Rio Bom,2025,1
+PR,Rio Bonito do Iguaçu,2025,1
+PR,Rio Branco do Ivaí,2023,2
+PR,Rio Branco do Ivaí,2025,2
+PR,Rio Branco do Sul,2025,1
+PR,Rio Negro,2025,1
+PR,Rolândia,2023,2
+PR,Rolândia,2025,2
+PR,Roncador,2022,1
+PR,Roncador,2023,3
+PR,Roncador,2025,2
+PR,Rondon,2023,3
+PR,Rondon,2025,3
+PR,Rondon,2026,1
+PR,Rosário do Ivaí,2025,1
+PR,Sabáudia,2023,2
+PR,Sabáudia,2025,2
+PR,Salgado Filho,2025,1
+PR,Salto do Itararé,2023,2
+PR,Salto do Itararé,2025,2
+PR,Salto do Lontra,2025,1
+PR,Santa Amélia,2023,1
+PR,Santa Amélia,2024,1
+PR,Santa Amélia,2025,2
+PR,Santa Amélia,2026,1
+PR,Santa Cecília do Pavão,2025,1
+PR,Santa Cruz de Monte Castelo,2023,2
+PR,Santa Cruz de Monte Castelo,2025,2
+PR,Santa Fé,2025,1
+PR,Santa Inês,2023,3
+PR,Santa Inês,2024,1
+PR,Santa Inês,2025,2
+PR,Santa Inês,2026,1
+PR,Santa Isabel do Ivaí,2023,2
+PR,Santa Isabel do Ivaí,2025,1
+PR,Santa Maria do Oeste,2022,1
+PR,Santa Maria do Oeste,2023,3
+PR,Santa Maria do Oeste,2025,1
+PR,Santa Mariana,2023,3
+PR,Santa Mariana,2024,1
+PR,Santa Mariana,2025,2
+PR,Santa Mariana,2026,1
+PR,Santa Tereza do Oeste,2023,2
+PR,Santa Tereza do Oeste,2025,1
+PR,Santa Terezinha de Itaipu,2025,1
+PR,Santana do Itararé,2023,2
+PR,Santana do Itararé,2025,2
+PR,Santo Antônio da Platina,2022,2
+PR,Santo Antônio da Platina,2023,5
+PR,Santo Antônio da Platina,2024,2
+PR,Santo Antônio da Platina,2025,5
+PR,Santo Antônio da Platina,2026,1
+PR,Santo Antônio do Caiuá,2023,3
+PR,Santo Antônio do Caiuá,2024,1
+PR,Santo Antônio do Caiuá,2025,3
+PR,Santo Antônio do Caiuá,2026,1
+PR,Santo Antônio do Palmital,2022,1
+PR,Santo Antônio do Palmital,2023,1
+PR,Santo Antônio do Paraíso,2025,1
+PR,Santo Antônio do Sudoeste,2025,1
+PR,Santo Inácio,2023,3
+PR,Santo Inácio,2024,1
+PR,Santo Inácio,2025,3
+PR,Santo Inácio,2026,1
+PR,Sapopema,2023,2
+PR,Sapopema,2025,2
+PR,Sarandi,2025,1
+PR,Saudade do Iguaçu,2025,1
+PR,Sengés,2023,2
+PR,Sengés,2024,1
+PR,Sengés,2025,3
+PR,Sengés,2026,1
+PR,Serranópolis do Iguaçu,2025,1
+PR,Sertaneja,2023,3
+PR,Sertaneja,2024,1
+PR,Sertaneja,2025,3
+PR,Sertaneja,2026,1
+PR,Sertanópolis,2023,3
+PR,Sertanópolis,2024,1
+PR,Sertanópolis,2025,3
+PR,Sertanópolis,2026,1
+PR,Siqueira Campos,2023,2
+PR,Siqueira Campos,2025,2
+PR,Sulina,2025,1
+PR,São Carlos do Ivaí,2023,1
+PR,São Carlos do Ivaí,2025,2
+PR,São Carlos do Ivaí,2026,1
+PR,São Jerônimo da Serra,2023,2
+PR,São Jerônimo da Serra,2025,2
+PR,São Jorge do Ivaí,2023,4
+PR,São Jorge do Ivaí,2025,2
+PR,São Jorge do Ivaí,2026,1
+PR,São Jorge do Patrocínio,2025,1
+PR,São José da Boa Vista,2023,2
+PR,São José da Boa Vista,2025,2
+PR,São José das Palmeiras,2025,1
+PR,São José dos Pinhais,2022,1
+PR,São José dos Pinhais,2025,1
+PR,São João,2025,1
+PR,São João d'Oeste,2025,1
+PR,São João do Caiuá,2023,3
+PR,São João do Caiuá,2024,1
+PR,São João do Caiuá,2025,3
+PR,São João do Caiuá,2026,1
+PR,São João do Ivaí,2023,2
+PR,São João do Ivaí,2025,2
+PR,São João do Triunfo,2025,1
+PR,São Manoel do Paraná,2025,1
+PR,São Mateus do Sul,2025,1
+PR,São Miguel do Iguaçu,2025,1
+PR,São Pedro do Iguaçu,2025,1
+PR,São Pedro do Ivaí,2023,2
+PR,São Pedro do Ivaí,2025,1
+PR,São Pedro do Paraná,2023,2
+PR,São Pedro do Paraná,2025,1
+PR,São Sebastião da Amoreira,2023,2
+PR,São Sebastião da Amoreira,2025,1
+PR,São Tomé,2025,1
+PR,Tamarana,2023,2
+PR,Tamarana,2025,2
+PR,Tamboara,2023,3
+PR,Tamboara,2025,3
+PR,Tamboara,2026,1
+PR,Tapejara,2023,2
+PR,Tapejara,2025,2
+PR,Tapira,2023,2
+PR,Tapira,2025,2
+PR,Teixeira Soares,2025,1
+PR,Telêmaco Borba,2022,1
+PR,Telêmaco Borba,2023,3
+PR,Telêmaco Borba,2024,1
+PR,Telêmaco Borba,2025,2
+PR,Terra Boa,2023,2
+PR,Terra Boa,2025,2
+PR,Terra Rica,2023,3
+PR,Terra Rica,2024,1
+PR,Terra Rica,2025,3
+PR,Terra Rica,2026,1
+PR,Terra Roxa,2025,1
+PR,Tibagi,2022,1
+PR,Tibagi,2023,3
+PR,Tibagi,2025,2
+PR,Tibagi,2026,1
+PR,Tijucas do Sul,2022,1
+PR,Tijucas do Sul,2025,1
+PR,Toledo,2025,1
+PR,Tomazina,2023,2
+PR,Tomazina,2025,2
+PR,Três Barras do Paraná,2025,1
+PR,Tunas do Paraná,2025,1
+PR,Tuneiras do Oeste,2023,2
+PR,Tuneiras do Oeste,2025,2
+PR,Tupãssi,2025,1
+PR,Turvo,2023,2
+PR,Turvo,2025,2
+PR,Ubiratã,2022,1
+PR,Ubiratã,2023,3
+PR,Ubiratã,2025,2
+PR,Umuarama,2022,1
+PR,Umuarama,2023,3
+PR,Umuarama,2025,2
+PR,Uniflor,2023,2
+PR,Uniflor,2025,2
+PR,União da Vitória,2025,1
+PR,Uraí,2023,3
+PR,Uraí,2024,1
+PR,Uraí,2025,3
+PR,Uraí,2026,1
+PR,Ventania,2023,2
+PR,Ventania,2024,1
+PR,Ventania,2025,3
+PR,Ventania,2026,1
+PR,Vera Cruz do Oeste,2025,1
+PR,Verê,2025,1
+PR,Virmond,2025,1
+PR,Vitorino,2025,1
+PR,Wenceslau Braz,2022,1
+PR,Wenceslau Braz,2023,3
+PR,Wenceslau Braz,2025,2
+PR,Xambrê,2025,1
+PR,Xaxim,2024,1
+PR,Ângulo,2023,2
+PR,Ângulo,2025,2
+RN,Arenã,2026,1
+RN,Arês,2023,2
+RN,Arês,2024,2
+RN,Arês,2025,4
+RN,Arês,2026,2
+RN,Baía Formosa,2023,2
+RN,Baía Formosa,2025,2
+RN,Baía Formosa,2026,2
+RN,Canguaretama,2023,2
+RN,Canguaretama,2025,2
+RN,Canguaretama,2026,2
+RN,Goianinha,2023,2
+RN,Goianinha,2024,1
+RN,Goianinha,2025,4
+RN,Goianinha,2026,2
+RN,Pedro Velho,2023,2
+RN,São José de Mipibu,2023,2
+RN,São José de Mipibu,2024,1
+RN,São José de Mipibu,2025,2
+RN,São José de Mipibu,2026,2
+RN,Taipu,2025,2
+RN,Taipu,2026,2
+RN,Tibau do Sul,2024,1
+RO,Cabixi,2026,1
+RO,Cacoal,2026,1
+RO,Cerejeiras,2026,1
+RO,Chupinguaia,2025,1
+RO,Chupinguaia,2026,1
+RO,Colorado do Oeste,2026,1
+RO,Corumbiara,2026,1
+RO,Espigão D'Oeste,2026,1
+RO,Ji-Paraná,2026,1
+RO,Pimenta Bueno,2026,1
+RO,Pimenteiras do Oeste,2026,1
+RO,Vilhena,2026,1
+RR,Alto Alegre,2022,1
+RR,Alto Alegre,2023,2
+RR,Alto Alegre,2024,2
+RR,Alto Alegre,2025,3
+RR,Alto Alegre,2026,3
+RR,Amajari,2022,1
+RR,Amajari,2023,2
+RR,Amajari,2024,2
+RR,Amajari,2025,3
+RR,Amajari,2026,3
+RR,Boa Vista,2022,1
+RR,Boa Vista,2023,2
+RR,Boa Vista,2024,3
+RR,Boa Vista,2025,4
+RR,Boa Vista,2026,4
+RR,Bonfim,2022,1
+RR,Bonfim,2023,2
+RR,Bonfim,2024,2
+RR,Bonfim,2025,3
+RR,Bonfim,2026,4
+RR,Cantá,2022,1
+RR,Cantá,2023,2
+RR,Cantá,2024,2
+RR,Cantá,2025,3
+RR,Cantá,2026,4
+RR,Caracaraí,2023,1
+RR,Caracaraí,2024,1
+RR,Caracaraí,2025,1
+RR,Caracaraí,2026,1
+RR,Caroebe,2023,1
+RR,Caroebe,2024,1
+RR,Caroebe,2025,1
+RR,Caroebe,2026,1
+RR,Félix Pinto,2024,1
+RR,Félix Pinto,2025,1
+RR,Félix Pinto,2026,1
+RR,Iracema,2022,1
+RR,Iracema,2023,2
+RR,Iracema,2024,2
+RR,Iracema,2025,3
+RR,Iracema,2026,3
+RR,Mucajaí,2022,1
+RR,Mucajaí,2023,1
+RR,Mucajaí,2024,2
+RR,Mucajaí,2025,3
+RR,Mucajaí,2026,3
+RR,Normandia,2022,1
+RR,Normandia,2023,1
+RR,Normandia,2024,2
+RR,Normandia,2025,3
+RR,Normandia,2026,3
+RR,Novo Paraíso,2024,1
+RR,Novo Paraíso,2025,1
+RR,Novo Paraíso,2026,1
+RR,Pacaraima,2023,1
+RR,Pacaraima,2024,1
+RR,Pacaraima,2025,1
+RR,Pacaraima,2026,1
+RR,Rorainópolis,2023,1
+RR,Rorainópolis,2024,1
+RR,Rorainópolis,2025,1
+RR,Rorainópolis,2026,1
+RR,Santa Cecília,2024,1
+RR,Santa Cecília,2025,1
+RR,Santa Cecília,2026,1
+RR,São João da Baliza,2023,1
+RR,São João da Baliza,2024,1
+RR,São João da Baliza,2025,1
+RR,São Luiz,2023,1
+RR,São Luiz,2024,1
+RR,São Luiz,2025,1
+RR,São Luiz,2026,1
+RR,Taboca,2024,1
+RR,Taboca,2025,1
+RR,Taboca,2026,1
+SC,Abelardo Luz,2025,1
+SC,Araquari,2025,1
+SC,Balneário Piçarras,2025,1
+SC,Barra Velha,2025,1
+SC,Blumenau,2025,1
+SC,Campo Erê,2025,1
+SC,Campos Novos,2025,1
+SC,Capinzal,2025,1
+SC,Corupá,2025,1
+SC,Garuva,2023,1
+SC,Garuva,2025,1
+SC,Guaramirim,2025,1
+SC,Ilhota,2025,1
+SC,Jaraguá do Sul,2025,1
+SC,Luiz Alves,2025,1
+SC,Massaranduba,2025,1
+SC,Navegantes,2025,1
+SC,Schroeder,2025,1
+SC,São João do Itaperiú,2025,1
+SC,Xanxerê,2025,1
+SE,Areia Branca,2023,1
+SE,Capela,2023,2
+SE,Capela,2024,1
+SE,Capela,2025,2
+SE,Capela,2026,1
+SE,Carira,2023,1
+SE,Carmópolis,2023,1
+SE,Carmópolis,2024,1
+SE,Carmópolis,2025,2
+SE,Carmópolis,2026,1
+SE,Divina Pastora,2026,1
+SE,Feira Nova,2023,1
+SE,Frei Paulo,2023,1
+SE,Gracho Cardoso,2023,1
+SE,Japaratuba,2023,2
+SE,Japaratuba,2024,1
+SE,Japaratuba,2025,1
+SE,Japaratuba,2026,1
+SE,Japoatã,2023,2
+SE,Japoatã,2024,1
+SE,Japoatã,2025,2
+SE,Japoatã,2026,1
+SE,Lagarto,2025,1
+SE,Lagarto,2026,1
+SE,Laranjeiras,2023,1
+SE,Laranjeiras,2024,1
+SE,Laranjeiras,2025,1
+SE,Laranjeiras,2026,1
+SE,Maruim,2023,2
+SE,Maruim,2026,1
+SE,Monte Alegre de Sergipe,2025,1
+SE,Neópolis,2023,2
+SE,Neópolis,2024,1
+SE,Neópolis,2025,1
+SE,Nossa Senhora da Glória,2023,1
+SE,Nossa Senhora das Dores,2023,1
+SE,Nossa Senhora das Dores,2025,1
+SE,Nossa Senhora das Dores,2026,1
+SE,Nossa Senhora do Socorro,2023,1
+SE,Pinhão,2023,1
+SE,Propriá,2023,1
+SE,Propriá,2024,1
+SE,Propriá,2025,1
+SE,Riachuelo,2025,1
+SE,Riachuelo,2026,1
+SE,Riachão do Dantas,2023,1
+SE,Rosário do Catete,2023,2
+SE,Santa Rosa de Lima,2026,1
+SE,Santo Amaro das Brotas,2023,1
+SE,Santo Amaro das Brotas,2026,1
+SE,Simão Dias,2023,1
+SE,Siriri,2025,1
+SE,Siriri,2026,1
+SE,São Cristóvão,2023,1
+SE,São Miguel do Aleixo,2023,1
+SP,Adamantina,2022,3
+SP,Adamantina,2023,3
+SP,Adamantina,2024,5
+SP,Adamantina,2025,5
+SP,Adamantina,2026,8
+SP,Agudos,2024,1
+SP,Agudos,2026,1
+SP,Alambari,2022,2
+SP,Alfredo Marcondes,2022,1
+SP,Alfredo Marcondes,2023,1
+SP,Alfredo Marcondes,2024,3
+SP,Alfredo Marcondes,2025,2
+SP,Alfredo Marcondes,2026,1
+SP,Altair,2023,3
+SP,Altair,2024,3
+SP,Altair,2025,1
+SP,Altair,2026,1
+SP,Altinópolis,2022,2
+SP,Alto Alegre,2022,1
+SP,Alto Alegre,2023,1
+SP,Alto Alegre,2024,1
+SP,Alvinlândia,2022,1
+SP,Alvinlândia,2023,1
+SP,Alvinlândia,2024,2
+SP,Alvinlândia,2025,1
+SP,Alvinlândia,2026,1
+SP,Ameliópolis,2024,1
+SP,Ameliópolis,2025,1
+SP,Americana,2025,1
+SP,Americana,2026,1
+SP,Américo de Campos,2022,4
+SP,Américo de Campos,2023,4
+SP,Américo de Campos,2024,6
+SP,Américo de Campos,2025,4
+SP,Américo de Campos,2026,2
+SP,Ana Dias,2025,1
+SP,Ana Dias,2026,1
+SP,Analândia,2022,1
+SP,Andes,2026,1
+SP,Andradina,2022,3
+SP,Andradina,2023,3
+SP,Andradina,2024,6
+SP,Andradina,2025,4
+SP,Andradina,2026,4
+SP,Anhumas,2022,2
+SP,Anhumas,2023,3
+SP,Anhumas,2024,3
+SP,Anhumas,2025,2
+SP,Anhumas,2026,1
+SP,Aparecida,2022,2
+SP,Aparecida D'Oeste,2024,1
+SP,Aparecida D'Oeste,2025,1
+SP,Apiaí,2026,1
+SP,Araraquara,2022,2
+SP,Araraquara,2023,1
+SP,Araraquara,2024,2
+SP,Araraquara,2025,2
+SP,Araraquara,2026,1
+SP,Araras,2024,1
+SP,Araras,2026,1
+SP,Araçatuba,2022,3
+SP,Araçatuba,2023,3
+SP,Araçatuba,2024,5
+SP,Araçatuba,2025,4
+SP,Araçatuba,2026,5
+SP,Arco-Íris,2022,1
+SP,Arco-Íris,2023,1
+SP,Arco-Íris,2024,2
+SP,Arco-Íris,2025,1
+SP,Arco-Íris,2026,1
+SP,Areias,2026,1
+SP,Areiópolis,2024,1
+SP,Ariranha,2022,3
+SP,Ariranha,2023,2
+SP,Ariranha,2024,4
+SP,Ariranha,2025,3
+SP,Ariranha,2026,1
+SP,Artur Nogueira,2025,1
+SP,Aspásia,2022,2
+SP,Aspásia,2023,2
+SP,Aspásia,2024,2
+SP,Aspásia,2025,2
+SP,Assis,2022,3
+SP,Assis,2023,2
+SP,Assis,2024,5
+SP,Assis,2025,4
+SP,Assis,2026,3
+SP,Auriflama,2022,2
+SP,Auriflama,2023,2
+SP,Auriflama,2024,4
+SP,Auriflama,2025,3
+SP,Auriflama,2026,2
+SP,Avanhandava,2022,1
+SP,Avanhandava,2023,1
+SP,Avanhandava,2024,2
+SP,Avanhandava,2025,1
+SP,Avanhandava,2026,1
+SP,Avaré,2024,1
+SP,Avaré,2025,1
+SP,Avaré,2026,1
+SP,Bananal,2022,2
+SP,Bandeirantes D'Oeste,2024,1
+SP,Bandeirantes D'Oeste,2025,1
+SP,Barbosa,2022,1
+SP,Barbosa,2023,1
+SP,Barbosa,2024,2
+SP,Barbosa,2025,1
+SP,Barbosa,2026,1
+SP,Barra Bonita,2023,1
+SP,Barra Bonita,2026,1
+SP,Barretos,2022,4
+SP,Barretos,2023,6
+SP,Barretos,2024,7
+SP,Barretos,2025,5
+SP,Barretos,2026,3
+SP,Bastos,2022,3
+SP,Bastos,2023,2
+SP,Bastos,2024,4
+SP,Bastos,2025,3
+SP,Bastos,2026,2
+SP,Bauru,2022,2
+SP,Bauru,2023,1
+SP,Bauru,2024,2
+SP,Bauru,2025,1
+SP,Bauru,2026,2
+SP,Bebedouro,2022,3
+SP,Bebedouro,2023,3
+SP,Bebedouro,2024,5
+SP,Bebedouro,2025,5
+SP,Bebedouro,2026,4
+SP,Bento de Abreu,2022,1
+SP,Bento de Abreu,2023,2
+SP,Bento de Abreu,2024,3
+SP,Bento de Abreu,2025,2
+SP,Bento de Abreu,2026,3
+SP,Bernardino de Campos,2022,1
+SP,Bernardino de Campos,2023,1
+SP,Bernardino de Campos,2024,3
+SP,Bernardino de Campos,2025,1
+SP,Bernardino de Campos,2026,2
+SP,Bilac,2022,1
+SP,Bilac,2023,1
+SP,Bilac,2024,2
+SP,Bilac,2025,1
+SP,Bilac,2026,1
+SP,Birigui,2022,3
+SP,Birigui,2023,2
+SP,Birigui,2024,4
+SP,Birigui,2025,3
+SP,Birigui,2026,3
+SP,Bocaina,2022,1
+SP,Bocaina,2023,1
+SP,Bocaina,2024,1
+SP,Bocaina,2025,1
+SP,Bocaina,2026,1
+SP,Bofete,2024,1
+SP,Bofete,2026,1
+SP,Boituva,2024,1
+SP,Boituva,2026,1
+SP,Borborema,2022,4
+SP,Borborema,2023,3
+SP,Borborema,2024,5
+SP,Borborema,2025,5
+SP,Borborema,2026,2
+SP,Borebi,2025,1
+SP,Borebi,2026,1
+SP,Borá,2022,2
+SP,Borá,2023,2
+SP,Borá,2024,3
+SP,Borá,2025,2
+SP,Borá,2026,2
+SP,Botafogo,2024,1
+SP,Botelho,2024,1
+SP,Botelho,2026,1
+SP,Botucatu,2024,2
+SP,Botucatu,2025,2
+SP,Botucatu,2026,1
+SP,Bragança Paulista,2022,2
+SP,Bragança Paulista,2026,1
+SP,Brasitânia,2024,1
+SP,Brasitânia,2025,1
+SP,Braúna,2022,1
+SP,Braúna,2023,1
+SP,Braúna,2024,2
+SP,Braúna,2025,1
+SP,Braúna,2026,1
+SP,Brejo Alegre,2022,1
+SP,Brejo Alegre,2023,1
+SP,Brejo Alegre,2024,2
+SP,Brejo Alegre,2025,1
+SP,Brejo Alegre,2026,1
+SP,Brotas,2024,3
+SP,Brotas,2025,1
+SP,Brotas,2026,1
+SP,Buritama,2022,1
+SP,Buritama,2023,1
+SP,Buritama,2024,2
+SP,Buritama,2025,1
+SP,Buritama,2026,1
+SP,Cafelândia,2022,4
+SP,Cafelândia,2023,3
+SP,Cafelândia,2024,5
+SP,Cafelândia,2025,4
+SP,Cafelândia,2026,1
+SP,Caiabu,2022,1
+SP,Caiabu,2023,1
+SP,Caiabu,2024,2
+SP,Caiabu,2025,1
+SP,Caiabu,2026,1
+SP,Caiuá,2022,1
+SP,Caiuá,2023,2
+SP,Caiuá,2024,3
+SP,Caiuá,2025,2
+SP,Caiuá,2026,3
+SP,Cajati,2026,1
+SP,Cajobi,2022,1
+SP,Cajobi,2024,2
+SP,Cajobi,2025,1
+SP,Cajobi,2026,1
+SP,Cajuru,2022,2
+SP,Campinal,2024,1
+SP,Campinal,2025,1
+SP,Campinas,2026,1
+SP,Campo Limpo Paulista,2022,2
+SP,Campos Novos Paulista,2022,1
+SP,Campos Novos Paulista,2023,1
+SP,Campos Novos Paulista,2024,2
+SP,Campos Novos Paulista,2025,1
+SP,Campos Novos Paulista,2026,2
+SP,Campos do Jordão,2022,2
+SP,Canitar,2022,1
+SP,Canitar,2023,1
+SP,Canitar,2024,3
+SP,Canitar,2025,1
+SP,Canitar,2026,2
+SP,Capela do Alto,2024,1
+SP,Capela do Alto,2025,1
+SP,Capela do Alto,2026,1
+SP,Capão Bonito,2024,1
+SP,Capão Bonito,2025,1
+SP,Capão Bonito,2026,1
+SP,Cardoso,2023,3
+SP,Cardoso,2024,3
+SP,Cardoso,2025,1
+SP,Cardoso,2026,1
+SP,Casa Branca,2022,2
+SP,Casa Branca,2024,1
+SP,Castilho,2022,2
+SP,Castilho,2023,3
+SP,Castilho,2024,6
+SP,Castilho,2025,4
+SP,Castilho,2026,4
+SP,Catanduva,2022,4
+SP,Catanduva,2023,2
+SP,Catanduva,2024,5
+SP,Catanduva,2025,4
+SP,Catanduva,2026,3
+SP,Catiguá,2022,1
+SP,Catiguá,2024,1
+SP,Catiguá,2025,1
+SP,Catiguá,2026,1
+SP,Caçapava,2022,2
+SP,Cedral,2022,1
+SP,Cedral,2024,2
+SP,Cedral,2025,2
+SP,Cedral,2026,1
+SP,Charqueada,2025,1
+SP,Chavantes,2022,2
+SP,Chavantes,2023,2
+SP,Chavantes,2024,4
+SP,Chavantes,2025,2
+SP,Chavantes,2026,4
+SP,Clementina,2022,1
+SP,Clementina,2023,2
+SP,Clementina,2024,4
+SP,Clementina,2025,3
+SP,Clementina,2026,3
+SP,Colina,2022,3
+SP,Colina,2023,5
+SP,Colina,2024,6
+SP,Colina,2025,4
+SP,Colina,2026,1
+SP,Colômbia,2023,1
+SP,Cordeirópolis,2025,1
+SP,Coroados,2022,1
+SP,Coroados,2023,1
+SP,Coroados,2024,3
+SP,Coroados,2025,2
+SP,Coroados,2026,1
+SP,Coronel Macedo,2022,2
+SP,Coronel Macedo,2023,2
+SP,Coronel Macedo,2024,2
+SP,Coronel Macedo,2025,2
+SP,Corumbataí,2025,1
+SP,Cosmorama,2022,4
+SP,Cosmorama,2023,2
+SP,Cosmorama,2024,3
+SP,Cosmorama,2025,3
+SP,Cosmorama,2026,1
+SP,Cosmópolis,2025,1
+SP,Cruzeiro,2022,2
+SP,Cruzália,2022,1
+SP,Cruzália,2023,1
+SP,Cruzália,2024,4
+SP,Cruzália,2025,2
+SP,Cruzália,2026,1
+SP,Cuiabá Paulista,2023,1
+SP,Cuiabá Paulista,2024,2
+SP,Cuiabá Paulista,2025,2
+SP,Cuiabá Paulista,2026,2
+SP,Cunha,2022,2
+SP,Cássia dos Coqueiros,2022,2
+SP,Cândido Mota,2022,1
+SP,Cândido Mota,2023,2
+SP,Cândido Mota,2024,4
+SP,Cândido Mota,2025,4
+SP,Cândido Mota,2026,4
+SP,Cândido Rodrigues,2022,3
+SP,Cândido Rodrigues,2023,2
+SP,Cândido Rodrigues,2024,4
+SP,Cândido Rodrigues,2025,4
+SP,Cândido Rodrigues,2026,2
+SP,Descalvado,2022,1
+SP,Descalvado,2023,1
+SP,Descalvado,2024,1
+SP,Descalvado,2025,1
+SP,Divinolândia,2022,2
+SP,Dolcinópolis,2022,2
+SP,Dolcinópolis,2023,2
+SP,Dolcinópolis,2024,2
+SP,Dolcinópolis,2025,2
+SP,Dracena,2022,2
+SP,Dracena,2023,5
+SP,Dracena,2024,6
+SP,Dracena,2025,4
+SP,Dracena,2026,7
+SP,Duplo Céu,2022,2
+SP,Duplo Céu,2024,1
+SP,Duplo Céu,2025,1
+SP,Duplo Céu,2026,1
+SP,Echaporã,2022,3
+SP,Echaporã,2023,2
+SP,Echaporã,2024,4
+SP,Echaporã,2025,2
+SP,Echaporã,2026,2
+SP,Eldorado,2026,1
+SP,Elias Fausto,2022,1
+SP,Elisiário,2022,1
+SP,Elisiário,2024,1
+SP,Elisiário,2025,1
+SP,Elisiário,2026,1
+SP,Embaúba,2022,2
+SP,Embaúba,2023,2
+SP,Embaúba,2024,3
+SP,Embaúba,2025,2
+SP,Emilianópolis,2022,1
+SP,Emilianópolis,2023,1
+SP,Emilianópolis,2024,3
+SP,Emilianópolis,2025,2
+SP,Emilianópolis,2026,1
+SP,Eneida,2024,1
+SP,Eneida,2025,1
+SP,Engenheiro Coelho,2025,1
+SP,Espírito Santo do Turvo,2022,1
+SP,Espírito Santo do Turvo,2023,1
+SP,Espírito Santo do Turvo,2024,2
+SP,Espírito Santo do Turvo,2025,1
+SP,Espírito Santo do Turvo,2026,2
+SP,Estrela D'Oeste,2023,3
+SP,Estrela D'Oeste,2024,4
+SP,Estrela D'Oeste,2025,2
+SP,Estrela D'Oeste,2026,1
+SP,Estrela do Norte,2022,2
+SP,Estrela do Norte,2023,3
+SP,Estrela do Norte,2024,3
+SP,Estrela do Norte,2025,2
+SP,Estrela do Norte,2026,1
+SP,Euclides da Cunha Paulista,2022,1
+SP,Euclides da Cunha Paulista,2023,2
+SP,Euclides da Cunha Paulista,2024,4
+SP,Euclides da Cunha Paulista,2025,3
+SP,Euclides da Cunha Paulista,2026,3
+SP,Fartura,2022,1
+SP,Fartura,2023,1
+SP,Fartura,2024,2
+SP,Fartura,2025,1
+SP,Fartura,2026,2
+SP,Fernando Prestes,2022,3
+SP,Fernando Prestes,2023,2
+SP,Fernando Prestes,2024,4
+SP,Fernando Prestes,2025,4
+SP,Fernando Prestes,2026,2
+SP,Fernandópolis,2022,2
+SP,Fernandópolis,2023,4
+SP,Fernandópolis,2024,5
+SP,Fernandópolis,2025,3
+SP,Fernandópolis,2026,3
+SP,Fernão,2022,1
+SP,Fernão,2023,1
+SP,Fernão,2024,2
+SP,Fernão,2025,1
+SP,Fernão,2026,1
+SP,Flora Rica,2022,1
+SP,Flora Rica,2023,2
+SP,Flora Rica,2024,4
+SP,Flora Rica,2025,3
+SP,Flora Rica,2026,3
+SP,Florínea,2022,1
+SP,Florínea,2023,1
+SP,Florínea,2024,4
+SP,Florínea,2025,2
+SP,Florínea,2026,1
+SP,Flórida Paulista,2022,1
+SP,Flórida Paulista,2023,2
+SP,Flórida Paulista,2024,3
+SP,Flórida Paulista,2025,2
+SP,Flórida Paulista,2026,3
+SP,Franca,2026,1
+SP,Frutal do Campo,2023,3
+SP,Frutal do Campo,2024,3
+SP,Frutal do Campo,2025,1
+SP,Frutal do Campo,2026,1
+SP,Gabriel Monteiro,2022,1
+SP,Gabriel Monteiro,2023,1
+SP,Gabriel Monteiro,2024,2
+SP,Gabriel Monteiro,2025,1
+SP,Gabriel Monteiro,2026,1
+SP,Garça,2022,2
+SP,Garça,2023,1
+SP,Garça,2024,2
+SP,Garça,2025,1
+SP,Garça,2026,2
+SP,Gastão Vidigal,2022,1
+SP,Gastão Vidigal,2023,1
+SP,Gastão Vidigal,2024,2
+SP,Gastão Vidigal,2025,1
+SP,Gastão Vidigal,2026,1
+SP,Gavião Peixoto,2024,1
+SP,Gavião Peixoto,2025,1
+SP,Gavião Peixoto,2026,1
+SP,General Salgado,2022,1
+SP,General Salgado,2023,1
+SP,General Salgado,2024,2
+SP,General Salgado,2025,1
+SP,General Salgado,2026,1
+SP,Getulina,2022,1
+SP,Getulina,2023,1
+SP,Getulina,2024,2
+SP,Getulina,2025,1
+SP,Getulina,2026,1
+SP,Glicério,2022,1
+SP,Glicério,2023,1
+SP,Glicério,2024,2
+SP,Glicério,2025,1
+SP,Glicério,2026,1
+SP,Guaimbê,2022,1
+SP,Guaimbê,2023,1
+SP,Guaimbê,2024,2
+SP,Guaimbê,2025,1
+SP,Guaimbê,2026,1
+SP,Guaiçara,2022,1
+SP,Guaiçara,2023,1
+SP,Guaiçara,2024,2
+SP,Guaiçara,2025,1
+SP,Guaiçara,2026,1
+SP,Guapiaçu,2022,1
+SP,Guapiaçu,2024,1
+SP,Guapiaçu,2025,1
+SP,Guapiaçu,2026,1
+SP,Guaraci,2024,3
+SP,Guaraci,2025,2
+SP,Guaraci,2026,1
+SP,Guarani D'Oeste,2024,1
+SP,Guarani D'Oeste,2025,1
+SP,Guarantã,2022,1
+SP,Guarantã,2023,1
+SP,Guarantã,2024,2
+SP,Guarantã,2025,1
+SP,Guarantã,2026,1
+SP,Guararapes,2022,2
+SP,Guararapes,2023,3
+SP,Guararapes,2024,8
+SP,Guararapes,2025,5
+SP,Guararapes,2026,5
+SP,Guaratinguetá,2022,2
+SP,Guaraçaí,2022,2
+SP,Guaraçaí,2023,3
+SP,Guaraçaí,2024,4
+SP,Guaraçaí,2025,3
+SP,Guaraçaí,2026,4
+SP,Guará,2022,2
+SP,Guará,2023,2
+SP,Guará,2024,2
+SP,Guará,2025,2
+SP,Guaíra,2022,2
+SP,Guaíra,2023,2
+SP,Guaíra,2024,3
+SP,Guaíra,2025,3
+SP,Guzolândia,2022,1
+SP,Guzolândia,2023,1
+SP,Guzolândia,2024,2
+SP,Guzolândia,2025,1
+SP,Guzolândia,2026,1
+SP,Gália,2022,1
+SP,Gália,2023,1
+SP,Gália,2024,2
+SP,Gália,2025,1
+SP,Gália,2026,1
+SP,Herculândia,2022,2
+SP,Herculândia,2023,2
+SP,Herculândia,2024,4
+SP,Herculândia,2025,3
+SP,Herculândia,2026,2
+SP,Holambra,2025,1
+SP,Hortolândia,2025,1
+SP,Iacri,2022,3
+SP,Iacri,2023,3
+SP,Iacri,2024,3
+SP,Iacri,2025,2
+SP,Iacri,2026,1
+SP,Iaras,2024,1
+SP,Iaras,2025,1
+SP,Ibaté,2024,1
+SP,Ibaté,2025,1
+SP,Ibaté,2026,1
+SP,Ibiporanga,2022,2
+SP,Ibiporanga,2024,1
+SP,Ibiporanga,2025,1
+SP,Ibiporanga,2026,1
+SP,Ibirarema,2022,1
+SP,Ibirarema,2023,1
+SP,Ibirarema,2024,3
+SP,Ibirarema,2025,2
+SP,Ibirarema,2026,2
+SP,Ibirá,2022,1
+SP,Ibirá,2024,1
+SP,Ibirá,2025,1
+SP,Ibirá,2026,1
+SP,Ibitinga,2022,1
+SP,Ibitinga,2023,1
+SP,Ibitinga,2024,2
+SP,Ibitinga,2025,2
+SP,Ibitinga,2026,1
+SP,Ibitiúva,2026,1
+SP,Icém,2022,1
+SP,Icém,2023,4
+SP,Icém,2024,5
+SP,Icém,2025,3
+SP,Icém,2026,2
+SP,Iepê,2022,2
+SP,Iepê,2023,3
+SP,Iepê,2024,3
+SP,Iepê,2025,2
+SP,Iepê,2026,1
+SP,Igaraçu do Tietê,2025,1
+SP,Ilha Solteira,2022,2
+SP,Ilha Solteira,2023,3
+SP,Ilha Solteira,2024,5
+SP,Ilha Solteira,2025,4
+SP,Ilha Solteira,2026,5
+SP,Indaiatuba,2025,1
+SP,Indaiatuba,2026,1
+SP,Indiana,2022,2
+SP,Indiana,2023,3
+SP,Indiana,2024,3
+SP,Indiana,2025,2
+SP,Indiana,2026,1
+SP,Indiaporã,2023,3
+SP,Indiaporã,2024,3
+SP,Indiaporã,2025,1
+SP,Indiaporã,2026,1
+SP,Inúbia Paulista,2022,2
+SP,Inúbia Paulista,2023,3
+SP,Inúbia Paulista,2024,3
+SP,Inúbia Paulista,2025,2
+SP,Inúbia Paulista,2026,1
+SP,Ipaussu,2022,1
+SP,Ipaussu,2023,1
+SP,Ipaussu,2024,3
+SP,Ipaussu,2025,2
+SP,Ipaussu,2026,2
+SP,Ipeúna,2025,1
+SP,Ipuã,2022,2
+SP,Ipuã,2023,2
+SP,Ipuã,2024,2
+SP,Ipuã,2025,2
+SP,Iracemápolis,2025,1
+SP,Irapuru,2022,1
+SP,Irapuru,2023,2
+SP,Irapuru,2024,4
+SP,Irapuru,2025,3
+SP,Irapuru,2026,3
+SP,Irapuã,2022,1
+SP,Irapuã,2024,1
+SP,Irapuã,2025,1
+SP,Irapuã,2026,1
+SP,Itaberá,2022,2
+SP,Itaberá,2023,2
+SP,Itaberá,2024,2
+SP,Itaberá,2025,2
+SP,Itajobi,2022,3
+SP,Itajobi,2023,2
+SP,Itajobi,2024,3
+SP,Itajobi,2025,3
+SP,Itajobi,2026,1
+SP,Itanhaém,2025,1
+SP,Itanhaém,2026,1
+SP,Itapetininga,2025,1
+SP,Itapetininga,2026,1
+SP,Itapeva,2026,1
+SP,Itapira,2025,1
+SP,Itapura,2022,2
+SP,Itapura,2023,3
+SP,Itapura,2024,5
+SP,Itapura,2025,4
+SP,Itapura,2026,4
+SP,Itarare,2024,3
+SP,Itarare,2025,1
+SP,Itarare,2026,1
+SP,Itariri,2026,1
+SP,Itatinga,2025,1
+SP,Itatinga,2026,1
+SP,Itaí,2022,2
+SP,Itaí,2023,2
+SP,Itaí,2024,2
+SP,Itaí,2025,2
+SP,Itirapina,2025,1
+SP,Itirapuã,2022,2
+SP,Itobi,2022,2
+SP,Itu,2026,1
+SP,Ituverava,2022,2
+SP,Ituverava,2023,2
+SP,Ituverava,2024,2
+SP,Ituverava,2025,2
+SP,Itápolis,2022,3
+SP,Itápolis,2023,2
+SP,Itápolis,2024,8
+SP,Itápolis,2025,5
+SP,Itápolis,2026,2
+SP,Jaborandi,2022,2
+SP,Jaborandi,2023,2
+SP,Jaborandi,2024,2
+SP,Jaborandi,2025,2
+SP,Jaboticabal,2024,3
+SP,Jaboticabal,2025,1
+SP,Jaboticabal,2026,2
+SP,Jacupiranga,2026,1
+SP,Jaguariúna,2025,1
+SP,Jales,2022,3
+SP,Jales,2023,5
+SP,Jales,2024,6
+SP,Jales,2025,4
+SP,Jales,2026,1
+SP,Jaú,2022,1
+SP,Jaú,2023,2
+SP,Jaú,2024,2
+SP,Jaú,2025,2
+SP,Jaú,2026,2
+SP,José Bonifácio,2022,1
+SP,José Bonifácio,2023,1
+SP,José Bonifácio,2024,2
+SP,José Bonifácio,2025,2
+SP,José Bonifácio,2026,1
+SP,João Ramalho,2022,1
+SP,João Ramalho,2023,1
+SP,João Ramalho,2024,2
+SP,João Ramalho,2025,1
+SP,João Ramalho,2026,1
+SP,Jundiaí,2026,1
+SP,Junqueirópolis,2022,1
+SP,Junqueirópolis,2023,4
+SP,Junqueirópolis,2024,4
+SP,Junqueirópolis,2025,3
+SP,Junqueirópolis,2026,3
+SP,Juquiá,2025,1
+SP,Juquiá,2026,1
+SP,Jurupeba,2022,2
+SP,Jurupeba,2024,1
+SP,Jurupeba,2025,1
+SP,Jurupeba,2026,1
+SP,Júlio Mesquita,2022,1
+SP,Júlio Mesquita,2023,1
+SP,Júlio Mesquita,2024,2
+SP,Júlio Mesquita,2025,1
+SP,Júlio Mesquita,2026,1
+SP,Lageado de Araçaíba,2022,2
+SP,Laranjal Paulista,2025,1
+SP,Lavínia,2022,1
+SP,Lavínia,2023,2
+SP,Lavínia,2024,2
+SP,Lavínia,2025,2
+SP,Lavínia,2026,3
+SP,Leme,2024,1
+SP,Leme,2025,1
+SP,Lençóis Paulista,2024,4
+SP,Lençóis Paulista,2025,1
+SP,Lençóis Paulista,2026,2
+SP,Limeira,2025,1
+SP,Limeira,2026,1
+SP,Lins,2022,5
+SP,Lins,2023,4
+SP,Lins,2024,6
+SP,Lins,2025,5
+SP,Lins,2026,3
+SP,Lorena,2022,2
+SP,Lourdes,2022,1
+SP,Lourdes,2023,1
+SP,Lourdes,2024,2
+SP,Lourdes,2025,1
+SP,Lourdes,2026,1
+SP,Lucélia,2022,2
+SP,Lucélia,2023,4
+SP,Lucélia,2024,4
+SP,Lucélia,2025,3
+SP,Lucélia,2026,3
+SP,Luiziânia,2022,1
+SP,Luiziânia,2023,2
+SP,Luiziânia,2024,4
+SP,Luiziânia,2025,3
+SP,Luiziânia,2026,3
+SP,Lupércio,2022,1
+SP,Lupércio,2023,1
+SP,Lupércio,2024,2
+SP,Lupércio,2025,1
+SP,Lupércio,2026,1
+SP,Lusitânia,2026,1
+SP,Lutécia,2022,2
+SP,Lutécia,2023,2
+SP,Lutécia,2024,3
+SP,Lutécia,2025,2
+SP,Lutécia,2026,2
+SP,Luís Antônio,2022,1
+SP,Luís Antônio,2023,1
+SP,Luís Antônio,2024,1
+SP,Luís Antônio,2025,1
+SP,Luís Antônio,2026,1
+SP,Macaubal,2022,1
+SP,Macaubal,2024,1
+SP,Macaubal,2025,1
+SP,Macaubal,2026,1
+SP,Macedônia,2023,3
+SP,Macedônia,2024,4
+SP,Macedônia,2025,2
+SP,Macedônia,2026,1
+SP,Macucos,2022,1
+SP,Magda,2022,1
+SP,Magda,2023,1
+SP,Magda,2024,2
+SP,Magda,2025,1
+SP,Magda,2026,1
+SP,Mangaratú,2022,2
+SP,Mangaratú,2024,1
+SP,Mangaratú,2025,1
+SP,Mangaratú,2026,1
+SP,Marabá Paulista,2022,2
+SP,Marabá Paulista,2023,3
+SP,Marabá Paulista,2024,4
+SP,Marabá Paulista,2025,3
+SP,Marabá Paulista,2026,4
+SP,Maracaí,2022,3
+SP,Maracaí,2023,2
+SP,Maracaí,2024,5
+SP,Maracaí,2025,3
+SP,Maracaí,2026,2
+SP,Marapoama,2022,3
+SP,Marapoama,2023,2
+SP,Marapoama,2024,3
+SP,Marapoama,2025,2
+SP,Marinópolis,2022,2
+SP,Marinópolis,2023,2
+SP,Marinópolis,2024,3
+SP,Marinópolis,2025,2
+SP,Marinópolis,2026,2
+SP,Martinópolis,2022,3
+SP,Martinópolis,2023,5
+SP,Martinópolis,2024,4
+SP,Martinópolis,2025,3
+SP,Martinópolis,2026,1
+SP,Marília,2022,3
+SP,Marília,2023,2
+SP,Marília,2024,5
+SP,Marília,2025,3
+SP,Marília,2026,3
+SP,Matão,2024,4
+SP,Matão,2025,2
+SP,Matão,2026,2
+SP,Meridiano,2022,2
+SP,Meridiano,2023,2
+SP,Meridiano,2024,2
+SP,Meridiano,2025,2
+SP,Mesópolis,2022,2
+SP,Mesópolis,2023,2
+SP,Mesópolis,2024,2
+SP,Mesópolis,2025,2
+SP,Miguelópolis,2022,2
+SP,Miguelópolis,2023,2
+SP,Miguelópolis,2024,2
+SP,Miguelópolis,2025,2
+SP,Mira Estrela,2023,3
+SP,Mira Estrela,2024,3
+SP,Mira Estrela,2025,1
+SP,Mira Estrela,2026,1
+SP,Miracatu,2025,1
+SP,Miracatu,2026,1
+SP,Mirandópolis,2022,1
+SP,Mirandópolis,2023,2
+SP,Mirandópolis,2024,4
+SP,Mirandópolis,2025,3
+SP,Mirandópolis,2026,3
+SP,Mirante do Paranapanema,2022,2
+SP,Mirante do Paranapanema,2023,4
+SP,Mirante do Paranapanema,2024,5
+SP,Mirante do Paranapanema,2025,4
+SP,Mirante do Paranapanema,2026,4
+SP,Mirassol,2023,3
+SP,Mirassol,2024,4
+SP,Mirassol,2025,2
+SP,Mirassol,2026,2
+SP,Mirassolândia,2022,2
+SP,Mirassolândia,2024,1
+SP,Mirassolândia,2025,1
+SP,Mirassolândia,2026,1
+SP,Mococa,2022,2
+SP,Mococa,2025,1
+SP,Mogi Guaçu,2022,2
+SP,Mogi Mirim,2022,2
+SP,Mogi Mirim,2026,1
+SP,Mogi das Cruzes,2026,1
+SP,Monte Alto,2022,3
+SP,Monte Alto,2023,2
+SP,Monte Alto,2024,4
+SP,Monte Alto,2025,3
+SP,Monte Alto,2026,2
+SP,Monte Aprazível,2023,3
+SP,Monte Aprazível,2024,4
+SP,Monte Aprazível,2025,2
+SP,Monte Aprazível,2026,1
+SP,Monte Azul Paulista,2024,2
+SP,Monte Azul Paulista,2025,1
+SP,Monte Castelo,2022,1
+SP,Monte Castelo,2023,2
+SP,Monte Castelo,2024,5
+SP,Monte Castelo,2025,3
+SP,Monte Castelo,2026,3
+SP,Monte Verde Paulista,2024,1
+SP,Monções,2022,1
+SP,Monções,2023,1
+SP,Monções,2024,2
+SP,Monções,2025,1
+SP,Monções,2026,1
+SP,Morro Agudo,2022,2
+SP,Morro Agudo,2023,2
+SP,Morro Agudo,2024,2
+SP,Morro Agudo,2025,2
+SP,Morro Agudo,2026,1
+SP,Motuca,2024,1
+SP,Murutinga do Sul,2022,2
+SP,Murutinga do Sul,2023,3
+SP,Murutinga do Sul,2024,4
+SP,Murutinga do Sul,2025,3
+SP,Murutinga do Sul,2026,4
+SP,Nantes,2022,1
+SP,Nantes,2023,1
+SP,Nantes,2024,2
+SP,Nantes,2025,1
+SP,Nantes,2026,1
+SP,Narandiba,2022,1
+SP,Narandiba,2023,2
+SP,Narandiba,2024,1
+SP,Narandiba,2025,1
+SP,Nhandeara,2023,3
+SP,Nhandeara,2024,3
+SP,Nhandeara,2025,1
+SP,Nhandeara,2026,1
+SP,Nova Canaã Paulista,2024,1
+SP,Nova Canaã Paulista,2025,1
+SP,Nova Castilho,2022,1
+SP,Nova Castilho,2023,1
+SP,Nova Castilho,2024,2
+SP,Nova Castilho,2025,1
+SP,Nova Castilho,2026,1
+SP,Nova Granada,2022,2
+SP,Nova Granada,2023,4
+SP,Nova Granada,2024,6
+SP,Nova Granada,2025,3
+SP,Nova Granada,2026,2
+SP,Nova Guataporanga,2022,1
+SP,Nova Guataporanga,2023,2
+SP,Nova Guataporanga,2024,4
+SP,Nova Guataporanga,2025,3
+SP,Nova Guataporanga,2026,3
+SP,Nova Independência,2022,1
+SP,Nova Independência,2023,2
+SP,Nova Independência,2024,5
+SP,Nova Independência,2025,3
+SP,Nova Independência,2026,3
+SP,Nova Luzitânia,2022,1
+SP,Nova Luzitânia,2023,1
+SP,Nova Luzitânia,2024,2
+SP,Nova Luzitânia,2025,1
+SP,Nova Luzitânia,2026,1
+SP,Nova Odessa,2025,1
+SP,Novais,2022,1
+SP,Novais,2024,2
+SP,Novais,2025,1
+SP,Novais,2026,1
+SP,Novo Horizonte,2022,4
+SP,Novo Horizonte,2023,3
+SP,Novo Horizonte,2024,5
+SP,Novo Horizonte,2025,5
+SP,Novo Horizonte,2026,2
+SP,Ocaucu,2022,1
+SP,Ocaucu,2023,1
+SP,Ocaucu,2024,2
+SP,Ocaucu,2025,1
+SP,Ocaucu,2026,1
+SP,Olímpia,2022,3
+SP,Olímpia,2023,4
+SP,Olímpia,2024,6
+SP,Olímpia,2025,3
+SP,Olímpia,2026,3
+SP,Onda Branca,2022,2
+SP,Onda Branca,2024,1
+SP,Onda Branca,2025,1
+SP,Onda Branca,2026,1
+SP,Oriente,2022,1
+SP,Oriente,2023,1
+SP,Oriente,2024,3
+SP,Oriente,2025,2
+SP,Oriente,2026,1
+SP,Orindiúva,2023,3
+SP,Orindiúva,2024,3
+SP,Orindiúva,2025,1
+SP,Orindiúva,2026,1
+SP,Orlândia,2022,2
+SP,Orlândia,2023,2
+SP,Orlândia,2024,2
+SP,Orlândia,2025,2
+SP,Osasco,2026,1
+SP,Oscar Bressane,2022,2
+SP,Oscar Bressane,2023,2
+SP,Oscar Bressane,2024,3
+SP,Oscar Bressane,2025,2
+SP,Oscar Bressane,2026,2
+SP,Osvaldo Cruz,2022,4
+SP,Osvaldo Cruz,2023,5
+SP,Osvaldo Cruz,2024,6
+SP,Osvaldo Cruz,2025,5
+SP,Osvaldo Cruz,2026,7
+SP,Ourinhos,2022,3
+SP,Ourinhos,2023,2
+SP,Ourinhos,2024,5
+SP,Ourinhos,2025,4
+SP,Ourinhos,2026,4
+SP,Ouro Verde,2022,1
+SP,Ouro Verde,2023,2
+SP,Ouro Verde,2024,4
+SP,Ouro Verde,2025,2
+SP,Ouro Verde,2026,3
+SP,Ouroeste,2023,3
+SP,Ouroeste,2024,4
+SP,Ouroeste,2025,2
+SP,Ouroeste,2026,1
+SP,Oásis,2024,1
+SP,Oásis,2025,1
+SP,Pacaembu,2022,1
+SP,Pacaembu,2023,2
+SP,Pacaembu,2024,3
+SP,Pacaembu,2025,2
+SP,Pacaembu,2026,3
+SP,Palestina,2022,5
+SP,Palestina,2023,6
+SP,Palestina,2024,7
+SP,Palestina,2025,5
+SP,Palestina,2026,3
+SP,Palmares Paulista,2022,3
+SP,Palmares Paulista,2023,2
+SP,Palmares Paulista,2024,3
+SP,Palmares Paulista,2025,3
+SP,Palmares Paulista,2026,1
+SP,Palmeira D'Oeste,2024,1
+SP,Palmeira D'Oeste,2025,1
+SP,Palmital,2022,2
+SP,Palmital,2023,3
+SP,Palmital,2024,6
+SP,Palmital,2025,4
+SP,Palmital,2026,4
+SP,Panorama,2022,2
+SP,Panorama,2023,3
+SP,Panorama,2024,6
+SP,Panorama,2025,4
+SP,Panorama,2026,5
+SP,Paraguaçu Paulista,2022,4
+SP,Paraguaçu Paulista,2023,4
+SP,Paraguaçu Paulista,2024,6
+SP,Paraguaçu Paulista,2025,4
+SP,Paraguaçu Paulista,2026,6
+SP,Paranabi,2023,3
+SP,Paranabi,2024,3
+SP,Paranabi,2025,1
+SP,Paranabi,2026,1
+SP,Paranapanema,2022,2
+SP,Paranapanema,2023,2
+SP,Paranapanema,2024,2
+SP,Paranapanema,2025,2
+SP,Paranapuã,2022,2
+SP,Paranapuã,2023,2
+SP,Paranapuã,2024,6
+SP,Paranapuã,2025,4
+SP,Paranapuã,2026,1
+SP,Parapuã,2022,2
+SP,Parapuã,2023,3
+SP,Parapuã,2024,3
+SP,Parapuã,2025,2
+SP,Parapuã,2026,3
+SP,Paraíso,2022,3
+SP,Paraíso,2023,2
+SP,Paraíso,2024,4
+SP,Paraíso,2025,3
+SP,Paraíso,2026,1
+SP,Pardinho,2024,1
+SP,Pardinho,2025,1
+SP,Pariquera-Açu,2026,1
+SP,Patrocínio Paulista,2022,2
+SP,Paulicéia,2022,1
+SP,Paulicéia,2023,2
+SP,Paulicéia,2024,5
+SP,Paulicéia,2025,3
+SP,Paulicéia,2026,3
+SP,Paulo de Faria,2022,2
+SP,Paulo de Faria,2023,5
+SP,Paulo de Faria,2024,5
+SP,Paulo de Faria,2025,3
+SP,Paulo de Faria,2026,1
+SP,Paulínia,2025,1
+SP,Paulópolis,2024,1
+SP,Paulópolis,2025,1
+SP,Pederneiras,2026,1
+SP,Pedranópolis,2023,3
+SP,Pedranópolis,2024,3
+SP,Pedranópolis,2025,1
+SP,Pedranópolis,2026,1
+SP,Pedrinhas Paulista,2022,1
+SP,Pedrinhas Paulista,2023,1
+SP,Pedrinhas Paulista,2024,4
+SP,Pedrinhas Paulista,2025,2
+SP,Pedrinhas Paulista,2026,1
+SP,Pedro de Toledo,2025,1
+SP,Pedro de Toledo,2026,1
+SP,Penápolis,2022,4
+SP,Penápolis,2023,5
+SP,Penápolis,2024,7
+SP,Penápolis,2025,6
+SP,Penápolis,2026,5
+SP,Pereira Barreto,2022,2
+SP,Pereira Barreto,2023,3
+SP,Pereira Barreto,2024,5
+SP,Pereira Barreto,2025,4
+SP,Pereira Barreto,2026,4
+SP,Peruíbe,2025,1
+SP,Piacatu,2022,1
+SP,Piacatu,2023,2
+SP,Piacatu,2024,3
+SP,Piacatu,2025,2
+SP,Piacatu,2026,3
+SP,Pindamonhangaba,2022,2
+SP,Pindorama,2022,3
+SP,Pindorama,2023,2
+SP,Pindorama,2024,4
+SP,Pindorama,2025,3
+SP,Pindorama,2026,1
+SP,Pinheiros,2022,2
+SP,Piquerobi,2023,1
+SP,Piquerobi,2024,1
+SP,Piquerobi,2025,1
+SP,Piquerobi,2026,2
+SP,Piracicaba,2022,1
+SP,Piracicaba,2023,1
+SP,Piracicaba,2024,1
+SP,Piracicaba,2025,2
+SP,Piracicaba,2026,3
+SP,Piraju,2022,1
+SP,Piraju,2023,1
+SP,Piraju,2024,2
+SP,Piraju,2025,1
+SP,Piraju,2026,2
+SP,Pirajuí,2022,1
+SP,Pirangi,2022,3
+SP,Pirangi,2023,2
+SP,Pirangi,2024,4
+SP,Pirangi,2025,3
+SP,Pirangi,2026,2
+SP,Pirapozinho,2022,4
+SP,Pirapozinho,2023,4
+SP,Pirapozinho,2024,4
+SP,Pirapozinho,2025,3
+SP,Pirapozinho,2026,2
+SP,Pirassununga,2022,1
+SP,Pirassununga,2024,1
+SP,Pirassununga,2025,1
+SP,Piratininga,2022,1
+SP,Piratininga,2023,1
+SP,Piratininga,2024,1
+SP,Piratininga,2025,1
+SP,Piratininga,2026,1
+SP,Pitangueiras,2024,1
+SP,Pitangueiras,2025,1
+SP,Pitangueiras,2026,1
+SP,Planalto do Sul,2024,1
+SP,Planalto do Sul,2025,1
+SP,Platina,2022,2
+SP,Platina,2023,2
+SP,Platina,2024,3
+SP,Platina,2025,2
+SP,Platina,2026,2
+SP,Pompéia,2022,1
+SP,Pompéia,2023,1
+SP,Pompéia,2024,3
+SP,Pompéia,2025,2
+SP,Pompéia,2026,2
+SP,Pongaí,2022,1
+SP,Pongaí,2023,1
+SP,Pongaí,2024,2
+SP,Pongaí,2025,1
+SP,Pongaí,2026,1
+SP,Pontes Gestal,2022,4
+SP,Pontes Gestal,2023,5
+SP,Pontes Gestal,2024,6
+SP,Pontes Gestal,2025,4
+SP,Pontes Gestal,2026,2
+SP,Populina,2022,2
+SP,Populina,2023,2
+SP,Populina,2024,5
+SP,Populina,2025,3
+SP,Populina,2026,1
+SP,Porto Ferreira,2023,1
+SP,Porto Ferreira,2024,1
+SP,Porto Ferreira,2025,1
+SP,Potirendaba,2022,1
+SP,Potirendaba,2024,1
+SP,Potirendaba,2025,1
+SP,Potirendaba,2026,1
+SP,Pracinha,2022,1
+SP,Pracinha,2023,1
+SP,Pracinha,2024,2
+SP,Pracinha,2025,1
+SP,Pracinha,2026,1
+SP,Presidente Bernardes,2022,2
+SP,Presidente Bernardes,2023,3
+SP,Presidente Bernardes,2024,4
+SP,Presidente Bernardes,2025,3
+SP,Presidente Bernardes,2026,2
+SP,Presidente Epitácio,2022,3
+SP,Presidente Epitácio,2023,5
+SP,Presidente Epitácio,2024,5
+SP,Presidente Epitácio,2025,4
+SP,Presidente Epitácio,2026,5
+SP,Presidente Prudente,2022,4
+SP,Presidente Prudente,2023,4
+SP,Presidente Prudente,2024,4
+SP,Presidente Prudente,2025,3
+SP,Presidente Prudente,2026,3
+SP,Presidente Venceslau,2022,3
+SP,Presidente Venceslau,2023,5
+SP,Presidente Venceslau,2024,5
+SP,Presidente Venceslau,2025,4
+SP,Presidente Venceslau,2026,4
+SP,Primavera,2024,1
+SP,Primavera,2025,1
+SP,Promissão,2022,1
+SP,Promissão,2023,1
+SP,Promissão,2024,2
+SP,Promissão,2025,1
+SP,Promissão,2026,2
+SP,Quatá,2022,5
+SP,Quatá,2023,4
+SP,Quatá,2024,7
+SP,Quatá,2025,5
+SP,Quatá,2026,3
+SP,Queiroz,2022,1
+SP,Queiroz,2023,1
+SP,Queiroz,2024,2
+SP,Queiroz,2025,1
+SP,Queiroz,2026,1
+SP,Quintana,2022,2
+SP,Quintana,2023,2
+SP,Quintana,2024,3
+SP,Quintana,2025,2
+SP,Quintana,2026,1
+SP,Rafard,2022,1
+SP,Rafard,2023,1
+SP,Rafard,2024,1
+SP,Rafard,2025,1
+SP,Rafard,2026,2
+SP,Rancharia,2022,5
+SP,Rancharia,2023,6
+SP,Rancharia,2024,6
+SP,Rancharia,2025,5
+SP,Rancharia,2026,3
+SP,Regente Feijó,2022,4
+SP,Regente Feijó,2023,4
+SP,Regente Feijó,2024,4
+SP,Regente Feijó,2025,3
+SP,Regente Feijó,2026,2
+SP,Reginopolis,2024,1
+SP,Reginopolis,2025,1
+SP,Registro,2026,1
+SP,Ribeirão Bonito,2025,1
+SP,Ribeirão Preto,2024,1
+SP,Ribeirão Preto,2025,1
+SP,Ribeirão Preto,2026,1
+SP,Ribeirão do Sul,2022,2
+SP,Ribeirão do Sul,2023,2
+SP,Ribeirão do Sul,2024,4
+SP,Ribeirão do Sul,2025,3
+SP,Ribeirão do Sul,2026,2
+SP,Ribeirão dos Índios,2022,2
+SP,Ribeirão dos Índios,2023,3
+SP,Ribeirão dos Índios,2024,4
+SP,Ribeirão dos Índios,2025,3
+SP,Ribeirão dos Índios,2026,4
+SP,Rincão,2024,1
+SP,Rincão,2025,1
+SP,Rincão,2026,1
+SP,Rinópolis,2022,2
+SP,Rinópolis,2023,4
+SP,Rinópolis,2024,5
+SP,Rinópolis,2025,4
+SP,Rinópolis,2026,3
+SP,Rio Claro,2025,1
+SP,Rio Claro,2026,1
+SP,Rio das Pedras,2022,1
+SP,Rio das Pedras,2023,1
+SP,Rio das Pedras,2024,1
+SP,Rio das Pedras,2025,1
+SP,Rio das Pedras,2026,2
+SP,Riolândia,2022,2
+SP,Riolândia,2023,5
+SP,Riolândia,2024,5
+SP,Riolândia,2025,3
+SP,Riolândia,2026,1
+SP,Rosana,2022,1
+SP,Rosana,2023,4
+SP,Rosana,2024,4
+SP,Rosana,2025,3
+SP,Rosana,2026,3
+SP,Rubiácea,2023,1
+SP,Rubiácea,2024,1
+SP,Rubiácea,2025,1
+SP,Rubiácea,2026,2
+SP,Sabino,2022,3
+SP,Sabino,2023,3
+SP,Sabino,2024,4
+SP,Sabino,2025,3
+SP,Sabino,2026,1
+SP,Sagres,2022,2
+SP,Sagres,2023,3
+SP,Sagres,2024,3
+SP,Sagres,2025,2
+SP,Sagres,2026,3
+SP,Sales Oliveira,2022,2
+SP,Sales Oliveira,2023,2
+SP,Sales Oliveira,2024,2
+SP,Sales Oliveira,2025,2
+SP,Salmourão,2022,1
+SP,Salmourão,2023,2
+SP,Salmourão,2024,3
+SP,Salmourão,2025,2
+SP,Salmourão,2026,5
+SP,Saltinho,2025,1
+SP,Salto,2024,3
+SP,Salto,2025,1
+SP,Salto,2026,2
+SP,Salto Grande,2022,2
+SP,Salto Grande,2023,2
+SP,Salto Grande,2024,4
+SP,Salto Grande,2025,2
+SP,Salto Grande,2026,3
+SP,Sandovalina,2022,3
+SP,Sandovalina,2023,5
+SP,Sandovalina,2024,5
+SP,Sandovalina,2025,4
+SP,Sandovalina,2026,4
+SP,Santa Adélia,2022,3
+SP,Santa Adélia,2023,2
+SP,Santa Adélia,2024,4
+SP,Santa Adélia,2025,3
+SP,Santa Adélia,2026,1
+SP,Santa Albertina,2022,2
+SP,Santa Albertina,2023,2
+SP,Santa Albertina,2024,2
+SP,Santa Albertina,2025,2
+SP,Santa Bárbara D'Oeste,2023,1
+SP,Santa Bárbara D'Oeste,2024,1
+SP,Santa Bárbara D'Oeste,2025,3
+SP,Santa Bárbara D'Oeste,2026,2
+SP,Santa Cruz das Palmeiras,2022,2
+SP,Santa Cruz do Rio Pardo,2022,2
+SP,Santa Cruz do Rio Pardo,2023,1
+SP,Santa Cruz do Rio Pardo,2024,4
+SP,Santa Cruz do Rio Pardo,2025,3
+SP,Santa Cruz do Rio Pardo,2026,3
+SP,Santa Fé do Sul,2022,2
+SP,Santa Fé do Sul,2023,1
+SP,Santa Fé do Sul,2024,2
+SP,Santa Fé do Sul,2025,2
+SP,Santa Fé do Sul,2026,1
+SP,Santa Gertrudes,2025,1
+SP,Santa Mercedes,2023,1
+SP,Santa Mercedes,2024,1
+SP,Santa Mercedes,2025,1
+SP,Santa Mercedes,2026,2
+SP,Santa Rita D'Oeste,2022,2
+SP,Santa Rita D'Oeste,2023,2
+SP,Santa Rita D'Oeste,2024,2
+SP,Santa Rita D'Oeste,2025,2
+SP,Santa Rita do Passa Quatro,2022,1
+SP,Santa Rita do Passa Quatro,2023,1
+SP,Santa Rita do Passa Quatro,2024,1
+SP,Santa Rita do Passa Quatro,2025,1
+SP,Santa Rosa de Viterbo,2022,2
+SP,Santo Anastácio,2022,1
+SP,Santo Anastácio,2023,3
+SP,Santo Anastácio,2024,4
+SP,Santo Anastácio,2025,3
+SP,Santo Anastácio,2026,3
+SP,Santo André,2022,1
+SP,Santo André,2023,1
+SP,Santo André,2024,1
+SP,Santo André,2025,1
+SP,Santo André,2026,2
+SP,Santo Antônio da Alegria,2022,2
+SP,Santo Antônio do Aracanguá,2022,1
+SP,Santo Antônio do Aracanguá,2023,2
+SP,Santo Antônio do Aracanguá,2024,3
+SP,Santo Antônio do Aracanguá,2025,2
+SP,Santo Antônio do Aracanguá,2026,3
+SP,Santo Expedito,2022,2
+SP,Santo Expedito,2023,2
+SP,Santo Expedito,2024,4
+SP,Santo Expedito,2025,3
+SP,Santo Expedito,2026,2
+SP,Santópolis do Aguapeí,2022,1
+SP,Santópolis do Aguapeí,2023,2
+SP,Santópolis do Aguapeí,2024,3
+SP,Santópolis do Aguapeí,2025,2
+SP,Santópolis do Aguapeí,2026,3
+SP,Sarutaiá,2022,1
+SP,Sarutaiá,2023,1
+SP,Sarutaiá,2024,2
+SP,Sarutaiá,2025,1
+SP,Sarutaiá,2026,1
+SP,Serrana,2022,2
+SP,Sertãozinho,2022,2
+SP,Sertãozinho,2026,1
+SP,Sete Barras,2026,1
+SP,Severínia,2024,2
+SP,Severínia,2025,1
+SP,Socorro,2022,2
+SP,Sorocaba,2026,2
+SP,Sud Mennucci,2022,1
+SP,Sud Mennucci,2023,1
+SP,Sud Mennucci,2024,3
+SP,Sud Mennucci,2025,2
+SP,Sud Mennucci,2026,1
+SP,Sumaré,2025,1
+SP,Sumaré,2026,1
+SP,Suzanápolis,2022,1
+SP,Suzanápolis,2023,1
+SP,Suzanápolis,2024,2
+SP,Suzanápolis,2025,2
+SP,Suzanápolis,2026,1
+SP,São Bernardo do Campo,2026,1
+SP,São Carlos,2022,1
+SP,São Carlos,2023,1
+SP,São Carlos,2024,1
+SP,São Carlos,2025,1
+SP,São Carlos,2026,1
+SP,São Joaquim da Barra,2022,2
+SP,São Joaquim da Barra,2023,2
+SP,São Joaquim da Barra,2024,2
+SP,São Joaquim da Barra,2025,2
+SP,São José do Barreiro,2022,2
+SP,São José do Rio Pardo,2022,3
+SP,São José do Rio Preto,2022,3
+SP,São José do Rio Preto,2023,1
+SP,São José do Rio Preto,2024,6
+SP,São José do Rio Preto,2025,4
+SP,São José do Rio Preto,2026,4
+SP,São José dos Campos,2022,2
+SP,São João da Boa Vista,2022,2
+SP,São João da Boa Vista,2024,1
+SP,São João do Pau d'Alho,2022,1
+SP,São João do Pau d'Alho,2023,2
+SP,São João do Pau d'Alho,2024,3
+SP,São João do Pau d'Alho,2025,2
+SP,São João do Pau d'Alho,2026,3
+SP,São Manuel,2024,1
+SP,São Manuel,2026,2
+SP,São Paulo,2024,3
+SP,São Paulo,2025,1
+SP,São Paulo,2026,2
+SP,São Pedro,2025,1
+SP,São Pedro do Turvo,2022,1
+SP,São Pedro do Turvo,2023,1
+SP,São Pedro do Turvo,2024,3
+SP,São Pedro do Turvo,2025,1
+SP,São Pedro do Turvo,2026,1
+SP,São Roque,2026,1
+SP,São Sebastião,2022,1
+SP,São Sebastião da Grama,2022,1
+SP,Tabapuã,2022,1
+SP,Tabapuã,2024,2
+SP,Tabapuã,2025,2
+SP,Taciba,2022,3
+SP,Taciba,2023,3
+SP,Taciba,2024,3
+SP,Taciba,2025,2
+SP,Taciba,2026,1
+SP,Taiaçu,2022,3
+SP,Taiaçu,2023,2
+SP,Taiaçu,2024,4
+SP,Taiaçu,2025,3
+SP,Taiaçu,2026,1
+SP,Taiúva,2022,2
+SP,Taiúva,2023,2
+SP,Taiúva,2024,3
+SP,Taiúva,2025,2
+SP,Taiúva,2026,1
+SP,Tambaú,2022,2
+SP,Tanabi,2022,2
+SP,Tanabi,2023,1
+SP,Tanabi,2024,1
+SP,Tanabi,2025,1
+SP,Tanabi,2026,1
+SP,Taquaral,2022,2
+SP,Taquaral,2023,3
+SP,Taquaral,2024,3
+SP,Taquaral,2025,1
+SP,Taquaral,2026,1
+SP,Taquaritinga,2022,2
+SP,Taquaritinga,2023,2
+SP,Taquaritinga,2024,3
+SP,Taquaritinga,2025,2
+SP,Taquarituba,2026,1
+SP,Tarabai,2022,2
+SP,Tarabai,2023,3
+SP,Tarabai,2024,3
+SP,Tarabai,2025,2
+SP,Tarabai,2026,1
+SP,Tarumã,2022,1
+SP,Tarumã,2023,2
+SP,Tarumã,2024,5
+SP,Tarumã,2025,3
+SP,Tarumã,2026,2
+SP,Tatuí,2026,1
+SP,Tejupá,2022,1
+SP,Tejupá,2023,1
+SP,Tejupá,2024,2
+SP,Tejupá,2025,1
+SP,Tejupá,2026,1
+SP,Teodoro Sampaio,2022,3
+SP,Teodoro Sampaio,2023,4
+SP,Teodoro Sampaio,2024,5
+SP,Teodoro Sampaio,2025,4
+SP,Teodoro Sampaio,2026,4
+SP,Terra Roxa,2026,1
+SP,Tietê,2024,1
+SP,Tietê,2025,1
+SP,Timburi,2022,1
+SP,Timburi,2023,1
+SP,Timburi,2024,2
+SP,Timburi,2025,1
+SP,Timburi,2026,1
+SP,Três Fronteiras,2024,1
+SP,Três Fronteiras,2025,1
+SP,Tupi Paulista,2022,1
+SP,Tupi Paulista,2023,4
+SP,Tupi Paulista,2024,5
+SP,Tupi Paulista,2025,3
+SP,Tupi Paulista,2026,3
+SP,Tupã,2022,4
+SP,Tupã,2023,5
+SP,Tupã,2024,7
+SP,Tupã,2025,5
+SP,Tupã,2026,4
+SP,Turiúba,2022,1
+SP,Turiúba,2023,1
+SP,Turiúba,2024,2
+SP,Turiúba,2025,1
+SP,Turiúba,2026,1
+SP,Turmalina,2022,2
+SP,Turmalina,2023,5
+SP,Turmalina,2024,5
+SP,Turmalina,2025,3
+SP,Turmalina,2026,1
+SP,Turvínia,2024,1
+SP,Uchoa,2022,3
+SP,Uchoa,2023,2
+SP,Uchoa,2024,3
+SP,Uchoa,2025,3
+SP,Uchoa,2026,1
+SP,Uru,2022,1
+SP,Uru,2023,1
+SP,Uru,2024,2
+SP,Uru,2025,1
+SP,Uru,2026,1
+SP,Urupês,2022,3
+SP,Urupês,2023,2
+SP,Urupês,2024,3
+SP,Urupês,2025,2
+SP,Urânia,2022,2
+SP,Urânia,2023,2
+SP,Urânia,2024,3
+SP,Urânia,2025,3
+SP,Valparaíso,2022,2
+SP,Valparaíso,2023,3
+SP,Valparaíso,2024,5
+SP,Valparaíso,2025,4
+SP,Valparaíso,2026,4
+SP,Vargem Grande do Sul,2022,2
+SP,Vargem Grande do Sul,2023,1
+SP,Vera Cruz,2022,1
+SP,Vera Cruz,2023,1
+SP,Vera Cruz,2024,2
+SP,Vera Cruz,2025,1
+SP,Vera Cruz,2026,1
+SP,Viradouro,2026,1
+SP,Vista Alegre do Alto,2022,4
+SP,Vista Alegre do Alto,2023,3
+SP,Vista Alegre do Alto,2024,5
+SP,Vista Alegre do Alto,2025,5
+SP,Vista Alegre do Alto,2026,3
+SP,Vitória Brasil,2024,3
+SP,Vitória Brasil,2025,1
+SP,Vitória Brasil,2026,1
+SP,Votorantim,2026,1
+SP,Votuporanga,2022,2
+SP,Votuporanga,2023,1
+SP,Votuporanga,2024,2
+SP,Votuporanga,2025,2
+SP,Votuporanga,2026,2
+SP,Zacarias,2022,1
+SP,Zacarias,2023,1
+SP,Zacarias,2024,2
+SP,Zacarias,2025,1
+SP,Zacarias,2026,1
+SP,Águas de Lindóia,2022,2
+SP,Águas de Santa Bárbara,2025,1
+SP,Águas de São Pedro,2025,1
+SP,Álvares Florence,2022,2
+SP,Álvares Florence,2024,1
+SP,Álvares Florence,2025,1
+SP,Álvares Florence,2026,1
+SP,Álvares Machado,2022,2
+SP,Álvares Machado,2023,3
+SP,Álvares Machado,2024,3
+SP,Álvares Machado,2025,2
+SP,Álvares Machado,2026,1
+SP,Álvaro de Carvalho,2022,1
+SP,Álvaro de Carvalho,2023,1
+SP,Álvaro de Carvalho,2024,2
+SP,Álvaro de Carvalho,2025,1
+SP,Álvaro de Carvalho,2026,1
+TO,Abreulândia,2023,2
+TO,Abreulândia,2024,2
+TO,Abreulândia,2025,2
+TO,Abreulândia,2026,1
+TO,Aliança do Tocantins,2025,1
+TO,Almas,2025,1
+TO,Alvorada,2025,1
+TO,Ananás,2022,3
+TO,Ananás,2023,1
+TO,Ananás,2024,1
+TO,Ananás,2025,1
+TO,Angico,2022,3
+TO,Angico,2023,2
+TO,Angico,2024,2
+TO,Angico,2025,2
+TO,Angico,2026,1
+TO,Aparecida do Rio Negro,2025,1
+TO,Araguacema,2026,1
+TO,Araguanã,2022,3
+TO,Araguanã,2023,2
+TO,Araguanã,2024,2
+TO,Araguanã,2025,2
+TO,Araguanã,2026,1
+TO,Araguatins,2022,3
+TO,Araguatins,2023,2
+TO,Araguatins,2024,2
+TO,Araguatins,2025,2
+TO,Araguatins,2026,1
+TO,Araguaína,2021,1
+TO,Araguaína,2022,4
+TO,Araguaína,2023,2
+TO,Araguaína,2024,3
+TO,Araguaína,2025,3
+TO,Araguaína,2026,1
+TO,Augustinópolis,2022,3
+TO,Augustinópolis,2023,2
+TO,Augustinópolis,2024,2
+TO,Augustinópolis,2025,2
+TO,Augustinópolis,2026,1
+TO,Axixá do Tocantins,2022,3
+TO,Axixá do Tocantins,2023,2
+TO,Axixá do Tocantins,2024,2
+TO,Axixá do Tocantins,2025,2
+TO,Axixá do Tocantins,2026,1
+TO,Babaçulândia,2022,3
+TO,Babaçulândia,2023,2
+TO,Babaçulândia,2024,2
+TO,Babaçulândia,2025,1
+TO,Barrolândia,2023,2
+TO,Barrolândia,2024,2
+TO,Barrolândia,2025,2
+TO,Barrolândia,2026,1
+TO,Bom Jesus do Tocantins,2022,1
+TO,Bom Jesus do Tocantins,2023,4
+TO,Bom Jesus do Tocantins,2024,2
+TO,Bom Jesus do Tocantins,2025,1
+TO,Bom Jesus do Tocantins,2026,1
+TO,Brejinho de Nazaré,2025,1
+TO,Buriti do Tocantins,2022,3
+TO,Buriti do Tocantins,2023,2
+TO,Buriti do Tocantins,2024,2
+TO,Buriti do Tocantins,2025,2
+TO,Buriti do Tocantins,2026,1
+TO,Cachoeirinha,2022,3
+TO,Cachoeirinha,2023,2
+TO,Cachoeirinha,2024,2
+TO,Cachoeirinha,2025,2
+TO,Cachoeirinha,2026,1
+TO,Campos Lindos,2021,1
+TO,Campos Lindos,2022,1
+TO,Campos Lindos,2024,1
+TO,Campos Lindos,2025,1
+TO,Cariri do Tocantins,2025,1
+TO,Carmolândia,2022,3
+TO,Carmolândia,2023,2
+TO,Carmolândia,2024,2
+TO,Carmolândia,2025,2
+TO,Carmolândia,2026,1
+TO,Carrasco Bonito,2022,3
+TO,Carrasco Bonito,2023,2
+TO,Carrasco Bonito,2024,2
+TO,Carrasco Bonito,2025,2
+TO,Carrasco Bonito,2026,1
+TO,Caseara,2025,2
+TO,Chapada da Natividade,2025,1
+TO,Chapada de Areia,2025,1
+TO,Colméia,2025,1
+TO,Couto de Magalhães,2021,1
+TO,Couto de Magalhães,2022,1
+TO,Couto de Magalhães,2024,1
+TO,Couto de Magalhães,2025,1
+TO,Cristalândia,2023,2
+TO,Cristalândia,2024,2
+TO,Cristalândia,2025,3
+TO,Cristalândia,2026,2
+TO,Crixás do Tocantins,2025,1
+TO,Darcinópolis,2022,3
+TO,Darcinópolis,2023,2
+TO,Darcinópolis,2024,1
+TO,Darcinópolis,2025,1
+TO,Darcinópolis,2026,1
+TO,Dianópolis,2021,1
+TO,Dianópolis,2022,1
+TO,Dianópolis,2024,2
+TO,Dianópolis,2025,1
+TO,Divinópolis do Tocantins,2023,2
+TO,Divinópolis do Tocantins,2024,2
+TO,Divinópolis do Tocantins,2025,3
+TO,Divinópolis do Tocantins,2026,1
+TO,Dois Irmãos do Tocantins,2023,2
+TO,Dois Irmãos do Tocantins,2024,2
+TO,Dois Irmãos do Tocantins,2025,2
+TO,Dois Irmãos do Tocantins,2026,1
+TO,Duerê,2025,1
+TO,Esperantina,2022,3
+TO,Esperantina,2023,2
+TO,Esperantina,2024,2
+TO,Esperantina,2025,2
+TO,Esperantina,2026,1
+TO,Figueirópolis,2025,1
+TO,Filadélfia,2022,3
+TO,Filadélfia,2023,2
+TO,Filadélfia,2024,2
+TO,Filadélfia,2025,2
+TO,Filadélfia,2026,1
+TO,Formoso do Araguaia,2025,2
+TO,Fátima,2023,2
+TO,Fátima,2024,2
+TO,Fátima,2025,2
+TO,Fátima,2026,1
+TO,Goianorte,2025,1
+TO,Guaraí,2023,2
+TO,Guaraí,2024,2
+TO,Guaraí,2025,2
+TO,Guaraí,2026,1
+TO,Gurupi,2025,1
+TO,Ipueiras,2025,1
+TO,Itaguatins,2022,3
+TO,Itaguatins,2023,2
+TO,Itaguatins,2024,2
+TO,Itaguatins,2025,2
+TO,Itaguatins,2026,1
+TO,Jaú do Tocantins,2025,1
+TO,Lagoa da Confusão,2021,1
+TO,Lagoa da Confusão,2022,1
+TO,Lagoa da Confusão,2023,2
+TO,Lagoa da Confusão,2024,3
+TO,Lagoa da Confusão,2025,3
+TO,Lagoa da Confusão,2026,2
+TO,Lagoa do Tocantins,2025,1
+TO,Lajeado,2023,2
+TO,Lajeado,2024,2
+TO,Lajeado,2025,2
+TO,Lajeado,2026,1
+TO,Luzinópolis,2022,3
+TO,Luzinópolis,2023,2
+TO,Luzinópolis,2024,2
+TO,Luzinópolis,2025,2
+TO,Luzinópolis,2026,1
+TO,Marianópolis do Tocantins,2022,1
+TO,Marianópolis do Tocantins,2023,4
+TO,Marianópolis do Tocantins,2024,2
+TO,Marianópolis do Tocantins,2025,4
+TO,Marianópolis do Tocantins,2026,2
+TO,Maurilândia do Tocantins,2022,3
+TO,Maurilândia do Tocantins,2023,2
+TO,Maurilândia do Tocantins,2024,2
+TO,Maurilândia do Tocantins,2025,1
+TO,Miracema do Tocantins,2023,2
+TO,Miracema do Tocantins,2024,2
+TO,Miracema do Tocantins,2025,2
+TO,Miracema do Tocantins,2026,1
+TO,Mirandópolis,2023,2
+TO,Mirandópolis,2024,2
+TO,Mirandópolis,2025,1
+TO,Mirandópolis,2026,1
+TO,Miranorte,2023,2
+TO,Miranorte,2024,2
+TO,Miranorte,2025,2
+TO,Miranorte,2026,1
+TO,Monte Santo do Tocantins,2025,1
+TO,Monte do Carmo,2025,1
+TO,Natividade,2025,1
+TO,Nazaré,2022,3
+TO,Nazaré,2023,2
+TO,Nazaré,2024,2
+TO,Nazaré,2025,2
+TO,Nazaré,2026,1
+TO,Nova Rosalândia,2025,1
+TO,Novo Acordo,2025,1
+TO,Oliveira de Fátima,2025,1
+TO,Palmas,2023,2
+TO,Palmas,2024,2
+TO,Palmas,2025,2
+TO,Palmas,2026,1
+TO,Palmeiras do Tocantins,2022,3
+TO,Palmeiras do Tocantins,2023,2
+TO,Palmeiras do Tocantins,2024,2
+TO,Palmeiras do Tocantins,2025,2
+TO,Palmeiras do Tocantins,2026,1
+TO,Paraíso do Tocantins,2023,2
+TO,Paraíso do Tocantins,2024,2
+TO,Paraíso do Tocantins,2025,2
+TO,Paraíso do Tocantins,2026,1
+TO,Pedro Afonso,2022,1
+TO,Pedro Afonso,2023,4
+TO,Pedro Afonso,2024,2
+TO,Pedro Afonso,2025,1
+TO,Pedro Afonso,2026,1
+TO,Peixe,2025,1
+TO,Pindorama do Tocantins,2025,1
+TO,Piraquê,2021,1
+TO,Piraquê,2022,3
+TO,Piraquê,2023,2
+TO,Piraquê,2024,2
+TO,Piraquê,2025,1
+TO,Pium,2023,2
+TO,Pium,2024,2
+TO,Pium,2025,2
+TO,Pium,2026,1
+TO,Ponte Alta do Tocantins,2025,1
+TO,Porto Alegre do Tocantins,2025,1
+TO,Porto Nacional,2025,1
+TO,Praia Norte,2022,3
+TO,Praia Norte,2023,2
+TO,Praia Norte,2024,2
+TO,Praia Norte,2025,1
+TO,Pugmil,2025,1
+TO,Riachinho,2022,3
+TO,Riachinho,2023,2
+TO,Riachinho,2024,2
+TO,Riachinho,2025,1
+TO,Rio Sono,2025,1
+TO,Rio dos Bois,2025,1
+TO,Sampaio,2022,3
+TO,Sampaio,2023,2
+TO,Sampaio,2024,2
+TO,Sampaio,2025,2
+TO,Sampaio,2026,1
+TO,Sandolândia,2025,1
+TO,Santa Maria do Tocantins,2023,2
+TO,Santa Maria do Tocantins,2024,2
+TO,Santa Maria do Tocantins,2025,1
+TO,Santa Maria do Tocantins,2026,1
+TO,Santa Rita do Tocantins,2025,2
+TO,Santa Rosa do Tocantins,2025,1
+TO,Santa Tereza do Tocantins,2022,3
+TO,Santa Tereza do Tocantins,2023,2
+TO,Santa Tereza do Tocantins,2024,2
+TO,Santa Tereza do Tocantins,2025,1
+TO,Santa Tereza do Tocantins,2026,1
+TO,Silvanópolis,2025,1
+TO,Sucupira,2025,1
+TO,São Bento do Tocantins,2022,3
+TO,São Bento do Tocantins,2023,2
+TO,São Bento do Tocantins,2024,2
+TO,São Bento do Tocantins,2025,2
+TO,São Bento do Tocantins,2026,1
+TO,São Miguel do Tocantins,2022,3
+TO,São Miguel do Tocantins,2023,2
+TO,São Miguel do Tocantins,2024,2
+TO,São Miguel do Tocantins,2025,2
+TO,São Miguel do Tocantins,2026,1
+TO,São Sebastião do Tocantins,2022,3
+TO,São Sebastião do Tocantins,2023,2
+TO,São Sebastião do Tocantins,2024,2
+TO,São Sebastião do Tocantins,2025,2
+TO,São Sebastião do Tocantins,2026,1
+TO,São Valério,2025,1
+TO,Sítio Novo do Tocantins,2022,3
+TO,Sítio Novo do Tocantins,2023,2
+TO,Sítio Novo do Tocantins,2024,2
+TO,Sítio Novo do Tocantins,2025,2
+TO,Sítio Novo do Tocantins,2026,1
+TO,Tabocão,2025,1
+TO,Talismã,2025,1
+TO,Taquaruçu,2023,2
+TO,Taquaruçu,2024,2
+TO,Taquaruçu,2025,1
+TO,Taquaruçu,2026,1
+TO,Tocantinópolis,2022,3
+TO,Tocantinópolis,2023,2
+TO,Tocantinópolis,2024,2
+TO,Tocantinópolis,2025,2
+TO,Tocantinópolis,2026,1
+TO,Tocantínia,2025,1
+TO,Tupirama,2022,1
+TO,Tupirama,2023,4
+TO,Tupirama,2024,2
+TO,Tupirama,2025,1
+TO,Tupirama,2026,1
+TO,Wanderlândia,2022,3
+TO,Wanderlândia,2023,2
+TO,Wanderlândia,2024,2
+TO,Wanderlândia,2025,2
+TO,Wanderlândia,2026,1
+TO,Xambioá,2022,3
+TO,Xambioá,2023,2
+TO,Xambioá,2024,2
+TO,Xambioá,2025,2
+TO,Xambioá,2026,1
