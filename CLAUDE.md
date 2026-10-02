@@ -1,7 +1,21 @@
 # CLAUDE.md — Memória operacional do projeto
 
 > Contém APENAS o estado vigente. Limite: ~250 linhas. Histórico → `docs/archive/`.
-> Uma nova conversa deve conseguir retomar o projeto lendo este arquivo + `planning/tasks.md`.
+> Uma nova conversa deve conseguir retomar o projeto lendo este arquivo + `docs/implementacao/README.md`.
+
+## 0. Retomada após `/clear` (a equipe limpa o chat entre etapas)
+
+1. Leia este arquivo e **`docs/implementacao/README.md`** (plano da implementação real, tabela de etapas E00–E14).
+2. Pegue a etapa 🔄 ou a próxima ⏳ e leia **só o arquivo dela** (`docs/implementacao/E0X-*.md`), que tem contexto,
+   arquivos envolvidos, passos, teste e ações humanas.
+3. Ao terminar: marque ✅ + hash na tabela, atualize §1 deste arquivo em **1–3 linhas** e responda com o
+   **bloco de fechamento** (README do plano, §5): o que mudou, 🧪 como a equipe testa, 👥 passo a passo do que a equipe faz.
+4. Scripts de subir (`dev.sh`, `iniciar.*`, `docker/`) **sempre** atualizados na mesma etapa: a equipe testa toda etapa com eles.
+
+**Economia de contexto (obrigatório):** não explore o repositório inteiro; ler arquivos por trecho (`grep`/`sed -n`);
+não colar arquivos grandes nem logs longos na conversa (use `tail`); não reabrir etapas ✅; uma etapa por conversa;
+se a etapa for grande, divida e registre o ponto de parada no arquivo da etapa antes do contexto acabar.
+Este arquivo ≤ 250 linhas: ao atualizar, **substitua** linhas de estado em vez de acrescentar; histórico → `docs/archive/`.
 
 ---
 
@@ -9,7 +23,7 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | **FASE 5 — CONSTRUÇÃO** · etapa atual: **protótipo visual** em `/prototipo` (D-009), validando UX antes de ligar ao backend |
+| Fase | **FASE 5 — CONSTRUÇÃO** · protótipo validado pela equipe (02/10 ~19h) → **implementação real** seguindo `docs/implementacao/` |
 | Último checkpoint | CP6 — Fluxo principal funcionando no protótipo |
 | Próximo checkpoint | CP7 — Demo funcionando (20h) |
 | Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
@@ -33,8 +47,8 @@
   (NASA POWER: set/26 93 mm × normal 48 mm; IBGE malhas) · Open-Meteo · NASA GIBS (camadas verificadas). Ver `docs/09`.
 - **Modelo de negócio:** A — público, ATER (CATI/Senar/prefeitura), gratuito ao produtor. Ver `docs/10-business-model.md`.
 
-**Próximo:** revisão da equipe no celular → ligar ao backend o essencial para a demo (recomendado: entrevista → contexto salvo
-→ casos enviados persistidos) → **pitch (Thales) + PDF** com números reais → congelamento 03/10 08h.
+**Próximo:** 👥 E00 (decisões D-017…D-021) → E01…E13 do plano `docs/implementacao/README.md` (essenciais: E01–E08, E11–E13)
+→ **pitch (Thales) + PDF** com números reais → congelamento 03/10 08h.
 **Pendências 👥:** validar fluxo de casos com técnico da CATI (via mentor) · confirmar % de assistência técnica (Censo Agro 2017).
 
 **Restrições-chave:** agenda CEPIN (visão computacional, preditivo, otimização, automação/robótica);
@@ -143,6 +157,7 @@ CLAUDE.md            memória operacional (este arquivo)
 README.md            apresentação + como rodar
 iniciar.sh/.bat/.ps1 sobe tudo (Docker ou, sem Docker, via dev.sh) · docker-compose.yml + docker/
 dev.sh               modo sem Docker, sem sudo (--proto, --reset, --sync)
+docs/implementacao/  PLANO DA IMPLEMENTAÇÃO REAL (índice + 1 arquivo por etapa) — ler após /clear
 docs/00..10-*.md     contexto → problema → dados → solução → MVP → arq → decisões → testes → pitch → APIs → modelo de negócio
 docs/brand/          logos AgroBits (originais) e paleta
 planning/            tasks, roadmap, agents, risks, timeline
