@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .db import Base, engine
-from .routers import api, assistant, auth, onboarding, topics
+from .routers import api, assistant, auth, cases, onboarding, topics
 
 Base.metadata.create_all(engine)
 
@@ -13,6 +13,7 @@ app.include_router(auth.router)
 app.include_router(api.router)
 app.include_router(onboarding.router)
 app.include_router(topics.router)
+app.include_router(cases.router)
 app.include_router(assistant.router)
 
 

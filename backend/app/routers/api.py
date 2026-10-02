@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 from ..auth import current_producer
 from ..db import get_session
-from ..models import AlertState, Event, Field, ProfileFact, Season, StockItem, StockMovement
+from ..models import AlertState, Event, Field, Producer, ProfileFact, Season, StockItem, StockMovement
 from ..services import farmdata as fd
 from ..services import context as ctx
 from ..services import live
@@ -387,7 +387,20 @@ def boundary(session: Session = DB):
 
 @router.get("/opendata/sources")
 def sources():
-    return od.all_sources()
+    """Fontes abertas com o contador de linhas e a data da última conferência no portal (`data/sync_state.json`)."""
+    return od.sources_overview()
+
+
+@router.get("/opendata/funnel")
+def funnel(session: Session = DB, me: Producer = Depends(current_producer)):
+    """Do volume bruto ao que importa para a conta: total das bases → município e culturas → janelas → assuntos."""
+    from ..services import topics as tp
+    farm = fd.find_farm(session, me)
+    if farm is None:
+        return {"available": False, "steps": []}
+    crops = [f.crop for f in session.scalars(select(Field).where(Field.farm_id == farm.id)) if f.crop]
+    data = tp.compute(session, me.id)
+    return od.funnel(farm.geocode, farm.municipality, crops, len(data["topics"]))
 
 
 # ---------------- perfil ----------------

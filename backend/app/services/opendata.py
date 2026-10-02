@@ -1,6 +1,7 @@
 """Consultas aos dados abertos (opendata.db): Zarc, Agrofit, região, fontes."""
 from __future__ import annotations
 
+import json
 import unicodedata
 from datetime import date
 from functools import lru_cache
@@ -199,3 +200,52 @@ def source(key: str) -> dict:
 def all_sources() -> list[dict]:
     with opendata() as con:
         return [dict(r) for r in con.execute("SELECT * FROM data_sources")]
+
+
+# ---------------- visão geral das fontes e funil (M4) ----------------
+SYNC_STATE = OPENDATA_DB.parent / "sync_state.json"
+
+
+def _checked_at() -> dict:
+    try:
+        return json.loads(SYNC_STATE.read_text()).get("_checked", {})
+    except (OSError, ValueError):
+        return {}
+
+
+def table_counts() -> dict:
+    with opendata() as con:
+        one = lambda q: con.execute(q).fetchone()[0]  # noqa: E731
+        return {"zarc": one("SELECT COUNT(*) FROM zarc_risk"), "agrofit": one("SELECT COUNT(*) FROM agrofit"),
+                "psr": int(one("SELECT COALESCE(SUM(insurance_policies),0) FROM region_stats")),
+                "sipeagro_aviacao": int(one("SELECT COALESCE(SUM(drones+planes),0) FROM region_stats"))}
+
+
+def sources_overview() -> list[dict]:
+    """`data_sources` + `records` (linhas/registros reais da base local) + `checked_at` (conferência no portal do MAPA)."""
+    counts, checked = table_counts(), _checked_at()
+    return [s | {"records": counts.get(s["key"]), "checked_at": checked.get(s["key"])} for s in all_sources()]
+
+
+def funnel(geocode: str, municipality: str, crops: list[str], topics: int) -> dict:
+    """Quatro degraus com números reais da base local (nada fixo no código)."""
+    counts = table_counts()
+    total = counts["zarc"] + counts["agrofit"] + counts["psr"] + counts["sipeagro_aviacao"]
+    names = list(dict.fromkeys(c for c in crops if c))
+    firsts = list(dict.fromkeys(od_first(c) for c in names))
+    with opendata() as con:
+        zarc_rows = con.execute("SELECT COUNT(*) FROM zarc_risk WHERE geocode=?" + (
+            f" AND crop IN ({','.join('?' * len(names))})" if names else " AND 0"), (geocode, *names)).fetchone()[0]
+        agro = con.execute("SELECT COUNT(*) FROM agrofit WHERE " + (
+            " OR ".join("crop LIKE ?" for _ in firsts) if firsts else "0"), tuple(f"{c}%" for c in firsts)).fetchone()[0]
+    return {"available": True, "municipality": municipality, "crops": names, "steps": [
+        {"label": "Registros oficiais analisados", "value": total,
+         "hint": f"Zarc {counts['zarc']:,} · Agrofit {counts['agrofit']:,} · seguro rural {counts['psr']:,} · aviação agrícola {counts['sipeagro_aviacao']:,}".replace(",", ".")},
+        {"label": "Ligados ao seu município e às suas culturas", "value": zarc_rows + agro,
+         "hint": f"{zarc_rows} linhas do Zarc de {municipality} + {agro} registros do Agrofit p/ {', '.join(firsts) or 'nenhuma cultura ainda'}"},
+        {"label": "Viram recomendações para você", "value": topics, "hint": "cruzados com a previsão do tempo, a chuva real e o contexto da sua conta"},
+    ]}
+
+
+def od_first(crop: str) -> str:
+    return crop.split(" ")[0]
