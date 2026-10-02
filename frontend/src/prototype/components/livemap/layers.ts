@@ -28,6 +28,8 @@ export type GibsSpec = {
 export type DataLayer = {
   id: string
   label: string
+  /** pergunta em linguagem simples mostrada no guia ("O que você quer saber?") */
+  question: string
   icon: LucideIcon
   /** undefined → camada local (Zarc sobre os talhões) */
   gibs?: GibsSpec
@@ -44,7 +46,7 @@ export const GIBS_ATTRIBUTION = 'NASA GIBS / EOSDIS'
 
 export const DATA_LAYERS: DataLayer[] = [
   {
-    id: 'cor', label: 'Satélite de ontem', icon: Satellite,
+    id: 'cor', question: 'Foto do satélite', label: 'Satélite de ontem', icon: Satellite,
     // verificar no notebook com internet
     gibs: { layer: 'VIIRS_SNPP_CorrectedReflectance_TrueColor', matrix: 'GoogleMapsCompatible_Level9', ext: 'jpg', maxzoom: 9, latencyDays: 1, cadence: 'diário' },
     legend: { colors: [], labels: [], note: 'Cores naturais: nuvens em branco, mata em verde-escuro, queimadas em marrom.' },
@@ -53,7 +55,7 @@ export const DATA_LAYERS: DataLayer[] = [
     origin: 'real', defaultOpacity: 0.85,
   },
   {
-    id: 'temp', label: 'Temperatura do solo', icon: Thermometer,
+    id: 'temp', question: 'Está muito quente?', label: 'Temperatura do solo', icon: Thermometer,
     // verificar no notebook com internet
     gibs: { layer: 'MODIS_Terra_Land_Surface_Temp_Day', matrix: 'GoogleMapsCompatible_Level7', ext: 'png', maxzoom: 7, latencyDays: 1, cadence: 'diário (dia)' },
     legend: { colors: ['#3b0f70', '#2c7fb8', '#41b6c4', '#a1dab4', '#ffffb2', '#fd8d3c', '#e31a1c', '#800026'], labels: ['−10', '10', '25', '40', '55'], unit: '°C na superfície' },
@@ -62,7 +64,7 @@ export const DATA_LAYERS: DataLayer[] = [
     origin: 'ilustrativo', defaultOpacity: 0.7,
   },
   {
-    id: 'ndvi', label: 'Vegetação (NDVI)', icon: Leaf,
+    id: 'ndvi', question: 'A lavoura está verde?', label: 'Vegetação (NDVI)', icon: Leaf,
     // verificar no notebook com internet (produto de 8 dias: GIBS encaixa a data no período)
     gibs: { layer: 'MODIS_Terra_NDVI_8Day', matrix: 'GoogleMapsCompatible_Level9', ext: 'png', maxzoom: 9, latencyDays: 1, cadence: 'a cada 8 dias' },
     legend: { colors: ['#8c5a2b', '#c9a46a', '#efe3b0', '#b8d97a', '#6bb34a', '#2b8a2b', '#0d5a12'], labels: ['0', '0,2', '0,4', '0,6', '0,8+'], unit: 'índice de verde (NDVI)' },
@@ -71,7 +73,7 @@ export const DATA_LAYERS: DataLayer[] = [
     origin: 'ilustrativo', defaultOpacity: 0.7,
   },
   {
-    id: 'chuva', label: 'Chuva', icon: CloudRain,
+    id: 'chuva', question: 'Vai chover?', label: 'Chuva', icon: CloudRain,
     // verificar no notebook com internet (IMERG é de 30 min; só a data → GIBS usa 00:00 UTC)
     gibs: { layer: 'IMERG_Precipitation_Rate', matrix: 'GoogleMapsCompatible_Level6', ext: 'png', maxzoom: 6, latencyDays: 1, cadence: '30 min' },
     legend: { colors: ['#b9e3f7', '#6cbcea', '#2f80d1', '#3346b0', '#7b2fa8', '#c2228f', '#f0326a'], labels: ['0,1', '1', '5', '15', '50'], unit: 'mm/h' },
@@ -83,7 +85,7 @@ export const DATA_LAYERS: DataLayer[] = [
     origin: 'ilustrativo', defaultOpacity: 0.75,
   },
   {
-    id: 'umidade', label: 'Umidade do solo', icon: Droplets,
+    id: 'umidade', question: 'O solo está seco?', label: 'Umidade do solo', icon: Droplets,
     // SMAP L4: em 02/10 a imagem mais recente era de 28/09 (~4 dias de atraso)
     gibs: { layer: 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture', matrix: 'GoogleMapsCompatible_Level6', ext: 'png', maxzoom: 6, latencyDays: 4, cadence: 'diário (modelo + satélite)' },
     legend: { colors: ['#7a4a17', '#b98a4c', '#e8d5a0', '#d9ecd6', '#8fd0c4', '#3fa49a', '#0b5f5a'], labels: ['seco', '', 'médio', '', 'úmido'], unit: 'água na zona das raízes (0–100 cm)' },
@@ -92,7 +94,7 @@ export const DATA_LAYERS: DataLayer[] = [
     origin: 'ilustrativo', defaultOpacity: 0.7,
   },
   {
-    id: 'fogo', label: 'Focos de fogo', icon: Flame,
+    id: 'fogo', question: 'Tem fogo perto?', label: 'Focos de fogo', icon: Flame,
     // VIIRS Thermal Anomalies no GIBS é só vetor (MVT); usamos o raster do satélite geoestacionário GOES-Leste
     // (cobre o Brasil, imagem a cada 10 min). Subdiário: TIME com só a data devolve a imagem daquele dia.
     gibs: { layer: 'GOES-East_ABI_FireTemp', matrix: 'GoogleMapsCompatible_Level7', ext: 'png', maxzoom: 7, latencyDays: 0, cadence: 'a cada 10 min' },
@@ -102,7 +104,7 @@ export const DATA_LAYERS: DataLayer[] = [
     origin: 'ilustrativo', defaultOpacity: 1,
   },
   {
-    id: 'zarc', label: 'Risco climático (Zarc)', icon: ShieldAlert,
+    id: 'zarc', question: 'Quando plantar?', label: 'Risco climático (Zarc)', icon: ShieldAlert,
     legend: { discrete: true, colors: [RISK_COLOR(20), RISK_COLOR(30), RISK_COLOR(40), RISK_COLOR(0)], labels: ['20%', '30%', '40%', 'fora'], unit: 'risco oficial de perder a lavoura pelo clima', note: 'Cinza = fora da janela indicada (sem zoneamento para a data).' },
     source: { chip: 'Zarc · MAPA', detail: 'Zoneamento Agrícola de Risco Climático, safra 2026/27, Araraquara' },
     meaning: (date) => {

@@ -5,9 +5,8 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useSearchParams } from 'react-router-dom'
-import {
-  Controls, FarmPin, FieldCard, FieldLabel, ForecastBars, Header, LayerPanel, LegendCard, Timeline,
-} from '../components/livemap/Panels'
+import { Guide, type Place } from '../components/livemap/Guide'
+import { Controls, FarmPin, FieldCard, FieldLabel, ForecastBars, Timeline } from '../components/livemap/Panels'
 import { DATA_LAYERS, GIBS_ATTRIBUTION, addDays, gibsTileUrl, gibsTime } from '../components/livemap/layers'
 import { Map as MLMap, Marker, type GeoJSONSource, type RasterTileSource } from '../components/livemap/maplibre'
 import { L, buildStyle, centroid, fieldsGeoJSON } from '../components/livemap/mapStyle'
@@ -25,10 +24,10 @@ const LABEL_ZOOM = 14.5
 const THEMATIC_SRC = 'thematic'
 
 /** Área livre do mapa (descontando painéis flutuantes) para centralizar a câmera. */
-function viewPadding(m: MLMap) {
+function viewPadding(m: MLMap, withCard = false) {
   return m.getContainer().clientWidth >= 1024
-    ? { top: 40, bottom: 90, left: 390, right: 230 }
-    : { top: 200, bottom: 300, left: 0, right: 0 }
+    ? { top: 40, bottom: 100, left: 390, right: withCard ? 400 : 80 }
+    : { top: withCard ? 330 : 60, bottom: 330, left: 0, right: 0 }
 }
 
 type MarkerEls = { labels: { id: number; el: HTMLElement }[]; pin: HTMLElement; forecast: HTMLElement }
@@ -62,6 +61,8 @@ export default function LiveMap() {
   const [base, setBase] = useState<'sat' | 'map'>('sat')
   const [proj, setProj] = useState<'globe' | 'mercator'>('globe')
   const [selected, setSelected] = useState<number | null>(null)
+  const [area, setArea] = useState<'farm' | 'brazil'>('farm')
+  const place: Place = selected ?? area
   const [fs, setFs] = useState(false)
 
   const layer = DATA_LAYERS.find((l) => l.id === layerId) ?? null
@@ -76,7 +77,7 @@ export default function LiveMap() {
     const m = mapRef.current
     const f = FIELDS.find((x) => x.id === id)
     setSelected(id)
-    if (m && f) m.flyTo({ center: centroid(f.poly), zoom: m.getContainer().clientWidth < 640 ? 16.6 : 17.2, pitch: 55, bearing: -18, padding: viewPadding(m), duration: 2500, curve: 1.5, essential: true })
+    if (m && f) m.flyTo({ center: centroid(f.poly), zoom: m.getContainer().clientWidth < 640 ? 16.6 : 17.2, pitch: 55, bearing: -18, padding: viewPadding(m, true), duration: 2500, curve: 1.5, essential: true })
   }, [])
   const flyBrazil = useCallback(() => {
     const m = mapRef.current
@@ -115,7 +116,7 @@ export default function LiveMap() {
       const f = FIELDS.find((x) => x.id === id)
       if (f) {
         // o cartão ocupa a coluna esquerda (desktop) ou a parte de baixo (mobile): centraliza na área livre
-        map.easeTo({ center: centroid(f.poly), padding: viewPadding(map), duration: 700 })
+        map.easeTo({ center: centroid(f.poly), padding: viewPadding(map, true), duration: 700 })
       }
     })
     map.on('mouseenter', L.fill, () => { map.getCanvas().style.cursor = 'pointer' })
@@ -222,7 +223,7 @@ export default function LiveMap() {
   }
 
   const near = zoom >= LABEL_ZOOM
-  const showForecast = zoom >= 9 && (layerId === 'chuva' || offset > 0)
+  const showForecast = zoom >= 9 && selected === null && (layerId === 'chuva' || offset > 0)
   const attribution = [base === 'sat' ? 'Imagens © Esri, Maxar' : '© OpenStreetMap', layer?.gibs ? GIBS_ATTRIBUTION : null, 'Zarc/MAPA'].filter(Boolean).join(' · ')
 
   return (
@@ -232,24 +233,29 @@ export default function LiveMap() {
       {markers && (
         <>
           {markers.labels.map(({ id, el }) => createPortal(<FieldLabel id={id} show={near} zarc={layerId === 'zarc'} date={date} />, el, `lbl-${id}`))}
-          {createPortal(<FarmPin show={!near} onClick={() => flyHome()} />, markers.pin, 'pin')}
+          {createPortal(<FarmPin show={!near} onClick={() => { setArea('farm'); flyHome() }} />, markers.pin, 'pin')}
           {createPortal(<ForecastBars show={showForecast} offset={offset} />, markers.forecast, 'fc')}
         </>
       )}
 
-      <Header onHome={() => { setSelected(null); flyHome() }} onBrazil={flyBrazil} onField={flyField} selected={selected} />
       <Controls
         onZoomIn={() => mapRef.current?.zoomIn()} onZoomOut={() => mapRef.current?.zoomOut()}
         proj={proj} onProj={() => setProj((p) => (p === 'globe' ? 'mercator' : 'globe'))}
         base={base} onBase={() => setBase((b) => (b === 'sat' ? 'map' : 'sat'))}
         fs={fs} onFs={toggleFs}
       />
-      <LayerPanel active={layerId} onPick={(id) => { setLayerId(id); setLatest(false) }} />
-      {layer && (
-        <LegendCard layer={layer} date={date} time={time} offset={offset}
-          opacity={layerOpacity} onOpacity={(v) => setOpacity((o) => ({ ...o, [layer.id]: v }))}
-          latest={latest} onLatest={() => setLatest((v) => !v)} hidden={selected !== null} />
-      )}
+      <Guide
+        place={place}
+        onPlace={(pl) => {
+          if (pl === 'brazil') { setArea('brazil'); flyBrazil() }
+          else if (pl === 'farm') { setArea('farm'); setSelected(null); flyHome() }
+          else flyField(pl)
+        }}
+        layerId={layerId} onLayer={(id) => { setLayerId(id); setLatest(false) }}
+        date={date} offset={offset} time={time}
+        opacity={layerOpacity} onOpacity={(v) => layer && setOpacity((o) => ({ ...o, [layer.id]: v }))}
+        latest={latest} onLatest={() => setLatest((v) => !v)}
+      />
       {selected !== null && <FieldCard id={selected} date={date} onClose={() => setSelected(null)} />}
       <Timeline today={today} offset={offset} onOffset={(o) => { setOffset(o); setPlaying(false) }} playing={playing} onPlay={() => setPlaying((v) => !v)} attribution={attribution} />
     </div>
