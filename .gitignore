@@ -25,3 +25,6 @@ Thumbs.db
 
 # Dados grandes: arquivos > ~50 MB não devem ir para o Git (limite GitHub: 100 MB).
 # Se necessário, adicione o caminho específico aqui e documente o link de download em data/README.md.
+
+# CSVs descompactados das safras Zarc (zips ficam em data/raw/zarc/)
+data/interim/

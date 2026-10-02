@@ -43,7 +43,26 @@ Fonte: MAPA/CGRA, dicionário em `data/raw/zarc/*.pdf`. Perfil: `docs/data-profi
 - **dec1…dec36 = 36 decêndios do ano.** Valores: **0** (plantio não indicado), **20 / 30 / 40** (classe de risco climático de perda, %). Distribuição: 0 = 84%, 20 = 10%, 30 = 3%, 40 = 2%.
 - **Qualidade:** colunas Clima, Manejo, Produtividade e Nível de Manejo **100% vazias** nessas safras; 1 linha com decêndios vazios (Senador Guiomard/AC, milho 2ª safra 2016-17); 189 linhas duplicadas.
 - **Araraquara (3503208):** 63 linhas — 2016-17: milho 2ª safra, trigo; 2017-18: + soja, milho, arroz. **Sem cana/laranja** nessas safras.
-- **Limitação:** safras antigas (2016–2018). O arquivo consolidado atual (`dados-abertos-tabua-de-risco.csv`, atualização diária) deve trazer safras recentes e mais culturas _[a verificar]_.
+### Série completa recebida (02/10)
+| Safra | Linhas | Culturas | Municípios | Araraquara (linhas) |
+|---|---|---|---|---|
+| 2016-17 | 53.583 | 5 | 3.916 | 23 |
+| 2017-18 | 168.540 | 7 | 5.508 | 40 |
+| 2018-19 | _não recebida_ | | | |
+| 2019-20 | 374.780 | 15 | 5.508 | |
+| 2020-21 | 652.558 | 22 | 5.570 | |
+| 2021-22 | 788.751 | 26 | 5.570 | |
+| 2022-23 | 747.836 | 26 | 5.570 | |
+| 2023-24 | 935.748 | 28 | 5.570 | 254 |
+| 2024-25 | _não recebida_ | | | |
+| 2025-26 | 1.026.973 | 22 (nomes unificados: Feijão, Trigo, Aveia…) | 5.571 | 268 |
+| 2026-27 | 957.490 | 17 (safra em publicação) | 5.573 | 190 |
+
+- **Manejo Sequeiro × Irrigado** passa a ser preenchido a partir de 2025-26 (Irrigado: 176 mil linhas em 25-26) → **ponte direta com a base de pivôs**.
+- **Nomes de cultura mudam entre safras** (ex.: "Trigo Sequeiro"/"Trigo Irrigado" → "Trigo" + coluna manejo) → normalizar antes de comparar séries.
+- **Cana, laranja, café não aparecem** em nenhuma safra recebida → culturas típicas de Araraquara ausentes nesta base _[conferir se há Zarc específico de perenes]_.
+- 0 / 20 / 30 / 40 nos decêndios; ~80% das células = 0 (fora da janela).
+- **Limitação (antiga):** safras 2016–2018 têm menos culturas. O arquivo consolidado atual (`dados-abertos-tabua-de-risco.csv`, atualização diária) deve trazer safras recentes e mais culturas _[a verificar]_.
 - **Valor para IA:** matriz pronta "quando plantar × quanto risco" por município/solo → otimização de calendário, camada de risco para gêmeo digital, alvo para modelos.
 
 ## Leitura inicial (sem abrir arquivos)
