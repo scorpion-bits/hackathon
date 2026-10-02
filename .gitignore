@@ -41,3 +41,6 @@ data/sync.log
 data/opendata.db.tmp
 *.part
 .env
+
+# ferramentas portáteis baixadas pelo dev.sh (Node, uv)
+.tools/

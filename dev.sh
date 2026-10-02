@@ -32,20 +32,65 @@ changed() { # $1 = arquivo de dependências, $2 = carimbo
   echo "$h" > "$2.new"; return 0
 }
 
+warn() { printf '\033[1;33m! %s\033[0m\n' "$*"; }
+fail() { printf '\033[1;31m✖ %s\033[0m\n' "$*" >&2; exit 1; }
+TOOLS="$ROOT/.tools"   # ferramentas portáteis baixadas sem sudo (fora do git)
+ARCH=$(uname -m)
+fetch() { # url destino
+  if command -v curl >/dev/null; then curl -fsSL "$1" -o "$2"; else wget -qO "$2" "$1"; fi
+}
+
+# Python ≥ 3.10 com venv funcionando; senão usa o "uv" (baixado em .tools, sem sudo), que traz o próprio Python.
+py_ok() { "$1" -c 'import sys, venv, ensurepip; sys.exit(0 if sys.version_info >= (3, 10) else 1)' 2>/dev/null; }
+get_uv() {
+  [[ -x "$TOOLS/uv" ]] && return
+  say "Baixando o uv (gerenciador de Python portátil, sem sudo)"
+  mkdir -p "$TOOLS"
+  local t="uv-${ARCH/arm64/aarch64}-unknown-linux-gnu"
+  fetch "https://github.com/astral-sh/uv/releases/latest/download/$t.tar.gz" "$TOOLS/uv.tgz"
+  tar -xzf "$TOOLS/uv.tgz" -C "$TOOLS" && mv "$TOOLS/$t/uv" "$TOOLS/uv" && rm -rf "$TOOLS/$t" "$TOOLS/uv.tgz"
+}
+
+# Node ≥ 20; senão baixa o Node 22 oficial para .tools/node (sem sudo).
+node_ok() { command -v node >/dev/null && [[ $(node -p 'process.versions.node.split(".")[0]' 2>/dev/null || echo 0) -ge 20 ]]; }
+get_node() {
+  if [[ ! -x "$TOOLS/node/bin/node" ]]; then
+    say "Baixando o Node.js 22 portátil para .tools/node (sem sudo)"
+    mkdir -p "$TOOLS"
+    local a; case "$ARCH" in x86_64) a=x64 ;; aarch64|arm64) a=arm64 ;; *) fail "Arquitetura $ARCH sem Node portátil" ;; esac
+    local base="https://nodejs.org/dist/latest-v22.x"
+    local file; file=$(fetch "$base/SHASUMS256.txt" /dev/stdout | grep -o "node-v[0-9.]*-linux-$a.tar.xz" | head -1)
+    [[ -n "$file" ]] || fail "Não consegui achar o Node para baixar (sem internet?)"
+    fetch "$base/$file" "$TOOLS/node.tar.xz"
+    rm -rf "$TOOLS/node" && mkdir -p "$TOOLS/node" && tar -xJf "$TOOLS/node.tar.xz" -C "$TOOLS/node" --strip-components=1 && rm "$TOOLS/node.tar.xz"
+  fi
+  export PATH="$TOOLS/node/bin:$PATH"
+}
+
 # ---------- Backend ----------
 if [[ $PROTO -eq 0 ]]; then
   VENV=""
-  for d in venv .venv; do [[ -f "$d/bin/activate" ]] && VENV="$d" && break; done
+  for d in venv .venv; do [[ -x "$d/bin/python" ]] && "$d/bin/python" -c 'import fastapi' 2>/dev/null && VENV="$d" && break; done
+  for d in venv .venv; do [[ -z "$VENV" && -x "$d/bin/python" ]] && "$d/bin/python" -m pip --version >/dev/null 2>&1 && VENV="$d"; done
   if [[ -z "$VENV" ]]; then
-    say "Criando ambiente Python em .venv"
-    python3 -m venv .venv; VENV=.venv
+    rm -rf .venv
+    PY=$(command -v python3 || true)
+    if [[ -n "$PY" ]] && py_ok "$PY" && "$PY" -m venv .venv 2>/dev/null; then
+      say "Ambiente Python criado em .venv ($("$PY" --version))"
+    else
+      rm -rf .venv
+      warn "python3 ausente, antigo (< 3.10) ou sem o módulo venv — usando o uv (sem sudo)"
+      get_uv
+      "$TOOLS/uv" venv --quiet --seed --python 3.11 .venv || fail "Não consegui criar o ambiente Python"
+    fi
+    VENV=.venv
   fi
   # shellcheck disable=SC1091
   source "$VENV/bin/activate"
 
   if changed backend/requirements.txt "$VENV/.agroia-req"; then
     say "Instalando dependências Python"
-    pip install -q -r backend/requirements.txt
+    python -m pip install -q -r backend/requirements.txt
     mv "$VENV/.agroia-req.new" "$VENV/.agroia-req"
   fi
 
@@ -68,6 +113,8 @@ if [[ $PROTO -eq 0 ]]; then
 fi
 
 # ---------- Frontend ----------
+node_ok || { [[ -x "$TOOLS/node/bin/node" ]] && export PATH="$TOOLS/node/bin:$PATH"; }
+node_ok || { warn "Node.js ausente ou antigo (precisa ≥ 20)"; get_node; }
 if [[ ! -d frontend/node_modules ]] || changed frontend/package-lock.json frontend/node_modules/.agroia-lock; then
   say "Instalando dependências da interface (npm install)"
   (cd frontend && npm install --no-audit --no-fund)
@@ -101,5 +148,6 @@ if [[ $PROTO -eq 0 ]]; then
   echo "   API (docs):        http://localhost:8000/docs"
 fi
 echo
+if command -v xdg-open >/dev/null; then xdg-open http://localhost:5173/prototipo >/dev/null 2>&1 || true; fi
 
 wait -n 2>/dev/null || wait

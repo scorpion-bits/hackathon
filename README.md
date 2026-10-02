@@ -33,6 +33,10 @@ Requisito: **Docker Desktop** aberto (Windows/Mac) ou Docker Engine + Compose (L
 | Conferir o portal do MAPA | `iniciar.bat sincronizar` | `./iniciar.sh sincronizar` |
 | Ver logs / parar | `iniciar.bat logs` · `iniciar.bat parar` | `./iniciar.sh logs` · `./iniciar.sh parar` |
 
+**Sem Docker / sem permissão de administrador?** O `./iniciar.sh` percebe sozinho e sobe pelo `./dev.sh`, **sem sudo**:
+se faltar Node ≥ 20, baixa um Node portátil em `.tools/`; se o Python for antigo ou não tiver o módulo `venv`,
+usa o `uv` (também em `.tools/`), que traz o próprio Python. Para forçar: `./iniciar.sh sem-docker`.
+
 ## Docker manual
 Requisito: Docker Desktop (Windows/Mac) ou Docker Engine + Compose (Linux).
 

@@ -7,15 +7,30 @@
 #   ./iniciar.sh sincronizar  confere o portal do MAPA (baixa só o que mudou) e sobe
 #   ./iniciar.sh logs         mostra os logs ao vivo (Ctrl+C sai dos logs, não derruba)
 #   ./iniciar.sh parar        derruba tudo
+#   ./iniciar.sh sem-docker   força o modo sem Docker (também é automático se o Docker não estiver disponível)
+#
+# Sem Docker, chama o ./dev.sh: não precisa de sudo (baixa Node/Python portáteis em .tools/ se faltarem).
 set -euo pipefail
 cd "$(dirname "$0")"
 
 say()  { printf '\033[1;32m▶ %s\033[0m\n' "$*"; }
 fail() { printf '\033[1;31m✖ %s\033[0m\n' "$*" >&2; exit 1; }
 
-command -v docker >/dev/null || fail "Docker não encontrado. Instale: https://docs.docker.com/get-docker/"
-docker compose version >/dev/null 2>&1 || fail "Docker Compose não encontrado (precisa do 'docker compose', versão 2)."
-docker info >/dev/null 2>&1 || fail "O Docker está instalado mas não está rodando. Abra o Docker Desktop (ou: sudo systemctl start docker) e tente de novo."
+# ---------- sem Docker: usa o ./dev.sh (mesmas opções) ----------
+sem_docker() {
+  printf '\033[1;33m! %s\033[0m\n' "$1 — subindo SEM Docker (./dev.sh). Ctrl+C para parar."
+  case "${2:-}" in
+    atualizar|update) git pull --no-rebase || fail "git pull falhou (alterações locais? rode: git stash -u)"; exec ./dev.sh ;;
+    resetar|reset) exec ./dev.sh --reset ;;
+    sincronizar|sync) exec ./dev.sh --sync ;;
+    parar|stop|logs) echo "No modo sem Docker tudo roda no terminal: use Ctrl+C nele para parar."; exit 0 ;;
+    *) exec ./dev.sh ;;
+  esac
+}
+[[ "${1:-}" == "sem-docker" ]] && sem_docker "Modo sem Docker escolhido" "${2:-}"
+command -v docker >/dev/null || sem_docker "Docker não encontrado" "${1:-}"
+docker compose version >/dev/null 2>&1 || sem_docker "Docker Compose não encontrado" "${1:-}"
+docker info >/dev/null 2>&1 || sem_docker "Docker sem permissão ou parado" "${1:-}"
 
 # Bancos criados pelo container ficam com o SEU usuário (não root) — dá para alternar com o ./dev.sh
 export HOST_UID="$(id -u)" HOST_GID="$(id -g)"
@@ -30,7 +45,7 @@ case "${1:-}" in
   resetar|reset)        RESET=1 ;;
   sincronizar|sync)     SYNC=1 ;;
   ""|subir|up) ;;
-  -h|--help|ajuda) sed -n '2,10p' "$0"; exit 0 ;;
+  -h|--help|ajuda) sed -n '2,13p' "$0"; exit 0 ;;
   *) fail "Opção desconhecida: $1 (use ./iniciar.sh ajuda)" ;;
 esac
 
