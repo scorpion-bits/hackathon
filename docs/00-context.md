@@ -47,8 +47,13 @@
   3. Representar a incerteza — dataset tem lacuna e atraso
   4. Nunca cruzar bases pra reidentificar uma pessoa (LGPD vale para dado pessoal mesmo de fonte aberta)
 - **Dado sensível — não expor:** nome completo, CPF, endereço exato, telefone, e-mail pessoal, imagem de rosto, dado de saúde de pessoa física.
-- **Base(s) de dados específicas:** _pendente_ (links, formatos, tamanho, licença)
-- **Regras específicas:** _pendente_
+- **Agenda temática — CEPIN** (Centro de Pesquisa e Inovação em IA e Robótica Agrícola, sediado no IFSP Araraquara):
+  projetos que conversem com **visão computacional, modelos preditivos, otimização e caminhos de automação/robótica a partir de dados públicos**.
+- **Caminho 1 — MAPA:** dados.gov.br → Organizações → "Agricultura" → "MAPA — Ministério da Agricultura e Pecuária" (13 conjuntos), ou direto em `dados.agricultura.gov.br`.
+- **Caminho 2 — ANA/Embrapa:** dados.gov.br → Conjuntos de dados → buscar "pivô"/"irrigação" → **"Agricultura Irrigada por Pivôs Centrais — Pivôs Mapeados 1985–2019"** (ANA em parceria com Embrapa).
+- **REGRA ÚNICA (literal):** "Todo projeto usa pelo menos uma base "pivô" — do portal do MAPA ou da ANA/Embrapa — e pode combiná-la com qualquer outra base aberta que a equipe encontrar. A combinação é com vocês. Não vamos sugerir o que construir."
+- **Uso de IA:** permitido, ferramentas livres. Organização/IFSP não pagam assinaturas, APIs, créditos ou tokens — **despesa é da equipe; preferir alternativas gratuitas**.
+- **Regras específicas:** ver regra única + ética acima
 - **Critérios de avaliação:** _pendente_ (perguntar à organização se não forem informados)
 - **Formato do pitch:** _pendente_ (duração, ao vivo ou gravado, tem demo?)
 - **Forma de entrega:** _pendente_ (link do repo? formulário? e-mail?)

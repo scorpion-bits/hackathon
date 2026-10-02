@@ -13,12 +13,13 @@
 | Último checkpoint | CP0 — Repositório preparado |
 | Próximo checkpoint | CP1 — Problema compreendido |
 | Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
-| Dataset | _aguardando slides_ |
+| Dataset | Regra: ≥1 base "pivô" do MAPA (dados.agricultura.gov.br) ou ANA/Embrapa (Pivôs Centrais 1985–2019); combinar com qualquer base aberta. Ver `docs/00-context.md` |
 | Solução escolhida | _nenhuma_ |
 | Stack | _não definida_ (opções pré-avaliadas em `docs/05-architecture.md`) |
-| Bloqueios | nenhum |
+| Bloqueios | Ambiente sem rede p/ gov.br — humanos baixam dados e fazem push em `data/raw/` (R-13) |
 
-**NÃO inventar tema, requisitos ou funcionalidades de produto antes do anúncio.**
+**Restrições-chave:** agenda CEPIN (visão computacional, preditivo, otimização, automação/robótica);
+ética (citar fonte+data, mostrar incerteza, sem dado pessoal); IA paga = custo da equipe → preferir gratuito.
 
 ---
 
