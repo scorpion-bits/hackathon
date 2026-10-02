@@ -235,6 +235,11 @@ export default function Assistant() {
     <div className="mx-auto max-w-6xl">
       <PageHeader title="Pergunte à IA" subtitle="Converse como com um vizinho que entende de dados. Toda resposta diz de onde veio." />
 
+      <div className="mb-3 flex items-start gap-2 rounded-xl bg-straw-soft px-3 py-2.5 text-sm ring-1 ring-straw/40">
+        <ShieldCheck size={17} className="mt-0.5 shrink-0 text-accent" />
+        <span><b>A IA explica dados, não dá receita.</b> Para decidir sobre plantio, adubo ou defensivo, leve o caso a um técnico da assistência pública — é de graça. <Link to="/prototipo/casos" className="font-semibold text-primary-dark underline">Meus casos</Link></span>
+      </div>
+
       <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-xl border border-primary/25 bg-primary-soft/60 px-4 py-3">
         <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-white"><Sparkles size={16} /></span>
         <div className="text-sm text-primary-dark"><b>A IA lê:</b> seu contexto.md + {SOURCES.length} fontes oficiais</div>

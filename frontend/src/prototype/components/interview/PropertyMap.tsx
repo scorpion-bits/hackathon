@@ -249,7 +249,7 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
 
       <aside className="w-full shrink-0 border-t border-border bg-surface p-4 lg:h-full lg:w-[400px] lg:overflow-y-auto lg:border-l lg:border-t-0">
         {header}
-        <div className="grid grid-cols-[1.3fr_1fr] gap-2">
+        <div className="grid grid-cols-1 gap-2 min-[400px]:grid-cols-[1.3fr_1fr]">
           <button type="button" onClick={startDraw} disabled={drawing || shapeId != null || !ready} className={clsx(btn('primary'), 'whitespace-nowrap px-3!')}><PenLine size={17} /> Desenhar talhão</button>
           <button type="button" onClick={loadExample} disabled={shapeId != null} className={clsx(btn('secondary'), 'whitespace-nowrap px-3!')}><Sparkles size={17} /> {exampleLabel}</button>
         </div>

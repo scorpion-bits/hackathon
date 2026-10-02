@@ -14,14 +14,14 @@
 | Próximo checkpoint | CP6 — Fluxo principal funcionando (17h) |
 | Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
 | Dataset | Regra: ≥1 base "pivô" do MAPA (dados.agricultura.gov.br) ou ANA/Embrapa (Pivôs Centrais 1985–2019); combinar com qualquer base aberta. Ver `docs/00-context.md` |
-| Solução escolhida | **AgroBits** — dados abertos no centro; contexto do produtor (entrevista) filtra e a IA recomenda (D-001/D-008) |
+| Solução escolhida | **AgroBits** — dados abertos no centro; contexto do produtor filtra; **a IA não decide**: prepara o caso e leva à assistência técnica pública, de graça (D-008/D-015) |
 | Stack | React+TS+Vite+Tailwind · Leaflet/Geoman/Turf · FastAPI+SQLite · IA OpenAI-compatível + modo offline (D-003/D-004) |
 | Bloqueios | Nenhum. Internet liberada na sessão (02/10 ~15h). Portal do MAPA exige User-Agent (já tratado) |
 
 **Pronto (02/10 ~15h40, tudo na `main`):**
 - Rodar: `git pull && ./dev.sh` (API+interface) · `./dev.sh --proto` (só protótipo) · `--reset` (demo) · `--sync` (confere MAPA).
 - **Protótipo** `/prototipo`: Login · Entrevista (`?demo=1` pula pro fim, resumo em cartões) · Início guiado
-  (um assunto por vez → `/prototipo/resolver/:id`: dados → soluções → próximo) · Mapa vivo (globo 3D, guia em 3 passos,
+  (um assunto por vez → `/prototipo/resolver/:id`: dados → caminhos possíveis → enviar caso ao técnico) · Meus casos (`/prototipo/casos`) · Editar talhões (`/prototipo/talhoes`) · Mapa vivo (globo 3D, guia em 3 passos,
   `?talhao=N`) · Dados abertos · Minha propriedade · IA · Meu contexto. Dados de exemplo em `prototype/mock.ts` e `prototype/resolve.ts`.
 - **App funcional** `/` + backend FastAPI (9 telas, 12 testes: `cd backend && pytest -q`).
 - **Dados ao vivo:** `scripts/fetch_opendata.py` (Zarc, Agrofit, SIPEAGRO, PSR via CKAN; 02/10: idênticos ao portal) ·
@@ -124,7 +124,7 @@ Detalhes: `planning/timeline.md`.
 
 D-001…D-007 (AgroBits, MVP+planejador+voz, stack, IA plugável, persona João/Araraquara, solo→Zarc, supressão <3) ·
 D-008 dados abertos no centro + contexto do produtor · D-009 protótipo visual antes de reimplementar ·
-D-010 atualização por API/CKAN · D-011 entregas na `main` · D-012 início guiado + tela Resolver · D-013 mapa com guia em 3 passos · D-014 nome AgroBits + visual isométrico (logo em `docs/brand/`).
+D-010 atualização por API/CKAN · D-011 entregas na `main` · D-012 início guiado + tela Resolver · D-013 mapa com guia em 3 passos · D-014 nome AgroBits + visual isométrico (logo em `docs/brand/`) · **D-015 modelo A público (ATER)** · D-016 mobile first.
 Ver `docs/06-decisions.md`.
 
 ---
@@ -135,7 +135,7 @@ Ver `docs/06-decisions.md`.
 CLAUDE.md            memória operacional (este arquivo)
 README.md            apresentação + como rodar
 dev.sh               sobe tudo (--proto, --reset, --sync)
-docs/00..09-*.md     contexto → problema → dados → solução → MVP → arq → decisões → testes → pitch → APIs
+docs/00..10-*.md     contexto → problema → dados → solução → MVP → arq → decisões → testes → pitch → APIs → modelo de negócio
 planning/            tasks, roadmap, agents, risks, timeline
 backend/app/         FastAPI: routers/, services/ (opendata, weather, live, insights), assistant/ (IA + modo offline)
 frontend/src/        app funcional (pages/, components/) + prototype/ (protótipo visual, mock.ts, resolve.ts)

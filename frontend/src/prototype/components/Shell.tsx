@@ -1,6 +1,6 @@
 // Casca do PROTÓTIPO VISUAL (D-009). Navegação centrada em dados abertos.
 import clsx from 'clsx'
-import { Bot, Database, FileText, Globe2, Home, LogOut, Sprout } from 'lucide-react'
+import { Bot, Database, FileText, Globe2, Home, Inbox, LogOut, Sprout } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { PRODUCER } from '../mock'
@@ -8,6 +8,7 @@ import { Logo } from './Brand'
 
 const NAV = [
   { to: '/prototipo', label: 'Para você', icon: Home, end: true },
+  { to: '/prototipo/casos', label: 'Meus casos', icon: Inbox },
   { to: '/prototipo/mapa', label: 'Mapa vivo', icon: Globe2 },
   { to: '/prototipo/dados', label: 'Dados abertos', icon: Database },
   { to: '/prototipo/propriedade', label: 'Minha propriedade', icon: Sprout },
@@ -57,10 +58,11 @@ export function Shell({ children, full }: { children: ReactNode; full?: boolean 
       </div>
       {/* Celular: menu inferior (a barra lateral some em telas pequenas) */}
       <nav aria-label="Menu principal" className="grid shrink-0 grid-cols-5 border-t border-white/10 bg-sidebar md:hidden">
-        {NAV.filter((n) => n.to !== '/prototipo/contexto').map(({ to, label, icon: Icon, end }) => (
-          <NavLink key={to} to={to} end={end} className={({ isActive }) => clsx('flex flex-col items-center gap-0.5 px-1 py-2 text-[10px] font-medium',
+        {/* celular: as 5 mais usadas (IA e Contexto ficam acessíveis pelas telas) */}
+        {NAV.filter((n) => !['/prototipo/contexto', '/prototipo/assistente'].includes(n.to)).map(({ to, label, icon: Icon, end }) => (
+          <NavLink key={to} to={to} end={end} className={({ isActive }) => clsx('flex min-h-14 flex-col items-center justify-center gap-0.5 px-1 py-2 text-[11px] font-medium',
             isActive ? 'text-[#7fd6a0]' : 'text-white/70')}>
-            <Icon size={20} /> <span className="truncate">{label.replace('Minha propriedade', 'Propriedade').replace('Pergunte à IA', 'IA')}</span>
+            <Icon size={20} /> <span className="truncate">{label.replace('Minha propriedade', 'Propriedade').replace('Dados abertos', 'Dados').replace('Para você', 'Início').replace('Meus casos', 'Casos')}</span>
           </NavLink>
         ))}
       </nav>

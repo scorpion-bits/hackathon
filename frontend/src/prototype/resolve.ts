@@ -161,3 +161,35 @@ export const nextOpen = (resolved: Record<string, string>, after?: string) => {
   const start = after ? ORDER.indexOf(after) + 1 : 0
   return [...ORDER.slice(start), ...ORDER.slice(0, start)].find((id) => !resolved[id])
 }
+
+// ------------- MODELO A (D-015): o AgroBits não decide — prepara o caso e leva à assistência técnica PÚBLICA.
+// Instituições reais citadas como EXEMPLO de integração (sem convênio firmado); nenhum técnico/pessoa é nomeado.
+export type Expert = { id: string; name: string; kind: string; how: string; eta: string; free: boolean }
+export const EXPERTS: Expert[] = [
+  { id: 'cati', name: 'CATI · Casa da Agricultura de Araraquara', kind: 'Assistência técnica pública do Estado de SP', how: 'Técnico ou engenheiro agrônomo responde e, se precisar, agenda visita', eta: 'resposta em até 5 dias úteis (exemplo)', free: true },
+  { id: 'senar', name: 'Senar · Assistência Técnica e Gerencial', kind: 'Programa gratuito para produtor rural', how: 'Técnico de campo acompanha a propriedade por meses', eta: 'contato em até 10 dias (exemplo)', free: true },
+  { id: 'prefeitura', name: 'Secretaria de Agricultura do município', kind: 'Apoio municipal ao produtor', how: 'Orientação, máquinas da patrulha agrícola e programas locais', eta: 'resposta em até 7 dias (exemplo)', free: true },
+]
+/** Quem é mais indicado para cada assunto (receituário de defensivo exige engenheiro agrônomo — Lei 7.802/89). */
+export const BEST_EXPERT: Record<string, string> = { i1: 'cati', i2: 'cati', i3: 'senar', i4: 'cati', i5: 'cati', i6: 'prefeitura' }
+
+export type CaseRecord = { problemId: string; expertId: string; channel: string; path?: string; note?: string; protocol: string; sentAt: string }
+const CKEY = 'agroia-proto-cases'
+let cases: Record<string, CaseRecord> = (() => { try { return JSON.parse(localStorage.getItem(CKEY) ?? '{}') } catch { return {} } })()
+const clisteners = new Set<() => void>()
+export function sendCase(c: Omit<CaseRecord, 'protocol' | 'sentAt'>) {
+  const protocol = `AB-${String(1000 + Object.keys(cases).length + 1)}`
+  cases = { ...cases, [c.problemId]: { ...c, protocol, sentAt: new Date().toLocaleDateString('pt-BR') } }
+  try { localStorage.setItem(CKEY, JSON.stringify(cases)) } catch { /* só em memória */ }
+  clisteners.forEach((l) => l())
+  resolveProblem(c.problemId, c.path ?? 'encaminhado')
+}
+export function resetCases() {
+  cases = {}
+  try { localStorage.setItem(CKEY, '{}') } catch { /* só em memória */ }
+  clisteners.forEach((l) => l())
+  resetResolved()
+}
+export function useCases() {
+  return useSyncExternalStore((l) => { clisteners.add(l); return () => clisteners.delete(l) }, () => cases)
+}

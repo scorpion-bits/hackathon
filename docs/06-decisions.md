@@ -20,6 +20,8 @@
 | D-012 | 02/10 ~15h30 | UX do protótipo: tela inicial **guiada** (um assunto por vez → tela Resolver: dados → soluções do agente → próximo passo); resumo da entrevista em cartões | produto | equipe | vigente |
 | D-013 | 02/10 ~15h40 | Mapa vivo com **painel-guia em 3 passos** (onde olhar → pergunta simples → o que significa); camadas viram perguntas | produto | equipe | vigente |
 | D-014 | 02/10 ~16h | Nome do produto: **AgroBits** (logo do Victor em `docs/brand/`); visual "isométrico" da marca: contorno grosso, sombra sólida, cubos e fazenda em vista isométrica | produto | equipe | vigente |
+| D-015 | 02/10 ~16h30 | **Modelo A — público:** a IA não decide; o AgroBits prepara o caso e leva à assistência técnica pública (ATER: CATI/Emater/Senar/prefeitura), gratuito para o produtor, financiado por convênio. Ver `docs/10-business-model.md` | estratégica | equipe | vigente |
+| D-016 | 02/10 ~16h30 | **Mobile first**: celular é o uso principal; alvos de toque ≥ 44 px, ação principal antes da dobra, menu inferior com Casos | produto | equipe | vigente |
 
 ---
 

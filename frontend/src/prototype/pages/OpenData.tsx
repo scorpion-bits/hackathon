@@ -34,16 +34,16 @@ function Hero() {
           <RefreshCw size={12} /> última varredura: hoje, 06:00
         </div>
         <h1 className="mt-3 max-w-2xl text-2xl font-bold leading-tight tracking-tight md:text-4xl">As fontes oficiais que trabalham para você</h1>
-        <p className="mt-2 max-w-2xl text-sm text-white/70 md:text-base">
+        <p className="mt-2 hidden max-w-2xl text-sm text-white/70 sm:block md:text-base">
           O governo publica milhões de linhas de dados abertos, espalhadas em sites e formatos diferentes. O AgroBits lê tudo isso todo dia,
           separa o que importa para <b className="text-white">a sua propriedade</b> e entrega em linguagem simples.
         </p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+        <div className="mt-4 grid grid-cols-3 gap-2 sm:mt-6 sm:gap-3">
           {nums.map((n) => (
-            <div key={n.label} className="rounded-xl bg-white/10 p-4 ring-1 ring-white/10 backdrop-blur">
-              <div className="flex items-center justify-between"><span className="text-xs font-medium uppercase tracking-wide text-white/60">{n.label}</span><n.icon size={16} className="text-emerald-300" /></div>
-              <div className="mt-1 flex items-baseline gap-1.5 text-4xl font-extrabold tracking-tight">{n.big}{n.unit && <span className="text-lg font-bold text-white/80">{n.unit}</span>}</div>
-              <div className="mt-1 text-xs text-white/60">{n.sub}</div>
+            <div key={n.label} className="rounded-xl bg-white/10 p-2.5 ring-1 ring-white/10 backdrop-blur sm:p-4">
+              <div className="flex items-center justify-between"><span className="text-[10px] font-medium uppercase leading-tight tracking-wide text-white/60 sm:text-xs">{n.label}</span><n.icon size={16} className="hidden text-emerald-300 sm:block" /></div>
+              <div className="mt-1 flex flex-wrap items-baseline gap-x-1.5 text-2xl font-extrabold tracking-tight sm:text-4xl">{n.big}{n.unit && <span className="text-xs font-bold text-white/80 sm:text-lg">{n.unit}</span>}</div>
+              <div className="mt-1 hidden text-xs text-white/60 sm:block">{n.sub}</div>
             </div>
           ))}
         </div>

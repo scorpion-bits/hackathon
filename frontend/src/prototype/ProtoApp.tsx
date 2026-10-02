@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import './farmStore' // aplica os talhões salvos antes de qualquer tela ler FIELDS
 import { Shell } from './components/Shell'
 import Assistant from './pages/Assistant'
+import Cases from './pages/Cases'
 import FieldsEditor from './pages/FieldsEditor'
 import ContextPage from './pages/ContextPage'
 import ForYou from './pages/ForYou'
@@ -23,6 +24,7 @@ export default function ProtoApp() {
       <Route path="propriedade" element={<Shell><Property /></Shell>} />
       <Route path="assistente" element={<Shell><Assistant /></Shell>} />
       <Route path="resolver/:id" element={<Shell><Resolve /></Shell>} />
+      <Route path="casos" element={<Shell><Cases /></Shell>} />
       <Route path="contexto" element={<Shell><ContextPage /></Shell>} />
       <Route path="*" element={<Shell><ForYou /></Shell>} />
     </Routes>
