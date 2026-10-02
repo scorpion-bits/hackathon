@@ -1,0 +1,4 @@
+# Ferramentas de análise (fase de descoberta). Dependências do produto serão definidas no CP5.
+pandas>=2.0
+openpyxl>=3.1
+pyarrow>=14

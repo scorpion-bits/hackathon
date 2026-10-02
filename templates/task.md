@@ -1,0 +1,12 @@
+### T-XXX — <nome>
+- **Objetivo:**
+- **Responsável:** Claude | <humano>
+- **Agente:**
+- **Modelo:** Opus | Sonnet | Haiku
+- **Prioridade:** P0 | P1 | P2
+- **Estimativa:**
+- **Dependências:**
+- **Entrada:**
+- **Saída esperada:**
+- **Critério de conclusão:**
+- **Status:** BACKLOG | READY | IN_PROGRESS | BLOCKED | REVIEW | DONE | CANCELLED
