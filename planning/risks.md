@@ -16,3 +16,4 @@
 | R-10 | Pitch deixado para o fim | M | A | Nenhum slide às 20h00 | Rascunho a partir do CP4; Pitch lead dedicado | Template simples com 9 seções de `08-pitch.md` |
 | R-11 | Cansaço na madrugada degrada qualidade | A | M | Commits quebrando build após 22h00 | Nada de feature nova após 20h00; revezamento | Reverter ao último estado estável |
 | R-12 | Questões de privacidade/LGPD nos dados | B | M | Dados com CPF, nomes, endereços | Agregar/anonimizar; não exibir dados pessoais | Usar apenas dados agregados |
+| R-13 | **Ambiente do Claude sem acesso de rede a portais gov.br/ANA/IBGE/INMET** (confirmado 02/10) | A (ocorrendo) | A | downloads retornam 403 | Humanos baixam os arquivos e enviam no chat ou fazem push em `data/raw/` | Liberar domínios no ambiente e abrir sessão nova |

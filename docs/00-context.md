@@ -38,7 +38,16 @@
 - **Presencial:** computadores do lab disponíveis (ou equipamento próprio); café o tempo todo;
   **ao menos 1 integrante precisa estar no local** para as mentorias acontecerem.
 - **Cronograma (slide):** 09h00–22h00 laboratório aberto sem interrupção; 03/10 07h45 reabre; 09h00 prazo.
-- **Base(s) de dados:** _pendente_ (links, formatos, tamanho, licença)
+- **Mentoria:** Samuel, Bernardo e Yagor (vencedores da Hackathon do TCU — Climaton 2026) + professores do IFSP circulando. "Perguntem · Testem ideias · Peçam direção".
+- **Fonte de dados indicada:** Portal Brasileiro de Dados Abertos — dados.gov.br (19 mil+ conjuntos, 309 organizações); bases do **MAPA** e da **ANA** aparecem nele.
+- **Licença:** maioria das bases MAPA/ANA é CC-BY (uso livre, inclusive comercial, com crédito). Conferir a licença de cada base.
+- **Regras de ética (slide "Usem com ética"):**
+  1. Citar a fonte e a data de extração
+  2. Não distorcer o dado pra caber numa narrativa
+  3. Representar a incerteza — dataset tem lacuna e atraso
+  4. Nunca cruzar bases pra reidentificar uma pessoa (LGPD vale para dado pessoal mesmo de fonte aberta)
+- **Dado sensível — não expor:** nome completo, CPF, endereço exato, telefone, e-mail pessoal, imagem de rosto, dado de saúde de pessoa física.
+- **Base(s) de dados específicas:** _pendente_ (links, formatos, tamanho, licença)
 - **Regras específicas:** _pendente_
 - **Critérios de avaliação:** _pendente_ (perguntar à organização se não forem informados)
 - **Formato do pitch:** _pendente_ (duração, ao vivo ou gravado, tem demo?)
