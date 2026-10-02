@@ -4,6 +4,7 @@
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useSearchParams } from 'react-router-dom'
 import {
   Controls, FarmPin, FieldCard, FieldLabel, ForecastBars, Header, LayerPanel, LegendCard, Timeline,
 } from '../components/livemap/Panels'
@@ -46,6 +47,8 @@ export default function LiveMap() {
   const mapEl = useRef<HTMLDivElement>(null)
   const mapRef = useRef<MLMap | null>(null)
   const thematicKey = useRef<string | null>(null)
+  const [params] = useSearchParams()
+  const focusField = Number(params.get('talhao')) || null // vindo de um assunto: abre direto no talhão
 
   const today = useMemo(() => { const d = new Date(); d.setHours(12, 0, 0, 0); return d }, [])
   const [ready, setReady] = useState(false)
@@ -103,7 +106,7 @@ export default function LiveMap() {
     map.once('style.load', () => {
       setReady(true)
       map.triggerRepaint()
-      timer = setTimeout(() => flyHome(map), 1400)
+      timer = setTimeout(() => (focusField && FIELDS.some((f) => f.id === focusField) ? flyField(focusField) : flyHome(map)), 1400)
     })
     map.on('click', (e) => {
       const hit = map.queryRenderedFeatures(e.point, { layers: [L.fill] })[0]

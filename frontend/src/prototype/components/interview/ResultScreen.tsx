@@ -1,11 +1,12 @@
 // Última etapa: animação "Montando seu radar…" e a tela "Seu contexto está pronto" com o contexto.md gerado.
 import clsx from 'clsx'
-import { ArrowRight, Check, CircleCheckBig, Download, FileText, Info, LoaderCircle, Lock, Pencil, Radar } from 'lucide-react'
+import { ArrowRight, Check, CircleCheckBig, Download, Info, LoaderCircle, Pencil, Radar } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { SOURCES } from '../../mock'
 import { SOURCE_SHORT, buildContextMd, cropLabels, sourceReasons, totalHa, withDefaults } from './context'
 import type { Answers } from './types'
 import { fmtHa } from './format'
+import { ContextSummary } from './ContextSummary'
 
 const STEP_MS = 1000
 
@@ -86,19 +87,19 @@ export function ResultScreen({ answers, onEdit, onFinish }: { answers: Answers; 
       <div className="mb-6 flex items-start gap-4">
         <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary-dark text-white shadow-lg shadow-primary/25"><Check size={30} strokeWidth={3} /></span>
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">Seu contexto está pronto</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">Pronto! Já conhecemos a sua roça</h1>
           <p className="mt-1.5 max-w-2xl leading-relaxed text-muted">
-            Este arquivo é lido pelos agentes do AgroIA para <b className="text-ink">filtrar os dados abertos e sugerir só o que importa para você</b>. Você pode ver e editar quando quiser em <b className="text-ink">Meu contexto</b>.
+            Confira se está tudo certo. É isso que usamos para <b className="text-ink">filtrar os dados oficiais e mostrar só o que importa para você</b>.
           </p>
         </div>
       </div>
 
       <div className="mb-6 flex flex-wrap gap-3">
         <button type="button" onClick={onFinish} className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/20 transition hover:bg-primary-dark active:scale-[.98]">
-          Ver minhas recomendações <ArrowRight size={18} />
+          Ver o que fazer hoje <ArrowRight size={18} />
         </button>
         <button type="button" onClick={download} className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-surface px-5 py-3.5 text-[15px] font-semibold text-ink transition hover:border-primary/40 hover:bg-primary-soft/40 active:scale-[.98]">
-          <Download size={17} /> Baixar contexto.md
+          <Download size={17} /> Baixar resumo
         </button>
         <button type="button" onClick={onEdit} className="inline-flex items-center gap-2 rounded-xl px-4 py-3.5 text-[15px] font-semibold text-muted transition hover:bg-surface hover:text-ink">
           <Pencil size={16} /> Editar respostas
@@ -106,16 +107,7 @@ export function ResultScreen({ answers, onEdit, onFinish }: { answers: Answers; 
       </div>
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_300px]">
-        <section className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
-          <header className="flex items-center gap-2 border-b border-border bg-bg px-4 py-2.5">
-            <FileText size={16} className="text-primary" />
-            <span className="font-mono text-sm font-semibold text-ink">contexto.md</span>
-            <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-primary-soft px-2 py-0.5 text-[11px] font-medium text-primary-dark"><Lock size={10} /> só você vê</span>
-          </header>
-          <div className="max-h-[62vh] overflow-auto bg-[#FBFAF4] p-4 font-mono text-[12.5px] leading-relaxed text-ink sm:p-5 sm:text-[13px]" tabIndex={0} aria-label="Conteúdo do arquivo contexto.md">
-            <MdView md={md} />
-          </div>
-        </section>
+        <ContextSummary a={a} md={md} />
 
         <aside className="space-y-4">
           <div className="rounded-2xl border border-border bg-surface p-4 shadow-sm">
@@ -135,7 +127,7 @@ export function ResultScreen({ answers, onEdit, onFinish }: { answers: Answers; 
           </div>
           <div className="flex items-start gap-2.5 rounded-2xl border border-info/20 bg-info-soft p-3.5 text-xs leading-relaxed text-info">
             <Info size={16} className="mt-0.5 shrink-0" />
-            <span>Nada neste arquivo é vendido ou compartilhado. Ele só orienta quais dados abertos buscar e como explicar para você.</span>
+            <span>Nada disso é vendido ou compartilhado. Só usamos para escolher quais dados oficiais buscar e como explicar para você.</span>
           </div>
         </aside>
       </div>
@@ -148,23 +140,6 @@ function Stat({ value, label }: { value: string; label: string }) {
     <div className="rounded-xl bg-primary-soft/60 px-2 py-2.5">
       <div className="text-xl font-extrabold text-primary-dark tabular-nums">{value}</div>
       <div className="text-[11px] text-primary-dark/80">{label}</div>
-    </div>
-  )
-}
-
-/** Mostra o markdown como documento: títulos em destaque, citações em itálico, tabela com rolagem lateral. */
-function MdView({ md }: { md: string }) {
-  return (
-    <div>
-      {md.split('\n').map((line, i) => {
-        if (line.startsWith('# ')) return <div key={i} className="mb-1 text-[15px] font-bold text-primary-dark">{line}</div>
-        if (line.startsWith('## ')) return <div key={i} className="mt-3 font-bold text-primary-dark">{line}</div>
-        if (line.startsWith('>')) return <div key={i} className="whitespace-pre-wrap italic text-muted">{line}</div>
-        if (line.startsWith('|')) return <div key={i} className={clsx('whitespace-pre', /^\|[-|]+\|$/.test(line) ? 'text-muted' : 'text-ink')}>{line}</div>
-        if (line.startsWith('- ')) return <div key={i} className="whitespace-pre-wrap pl-4 -indent-4"><span className="text-primary">- </span>{line.slice(2)}</div>
-        if (!line.trim()) return <div key={i} className="h-2" />
-        return <div key={i} className="whitespace-pre-wrap">{line}</div>
-      })}
     </div>
   )
 }

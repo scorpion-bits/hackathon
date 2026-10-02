@@ -8,6 +8,7 @@ import LiveMap from './pages/LiveMap'
 import Login from './pages/Login'
 import OpenData from './pages/OpenData'
 import Property from './pages/Property'
+import Resolve from './pages/Resolve'
 
 export default function ProtoApp() {
   return (
@@ -18,6 +19,7 @@ export default function ProtoApp() {
       <Route path="dados" element={<Shell><OpenData /></Shell>} />
       <Route path="propriedade" element={<Shell><Property /></Shell>} />
       <Route path="assistente" element={<Shell><Assistant /></Shell>} />
+      <Route path="resolver/:id" element={<Shell><Resolve /></Shell>} />
       <Route path="contexto" element={<Shell><ContextPage /></Shell>} />
       <Route path="*" element={<Shell><ForYou /></Shell>} />
     </Routes>

@@ -2,11 +2,11 @@
 // 1º nível (bater o olho): o que fazer hoje + de quais dados oficiais isso veio.
 // 2º nível (um clique): por que, com fontes e números. Detalhe completo fica nas telas Dados abertos / Mapa vivo.
 import clsx from 'clsx'
-import { AlertTriangle, ArrowRight, ChevronDown, CloudRain, Database, Globe2, Lightbulb, Sparkles, SlidersHorizontal, Zap } from 'lucide-react'
-import { useId, useState } from 'react'
+import { AlertTriangle, ArrowRight, CheckCircle2, ChevronDown, CloudRain, Database, Globe2, Lightbulb, PartyPopper, RotateCcw, Sparkles, SlidersHorizontal, Zap } from 'lucide-react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FIELDS, FORECAST, FUNNEL, INSIGHTS, PRODUCER, type Insight } from '../mock'
-import { SourceChip } from '../components/Shell'
+import { PROBLEMS, nextOpen, resetResolved, useResolved } from '../resolve'
 
 const PRIORITY = {
   agir: { label: 'Agir agora', icon: Zap, bar: 'bg-danger', icoBg: 'bg-danger-soft text-danger' },
@@ -14,12 +14,6 @@ const PRIORITY = {
   oportunidade: { label: 'Oportunidade', icon: Lightbulb, bar: 'bg-primary', icoBg: 'bg-primary-soft text-primary-dark' },
   info: { label: 'Para saber', icon: Sparkles, bar: 'bg-info', icoBg: 'bg-info-soft text-info' },
 } as const
-
-/** Para onde leva o botão de ação de cada recomendação. */
-const ACTION_TO: Record<string, string> = {
-  i1: '/prototipo/propriedade', i2: '/prototipo/mapa', i3: '/prototipo/propriedade',
-  i4: '/prototipo/propriedade', i5: '/prototipo/dados', i6: '/prototipo/dados',
-}
 
 const SOURCE_NAME: Record<string, string> = {
   zarc: 'Zarc · MAPA', clima: 'Previsão · Open-Meteo', agrofit: 'Agrofit · MAPA', seguro: 'Seguro Rural · MAPA',
@@ -29,55 +23,58 @@ const SOURCE_NAME: Record<string, string> = {
 // Fontes oficiais que alimentam a tela (mostradas como "de onde vem").
 const HERO_SOURCES = ['Zarc · MAPA', 'Agrofit · MAPA', 'Seguro Rural · MAPA', 'SIPEAGRO · MAPA', 'NASA', 'Open-Meteo']
 
-function InsightCard({ it, lead }: { it: Insight; lead?: boolean }) {
-  const [open, setOpen] = useState(false)
-  const whyId = useId()
-  const p = PRIORITY[it.priority]
+function Origin({ it }: { it: Insight }) {
   const main = it.sources[0]
   return (
-    <article className="relative overflow-hidden rounded-2xl bg-surface shadow-sm ring-1 ring-border">
-      <span className={clsx('absolute inset-y-0 left-0 w-1.5', p.bar)} aria-hidden />
-      <div className={clsx('flex gap-4 p-5 pl-6', lead && 'md:p-6 md:pl-7')}>
-        <span className={clsx('grid h-11 w-11 shrink-0 place-items-center rounded-xl', p.icoBg)} aria-hidden><p.icon size={22} /></span>
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold">
-            <span className="uppercase tracking-wide text-muted">{p.label}{it.field ? ` · ${it.field}` : ''}</span>
-          </div>
-          <h3 className={clsx('mt-1 font-bold leading-snug', lead ? 'text-xl md:text-2xl' : 'text-lg')}>{it.title}</h3>
-          <p className="mt-1 text-[15px] leading-relaxed text-muted">{it.summary}</p>
+    <span className="inline-flex items-center gap-1.5 text-xs text-muted">
+      <Database size={13} className={it.origin === 'real' ? 'text-primary' : 'text-muted'} />
+      {main ? SOURCE_NAME[main] : 'Seus registros'}
+      {it.origin === 'real' ? <b className="font-semibold text-primary-dark">· dado oficial</b> : <span>· exemplo</span>}
+    </span>
+  )
+}
 
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            {it.action && (
-              <Link to={ACTION_TO[it.id] ?? '/prototipo'} className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-                {it.action} <ArrowRight size={16} />
-              </Link>
-            )}
-            <button onClick={() => setOpen(!open)} aria-expanded={open} aria-controls={whyId}
-              className="inline-flex items-center gap-1 rounded-lg px-2 py-2 text-sm font-semibold text-primary hover:bg-primary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-              Por quê? <ChevronDown size={16} className={clsx('transition', open && 'rotate-180')} />
-            </button>
-            {/* Origem sempre visível, mas discreta: o dado aberto é o que dá credibilidade à recomendação */}
-            <span className="ml-auto inline-flex items-center gap-1.5 text-xs text-muted">
-              <Database size={13} className={it.origin === 'real' ? 'text-primary' : 'text-muted'} />
-              {main ? SOURCE_NAME[main] : 'Seus registros'}
-              {it.origin === 'real' ? <b className="font-semibold text-primary-dark">· dado oficial</b> : <span>· exemplo</span>}
-            </span>
-          </div>
-
-          {open && (
-            <div id={whyId} className="mt-4 rounded-xl bg-bg p-4">
-              <ul className="space-y-2 text-sm leading-relaxed">
-                {it.why.map((w, i) => <li key={i} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />{w}</li>)}
-              </ul>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {it.sources.map((s) => <SourceChip key={s} k={s} />)}
-                <SourceChip k="voce" />
-              </div>
-            </div>
-          )}
+/** O assunto em destaque: uma pergunta, um resumo, UM botão. */
+function FocusCard({ it }: { it: Insight }) {
+  const p = PRIORITY[it.priority]
+  return (
+    <article className="relative overflow-hidden rounded-3xl bg-surface shadow-md ring-1 ring-border">
+      <span className={clsx('absolute inset-x-0 top-0 h-1.5', p.bar)} aria-hidden />
+      <div className="p-6 md:p-8">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted">
+          <span className={clsx('inline-flex items-center gap-1 rounded-full px-2.5 py-1 normal-case tracking-normal', p.icoBg)}><p.icon size={13} />{p.label}</span>
+          {it.field && <span>{it.field}</span>}
         </div>
+        <h3 className="mt-3 text-2xl font-bold leading-tight md:text-3xl">{PROBLEMS[it.id].question}</h3>
+        <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted">{it.summary}</p>
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <Link to={`/prototipo/resolver/${it.id}`} className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/20 hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            Resolver agora <ArrowRight size={18} />
+          </Link>
+          <span className="text-sm text-muted">Veja os dados e escolha entre {PROBLEMS[it.id].solutions.length} soluções · ~1 min</span>
+        </div>
+        <div className="mt-5 border-t border-border pt-3"><Origin it={it} /></div>
       </div>
     </article>
+  )
+}
+
+/** Linha da fila: próximos assuntos (e os já resolvidos, com a escolha feita). */
+function QueueRow({ it, chosen }: { it: Insight; chosen?: string }) {
+  const p = PRIORITY[it.priority]
+  const sol = chosen ? PROBLEMS[it.id].solutions.find((s) => s.id === chosen) : undefined
+  return (
+    <li>
+      <Link to={`/prototipo/resolver/${it.id}`} className="group flex items-center gap-3 rounded-2xl bg-surface px-4 py-3 shadow-sm ring-1 ring-border hover:ring-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+        {sol ? <CheckCircle2 size={22} className="shrink-0 text-primary" /> : <span className={clsx('grid h-8 w-8 shrink-0 place-items-center rounded-lg', p.icoBg)}><p.icon size={16} /></span>}
+        <span className="min-w-0 flex-1">
+          <span className={clsx('block truncate font-semibold', sol && 'text-muted line-through decoration-1')}>{PROBLEMS[it.id].question}</span>
+          <span className="block truncate text-xs text-muted">{sol ? `Escolhido: ${sol.title}` : `${p.label}${it.field ? ` · ${it.field}` : ''}`}</span>
+        </span>
+        <span className="text-sm font-semibold text-primary">{sol ? 'Ver' : 'Resolver'}</span>
+        <ArrowRight size={16} className="text-muted transition group-hover:translate-x-0.5" />
+      </Link>
+    </li>
   )
 }
 
@@ -108,22 +105,27 @@ function MiniFarm() {
 }
 
 export default function ForYou() {
-  const [showAll, setShowAll] = useState(false)
   const [howOpen, setHowOpen] = useState(false)
-  const list = showAll ? INSIGHTS : INSIGHTS.slice(0, 3)
+  const resolved = useResolved()
+  const focusId = nextOpen(resolved)
+  const focus = INSIGHTS.find((i) => i.id === focusId)
+  const rest = INSIGHTS.filter((i) => i.id !== focusId).sort((x, y) => Number(!!resolved[x.id]) - Number(!!resolved[y.id]))
+  const doneCount = INSIGHTS.filter((i) => resolved[i.id]).length
+  const left = INSIGHTS.length - doneCount
   const maxRain = Math.max(...FORECAST.map((f) => f.rain), 1)
   const total = FUNNEL[0].value
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
-      {/* 1. Saudação + de onde vem (o funil virou uma frase; detalhe sob demanda) */}
+      {/* 1. Saudação + de onde vem */}
       <section className="rounded-3xl bg-sidebar px-6 py-6 text-white shadow-sm md:px-8">
         <p className="text-sm text-white/60">Sexta, 2 de outubro · {PRODUCER.farm}</p>
         <h1 className="mt-1 text-2xl font-bold leading-tight md:text-[2rem]">
-          Bom dia, {PRODUCER.name}. <span className="text-[#7fd6a0]">{INSIGHTS.length} avisos</span> para a sua roça hoje.
+          Bom dia, {PRODUCER.name}.{' '}
+          {left ? <>Vamos resolver <span className="text-[#7fd6a0]">{left} {left === 1 ? 'assunto' : 'assuntos'}</span>, um de cada vez.</> : <span className="text-[#7fd6a0]">Tudo em dia!</span>}
         </h1>
         <p className="mt-2 max-w-3xl text-[15px] text-white/75">
-          Lemos <b className="text-white">{total} registros oficiais</b> do governo e de satélites e separamos só o que vale para você.
+          Lemos <b className="text-white">{total} registros oficiais</b> do governo e de satélites e separamos só o que vale para a sua roça.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-2">
           {HERO_SOURCES.map((s) => <span key={s} className="rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium text-white/80">{s}</span>)}
@@ -143,20 +145,40 @@ export default function ForYou() {
             ))}
           </ol>
         )}
+        {/* progresso do dia */}
+        <div className="mt-5 flex items-center gap-3">
+          <div className="flex flex-1 gap-1" aria-hidden>
+            {INSIGHTS.map((i) => <span key={i.id} className={clsx('h-1.5 flex-1 rounded-full', resolved[i.id] ? 'bg-[#7fd6a0]' : 'bg-white/15')} />)}
+          </div>
+          <span className="text-xs text-white/70">{doneCount} de {INSIGHTS.length} resolvidos</span>
+        </div>
       </section>
 
       <div className="grid gap-6 lg:grid-cols-3">
-        {/* 2. O que fazer — 3 principais; o resto sob demanda */}
-        <section className="space-y-4 lg:col-span-2" aria-labelledby="todo">
-          <h2 id="todo" className="text-lg font-bold">O que fazer agora</h2>
-          {list.map((it, i) => <InsightCard key={it.id} it={it} lead={i === 0} />)}
-          <button onClick={() => setShowAll(!showAll)}
-            className="w-full rounded-2xl border border-dashed border-border py-3 text-sm font-semibold text-muted hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-            {showAll ? 'Mostrar só os principais' : `Ver mais ${INSIGHTS.length - 3} avisos`}
-          </button>
+        {/* 2. Um assunto em foco + a fila */}
+        <section className="space-y-5 lg:col-span-2">
+          {focus ? (
+            <div>
+              <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-muted">{doneCount ? 'Próximo assunto' : 'Comece por aqui'}</h2>
+              <FocusCard it={focus} />
+            </div>
+          ) : (
+            <div className="rounded-3xl bg-primary-soft p-8 text-center ring-1 ring-primary/20">
+              <PartyPopper size={36} className="mx-auto text-primary" />
+              <h2 className="mt-3 text-2xl font-bold">Tudo resolvido por hoje!</h2>
+              <p className="mt-1 text-muted">Seguimos de olho nos dados oficiais e avisamos se algo mudar.</p>
+              <button onClick={resetResolved} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary"><RotateCcw size={14} /> Recomeçar a demonstração</button>
+            </div>
+          )}
+
+          <div>
+            <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-muted">{focus ? 'Depois disso' : 'Resolvidos hoje'}</h2>
+            <ol className="space-y-2">{rest.map((it) => <QueueRow key={it.id} it={it} chosen={resolved[it.id]} />)}</ol>
+          </div>
+
           <Link to="/prototipo/contexto" className="flex items-center gap-2 rounded-xl px-1 text-sm text-muted hover:text-ink">
             <SlidersHorizontal size={15} className="text-primary" />
-            Avisos escolhidos a partir do seu contexto: 3 talhões · soja, milho, feijão · preocupação: seca.
+            Assuntos escolhidos a partir do seu contexto: 3 talhões · soja, milho, feijão · preocupação: seca.
             <span className="font-semibold text-primary">Ajustar</span>
           </Link>
         </section>

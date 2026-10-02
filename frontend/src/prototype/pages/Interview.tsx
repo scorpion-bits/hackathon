@@ -3,7 +3,7 @@
 import clsx from 'clsx'
 import { ArrowLeft, ArrowRight, ChevronDown, Sparkles } from 'lucide-react'
 import { useCallback, useMemo, useRef, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { ProtoBanner } from '../components/Shell'
 import { LiveSummary, SourceMeter } from '../components/interview/LiveSummary'
 import { PropertyMap } from '../components/interview/PropertyMap'
@@ -45,15 +45,24 @@ const isValid = (id: StepId, a: Answers) => {
 }
 const REQUIRED_HINT: Partial<Record<StepId, string>> = { profile: 'Escolha uma opção para continuar', location: 'Escolha o município para continuar' }
 
+const DEMO_ANSWERS: Answers = {
+  profile: 'familiar', municipality: MUNICIPALITIES.find((m) => m.ibge === EXAMPLE_IBGE), fields: exampleFields(),
+  income: '150a360', budget: '30a60', credit: ['pronaf'], machines: ['trator', 'plantadeira', 'pulverizador'],
+  concerns: ['seca', 'insumos', 'pragas'], goals: ['perdas', 'gastos', 'credito'], internet: 'instavel',
+}
+
 export default function Interview() {
   const nav = useNavigate()
   const loc = useLocation()
   const rawName = (loc.state as { name?: string } | null)?.name
   const firstName = rawName?.trim().split(/\s+/)[0]
 
-  const [step, setStep] = useState(0)
-  const [reached, setReached] = useState(0)
-  const [a, setA] = useState<Answers>(EMPTY_ANSWERS)
+  // ?demo=1 pula direto para o resultado com as respostas do João (atalho para o pitch)
+  const [params] = useSearchParams()
+  const demo = params.get('demo') === '1'
+  const [step, setStep] = useState(demo ? STEPS.length - 1 : 0)
+  const [reached, setReached] = useState(demo ? STEPS.length - 1 : 0)
+  const [a, setA] = useState<Answers>(demo ? DEMO_ANSWERS : EMPTY_ANSWERS)
   const [summaryOpen, setSummaryOpen] = useState(false)
   const scrollRef = useRef<HTMLElement>(null)
 
