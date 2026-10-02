@@ -15,6 +15,10 @@
 | D-008 | 02/10 13h40 | **Reposicionamento**: dados abertos são o centro; contexto do produtor (entrevista → `contexto.md`) filtra grandes volumes e sugere só o útil. Gestão vira secundária | estratégica | equipe | vigente |
 | D-009 | 02/10 13h40 | Fase de **protótipo visual** (`/prototipo`, dados de exemplo) antes de reimplementar; app funcional atual preservado em `/` para reaproveitar backend | estratégica | equipe | vigente |
 | D-007 | 02/10 12h40 | Agregados de bases com pessoa física suprimem grupos com < 3 registros (anti-reidentificação) | ética | Claude (delegado) | vigente |
+| D-010 | 02/10 ~15h | Dados atualizados por API: `scripts/fetch_opendata.py` (CKAN do MAPA, compara por hash, baixa só o que mudou) + APIs ao vivo com cache (Open-Meteo, NASA POWER, IBGE, NASA GIBS) | técnica | equipe | vigente |
+| D-011 | 02/10 ~15h30 | Entregas vão para `main` **e** para a branch da sessão (equipe só dá `git pull` na main) | operacional | equipe | vigente |
+| D-012 | 02/10 ~15h30 | UX do protótipo: tela inicial **guiada** (um assunto por vez → tela Resolver: dados → soluções do agente → próximo passo); resumo da entrevista em cartões | produto | equipe | vigente |
+| D-013 | 02/10 ~15h40 | Mapa vivo com **painel-guia em 3 passos** (onde olhar → pergunta simples → o que significa); camadas viram perguntas | produto | equipe | vigente |
 
 ---
 
