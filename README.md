@@ -22,7 +22,18 @@ propriedade) **não são publicadas** neste repositório (`data/restricted/`, fo
 **agregadas por município**, com supressão de grupos com menos de 3 registros.
 O produtor da demonstração (João, Sítio Boa Esperança) é **fictício** e rotulado como tal na interface.
 
-## Como rodar com Docker (recomendado — não precisa instalar Python nem Node)
+## Jeito mais fácil (Docker) — Windows ou Linux
+Requisito: **Docker Desktop** aberto (Windows/Mac) ou Docker Engine + Compose (Linux). Não precisa Python nem Node.
+
+| | Windows | Linux / macOS |
+|---|---|---|
+| Subir tudo e abrir o navegador | dois cliques em **`iniciar.bat`** (ou `.\iniciar.ps1`) | `./iniciar.sh` |
+| Atualizar o código e subir | `iniciar.bat atualizar` | `./iniciar.sh atualizar` |
+| Recriar a demonstração | `iniciar.bat resetar` | `./iniciar.sh resetar` |
+| Conferir o portal do MAPA | `iniciar.bat sincronizar` | `./iniciar.sh sincronizar` |
+| Ver logs / parar | `iniciar.bat logs` · `iniciar.bat parar` | `./iniciar.sh logs` · `./iniciar.sh parar` |
+
+## Docker manual
 Requisito: Docker Desktop (Windows/Mac) ou Docker Engine + Compose (Linux).
 
 ```bash

@@ -19,7 +19,7 @@
 | Bloqueios | Nenhum. Internet liberada na sessão (02/10 ~15h). Portal do MAPA exige User-Agent (já tratado) |
 
 **Pronto (02/10 ~15h40, tudo na `main`):**
-- Rodar: `git pull && ./dev.sh` (API+interface) · `./dev.sh --proto` (só protótipo) · `--reset` (demo) · `--sync` (confere MAPA).
+- Rodar: **`iniciar.bat` (Windows) / `./iniciar.sh` (Linux)** via Docker (opções: atualizar, resetar, sincronizar, logs, parar) · sem Docker: `./dev.sh` (`--proto`, `--reset`, `--sync`).
 - **Protótipo** `/prototipo`: Login · Entrevista (`?demo=1` pula pro fim, resumo em cartões) · Início guiado
   (um assunto por vez → `/prototipo/resolver/:id`: dados → caminhos possíveis → enviar caso ao técnico) · Meus casos (`/prototipo/casos`) · Editar talhões (`/prototipo/talhoes`) · Mapa vivo (globo 3D, guia em 3 passos,
   `?talhao=N`) · Dados abertos · Minha propriedade · IA · Meu contexto. Dados de exemplo em `prototype/mock.ts` e `prototype/resolve.ts`.

@@ -4,6 +4,8 @@
 services:
   backend:
     build: { context: ., dockerfile: docker/backend.Dockerfile }
+    # Linux: o iniciar.sh passa o seu usuário, para os bancos em ./data não ficarem com dono root
+    user: "${HOST_UID:-0}:${HOST_GID:-0}"
     ports: ["8000:8000"]
     env_file:
       - path: .env          # chave da IA (opcional)
