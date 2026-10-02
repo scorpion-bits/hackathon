@@ -33,7 +33,7 @@ export function Controls(p: {
   base: 'sat' | 'map'; onBase: () => void; fs: boolean; onFs: () => void
 }) {
   return (
-    <div className={clsx(PANEL, 'absolute right-3 top-3 z-20 flex flex-col gap-1 p-1 lg:right-4 lg:top-4 lg:flex-row lg:items-center')}>
+    <div className={clsx(PANEL, 'absolute z-20 max-lg:hidden lg:right-4 lg:top-4 lg:flex lg:flex-row lg:items-center lg:gap-1 lg:p-1')}>
       <CtrlBtn onClick={p.onZoomIn} title="Aproximar"><Plus size={16} /></CtrlBtn>
       <CtrlBtn onClick={p.onZoomOut} title="Afastar"><Minus size={16} /></CtrlBtn>
       <span className="mx-1 hidden h-5 w-px bg-white/15 lg:block" />
@@ -49,7 +49,7 @@ export function Controls(p: {
 }
 
 // ---------------------------------------------------------------- linha do tempo
-export function Timeline(p: { today: Date; offset: number; onOffset: (o: number) => void; playing: boolean; onPlay: () => void; attribution: string }) {
+export function Timeline(p: { today: Date; offset: number; onOffset: (o: number) => void; playing: boolean; onPlay: () => void; attribution: string; embedded?: boolean }) {
   const scroller = useRef<HTMLDivElement>(null)
   useEffect(() => { // mantém o dia escolhido visível quando a barra rola (mobile)
     const c = scroller.current
@@ -57,7 +57,7 @@ export function Timeline(p: { today: Date; offset: number; onOffset: (o: number)
     if (c && b && c.scrollWidth > c.clientWidth) c.scrollTo({ left: b.offsetLeft - c.clientWidth / 2 + b.clientWidth / 2, behavior: 'smooth' })
   }, [p.offset])
   return (
-    <div className={clsx(PANEL, 'absolute inset-x-0 bottom-0 z-20 rounded-none border-x-0 border-b-0 px-2 pb-1 pt-1.5 lg:left-[24.5rem] lg:right-4 lg:bottom-4 lg:rounded-2xl lg:border lg:px-3 lg:pt-2')}>
+    <div className={p.embedded ? 'rounded-xl bg-white/5 p-2' : clsx(PANEL, 'absolute z-20 max-lg:hidden lg:bottom-4 lg:left-[24.5rem] lg:right-4 lg:px-3 lg:pb-1 lg:pt-2')}>
       <div className="flex items-center gap-2">
         <button onClick={p.onPlay} aria-label={p.playing ? 'Pausar' : 'Reproduzir'}
           className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-amber-400 text-ink shadow-lg hover:bg-amber-300">
@@ -112,7 +112,7 @@ function Row({ label, value, children, tag }: { label: string; value: ReactNode;
   )
 }
 
-export function FieldCard({ id, date, onClose }: { id: number; date: Date; onClose: () => void }) {
+export function FieldCard({ id, date, onClose, embedded }: { id: number; date: Date; onClose: () => void; embedded?: boolean }) {
   const f = FIELDS.find((x) => x.id === id)
   if (!f) return null
   const risk = riskFor(f, date)
@@ -121,8 +121,7 @@ export function FieldCard({ id, date, onClose }: { id: number; date: Date; onClo
   const [ndvi, ndviTxt] = NDVI[f.id] ?? [0.4, '']
   const insight = INSIGHTS.find((i) => i.field === f.name)
   return (
-    <div className={clsx(PANEL, 'absolute inset-x-2 top-2 z-30 max-h-[42%] overflow-y-auto p-3',
-      'lg:inset-x-auto lg:bottom-auto lg:right-4 lg:top-[4.25rem] lg:max-h-[calc(100%-10.5rem)] lg:w-[22rem] lg:p-4')}>
+    <div className={embedded ? '' : clsx(PANEL, 'absolute z-30 overflow-y-auto max-lg:hidden lg:right-4 lg:top-[4.25rem] lg:max-h-[calc(100%-10.5rem)] lg:w-[22rem] lg:p-4')}>
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2.5">
           <span className="h-9 w-9 shrink-0 rounded-lg ring-2 ring-white" style={{ background: f.color }} />
@@ -131,7 +130,7 @@ export function FieldCard({ id, date, onClose }: { id: number; date: Date; onClo
             <div className="text-[12px] text-white/65">{f.area.toLocaleString('pt-BR')} ha · solo {f.soil.toLowerCase()} · {f.status}</div>
           </div>
         </div>
-        <button onClick={onClose} className="rounded-md p-1 text-white/60 hover:bg-white/10 hover:text-white" aria-label="Fechar"><X size={16} /></button>
+        {!embedded && <button onClick={onClose} className="rounded-md p-1 text-white/60 hover:bg-white/10 hover:text-white" aria-label="Fechar"><X size={16} /></button>}
       </div>
 
       <div className="mt-3 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-emerald-300"><Info size={13} /> O que os dados dizem aqui</div>
@@ -198,7 +197,7 @@ export function FarmPin({ show, onClick }: { show: boolean; onClick: () => void 
 export function ForecastBars({ show, offset }: { show: boolean; offset: number }) {
   const max = Math.max(...FORECAST.map((f) => f.rain), 1)
   return (
-    <div className={clsx('pointer-events-none w-64 transition-opacity duration-500', show ? 'opacity-100' : 'opacity-0')}>
+    <div className={clsx('pointer-events-none w-64 transition-opacity duration-500 max-lg:hidden', show ? 'opacity-100' : 'opacity-0')}>
       <div className="rounded-xl bg-sidebar/90 p-2.5 text-white shadow-2xl ring-1 ring-white/15 backdrop-blur">
         <div className="flex items-center justify-between gap-2">
           <span className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-sky-200"><CloudRain size={12} /> Chuva prevista aqui</span>

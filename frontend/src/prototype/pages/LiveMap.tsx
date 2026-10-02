@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useSearchParams } from 'react-router-dom'
 import { Guide, type Place } from '../components/livemap/Guide'
+import { MobileUI } from '../components/livemap/MobileUI'
 import { Controls, FarmPin, FieldCard, FieldLabel, ForecastBars, Timeline } from '../components/livemap/Panels'
 import { DATA_LAYERS, GIBS_ATTRIBUTION, addDays, gibsTileUrl, gibsTime } from '../components/livemap/layers'
 import { Map as MLMap, Marker, type GeoJSONSource, type RasterTileSource } from '../components/livemap/maplibre'
@@ -28,7 +29,7 @@ const THEMATIC_SRC = 'thematic'
 function viewPadding(m: MLMap, withCard = false) {
   return m.getContainer().clientWidth >= 1024
     ? { top: 40, bottom: 100, left: 390, right: withCard ? 400 : 80 }
-    : { top: withCard ? 330 : 60, bottom: 330, left: 0, right: 0 }
+    : { top: 70, bottom: withCard ? 110 : 130, left: 0, right: 0 } // celular: só a barra do topo e um cartão embaixo
 }
 
 type MarkerEls = { labels: { id: number; el: HTMLElement }[]; pin: HTMLElement; forecast: HTMLElement }
@@ -258,6 +259,22 @@ export default function LiveMap() {
         latest={latest} onLatest={() => setLatest((v) => !v)}
       />
       {selected !== null && <FieldCard id={selected} date={date} onClose={() => setSelected(null)} />}
+      <MobileUI
+        place={place}
+        onPlace={(pl) => {
+          if (pl === 'brazil') { setArea('brazil'); setSelected(null); flyBrazil() }
+          else if (pl === 'farm') { setArea('farm'); setSelected(null); flyHome() }
+          else flyField(pl)
+        }}
+        layerId={layerId} onLayer={(id) => { setLayerId(id); setLatest(false) }}
+        selected={selected} onDeselect={() => setSelected(null)}
+        today={today} date={date} offset={offset} onOffset={(o) => { setOffset(o); setPlaying(false) }} playing={playing} onPlay={() => setPlaying((v) => !v)} time={time}
+        opacity={layerOpacity} onOpacity={(v) => layer && setOpacity((o) => ({ ...o, [layer.id]: v }))}
+        latest={latest} onLatest={() => setLatest((v) => !v)}
+        base={base} onBase={() => setBase((b) => (b === 'sat' ? 'map' : 'sat'))}
+        proj={proj} onProj={() => setProj((pr) => (pr === 'globe' ? 'mercator' : 'globe'))}
+        attribution={attribution}
+      />
       <Timeline today={today} offset={offset} onOffset={(o) => { setOffset(o); setPlaying(false) }} playing={playing} onPlay={() => setPlaying((v) => !v)} attribution={attribution} />
     </div>
   )

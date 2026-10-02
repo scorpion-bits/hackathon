@@ -25,7 +25,7 @@ function StepTitle({ n, children }: { n: number; children: ReactNode }) {
   )
 }
 
-function Legend({ layer }: { layer: DataLayer }) {
+export function Legend({ layer }: { layer: DataLayer }) {
   const { colors, labels, discrete, unit } = layer.legend
   if (!colors.length) return null
   return (
@@ -63,8 +63,7 @@ export function Guide(p: {
 
   return (
     <aside aria-label="Guia do mapa" className={clsx(PANEL,
-      'absolute inset-x-2 bottom-[4.5rem] z-20 max-h-[52%] overflow-y-auto p-3',
-      'lg:inset-x-auto lg:bottom-[5.5rem] lg:left-4 lg:top-4 lg:max-h-none lg:w-[22rem] lg:p-4')}>
+      'absolute z-20 overflow-y-auto max-lg:hidden lg:bottom-[5.5rem] lg:left-4 lg:top-4 lg:w-[22rem] lg:p-4')}>
       <div className="mb-3 hidden lg:block">
         <h1 className="text-lg font-bold leading-tight"><span className="text-emerald-300">Mapa vivo</span> da sua roça</h1>
         <p className="text-xs text-white/60">Dados oficiais de satélite e do governo sobre a sua propriedade.</p>
