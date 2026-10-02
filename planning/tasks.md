@@ -22,7 +22,7 @@
 | T-021 | QA ponta a ponta do fluxo da demo + correções | 🤖 | Claude + Victor | Opus | P0 | 1h | — | READY |
 | T-022 | Teste com modelo de IA real (chave da equipe) + 10 perguntas | 👥🤖 | Fernando/Milan + Claude | — | P0 | 45m | H-014 | READY |
 | T-023 | Pitch: roteiro + PDF (insights de dados, demo, B2B2C, ética) | 🤖👥 | Claude + Thales | Opus | P0 | 2h | — | READY |
-| T-030 | Implementação real do protótipo — etapas E00–E14 em `docs/implementacao/README.md` (status por etapa lá) | 🤖👥 | Claude + equipe | ver plano | P0 | ~10h | E00 | READY |
+| T-030 | MVP real — etapas M1–M7 em `docs/implementacao/README.md` (status por etapa lá) | 🤖👥 | Claude + equipe | ver plano | P0 | ~6h20 | — | READY |
 | T-020 | Testes: fluxo principal, Zarc vs CSV, custos, privacidade (7 ok) + 10 perguntas da IA | 🤖 | Claude + Victor | Opus | P0 | contínuo | — | IN_PROGRESS |
 
 ## Ações humanas (👥 HUMAN ACTION REQUIRED → espelhar no Hub)

@@ -5,8 +5,8 @@
 
 ## 0. Retomada após `/clear` (a equipe limpa o chat entre etapas)
 
-1. Leia este arquivo e **`docs/implementacao/README.md`** (plano da implementação real, tabela de etapas E00–E14).
-2. Pegue a etapa 🔄 ou a próxima ⏳ e leia **só o arquivo dela** (`docs/implementacao/E0X-*.md`), que tem contexto,
+1. Leia este arquivo e **`docs/implementacao/README.md`** (plano do MVP real, etapas M1–M7, regras de dados §2).
+2. Pegue a etapa 🔄 ou a próxima ⏳ e leia **só o arquivo dela** (`docs/implementacao/Mx-*.md`), que tem contexto,
    arquivos envolvidos, passos, teste e ações humanas.
 3. Ao terminar: marque ✅ + hash na tabela, atualize §1 deste arquivo em **1–3 linhas** e responda com o
    **bloco de fechamento** (README do plano, §5): o que mudou, 🧪 como a equipe testa, 👥 passo a passo do que a equipe faz.
@@ -47,8 +47,10 @@ Este arquivo ≤ 250 linhas: ao atualizar, **substitua** linhas de estado em vez
   (NASA POWER: set/26 93 mm × normal 48 mm; IBGE malhas) · Open-Meteo · NASA GIBS (camadas verificadas). Ver `docs/09`.
 - **Modelo de negócio:** A — público, ATER (CATI/Senar/prefeitura), gratuito ao produtor. Ver `docs/10-business-model.md`.
 
-**Próximo:** 👥 E00 (decisões D-017…D-021) → E01…E13 do plano `docs/implementacao/README.md` (essenciais: E01–E08, E11–E13)
-→ **pitch (Thales) + PDF** com números reais → congelamento 03/10 08h.
+**Próximo:** MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
+M4 telas → M5 IA → M6 app em `/` + roteiro; M7 ANA opcional) → **pitch (Thales) + PDF** → congelamento 03/10 08h.
+**Regra de dados (D-022):** dado de fonte aberta/externa é SEMPRE real (fonte fora → aviso, ou último dado real com data);
+fictício só dado de conta (contas demo `is_demo`, fixtures nas mesmas tabelas). Cenários: conta nova × conta existente (João).
 **Pendências 👥:** validar fluxo de casos com técnico da CATI (via mentor) · confirmar % de assistência técnica (Censo Agro 2017).
 
 **Restrições-chave:** agenda CEPIN (visão computacional, preditivo, otimização, automação/robótica);
@@ -145,7 +147,7 @@ Detalhes: `planning/timeline.md`.
 
 D-001…D-007 (AgroBits, MVP+planejador+voz, stack, IA plugável, persona João/Araraquara, solo→Zarc, supressão <3) ·
 D-008 dados abertos no centro + contexto do produtor · D-009 protótipo visual antes de reimplementar ·
-D-010 atualização por API/CKAN · D-011 entregas na `main` · D-012 início guiado + tela Resolver · D-013 mapa com guia em 3 passos · D-014 nome AgroBits + visual isométrico (logo em `docs/brand/`) · **D-015 modelo A público (ATER)** · D-016 mobile first.
+D-010 atualização por API/CKAN · D-011 entregas na `main` · D-012 início guiado + tela Resolver · D-013 mapa com guia em 3 passos · D-014 nome AgroBits + visual isométrico (logo em `docs/brand/`) · **D-015 modelo A público (ATER)** · D-016 mobile first · D-017 protótipo vira app em `/` · D-018 cadastro c/ senha + botões demo · D-019 resposta do técnico simulada · D-020 Groq + offline · D-021 sementes/fungicida via estoque da conta + Agrofit real · **D-022 regras de dados** (ver `docs/implementacao/README.md` §2).
 Ver `docs/06-decisions.md`.
 
 ---

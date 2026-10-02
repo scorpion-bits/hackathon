@@ -31,3 +31,16 @@
 - **Alternativas:** wiki do GitHub; tudo no Hub.
 - **Motivo:** versionado, legível por agentes, retomável por nova sessão.
 - **Reversível:** sim, custo baixo.
+
+## D-017…D-022 — Implementação do MVP real (02/10 ~20h, aprovadas pela equipe)
+- **D-017** O protótipo vira o app principal em `/`; o app antigo fica em `/legado`.
+- **D-018** Cadastro com contato e senha (hash pbkdf2 da biblioteca padrão) + botões "Entrar como João (demo)" e "Experimentar como novo usuário".
+- **D-019** A resposta do técnico na demo é simulada e rotulada "exemplo" (não há convênio nem API dos órgãos).
+- **D-020** IA: Groq gratuito (`openai/gpt-oss-120b`); o modo offline é a reserva automática.
+- **D-021** Os assuntos de sementes e fungicida são calculados a partir do estoque da conta (fictício na demo), com consulta real ao Agrofit.
+- **D-022** Regras de dados:
+  - dado de fonte aberta ou externa é sempre real; se a fonte cair, a tela avisa ou mostra a última resposta real com data;
+  - só dados de conta podem ser fictícios, em contas `is_demo` carregadas de fixtures nas mesmas tabelas;
+  - solo é declarado pelo produtor;
+  - ANA (pivôs) é consultada online (SNIRH ArcGIS), etapa opcional M7.
+- Plano: `docs/implementacao/README.md`.
