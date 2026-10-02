@@ -4,6 +4,7 @@
 #   ./dev.sh            API (8000) + interface (5173)
 #   ./dev.sh --proto    só a interface — basta para o protótipo em /prototipo
 #   ./dev.sh --reset    recria a propriedade de demonstração antes de subir
+#   ./dev.sh --sync     confere no portal do MAPA se as bases mudaram (baixa só o que mudou)
 #
 # Na primeira vez cria o venv, instala dependências e gera os bancos; depois só sobe.
 # Ctrl+C derruba tudo.
@@ -11,12 +12,13 @@ set -euo pipefail
 cd "$(dirname "$0")"
 ROOT="$PWD"
 
-PROTO=0; RESET=0
+PROTO=0; RESET=0; SYNC=0
 for arg in "$@"; do
   case "$arg" in
     --proto) PROTO=1 ;;
     --reset) RESET=1 ;;
-    -h|--help) sed -n '2,9p' "$0"; exit 0 ;;
+    --sync) SYNC=1 ;;
+    -h|--help) sed -n '2,10p' "$0"; exit 0 ;;
     *) echo "opção desconhecida: $arg (use --help)"; exit 1 ;;
   esac
 done
@@ -50,6 +52,11 @@ if [[ $PROTO -eq 0 ]]; then
   if [[ ! -f data/opendata.db ]]; then
     say "Gerando data/opendata.db a partir dos dados abertos (~2 min, só na primeira vez)"
     python scripts/pipeline_opendata.py
+  fi
+
+  if [[ $SYNC -eq 1 ]]; then
+    say "Conferindo dados abertos no portal do MAPA"
+    python scripts/fetch_opendata.py || echo "  (portal indisponível — seguindo com os dados locais)"
   fi
 
   if [[ $RESET -eq 1 || ! -f data/app.db ]]; then

@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session
 from ..db import get_session
 from ..models import AlertState, Event, Field, ProfileFact, Season, StockItem, StockMovement
 from ..services import farmdata as fd
+from ..services import live
 from ..services import opendata as od
 from ..services.insights import compute_alerts, plan_planting
 from ..services.weather import forecast
@@ -324,6 +325,13 @@ def weather(session: Session = DB):
     return forecast(farm.lat, farm.lon)
 
 
+@router.get("/climate/rain-history")
+def rain_history(session: Session = DB):
+    """Chuva dos últimos 30 dias × normal climatológica (NASA POWER, ao vivo com cache)."""
+    farm = farm_or_404(session)
+    return live.rain_vs_normal(farm.lat, farm.lon)
+
+
 # ---------------- dados abertos ----------------
 @router.get("/opendata/crops")
 def crops(session: Session = DB):
@@ -345,6 +353,12 @@ def agrofit_search(q: str):
 @router.get("/opendata/region")
 def region(session: Session = DB):
     return od.region(farm_or_404(session).geocode)
+
+
+@router.get("/opendata/boundary")
+def boundary(session: Session = DB):
+    """Contorno oficial do município da propriedade (IBGE Malhas, ao vivo com cache)."""
+    return live.municipality_boundary(farm_or_404(session).geocode)
 
 
 @router.get("/opendata/sources")

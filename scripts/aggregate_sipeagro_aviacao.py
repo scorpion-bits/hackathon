@@ -14,10 +14,16 @@ RESTRICTED = Path("data/restricted")
 OUT = Path("data/processed")
 
 
+def src(stem: str) -> Path:
+    """Arquivo zipado ou não (o portal publica nos dois formatos)."""
+    return next((RESTRICTED / f"{stem}{e}" for e in (".csv.zip", ".csv") if (RESTRICTED / f"{stem}{e}").exists()),
+                RESTRICTED / f"{stem}.csv.zip")
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     reg = pd.read_csv(
-        RESTRICTED / "sipeagroaviacaoagricolaregistro.csv.zip", sep=";", dtype=str,
+        src("sipeagroaviacaoagricolaregistro"), sep=";", dtype=str,
         usecols=["UNIDADE_DA_FEDERACAO", "MUNICIPIO", "NUMERO_REGISTRO_ESTABELECIMENTO",
                  "STATUS_REGISTRO_ESTABELECIMENTO", "ATIVIDADE", "ESPECIE", "NUMERO_REGISTRO_AERONAVE"],
     )
@@ -30,7 +36,7 @@ def main() -> None:
     agg.to_csv(OUT / "aviacao_registro_por_municipio.csv", index=False)
 
     aut = pd.read_csv(
-        RESTRICTED / "sipeagroaviacaoagricolaautorizacao.csv.zip", sep=";", dtype=str,
+        src("sipeagroaviacaoagricolaautorizacao"), sep=";", dtype=str,
         usecols=["NUMERO_AUTORIZACAO", "UF_AUTORIZADA", "MUNICIPIO_AUTORIZADO", "DATA_INICIO_VALIDADE"],
     )
     aut["ano"] = aut.DATA_INICIO_VALIDADE.str[:4]

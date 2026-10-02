@@ -1,0 +1,68 @@
+{
+  "_checked": {
+    "agrofit": "2026-10-02T17:33:08",
+    "psr": "2026-10-02T17:33:08",
+    "sipeagro_aviacao": "2026-10-02T17:33:08",
+    "zarc": "2026-10-02T17:33:08"
+  },
+  "agrofitprodutosformulados.csv": {
+    "bytes": 391804397,
+    "checked_at": "2026-10-02T17:32:11",
+    "downloaded_at": "2026-10-02T00:00:00",
+    "package": "sistema-de-agrotoxicos-fitossanitarios-agrofit",
+    "sha256": "23a92c62459872e079b4f0a35db3126a3c543b63c9758fa32a8e0f2dc921eb93",
+    "source": "agrofit",
+    "url": "https://dados.agricultura.gov.br/dataset/6c913699-e82e-4da3-a0a1-fb6c431e367f/resource/d30b30d7-e256-484e-9ab8-cd40974e1238/download/agrofitprodutosformulados.csv",
+    "version": "2026-10-02T07:04:54.360400"
+  },
+  "dados-abertos-tabua-de-risco-safra-2025-2026.csv": {
+    "bytes": 223474002,
+    "checked_at": "2026-10-02T17:32:11",
+    "downloaded_at": "2026-10-02T00:00:00",
+    "package": "tabua-de-risco-zoneamento-agricola-de-risco-climatico",
+    "sha256": "88279115484e9a17abfabc981c08e9c57a57e179be829101f6f602ed9d01bff2",
+    "source": "zarc",
+    "url": "https://dados.agricultura.gov.br/dataset/6d3d141c-885e-41a4-ab7f-dc8ff323b96f/resource/f9d597f9-0fee-47eb-9344-8642274ca9da/download/dados-abertos-tabua-de-risco-safra-2025-2026.csv",
+    "version": "2026-10-02T07:11:29.732246"
+  },
+  "dados-abertos-tabua-de-risco-safra-2026-2027.csv": {
+    "bytes": 211652014,
+    "checked_at": "2026-10-02T17:32:11",
+    "downloaded_at": "2026-10-02T00:00:00",
+    "package": "tabua-de-risco-zoneamento-agricola-de-risco-climatico",
+    "sha256": "65f52578a4869894311888323d87db75a5452829a3dabef90786f3f14b02d652",
+    "source": "zarc",
+    "url": "https://dados.agricultura.gov.br/dataset/6d3d141c-885e-41a4-ab7f-dc8ff323b96f/resource/139e5a60-1f43-4cc8-aeab-a35dbbf816c0/download/dados-abertos-tabua-de-risco-safra-2026-2027.csv",
+    "version": "2026-10-02T07:11:39.614094"
+  },
+  "dados_abertos_psr_2025csv.csv": {
+    "bytes": 13916429,
+    "checked_at": "2026-10-02T17:32:11",
+    "downloaded_at": "2026-10-02T00:00:00",
+    "package": "sisser3",
+    "sha256": "bf7c7f97415463bec4f46d3767844e8074c4a84c53c475f9630b482df0ea2c1f",
+    "source": "psr",
+    "url": "https://dados.agricultura.gov.br/dataset/baefdc68-9bad-4204-83e8-f2888b79ab48/resource/ac7e4351-974f-4958-9294-627c5cbf289a/download/dados_abertos_psr_2025csv.csv",
+    "version": "2025-09-03T13:37:06.082732"
+  },
+  "sipeagroaviacaoagricolaautorizacao.csv": {
+    "bytes": 162066265,
+    "checked_at": "2026-10-02T17:32:11",
+    "downloaded_at": "2026-10-02T00:00:00",
+    "package": "sipeagro",
+    "sha256": "58c4d4e518ee0e4c4838bf228338002ce1e5134d70db2b89c29589f8b46ffb2b",
+    "source": "sipeagro_aviacao",
+    "url": "https://dados.agricultura.gov.br/dataset/52a01565-72d6-410e-b21b-64035831a7be/resource/0626b768-7a83-49ba-a0c7-2365880e383d/download/sipeagroaviacaoagricolaautorizacao.csv",
+    "version": "2026-09-27T06:19:37.295247"
+  },
+  "sipeagroaviacaoagricolaregistro.csv": {
+    "bytes": 7723037,
+    "checked_at": "2026-10-02T17:32:11",
+    "downloaded_at": "2026-10-02T00:00:00",
+    "package": "sipeagro",
+    "sha256": "7a80dce045035e0907b086545c9265e1ef33b399ef38d58dce7ea516a8ac98a9",
+    "source": "sipeagro_aviacao",
+    "url": "https://dados.agricultura.gov.br/dataset/52a01565-72d6-410e-b21b-64035831a7be/resource/fac50de6-d4c4-4b47-bac9-5b144de448c9/download/sipeagroaviacaoagricolaregistro.csv",
+    "version": "2026-09-27T06:00:25.542787"
+  }
+}

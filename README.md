@@ -26,7 +26,14 @@ O produtor da demonstração (João, Sítio Boa Esperança) é **fictício** e r
 Requisitos: Python 3.11+, Node 20+.
 
 **Atalho (Linux/macOS/WSL):** `./dev.sh` faz tudo abaixo e sobe API + interface (Ctrl+C para parar).
-`./dev.sh --proto` sobe só a interface (suficiente para `/prototipo`); `./dev.sh --reset` recria a demo.
+`./dev.sh --proto` sobe só a interface (suficiente para `/prototipo`); `./dev.sh --reset` recria a demo;
+`./dev.sh --sync` confere no portal do MAPA se alguma base mudou antes de subir.
+
+**Dados sempre atuais:** `python scripts/fetch_opendata.py` consulta a API CKAN de dados.agricultura.gov.br,
+compara o conteúdo (hash) e só baixa/reconstrói o que mudou; a data de conferência vira o selo "fonte + data".
+Agendar diariamente: `0 6 * * * cd /caminho/hackathon && .venv/bin/python scripts/fetch_opendata.py >> data/sync.log 2>&1`.
+Clima (Open-Meteo), chuva × normal (NASA POWER), contorno do município (IBGE) e camadas de satélite (NASA GIBS)
+são consultados ao vivo, com cache para funcionar sem internet.
 
 Passo a passo manual:
 

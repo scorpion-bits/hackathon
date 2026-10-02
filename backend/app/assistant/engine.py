@@ -190,6 +190,15 @@ def _chat_offline(session: Session, message: str, context: dict | None) -> dict:
             lines.append("Estoque baixo: " + "; ".join(f"{i['name']} ({i['quantity']:g} {i['unit']})" for i in low))
         if exp:
             lines.append("Perto do vencimento: " + "; ".join(f"{i['name']} (vence em {i['days_to_expiry']} dias)" for i in exp))
+    elif any(w in t for w in ("seco", "seca", "normal", "choveu", "ultimos dias", "últimos dias")):
+        r = call("rain_history")
+        if not r.get("period"):
+            lines.append(r.get("error", "Histórico de chuva indisponível no momento."))
+        else:
+            p = r["period"]
+            lines.append(f"De {p['start']} a {p['end']} choveu {r['observed_mm']:.0f} mm na sua região; o normal para o período "
+                         f"é {r['normal_mm']:.0f} mm — {r['label']}.")
+            lines.append(r["notes"][0])
     elif any(w in t for w in ("chuva", "tempo", "clima", "previs", "geada")):
         w = call("get_weather")
         if not w.get("next_7_days"):

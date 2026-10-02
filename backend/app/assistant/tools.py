@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from ..models import Event, Field, ProfileFact, StockItem
 from ..services import farmdata as fd
 from ..services import opendata as od
+from ..services import live
 from ..services.insights import compute_alerts, plan_planting
 from ..services.weather import forecast
 
@@ -97,6 +98,15 @@ def get_weather(session: Session, **_):
             "rain_next_7d_mm": w["rain_next_7d_mm"]}, [w["source"]]
 
 
+def rain_history(session: Session, **_):
+    farm = fd.get_farm(session)
+    r = live.rain_vs_normal(farm.lat, farm.lon)
+    if not r.get("available"):
+        return r, []
+    r = {k: v for k, v in r.items() if k != "daily"}
+    return r, [r.pop("source")]
+
+
 def plan(session: Session, field: str, crop: str | None = None, **_):
     farm = fd.get_farm(session)
     f = _field_by_name(session, farm.id, field)
@@ -137,6 +147,7 @@ TOOLS = {
     "get_zarc": (get_zarc, "Risco climático oficial (Zarc/MAPA) do talhão para os próximos períodos de 10 dias.",
                  {"field": {"type": "string"}, "crop": {"type": "string", "description": "Opcional: cultura diferente da cadastrada"}}),
     "get_weather": (get_weather, "Previsão do tempo para a propriedade (atual + próximos dias).", {}),
+    "rain_history": (rain_history, "Chuva observada nos últimos 30 dias (NASA POWER) comparada com a normal do lugar: está mais seco ou mais chuvoso que o normal?", {}),
     "plan_planting": (plan, "Planejador de plantio: melhor janela (Zarc + previsão de chuva) e se há sementes suficientes no estoque.",
                       {"field": {"type": "string"}, "crop": {"type": "string"}}),
     "check_agrofit": (check_agrofit, "Consulta o registro de um defensivo no Agrofit/MAPA (cultura, classe toxicológica e ambiental).",

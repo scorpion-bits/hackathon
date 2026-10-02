@@ -5,7 +5,8 @@ import unicodedata
 from datetime import date
 from functools import lru_cache
 
-from ..db import opendata
+from ..db import OPENDATA_DB
+from ..db import opendata as _connect
 
 SOIL_CODES = {"arenoso": "1", "medio": "2", "argiloso": "3"}
 # D-006: culturas zoneadas por classe de água disponível (AD1..AD6) — aproximação a partir da textura
@@ -14,7 +15,6 @@ SOIL_LABELS = {"1": "Arenoso", "2": "Textura média", "3": "Argiloso", "11": "AD
                "14": "AD4", "15": "AD5", "16": "AD6"}
 CYCLE_LABELS = {"13": "Perene", "19": "Semiperene", "20": "Grupo I (precoce)", "21": "Grupo II (médio)",
                 "22": "Grupo III (tardio)", "24": "Grupo IV", "25": "Grupo V", "26": "Grupo VI"}
-PREFERRED_SAFRAS = ["2026/2027", "2025/2026"]
 
 
 def decendio(d: date) -> int:
@@ -27,6 +27,20 @@ def decendio_label(n: int) -> str:
     part = (n - 1) % 3
     meses = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
     return f"{['1–10', '11–20', '21–fim'][part]}/{meses[month - 1]}"
+
+
+_loaded_mtime = 0.0
+
+
+def opendata():
+    """Conexão somente leitura; se o banco foi reconstruído (fetch_opendata.py), descarta os caches."""
+    global _loaded_mtime
+    mtime = OPENDATA_DB.stat().st_mtime
+    if mtime != _loaded_mtime:
+        _loaded_mtime = mtime
+        for fn in (zarc_crops, latest_safra, source):
+            fn.cache_clear()
+    return _connect()
 
 
 def norm(text: str) -> str:
@@ -51,9 +65,11 @@ def zarc_for(geocode: str, crop: str, soil: str | None, irrigated: bool) -> dict
     if not rows:
         return {"available": False, "reason": f"Não há zoneamento (Zarc) para {crop} neste município nas safras disponíveis."}
     notes = []
-    safra = next((s for s in PREFERRED_SAFRAS if any(r["safra"] == s for r in rows)), rows[0]["safra"])
-    if safra != PREFERRED_SAFRAS[0]:
-        notes.append(f"Safra {PREFERRED_SAFRAS[0]} ainda sem zoneamento publicado para esta cultura; usando {safra}.")
+    # safra mais recente com zoneamento para esta cultura (o fetch_opendata.py mantém as duas últimas publicadas)
+    safra = max(r["safra"] for r in rows)
+    newest = latest_safra()
+    if safra != newest:
+        notes.append(f"Safra {newest} ainda sem zoneamento publicado para esta cultura; usando {safra}.")
     rows = [r for r in rows if r["safra"] == safra]
     management = "Irrigado" if irrigated else "Sequeiro"
     if any(r["management"] == management for r in rows):
@@ -143,6 +159,12 @@ def region(geocode: str) -> dict:
                   "Seguro rural: municípios com menos de 3 apólices não são exibidos (privacidade)."],
     })
     return d
+
+
+@lru_cache(maxsize=1)
+def latest_safra() -> str:
+    with opendata() as con:
+        return con.execute("SELECT MAX(safra) FROM zarc_risk").fetchone()[0]
 
 
 @lru_cache(maxsize=16)

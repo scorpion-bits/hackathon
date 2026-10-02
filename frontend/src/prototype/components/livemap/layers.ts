@@ -3,12 +3,11 @@
 // Camadas de satélite: NASA GIBS (Global Imagery Browse Services) — dado aberto, sem chave de API.
 // URL REST WMTS: https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/{LAYER}/default/{TIME}/{MATRIX}/{z}/{y}/{x}.{EXT}
 //
-// ⚠ VERIFICAR NO NOTEBOOK COM INTERNET (o ambiente do Claude bloqueia rede externa):
-//   - nome exato de cada LAYER, TileMatrixSet (MATRIX) e extensão (EXT) no GetCapabilities:
+// ✓ VERIFICADO em 02/10 contra o GetCapabilities e com tiles reais sobre Araraquara (HTTP 200):
 //     https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/1.0.0/WMTSCapabilities.xml
-//   - latência real de cada produto (latencyDays) — se a data pedida não existir, o tile volta vazio;
+//   - latencyDays = atraso observado entre hoje e a data "default" de cada camada;
 //     TIME = "default" pede a imagem mais recente disponível.
-//   - cores das legendas são APROXIMADAS das paletas GIBS (conferir em /colormaps/v1.3/{LAYER}.xml).
+//   - cores das legendas ainda APROXIMADAS das paletas GIBS (conferir em /colormaps/v1.3/{LAYER}.xml).
 import type { LucideIcon } from 'lucide-react'
 import { CloudRain, Droplets, Flame, Leaf, Satellite, ShieldAlert, Thermometer } from 'lucide-react'
 import { FIELDS, FORECAST, ZARC_MILHO } from '../../mock'
@@ -85,19 +84,20 @@ export const DATA_LAYERS: DataLayer[] = [
   },
   {
     id: 'umidade', label: 'Umidade do solo', icon: Droplets,
-    // verificar no notebook com internet (SMAP L4 costuma ter ~3 dias de atraso)
-    gibs: { layer: 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture', matrix: 'GoogleMapsCompatible_Level6', ext: 'png', maxzoom: 6, latencyDays: 3, cadence: 'diário (modelo + satélite)' },
+    // SMAP L4: em 02/10 a imagem mais recente era de 28/09 (~4 dias de atraso)
+    gibs: { layer: 'SMAP_L4_Analyzed_Root_Zone_Soil_Moisture', matrix: 'GoogleMapsCompatible_Level6', ext: 'png', maxzoom: 6, latencyDays: 4, cadence: 'diário (modelo + satélite)' },
     legend: { colors: ['#7a4a17', '#b98a4c', '#e8d5a0', '#d9ecd6', '#8fd0c4', '#3fa49a', '#0b5f5a'], labels: ['seco', '', 'médio', '', 'úmido'], unit: 'água na zona das raízes (0–100 cm)' },
     source: { chip: 'NASA GIBS · SMAP L4', detail: 'Umidade do solo na zona das raízes, 9 km' },
-    meaning: () => 'Seu Talhão 2 está em área com solo mais seco que a média — reforça esperar a janela de 21/10 para plantar o milho, quando o risco oficial cai para 20%.',
+    meaning: () => 'Em setembro choveu 93 mm na sua região, quase o dobro do normal para o período (48 mm · NASA POWER, consultado em 02/10). O solo deve ter boa umidade — mesmo assim, o risco oficial do milho só cai para 20% a partir de 21/10.',
     origin: 'ilustrativo', defaultOpacity: 0.7,
   },
   {
     id: 'fogo', label: 'Focos de fogo', icon: Flame,
-    // verificar no notebook com internet (pode existir só como vetor/MVT; conferir TileMatrixSet)
-    gibs: { layer: 'VIIRS_SNPP_Thermal_Anomalies_375m_All', matrix: 'GoogleMapsCompatible_Level8', ext: 'png', maxzoom: 8, latencyDays: 1, cadence: 'diário' },
-    legend: { colors: ['#fff36b', '#ffae00', '#ff3b1f'], labels: ['', 'foco de calor', ''], unit: 'cada ponto ≈ 375 m', note: 'Também monitorado pelo INPE (BDQueimadas).' },
-    source: { chip: 'NASA GIBS · VIIRS (FIRMS)', detail: 'Anomalias térmicas / focos ativos, 375 m · INPE BDQueimadas' },
+    // VIIRS Thermal Anomalies no GIBS é só vetor (MVT); usamos o raster do satélite geoestacionário GOES-Leste
+    // (cobre o Brasil, imagem a cada 10 min). Subdiário: TIME com só a data devolve a imagem daquele dia.
+    gibs: { layer: 'GOES-East_ABI_FireTemp', matrix: 'GoogleMapsCompatible_Level7', ext: 'png', maxzoom: 7, latencyDays: 0, cadence: 'a cada 10 min' },
+    legend: { colors: ['#fff36b', '#ffae00', '#ff3b1f'], labels: ['', 'temperatura de fogo', ''], unit: 'pixel ≈ 2 km', note: 'Também monitorado pelo INPE (BDQueimadas).' },
+    source: { chip: 'NASA GIBS · GOES-Leste', detail: 'Temperatura de fogo (ABI), 2 km · INPE BDQueimadas' },
     meaning: () => 'Nenhum foco de fogo a menos de 10 km da sua propriedade nos últimos 7 dias. É época seca: mantenha os aceiros limpos, principalmente perto do Talhão 1.',
     origin: 'ilustrativo', defaultOpacity: 1,
   },

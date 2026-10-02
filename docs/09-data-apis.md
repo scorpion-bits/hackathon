@@ -1,8 +1,8 @@
 # 09 — APIs de dados abertos: buscar a versão mais recente em vez de baixar à mão
 
 > Pergunta da equipe (02/10 ~13h40): "existe API para pegar a última versão do dado, sem precisar baixar e subir no repositório?"
-> ⚠️ O ambiente do Claude não tem internet externa: **nada abaixo foi testado daqui**. Coluna "Confiança" = quão certo estamos
-> de que o endpoint existe/funciona como descrito; tudo precisa ser **verificado num notebook da equipe** (comando de teste incluso).
+> ✅ **Atualização 02/10 ~17h40 — testado com internet:** CKAN do MAPA, Open-Meteo, NASA POWER, IBGE Malhas e NASA GIBS
+> responderam (HTTP 200). Implementado: `scripts/fetch_opendata.py` + `backend/app/services/live.py`. Ver "Estado da implementação" no fim.
 
 ## Resposta curta
 **Sim, para quase tudo — mas o melhor desenho é híbrido:**
@@ -62,3 +62,16 @@ curl -s "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/3503208?forma
 curl -s -o /dev/null -w "%{http_code}\n" "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_NDVI_8Day/default/2026-09-20/GoogleMapsCompatible_Level9/6/36/23.png"
 ```
 Me mandem a saída — com isso confirmo endpoints e nomes de camadas.
+
+## Estado da implementação (02/10, testado com internet)
+| Fonte | Como | Onde | Resultado do teste |
+|---|---|---|---|
+| Zarc, Agrofit, SIPEAGRO aviação, PSR (MAPA) | CKAN `package_show` → hash do conteúdo → baixa só se mudou → `pipeline_opendata.py` | `scripts/fetch_opendata.py` | 6 arquivos (~1 GB) conferidos: **idênticos** aos do repositório. 2ª execução: 2 s |
+| Open-Meteo | ao vivo, cache 1 h | `services/weather.py` | 200 |
+| NASA POWER (chuva 30 dias × normal) | ao vivo, cache 6 h / 30 dias | `services/live.py` · `GET /api/climate/rain-history` · ferramenta `rain_history` da IA | Araraquara 31/08–29/09: **93 mm × normal 48 mm (mais chuvoso)** |
+| IBGE Malhas (contorno do município) | ao vivo, cache 30 dias | `GET /api/opendata/boundary` | 200 (GeoJSON) |
+| NASA GIBS (Mapa vivo) | direto no navegador | `frontend/.../livemap/layers.ts` | 6 camadas com tile real sobre Araraquara; fogo trocado para `GOES-East_ABI_FireTemp` (VIIRS é só vetor); SMAP atraso 4 dias |
+
+**Pegadinhas descobertas:** o portal do MAPA devolve **403** para clientes sem User-Agent identificável (o script se identifica
+como `AgroIA-hackathon`); e o MAPA **republica todos os arquivos todo dia ~07h** (a data muda mesmo sem mudança), por isso
+a comparação é por hash do conteúdo — sem isso, o banco seria reconstruído todo dia à toa.

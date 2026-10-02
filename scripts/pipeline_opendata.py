@@ -12,6 +12,8 @@ Uso: python scripts/pipeline_opendata.py
 """
 from __future__ import annotations
 
+import json
+import re
 import sqlite3
 import unicodedata
 from pathlib import Path
@@ -24,9 +26,10 @@ PROCESSED = ROOT / "data" / "processed"
 RESTRICTED = ROOT / "data" / "restricted"
 OUT = ROOT / "data" / "opendata.db"
 
-ZARC_SAFRAS = ["2025-2026", "2026-2027"]
+STATE = ROOT / "data" / "sync_state.json"  # versões baixadas por scripts/fetch_opendata.py
+ZARC_KEEP = 2  # duas safras mais recentes disponíveis localmente
 DEC_COLS = [f"dec{i}" for i in range(1, 37)]
-EXTRACTED = "2026-10-02"
+EXTRACTED = "2026-10-02"  # data de extração dos arquivos que vieram junto com o repositório
 MIN_GROUP = 3  # D-007: suprime agregados com menos de 3 registros de pessoas
 
 
@@ -35,10 +38,24 @@ def norm(text: str) -> str:
     return " ".join(text.lower().replace("'", " ").split())
 
 
+def first_existing(folder: Path, stem: str) -> Path:
+    """Aceita o arquivo zipado ou não (o portal publica nos dois formatos)."""
+    for ext in (".csv.zip", ".csv"):
+        if (folder / f"{stem}{ext}").exists():
+            return folder / f"{stem}{ext}"
+    raise FileNotFoundError(folder / f"{stem}.csv[.zip]")
+
+
+def zarc_safras() -> list[str]:
+    found = {m.group(1) for f in (RAW / "zarc").iterdir()
+             if (m := re.match(r"dados-abertos-tabua-de-risco-safra-(\d{4}-\d{4})\.csv(\.zip)?$", f.name))}
+    return sorted(found)[-ZARC_KEEP:]
+
+
 def build_zarc() -> pd.DataFrame:
     frames = []
-    for safra in ZARC_SAFRAS:
-        path = RAW / "zarc" / f"dados-abertos-tabua-de-risco-safra-{safra}.csv.zip"
+    for safra in zarc_safras():
+        path = first_existing(RAW / "zarc", f"dados-abertos-tabua-de-risco-safra-{safra}")
         df = pd.read_csv(path, sep=";", encoding="utf-8-sig", dtype=str, low_memory=False)
         decs = df[DEC_COLS].apply(pd.to_numeric, errors="coerce").fillna(0).astype(int)
         codes = (decs // 10).astype(str).to_numpy()  # 0/20/30/40 -> "0"/"2"/"3"/"4"
@@ -54,7 +71,7 @@ def build_zarc() -> pd.DataFrame:
 
 
 def build_agrofit() -> pd.DataFrame:
-    df = pd.read_csv(RAW / "agrofit" / "agrofitprodutosformulados.csv.zip", sep=";", dtype=str, low_memory=False)
+    df = pd.read_csv(first_existing(RAW / "agrofit", "agrofitprodutosformulados"), sep=";", dtype=str, low_memory=False)
     df = df.apply(lambda s: s.str.strip())
     grouped = (
         df.groupby(["NR_REGISTRO", "MARCA_COMERCIAL", "CULTURA"], dropna=False)
@@ -94,8 +111,9 @@ def build_region(munis: pd.DataFrame) -> pd.DataFrame:
     out = out.join(reg.groupby("geocode")[["drones", "avioes"]].sum().rename(columns={"avioes": "planes"}))
     out = out.join(aut_last).join(aut_all)
 
-    psr_path = PROCESSED / "psr_2025_por_municipio.csv"
-    if psr_path.exists():
+    psr_files = sorted(PROCESSED.glob("psr_*_por_municipio.csv"))
+    if psr_files:
+        psr_path = psr_files[-1]  # ano mais recente
         psr = pd.read_csv(psr_path, dtype={"geocode": str}).set_index("geocode")
         out = out.join(psr)
     out = out.fillna({"drones": 0, "planes": 0, "authorizations_last_year": 0, "authorizations_total": 0})
@@ -103,12 +121,19 @@ def build_region(munis: pd.DataFrame) -> pd.DataFrame:
     return out.reset_index()
 
 
+def latest_psr() -> tuple[Path, str] | None:
+    files = [(m.group(1), f) for f in RESTRICTED.glob("dados_abertos_psr_*")
+             if (m := re.match(r"dados_abertos_psr_(\d{4})(csv)?\.csv(\.zip)?$", f.name))]
+    return (max(files)[1], max(files)[0]) if files else None
+
+
 def aggregate_psr() -> None:
-    """Agrega PSR 2025 (dado pessoal) por município, suprimindo grupos < MIN_GROUP."""
-    src = RESTRICTED / "dados_abertos_psr_2025csv.csv.zip"
-    if not src.exists():
+    """Agrega PSR (dado pessoal) do ano mais recente por município, suprimindo grupos < MIN_GROUP."""
+    found = latest_psr()
+    if not found:
         print("[psr] arquivo restrito ausente — mantendo agregado existente")
         return
+    src, year = found
     p = pd.read_csv(src, sep=";", dtype=str, encoding="latin-1",
                     usecols=["CD_GEOCMU", "NM_CULTURA_GLOBAL", "NR_AREA_TOTAL", "VL_SUBVENCAO_FEDERAL"])
     num = lambda s: pd.to_numeric(s.str.replace(".", "", regex=False).str.replace(",", ".", regex=False), errors="coerce")
@@ -123,7 +148,7 @@ def aggregate_psr() -> None:
     g = g.join(top)
     g = g[g.insurance_policies >= MIN_GROUP].round(2)
     g.index.name = "geocode"
-    g.to_csv(PROCESSED / "psr_2025_por_municipio.csv")
+    g.to_csv(PROCESSED / f"psr_{year}_por_municipio.csv")
     print(f"[psr] {len(g):,} municípios (grupos < {MIN_GROUP} suprimidos)")
 
 
@@ -139,16 +164,33 @@ SOURCES = [
 ]
 
 
+def extraction_dates() -> dict[str, str]:
+    """Data de extração por fonte: último download registrado pelo fetch_opendata.py, senão a do repositório."""
+    state = json.loads(STATE.read_text()) if STATE.exists() else {}
+    out: dict[str, str] = {}
+    for name, info in state.items():
+        if not name.startswith("_"):
+            # conferido contra o portal (conteúdo idêntico ou baixado de novo) = dado vigente nessa data
+            when = info.get("checked_at") or info.get("downloaded_at") or EXTRACTED
+            out[info["source"]] = max(out.get(info["source"], ""), when[:10])
+    return out
+
+
 def main() -> None:
     aggregate_psr()
     zarc = build_zarc()
     munis = zarc[["geocode", "uf", "municipality"]].drop_duplicates("geocode")
     agrofit = build_agrofit()
     region = build_region(munis)
-    sources = pd.DataFrame(SOURCES, columns=["key", "name", "agency", "url", "notes"]).assign(extracted_at=EXTRACTED)
+    dates = extraction_dates()
+    sources = pd.DataFrame(SOURCES, columns=["key", "name", "agency", "url", "notes"])
+    sources["extracted_at"] = sources.key.map(dates).fillna(EXTRACTED)
+    sources.loc[sources.key == "zarc", "notes"] = "safras " + " e ".join(s.replace("-20", "-") for s in zarc_safras())
 
-    OUT.unlink(missing_ok=True)
-    with sqlite3.connect(OUT) as con:
+    # Escreve num arquivo temporário e troca no fim: a API continua lendo o banco antigo durante a reconstrução.
+    tmp = OUT.with_suffix(".db.tmp")
+    tmp.unlink(missing_ok=True)
+    with sqlite3.connect(tmp) as con:
         zarc.to_sql("zarc_risk", con, index=False)
         con.execute("CREATE INDEX ix_zarc ON zarc_risk (geocode, crop)")
         munis.to_sql("municipalities", con, index=False)
@@ -157,6 +199,7 @@ def main() -> None:
         con.execute("CREATE INDEX ix_agrofit_crop ON agrofit (crop)")
         region.to_sql("region_stats", con, index=False)
         sources.to_sql("data_sources", con, index=False)
+    tmp.replace(OUT)
     print(f"OK → {OUT} ({OUT.stat().st_size / 1e6:.0f} MB)")
 
 

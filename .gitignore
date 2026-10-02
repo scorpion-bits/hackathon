@@ -36,4 +36,8 @@ data/opendata.db
 data/app.db
 data/weather_cache.json
 data/test_app.db
+data/cache/
+data/sync.log
+data/opendata.db.tmp
+*.part
 .env
