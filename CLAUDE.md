@@ -42,13 +42,14 @@ Este arquivo ≤ 250 linhas: ao atualizar, **substitua** linhas de estado em vez
   **Mapa vivo** (globo 3D; desktop: guia em 3 passos; celular: 2 botões + 1 cartão + gavetas; `?talhao=N`) ·
   Dados abertos · Minha propriedade · IA (aviso "explica dados, não dá receita") · Meu contexto.
   Dados de exemplo: `prototype/mock.ts`, `resolve.ts` (casos/órgãos), `farmStore.ts`.
-- **App funcional** `/` + backend FastAPI (12 testes: `cd backend && pytest -q`).
+- **App funcional** `/` + backend FastAPI (23 testes: `cd backend && pytest -q`).
 - **Dados ao vivo:** `scripts/fetch_opendata.py` (CKAN MAPA, hash; 02/10 idênticos ao portal) · `services/live.py`
   (NASA POWER: set/26 93 mm × normal 48 mm; IBGE malhas) · Open-Meteo · NASA GIBS (camadas verificadas). Ver `docs/09`.
 - **Modelo de negócio:** A — público, ATER (CATI/Senar/prefeitura), gratuito ao produtor. Ver `docs/10-business-model.md`.
 
 **M1 ✅ (26481b7):** contas reais (cadastro/login com hash, token), botões demo João (recarrega fixtures) e conta nova; `/api/me`; tudo filtrado pela conta; banco recriado sozinho ao mudar `SCHEMA_VERSION`.
-**Próximo:** MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
+**M2 ✅ (4f8e4e8):** entrevista grava fazenda/talhões/respostas (`/api/onboarding`, culturas → nomes do Zarc em `services/context.py`); editor e telas leem/gravam `/api/fields` (`farmStore.ts`); conta sem talhões vê o convite de primeiro acesso.
+**Próximo:** M3. MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
 M4 telas → M5 IA → M6 app em `/` + roteiro; M7 ANA opcional) → **pitch (Thales) + PDF** → congelamento 03/10 08h.
 **Regra de dados (D-022):** dado de fonte aberta/externa é SEMPRE real (fonte fora → aviso, ou último dado real com data);
 fictício só dado de conta (contas demo `is_demo`, fixtures nas mesmas tabelas). Cenários: conta nova × conta existente (João).

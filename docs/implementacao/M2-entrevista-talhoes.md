@@ -55,3 +55,13 @@ Editar ou criar um talhão em "Minha propriedade" fica salvo. `pytest` e `npm ru
 
 ## 👥 Ações humanas
 Nenhuma.
+
+## ✅ Feito (02/10 ~22h40)
+- Backend: `routers/onboarding.py` (`GET/POST /api/onboarding`; talhões casados por id ou nome, o resto criado/apagado; histórico e casos só perdem o vínculo),
+  `services/context.py` (`CROP_TO_ZARC`, `zarc_name`, `crop_key`, `has_zarc`), `Field.irrigation` novo (`SCHEMA_VERSION = 3`),
+  `/api/fields` aceita `crop_key` e `irrigation` e devolve `crop_key`; `/api/me` traz `producer.demo_scenario`.
+- Front: `api/fields.ts` (conversões), `farmStore.ts` (carrega da API por conta; grava diferença com debounce + fila; estado `useFarmSync`),
+  entrevista salva no servidor ("Salvando…", erro sem fingir) e, ao refazer, abre com as respostas gravadas;
+  `components/FirstAccess.tsx` (`NeedsFields`) no Início, Minha propriedade e Mapa vivo; "Voltar ao exemplo" só na conta do João.
+- Testes: `tests/test_onboarding.py` (área ±2%, refazer sem duplicar, cultura/município sem Zarc, editor, João intacto).
+- Pendente para a M4: telas ainda leem status/risco ilustrativos de `mock.ts` (via `FIELDS`); `resolve.ts` usa ids fixos 1–3.
