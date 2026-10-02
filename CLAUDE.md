@@ -10,25 +10,32 @@
 | Campo | Valor |
 |---|---|
 | Fase | **FASE 5 — CONSTRUÇÃO** · etapa atual: **protótipo visual** em `/prototipo` (D-009), validando UX antes de ligar ao backend |
-| Último checkpoint | CP5 — Arquitetura aprovada |
-| Próximo checkpoint | CP6 — Fluxo principal funcionando (17h) |
+| Último checkpoint | CP6 — Fluxo principal funcionando no protótipo |
+| Próximo checkpoint | CP7 — Demo funcionando (20h) |
 | Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
 | Dataset | Regra: ≥1 base "pivô" do MAPA (dados.agricultura.gov.br) ou ANA/Embrapa (Pivôs Centrais 1985–2019); combinar com qualquer base aberta. Ver `docs/00-context.md` |
 | Solução escolhida | **AgroBits** — dados abertos no centro; contexto do produtor filtra; **a IA não decide**: prepara o caso e leva à assistência técnica pública, de graça (D-008/D-015) |
 | Stack | React+TS+Vite+Tailwind · Leaflet/Geoman/Turf · FastAPI+SQLite · IA OpenAI-compatível + modo offline (D-003/D-004) |
 | Bloqueios | Nenhum. Internet liberada na sessão (02/10 ~15h). Portal do MAPA exige User-Agent (já tratado) |
 
-**Pronto (02/10 ~15h40, tudo na `main`):**
-- Rodar: **`iniciar.bat` (Windows) / `./iniciar.sh` (Linux)** via Docker (opções: atualizar, resetar, sincronizar, logs, parar) · sem Docker: `./dev.sh` (`--proto`, `--reset`, `--sync`).
-- **Protótipo** `/prototipo`: Login · Entrevista (`?demo=1` pula pro fim, resumo em cartões) · Início guiado
-  (um assunto por vez → `/prototipo/resolver/:id`: dados → caminhos possíveis → enviar caso ao técnico) · Meus casos (`/prototipo/casos`) · Editar talhões (`/prototipo/talhoes`) · Mapa vivo (globo 3D, guia em 3 passos,
-  `?talhao=N`) · Dados abertos · Minha propriedade · IA · Meu contexto. Dados de exemplo em `prototype/mock.ts` e `prototype/resolve.ts`.
-- **App funcional** `/` + backend FastAPI (9 telas, 12 testes: `cd backend && pytest -q`).
-- **Dados ao vivo:** `scripts/fetch_opendata.py` (Zarc, Agrofit, SIPEAGRO, PSR via CKAN; 02/10: idênticos ao portal) ·
-  `services/live.py` (NASA POWER: set/26 93 mm × normal 48 mm; IBGE malhas) · Open-Meteo · NASA GIBS (camadas verificadas). Ver `docs/09-data-apis.md`.
+**Pronto (02/10 ~18h, tudo na `main`):**
+- **Rodar:** `iniciar.bat` (Windows) / `./iniciar.sh` (Linux) — usa Docker se houver; senão cai sozinho no `./dev.sh`,
+  **sem sudo** (baixa Node/uv portáteis em `.tools/`). Opções: atualizar, resetar, sincronizar, logs, parar, sem-docker.
+- **Protótipo** `/prototipo` (mobile first, D-016; marca AgroBits isométrica, D-014):
+  Login · Entrevista (`?demo=1` pula pro fim; resumo em cartões) · **Início guiado** (um assunto por vez) →
+  **Resolver** `/prototipo/resolver/:id` (dados → caminhos possíveis → **enviar caso ao técnico público**, D-015) ·
+  **Meus casos** · **Editar talhões** `/prototipo/talhoes` (criar/ajustar formato/cultura; estado compartilhado em `farmStore.ts`) ·
+  **Mapa vivo** (globo 3D; desktop: guia em 3 passos; celular: 2 botões + 1 cartão + gavetas; `?talhao=N`) ·
+  Dados abertos · Minha propriedade · IA (aviso "explica dados, não dá receita") · Meu contexto.
+  Dados de exemplo: `prototype/mock.ts`, `resolve.ts` (casos/órgãos), `farmStore.ts`.
+- **App funcional** `/` + backend FastAPI (12 testes: `cd backend && pytest -q`).
+- **Dados ao vivo:** `scripts/fetch_opendata.py` (CKAN MAPA, hash; 02/10 idênticos ao portal) · `services/live.py`
+  (NASA POWER: set/26 93 mm × normal 48 mm; IBGE malhas) · Open-Meteo · NASA GIBS (camadas verificadas). Ver `docs/09`.
+- **Modelo de negócio:** A — público, ATER (CATI/Senar/prefeitura), gratuito ao produtor. Ver `docs/10-business-model.md`.
 
-**Próximo:** revisão da equipe no protótipo → decidir o que ligar ao backend (recomendado: entrevista → contexto salvo → filtra
-recomendações) → pitch (Thales) com números reais.
+**Próximo:** revisão da equipe no celular → ligar ao backend o essencial para a demo (recomendado: entrevista → contexto salvo
+→ casos enviados persistidos) → **pitch (Thales) + PDF** com números reais → congelamento 03/10 08h.
+**Pendências 👥:** validar fluxo de casos com técnico da CATI (via mentor) · confirmar % de assistência técnica (Censo Agro 2017).
 
 **Restrições-chave:** agenda CEPIN (visão computacional, preditivo, otimização, automação/robótica);
 ética (citar fonte+data, mostrar incerteza, sem dado pessoal); IA paga = custo da equipe → preferir gratuito.
@@ -110,7 +117,7 @@ Ferramenta pronta para a análise inicial: `python3 scripts/profile_data.py data
 | 3 | Solução definida (aprovada) | 02/10 11h00 | ✅ |
 | 4 | MVP definido (aprovado) | 02/10 11h30 | ✅ |
 | 5 | Arquitetura definida (aprovada) | 02/10 12h00 | ✅ |
-| 6 | Fluxo principal funcionando | 02/10 17h00 | 🟡 protótipo pronto; falta ligar ao backend |
+| 6 | Fluxo principal funcionando | 02/10 17h00 | ✅ no protótipo (backend ligado só no app funcional) |
 | 7 | Demo funcionando | 02/10 20h00 | ⏳ |
 | 8 | Testes críticos concluídos | 02/10 21h30 | ⏳ |
 | 9 | Pitch pronto | 03/10 08h00 | ⏳ |
@@ -134,11 +141,13 @@ Ver `docs/06-decisions.md`.
 ```
 CLAUDE.md            memória operacional (este arquivo)
 README.md            apresentação + como rodar
-dev.sh               sobe tudo (--proto, --reset, --sync)
+iniciar.sh/.bat/.ps1 sobe tudo (Docker ou, sem Docker, via dev.sh) · docker-compose.yml + docker/
+dev.sh               modo sem Docker, sem sudo (--proto, --reset, --sync)
 docs/00..10-*.md     contexto → problema → dados → solução → MVP → arq → decisões → testes → pitch → APIs → modelo de negócio
+docs/brand/          logos AgroBits (originais) e paleta
 planning/            tasks, roadmap, agents, risks, timeline
 backend/app/         FastAPI: routers/, services/ (opendata, weather, live, insights), assistant/ (IA + modo offline)
-frontend/src/        app funcional (pages/, components/) + prototype/ (protótipo visual, mock.ts, resolve.ts)
+frontend/src/        app funcional (pages/, components/) + prototype/ (protótipo: pages/, components/ livemap/ interview/, mock.ts, resolve.ts, farmStore.ts)
 scripts/             pipeline_opendata.py · fetch_opendata.py · seed_demo.py · aggregate_sipeagro_aviacao.py
 data/raw/            bases oficiais (nunca editar) · data/processed/ agregados anônimos · data/restricted/ fora do git
 data/sync_state.json versão/hash de cada base conferida no portal do MAPA
