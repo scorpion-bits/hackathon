@@ -65,6 +65,12 @@
 - Estratégia de hackathon: **amplitude visível + 1 fio condutor profundo** (registrar plantio → estoque baixa → custo → linha do tempo → checagem Zarc → painel/alerta),
   com histórico demonstrativo de ~6 meses (produtor fictício, rotulado).
 
+#### F — experiência (rodada 3)
+- **Sistema web de gestão com navegação lateral**; toda operação do dia a dia é feita visualmente (formulários, mapa, tabelas). IA é complementar.
+- Navegação: Painel · Mapa da propriedade · Produção (safras + caderno de campo) · Estoque · Clima · Alertas · Relatórios · Assistente IA · Perfil/Configurações.
+- Integração visível: base única de dados + ação global "+ Registrar" + botões contextuais "Perguntar à IA sobre isto" em talhão, alerta, item de estoque e relatório.
+- Demo começa pelo uso visual dos módulos; a IA entra no fim como camada que cruza tudo.
+
 ## Comparação ponderada pelos critérios oficiais (nota 0–10 × peso)
 
 | Critério (peso) | A AquaPivô | B PivôVision | C Plantio Certo | D Seguro | E AgroTwin (puro) | E′ AgroTwin sobre Pivôs |
