@@ -133,6 +133,28 @@ def agrofit_check(product: str, crop: str | None = None, limit: int = 8) -> dict
     }
 
 
+def agrofit_registration(registration: str, crops: list[str]) -> dict:
+    """Produto pelo número de registro no Agrofit e para quais destas culturas ele é registrado."""
+    with opendata() as con:
+        rows = [dict(r) for r in con.execute(
+            "SELECT registration, brand, crop, ingredient, product_class, tox_class, pests FROM agrofit "
+            "WHERE registration=? ORDER BY brand", (registration,))]
+    if not rows:
+        return {"found": False, "registration": registration, "source": source("agrofit")}
+    matches = []
+    for crop in crops:
+        ck = norm(crop.split(" ")[0])
+        hit = next((r for r in rows if norm(r["crop"]).startswith(ck) or norm(r["crop"]) == "todas as culturas"), None)
+        if hit:
+            matches.append({"crop": crop, "agrofit_crop": hit["crop"], "pests": hit["pests"]})
+    first = rows[0]
+    return {
+        "found": True, "registration": registration, "brand": first["brand"], "ingredient": first["ingredient"],
+        "product_class": first["product_class"], "tox_class": first["tox_class"],
+        "crops": sorted({r["crop"] for r in rows}), "matches": matches, "source": source("agrofit"),
+    }
+
+
 def agrofit_search(term: str, limit: int = 15) -> list[dict]:
     with opendata() as con:
         rows = con.execute(

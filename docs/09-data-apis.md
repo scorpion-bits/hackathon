@@ -75,3 +75,27 @@ Me mandem a saída — com isso confirmo endpoints e nomes de camadas.
 **Pegadinhas descobertas:** o portal do MAPA devolve **403** para clientes sem User-Agent identificável (o script se identifica
 como `AgroBits-hackathon`); e o MAPA **republica todos os arquivos todo dia ~07h** (a data muda mesmo sem mudança), por isso
 a comparação é por hash do conteúdo — sem isso, o banco seria reconstruído todo dia à toa.
+
+## Motor de assuntos (M3 — `backend/app/services/topics.py`)
+Os assuntos do início guiado são **calculados no backend**: dados da conta (talhões, cultura, solo declarado, estoque,
+entrevista) × fontes reais. `GET /api/topics` · `GET /api/topics/{key}` · `POST /api/topics/{key}/choice`.
+
+| Assunto | Aparece quando | Fonte |
+|---|---|---|
+| `janela_plantio` | talhão sem lavoura em pé; risco do decêndio atual acima do menor risco do Zarc (ou fora da janela) | Zarc (MAPA) |
+| `janela_aberta` | talhão sem lavoura em pé; decêndio atual já no menor risco | Zarc (MAPA) |
+| `chuva_forte` | algum dia ≥ 40 mm nos próximos 7 dias | Open-Meteo |
+| `chuva_vs_normal` | últimos 30 dias < 50% ou > 150% da normal | NASA POWER |
+| `semente_insuficiente` | saldo de semente da cultura < área desenhada × taxa declarada (só se a conta controla essa semente) | estoque da conta |
+| `defensivo_registro` | defensivo em estoque vencendo em ≤ 30 dias; registro e cultura conferidos no Agrofit | Agrofit + estoque |
+| `servico_drone` | município com drones no SIPEAGRO e declive anotado no talhão ou falta de pulverizador | SIPEAGRO (MAPA) |
+
+Limites (honestos, vão para o pitch):
+- **A IA não entra aqui.** Os textos são modelos de frase (`topics_text.py`) preenchidos com os números da fonte; nunca indicam produto ou dose.
+  Cada assunto tem 2–3 caminhos, um marcado como "mais alinhado aos dados oficiais", e o órgão de ATER indicado (CATI/Senar/prefeitura, como exemplo).
+- **Fonte fora do ar → o assunto dela não aparece** e `sources_status` mostra `offline`. Com cópia antiga (`stale`), o assunto sai com
+  "Dado real de <data/hora>; a fonte está fora do ar agora". Uma regra que falha não derruba as outras.
+- Solo é **declarado** pelo produtor; para culturas zoneadas por água disponível (AD1–AD6), a classe é estimada a partir da textura (avisado na evidência).
+- Chuva da NASA é estimativa por satélite (~50 km): tendência da região, não pluviômetro.
+- Consultas externas (Open-Meteo, NASA) ficam em cache de 10 min por conta; as regras são recalculadas a cada pedido.
+- A previsão é real: "chuva forte" só aparece se houver chuva forte prevista.
