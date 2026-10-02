@@ -25,6 +25,11 @@ O produtor da demonstração (João, Sítio Boa Esperança) é **fictício** e r
 ## Como rodar (notebook da equipe)
 Requisitos: Python 3.11+, Node 20+.
 
+**Atalho (Linux/macOS/WSL):** `./dev.sh` faz tudo abaixo e sobe API + interface (Ctrl+C para parar).
+`./dev.sh --proto` sobe só a interface (suficiente para `/prototipo`); `./dev.sh --reset` recria a demo.
+
+Passo a passo manual:
+
 ```bash
 # 1) dados abertos → data/opendata.db  (~2 min, uma vez só)
 pip install -r backend/requirements.txt
