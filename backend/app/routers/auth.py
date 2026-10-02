@@ -81,7 +81,9 @@ def me(session: Session = DB, producer: Producer = Depends(current_producer)):
     count = lambda model, cond: session.scalar(select(func.count()).select_from(model).where(cond)) or 0
     farm_id = farm.id if farm else -1
     return {
-        "producer": {"id": producer.id, "name": producer.name, "is_demo": producer.is_demo},
+        "producer": {"id": producer.id, "name": producer.name, "is_demo": producer.is_demo,
+                     # qual botão de demo criou a conta: "existente" (João, da fixture) ou "nova" (visitante)
+                     "demo_scenario": None if not producer.is_demo else ("existente" if producer.contact else "nova")},
         "farm": None if farm is None else {
             "id": farm.id, "name": farm.name, "municipality": farm.municipality, "uf": farm.uf, "geocode": farm.geocode,
             "lat": farm.lat, "lon": farm.lon, "total_area_ha": farm.total_area_ha},

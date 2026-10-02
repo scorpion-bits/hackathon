@@ -37,7 +37,8 @@ type Props = {
   header: ReactNode
   /** conteúdo extra no fim da coluna lateral (ex.: contador de fontes) */
   footer?: ReactNode
-  onLoadExample: () => void
+  /** sem esta função, o botão de exemplo não aparece */
+  onLoadExample?: () => void
   /** talhão aberto ao entrar (ex.: vindo do Mapa vivo) */
   initialSelected?: number | null
   /** texto do botão de exemplo (padrão: "Usar exemplo") */
@@ -191,7 +192,7 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
   }
   const patch = (id: number, p: Partial<FieldDraft>) => setFields((prev) => prev.map((f) => (f.id === id ? { ...f, ...p } : f)))
   const remove = (id: number) => setFields((prev) => prev.filter((f) => f.id !== id))
-  const loadExample = () => { needFit.current = true; setSelectedId(null); onLoadExample() }
+  const loadExample = () => { needFit.current = true; setSelectedId(null); onLoadExample?.() }
   const total = fields.reduce((s, f) => s + f.areaHa, 0)
 
   return (
@@ -251,7 +252,7 @@ export function PropertyMap({ fields, setFields, center, header, footer, onLoadE
         {header}
         <div className="grid grid-cols-1 gap-2 min-[400px]:grid-cols-[1.3fr_1fr]">
           <button type="button" onClick={startDraw} disabled={drawing || shapeId != null || !ready} className={clsx(btn('primary'), 'whitespace-nowrap px-3!')}><PenLine size={17} /> Desenhar talhão</button>
-          <button type="button" onClick={loadExample} disabled={shapeId != null} className={clsx(btn('secondary'), 'whitespace-nowrap px-3!')}><Sparkles size={17} /> {exampleLabel}</button>
+          {onLoadExample && <button type="button" onClick={loadExample} disabled={shapeId != null} className={clsx(btn('secondary'), 'whitespace-nowrap px-3!')}><Sparkles size={17} /> {exampleLabel}</button>}
         </div>
         <p className="mt-1.5 text-[11px] text-muted">O exemplo carrega 3 talhões de um sítio em Araraquara/SP, para a demo rápida.</p>
 

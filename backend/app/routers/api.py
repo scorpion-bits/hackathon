@@ -12,6 +12,7 @@ from ..auth import current_producer
 from ..db import get_session
 from ..models import AlertState, Event, Field, ProfileFact, Season, StockItem, StockMovement
 from ..services import farmdata as fd
+from ..services import context as ctx
 from ..services import live
 from ..services import opendata as od
 from ..services.insights import compute_alerts, plan_planting
@@ -102,9 +103,19 @@ class FieldIn(BaseModel):
     crop: str | None = None
     soil: str | None = PField(None, pattern="^(arenoso|medio|argiloso)$")
     irrigated: bool = False
+    irrigation: str | None = PField(None, pattern="^(nao|aspersao|gotejamento|pivo)$")
     seed_rate_kg_ha: float | None = None
     color: str | None = None
     notes: str | None = None
+    crop_key: str | None = None  # id da cultura no front (soja, milho…); se vier, define `crop` com o nome do Zarc
+
+    def values(self, geocode: str) -> dict:
+        data = self.model_dump(exclude={"crop_key"})
+        if self.crop_key is not None:
+            data["crop"] = ctx.zarc_name(self.crop_key, geocode)
+        if self.irrigation is not None:
+            data["irrigated"] = self.irrigation != "nao"
+        return data
 
 
 @router.get("/fields")
@@ -116,7 +127,7 @@ def list_fields(session: Session = DB):
 @router.post("/fields", status_code=201)
 def create_field(body: FieldIn, session: Session = DB):
     farm = farm_or_404(session)
-    f = Field(farm_id=farm.id, area_ha=fd.polygon_area_ha(body.geometry), **body.model_dump())
+    f = Field(farm_id=farm.id, area_ha=fd.polygon_area_ha(body.geometry), **body.values(farm.geocode))
     session.add(f)
     session.commit()
     return fd.field_dict(session, f)
@@ -125,7 +136,7 @@ def create_field(body: FieldIn, session: Session = DB):
 @router.put("/fields/{field_id}")
 def update_field(field_id: int, body: FieldIn, session: Session = DB):
     f = get_or_404(session, Field, field_id)
-    for k, v in body.model_dump().items():
+    for k, v in body.values(fd.get_farm(session).geocode).items():
         setattr(f, k, v)
     f.area_ha = fd.polygon_area_ha(body.geometry)
     session.commit()
@@ -135,8 +146,7 @@ def update_field(field_id: int, body: FieldIn, session: Session = DB):
 @router.delete("/fields/{field_id}", status_code=204)
 def delete_field(field_id: int, session: Session = DB):
     f = get_or_404(session, Field, field_id)
-    for e in session.scalars(select(Event).where(Event.field_id == field_id)):
-        e.field_id = None
+    fd.unlink_field(session, field_id)
     session.delete(f)
     session.commit()
 

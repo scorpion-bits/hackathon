@@ -3,7 +3,7 @@ import { useEffect, useSyncExternalStore } from 'react'
 import { ApiError, apiGet, apiPost, getToken, setToken } from './client'
 
 export type Me = {
-  producer: { id: number; name: string; is_demo: boolean }
+  producer: { id: number; name: string; is_demo: boolean; demo_scenario: 'existente' | 'nova' | null }
   farm: { id: number; name: string; municipality: string; uf: string; geocode: string; lat: number; lon: number; total_area_ha: number | null } | null
   has_interview: boolean
   counts: { fields: number; stock_items: number; events: number; cases: number }
@@ -44,6 +44,14 @@ export async function logout() {
   try { await apiPost('/auth/logout') } catch { /* sai mesmo sem servidor */ }
   setToken(null)
   set({ status: 'anon', me: null })
+}
+
+export const getSession = () => state
+
+/** Avisa a cada mudança de sessão (login, logout, /api/me recarregado). Devolve a função para cancelar. */
+export function onSessionChange(f: () => void): () => void {
+  subs.add(f)
+  return () => { subs.delete(f) }
 }
 
 export function useMe(): SessionState {

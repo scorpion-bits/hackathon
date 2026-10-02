@@ -20,7 +20,7 @@ class Base(DeclarativeBase):
 
 
 # Aumente quando mudar tabelas: os scripts de subir recriam o app.db sozinhos (seed_demo.py --if-needed).
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 def schema_version() -> int:

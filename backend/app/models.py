@@ -87,6 +87,7 @@ class Field(Base):
     crop: Mapped[str | None] = mapped_column(String(80))  # nome igual ao Zarc quando houver
     soil: Mapped[str | None] = mapped_column(String(20))  # arenoso | medio | argiloso
     irrigated: Mapped[bool] = mapped_column(default=False)
+    irrigation: Mapped[str | None] = mapped_column(String(20))  # nao|aspersao|gotejamento|pivo (entrevista)
     seed_rate_kg_ha: Mapped[float | None] = mapped_column(Float)  # declarado pelo produtor
     color: Mapped[str | None] = mapped_column(String(9))
     notes: Mapped[str | None] = mapped_column(Text)

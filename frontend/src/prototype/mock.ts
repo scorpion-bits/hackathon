@@ -65,6 +65,8 @@ export const FIELDS = [
   { id: 3, name: 'Talhão 3', crop: 'Feijão irrigado', area: 2.05, soil: 'Textura média', status: '51 dias após plantio', color: '#3B82A6', risk: 20,
     poly: [[-48.2372, -21.8335], [-48.2356, -21.8335], [-48.2356, -21.8324], [-48.2372, -21.8324]] },
 ]
+/** Cópia fixa dos talhões de exemplo: FIELDS é sobrescrito pelos talhões da conta (farmStore). */
+export const EXAMPLE_FIELDS = FIELDS.map((f) => ({ ...f }))
 
 /** Zarc real: Araraquara, milho 1ª safra, Grupo II, AD6 (safra 2026/27), por decêndio 1..36. */
 export const ZARC_MILHO = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 30, 20, 20, 20, 20, 20, 20, 20]

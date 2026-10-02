@@ -23,7 +23,9 @@ function useProcessingLines(a: Answers) {
   }, [a])
 }
 
-export function ResultScreen({ answers, onEdit, onFinish }: { answers: Answers; onEdit: () => void; onFinish: () => void }) {
+export function ResultScreen({ answers, onEdit, onFinish, saving = false, error }: {
+  answers: Answers; onEdit: () => void; onFinish: () => void; saving?: boolean; error?: string | null
+}) {
   const a = useMemo(() => withDefaults(answers), [answers])
   const lines = useProcessingLines(a)
   const [done, setDone] = useState(0) // linhas concluídas; lines.length + 1 = animação terminou
@@ -95,8 +97,8 @@ export function ResultScreen({ answers, onEdit, onFinish }: { answers: Answers; 
       </div>
 
       <div className="mb-6 flex flex-wrap gap-3">
-        <button type="button" onClick={onFinish} className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/20 transition hover:bg-primary-dark active:scale-[.98]">
-          Ver o que fazer hoje <ArrowRight size={18} />
+        <button type="button" onClick={onFinish} disabled={saving} className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/20 transition hover:bg-primary-dark active:scale-[.98] disabled:opacity-60">
+          {saving ? 'Salvando…' : <>Ver o que fazer hoje <ArrowRight size={18} /></>}
         </button>
         <button type="button" onClick={download} className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-surface px-5 py-3.5 text-[15px] font-semibold text-ink transition hover:border-primary/40 hover:bg-primary-soft/40 active:scale-[.98]">
           <Download size={17} /> Baixar resumo
@@ -104,6 +106,7 @@ export function ResultScreen({ answers, onEdit, onFinish }: { answers: Answers; 
         <button type="button" onClick={onEdit} className="inline-flex items-center gap-2 rounded-xl px-4 py-3.5 text-[15px] font-semibold text-muted transition hover:bg-surface hover:text-ink">
           <Pencil size={16} /> Editar respostas
         </button>
+        {error && <p role="alert" className="w-full rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">Não foi possível salvar: {error}. Nada foi gravado — tente de novo.</p>}
       </div>
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_300px]">

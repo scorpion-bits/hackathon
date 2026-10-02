@@ -5,10 +5,11 @@ import math
 from collections import defaultdict
 from datetime import date
 
-from sqlalchemy import select
+from sqlalchemy import select, update
 from sqlalchemy.orm import Session
 
-from ..models import Event, Farm, Field, Producer, Season, StockItem, StockMovement
+from .context import crop_key
+from ..models import Case, Event, Farm, Field, Producer, Season, StockItem, StockMovement
 
 
 def today() -> date:
@@ -105,10 +106,17 @@ def field_status(session: Session, field: Field) -> dict:
 def field_dict(session: Session, field: Field) -> dict:
     return {
         "id": field.id, "name": field.name, "geometry": field.geometry, "area_ha": field.area_ha,
-        "crop": field.crop, "soil": field.soil, "irrigated": field.irrigated,
+        "crop": field.crop, "crop_key": crop_key(field.crop), "soil": field.soil, "irrigated": field.irrigated,
+        "irrigation": field.irrigation or ("aspersao" if field.irrigated else "nao"),
         "seed_rate_kg_ha": field.seed_rate_kg_ha, "color": field.color, "notes": field.notes,
         "status": field_status(session, field),
     }
+
+
+def unlink_field(session: Session, field_id: int) -> None:
+    """Antes de apagar um talhão: histórico e casos continuam, só perdem o vínculo."""
+    session.execute(update(Event).where(Event.field_id == field_id).values(field_id=None))
+    session.execute(update(Case).where(Case.field_id == field_id).values(field_id=None))
 
 
 def polygon_area_ha(geometry: dict) -> float:

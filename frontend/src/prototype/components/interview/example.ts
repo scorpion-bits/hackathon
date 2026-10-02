@@ -1,5 +1,5 @@
 // Talhões de exemplo (mock.FIELDS) no formato da entrevista, para a demo rápida.
-import { FIELDS } from '../../mock'
+import { EXAMPLE_FIELDS as FIELDS } from '../../mock'
 import type { FieldDraft } from './types'
 
 const CROP_BY_NAME: Record<string, string> = { Soja: 'soja', Milho: 'milho', 'Feijão irrigado': 'feijao' }

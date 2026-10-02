@@ -66,7 +66,7 @@ def load_demo(session: Session, producer: Producer, name: str = "joao") -> Produ
     for f in fx["fields"]:
         geometry = {"type": "Polygon", "coordinates": [f["ring"]]}
         fields[f["key"]] = Field(farm_id=farm.id, name=f["name"], geometry=geometry, area_ha=polygon_area_ha(geometry),
-                                 crop=f.get("crop"), soil=f.get("soil"), irrigated=f.get("irrigated", False),
+                                 crop=f.get("crop"), soil=f.get("soil"), irrigated=f.get("irrigated", False), irrigation=f.get("irrigation"),
                                  color=f.get("color"), seed_rate_kg_ha=f.get("seed_rate_kg_ha"), notes=f.get("notes"))
     seasons = {s["key"]: Season(farm_id=farm.id, name=s["name"], start=date.fromisoformat(s["start"]),
                                 end=date.fromisoformat(s["end"])) for s in fx["seasons"]}

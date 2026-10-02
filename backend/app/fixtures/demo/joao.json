@@ -86,6 +86,7 @@
    "crop": "Feijão",
    "soil": "medio",
    "irrigated": true,
+   "irrigation": "aspersao",
    "color": "#3B82A6",
    "seed_rate_kg_ha": 60,
    "notes": "Irrigado por aspersão.",

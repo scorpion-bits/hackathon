@@ -2,7 +2,7 @@
 // Rota: /prototipo/entrevista. Sem Shell, tela cheia. Nada aqui chama a API.
 import clsx from 'clsx'
 import { ArrowLeft, ArrowRight, ChevronDown, Sparkles } from 'lucide-react'
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { ProtoBanner } from '../components/Shell'
 import { Logo } from '../components/Brand'
@@ -18,7 +18,9 @@ import {
 import { EMPTY_ANSWERS, type Answers, type FieldDraft } from '../components/interview/types'
 import { ProtoStyles, StepHeader } from '../components/interview/ui'
 import { SOURCES } from '../mock'
-import { setFarmFields } from '../farmStore'
+import { fromApi, getOnboarding, saveOnboarding } from '../api/fields'
+import { refreshMe } from '../api/session'
+import { replaceFromServer } from '../farmStore'
 
 type StepId = 'welcome' | 'profile' | 'location' | 'map' | 'size' | 'income' | 'budget' | 'credit' | 'machines' | 'concerns' | 'goals' | 'notify' | 'language' | 'result'
 /** `skip`: texto do botão para pular (só em perguntas opcionais). */
@@ -66,7 +68,33 @@ export default function Interview() {
   const [reached, setReached] = useState(demo ? STEPS.length - 1 : 0)
   const [a, setA] = useState<Answers>(demo ? DEMO_ANSWERS : EMPTY_ANSWERS)
   const [summaryOpen, setSummaryOpen] = useState(false)
+  const [saving, setSaving] = useState(false)
+  const [saveError, setSaveError] = useState<string | null>(null)
   const scrollRef = useRef<HTMLElement>(null)
+
+  // refazer a entrevista: começa com as respostas e os talhões já gravados na conta
+  useEffect(() => {
+    if (demo) return
+    getOnboarding().then((o) => {
+      if (o.answers) setA({ ...EMPTY_ANSWERS, ...o.answers, fields: o.fields.map(fromApi) })
+    }).catch(() => { /* conta nova ou servidor fora: começa vazio */ })
+  }, [demo])
+
+  // grava fazenda, talhões e respostas da conta; só segue para o início se o servidor confirmou
+  const finish = async () => {
+    setSaving(true)
+    setSaveError(null)
+    try {
+      const saved = await saveOnboarding(withDefaults(a))
+      await refreshMe()
+      replaceFromServer(saved.fields.map(fromApi))
+      nav('/prototipo')
+    } catch (e) {
+      setSaveError((e as Error).message)
+    } finally {
+      setSaving(false)
+    }
+  }
 
   const set = useCallback((patch: Partial<Answers>) => setA((prev) => ({ ...prev, ...patch })), [])
   const setFields = useCallback((u: (prev: FieldDraft[]) => FieldDraft[]) => setA((prev) => ({ ...prev, fields: u(prev.fields) })), [])
@@ -161,7 +189,7 @@ export default function Interview() {
                 header={<StepHeader kicker={kicker} title="Desenhe sua propriedade" hint="Marque no mapa os cantos de cada plantação (talhão). Depois diga o que planta, como é a terra e se irriga. Só o essencial." />}
               />
             ) : isResult ? (
-              <ResultScreen answers={a} onEdit={() => go(IDX.profile)} onFinish={() => { if (a.fields.length) setFarmFields(a.fields); nav('/prototipo') }} />
+              <ResultScreen answers={a} onEdit={() => go(IDX.profile)} onFinish={finish} saving={saving} error={saveError} />
             ) : (
               <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:px-6 sm:py-10">
                 <div key={step} className="proto-anim animate-[proto-up_.35s_ease-out]">{body()}</div>
