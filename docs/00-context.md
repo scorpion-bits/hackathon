@@ -31,7 +31,13 @@
 
 > Preencher às 08h30 de 02/10 com o que a organização apresentar. Copiar literalmente.
 
-- **Tema:** _pendente_
+- **Tema (literal):** "Inteligência Artificial e/ou Robótica Agrícola aplicada à Dados Abertos na área da Agricultura"
+- **Local:** Laboratório INFO 01 — IFSP Araraquara (02–03/10/2026)
+- **Slogan:** "27 horas. Uma ideia. Um protótipo." · 24h de desenvolvimento a partir das 09h00 de 02/10
+- **Entrega (slide):** 01 Protótipo funcional · 02 Link do projeto (GitHub ou similar) · 03 PDF do pitch
+- **Presencial:** computadores do lab disponíveis (ou equipamento próprio); café o tempo todo;
+  **ao menos 1 integrante precisa estar no local** para as mentorias acontecerem.
+- **Cronograma (slide):** 09h00–22h00 laboratório aberto sem interrupção; 03/10 07h45 reabre; 09h00 prazo.
 - **Base(s) de dados:** _pendente_ (links, formatos, tamanho, licença)
 - **Regras específicas:** _pendente_
 - **Critérios de avaliação:** _pendente_ (perguntar à organização se não forem informados)

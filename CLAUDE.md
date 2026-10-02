@@ -9,11 +9,11 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | **FASE 0 — PREPARAÇÃO** (aguardando tema) |
+| Fase | **FASE 1 — DESCOBERTA** (recebendo slides do tema) |
 | Último checkpoint | CP0 — Repositório preparado |
 | Próximo checkpoint | CP1 — Problema compreendido |
-| Tema | _não divulgado_ (anúncio 02/10 08h30) |
-| Dataset | _não divulgado_ |
+| Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
+| Dataset | _aguardando slides_ |
 | Solução escolhida | _nenhuma_ |
 | Stack | _não definida_ (opções pré-avaliadas em `docs/05-architecture.md`) |
 | Bloqueios | nenhum |
