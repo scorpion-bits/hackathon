@@ -36,21 +36,21 @@ LIMITES:           o que NÃO pode decidir/alterar
 | **Documentation Engineer** | Haiku | README, setup, como rodar, docs técnicas | repo | `README.md`, `docs/` | Documentar o que não existe |
 | **Pitch Strategist** | Opus | Narrativa, slides, números de impacto, roteiro da demo | `01`–`04`, `02` insights | `docs/08-pitch.md`, PDF | Inventar números sem fonte nos dados |
 
-## Equipe humana (👥 H-002 — preencher)
+## Equipe humana (H-002 ✅ preenchido pela equipe)
 
-| Nome | Habilidades principais (linguagens, frameworks, dados, design, oratória) | Papel sugerido no hackathon |
+| Nome | Habilidades principais | Papel no hackathon |
 |---|---|---|
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
+| Thales Miguel Hajes | Oratória, criatividade | **Pitch lead** — narrativa, slides, ensaio, apresentação |
+| Milan Bahrami | Desenvolvimento | **Product Owner + Data lead** — decisões de escopo, ponte com mentores, valida números |
+| Fernando | Lógica de programação | **Dev lead** — integra/roda o app, revisa código dos agentes |
+| Maria | Trabalha com dados abertos | **Dev lead** (+ apoio de domínio em dados abertos) |
+| Victor | Testes práticos, design | **Design/QA** — teste manual, avaliação de interface |
+| Christian | Organização do Hub | **Design/QA** + **gestor do Hub** — espelha ações 👥, horários, checkpoints |
 
-Papéis humanos sugeridos (ajustar após H-002):
+Papéis:
 - **Product Owner** — guardião das decisões e do escopo; ponte com mentores.
 - **Data lead** — valida insights e números com Claude.
-- **Dev lead(s) ×2** — revisam/integram código, rodam o app localmente.
+- **Dev lead(s)** — revisam/integram código, rodam o app localmente.
 - **Design/QA** — testa manualmente, avalia interface.
 - **Pitch lead** — narrativa, slides, ensaio.
 

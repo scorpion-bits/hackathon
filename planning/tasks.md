@@ -22,8 +22,8 @@
 | ID | Ação | Quem | Prazo (BRT) | Status |
 |---|---|---|---|---|
 | H-001 | Revisar esta estrutura e o processo (CLAUDE.md) | equipe | 02/10 08h30 | READY |
-| H-002 | Preencher habilidades da equipe em `planning/agents.md` §Equipe humana (stack que cada um domina) | cada integrante | 02/10 08h30 | READY |
-| H-003 | Às 08h30: registrar tema, links dos dados, regras, critérios e respostas da organização (`docs/00-context.md` §Perguntas) | 1 pessoa designada | 02/10 09h00 | BACKLOG |
+| H-002 | Preencher habilidades da equipe em `planning/agents.md` §Equipe humana | cada integrante | 02/10 08h30 | DONE |
+| H-003 | Às 08h30 (Milan/PO): registrar tema, links dos dados, regras, critérios e respostas da organização (`docs/00-context.md` §Perguntas) | 1 pessoa designada | 02/10 09h00 | BACKLOG |
 | H-004 | Escolher a solução entre as candidatas (CP3) | equipe | 02/10 11h00 | BACKLOG |
 | H-005 | Aprovar escopo do MVP (CP4) | equipe | 02/10 11h30 | BACKLOG |
 | H-006 | Aprovar arquitetura/stack (CP5) | equipe | 02/10 12h00 | BACKLOG |
