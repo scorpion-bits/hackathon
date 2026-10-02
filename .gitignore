@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+build/
+.next/
+
+# Ambiente / segredos
+.env
+.env.*
+!.env.example
+
+# SO / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dados grandes: arquivos > ~50 MB não devem ir para o Git (limite GitHub: 100 MB).
+# Se necessário, adicione o caminho específico aqui e documente o link de download em data/README.md.

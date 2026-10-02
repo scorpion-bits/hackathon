@@ -1,0 +1,12 @@
+### Solução <letra> — <nome curto>
+- **Problema resolvido:**
+- **Público:**
+- **Proposta de valor (1 frase):**
+- **Como usa os dados fornecidos:**
+- **Dificuldade:** baixa | média | alta
+- **Tempo estimado do MVP:**
+- **Dependências (dados, APIs, conhecimento):**
+- **Riscos:**
+- **Impacto:**
+- **Capacidade de demonstração:** (o que a banca vê em 2 minutos)
+- **Diferencial:**
