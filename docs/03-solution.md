@@ -45,6 +45,17 @@
 - **Dificuldade:** alta · **MVP:** ~12–14h · **Risco:** médio/alto (muitas camadas externas, rede bloqueada no ambiente do Claude, tentação de 3D).
 - **Ética:** não usar limites do CAR/proprietários; rotular claramente o que é **dado real** e o que é **simulação**.
 
+### F — AgroIA (proposta da equipe, 02/10 ~11h15) — **em discussão de produto**
+- Documento-base: branch `idv-victor` → `data/escopos/escopoInicial.pdf` (+ referências visuais e paleta).
+- Visão: assistente agrícola que conhece o produtor (entrevista conversacional → perfil), mapa com talhões,
+  chat com contexto + ferramentas, estoque, alertas, dashboard.
+- **Análise do Claude (resumo):**
+  - Pontos fortes: público claro (pequeno/médio produtor), princípio "IA interpreta, dados vêm de fontes determinísticas", ética já pensada.
+  - **Risco de regra:** as fontes listadas (INMET, INPE, MapBiomas, IBGE, CONAB…) **não são bases "pivô"** do catálogo → é preciso ancorar em MAPA/ANA. Proposta: **Zarc como cérebro do planejamento** (+ Agrofit p/ estoque de defensivos).
+  - **Risco de inovação:** "chatbot agrícola" é comum; diferencial precisa ser *IA que mostra a conta* com dado oficial por talhão.
+  - **Risco de escopo:** documento planeja 3 dias e stack completa (auth, PostGIS, pgvector, LangGraph); temos ~21h.
+  - **Fato que vira demo:** Zarc 2025-26, Araraquara, milho 1ª safra, solo argiloso: decêndio 28 (1–10/out) risco **30%** → decêndio 29 (11–20/out) **20%**; solo arenoso: 40% até 20/out, 20% a partir de 21/out. _[confirmar com safra 2026-27]_
+
 ## Comparação ponderada pelos critérios oficiais (nota 0–10 × peso)
 
 | Critério (peso) | A AquaPivô | B PivôVision | C Plantio Certo | D Seguro | E AgroTwin (puro) | E′ AgroTwin sobre Pivôs |

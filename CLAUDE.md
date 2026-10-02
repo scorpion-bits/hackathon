@@ -9,12 +9,12 @@
 
 | Campo | Valor |
 |---|---|
-| Fase | **FASE 2 — IDEAÇÃO** — 4 candidatas em `docs/03-solution.md`, aguardando H-004 |
+| Fase | **FASE 2 — IDEAÇÃO** — equipe propôs **AgroIA** (F em `docs/03-solution.md`); discutindo produto (sem stack ainda) |
 | Último checkpoint | CP0 — Repositório preparado |
 | Próximo checkpoint | CP1 — Problema compreendido |
 | Tema | IA e/ou Robótica Agrícola aplicada a Dados Abertos na área da Agricultura |
 | Dataset | Regra: ≥1 base "pivô" do MAPA (dados.agricultura.gov.br) ou ANA/Embrapa (Pivôs Centrais 1985–2019); combinar com qualquer base aberta. Ver `docs/00-context.md` |
-| Solução escolhida | _pendente_ — recomendação do Claude: **A — AquaPivô** |
+| Solução escolhida | _em discussão_: AgroIA (equipe) — ancorar em Zarc/Agrofit (regra da base pivô) |
 | Stack | _não definida_ (opções pré-avaliadas em `docs/05-architecture.md`) |
 | Bloqueios | Ambiente sem rede p/ gov.br — humanos baixam dados e fazem push em `data/raw/` (R-13) |
 
