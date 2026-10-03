@@ -23,6 +23,17 @@ def _field_by_name(session: Session, farm_id: int, name_or_id) -> Field | None:
     return None
 
 
+def _crop(farm, field: Field, crop: str | None) -> str | None:
+    """Cultura no nome oficial do Zarc: o modelo costuma mandar 'milho', o Zarc guarda 'Milho 1ª Safra'."""
+    if not crop:
+        return field.crop
+    from ..services.context import crop_key, zarc_name
+    key = crop_key(crop)
+    if key and key == crop_key(field.crop):
+        return field.crop
+    return zarc_name(key, farm.geocode) if key and key != "outra" else crop
+
+
 def farm_overview(session: Session, **_):
     farm = fd.get_farm(session)
     season = fd.current_season(session, farm.id)
@@ -78,7 +89,7 @@ def get_zarc(session: Session, field: str, crop: str | None = None, **_):
     f = _field_by_name(session, farm.id, field)
     if not f:
         return {"error": f"Talhão '{field}' não encontrado."}, []
-    z = od.zarc_for(farm.geocode, crop or f.crop, f.soil, f.irrigated)
+    z = od.zarc_for(farm.geocode, _crop(farm, f, crop), f.soil, f.irrigated)
     if not z.get("available"):
         return z, []
     dec = od.decendio(fd.today())
@@ -112,7 +123,7 @@ def plan(session: Session, field: str, crop: str | None = None, **_):
     f = _field_by_name(session, farm.id, field)
     if not f:
         return {"error": f"Talhão '{field}' não encontrado."}, []
-    p = plan_planting(session, farm, f, crop)
+    p = plan_planting(session, farm, f, _crop(farm, f, crop))
     srcs = [SYSTEM_SOURCE] + ([p["zarc"]["source"]] if p["zarc"].get("available") else [])
     if p.get("weather_status") and p["weather_status"] != "offline":
         srcs.append(od.source("open_meteo"))

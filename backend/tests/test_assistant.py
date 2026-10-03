@@ -63,3 +63,16 @@ def test_topic_tools(client):
         res2, srcs2 = run_tool(s, "explain_topic", {"key": res["topics"][0]["key"]})
         assert res2["next_step"] and srcs2
         assert "error" in run_tool(s, "explain_topic", {"key": "nao-existe"})[0]
+
+
+def test_tools_accept_short_crop_name(client):
+    """O LLM manda 'milho'; o Zarc guarda 'Milho 1ª Safra' — a ferramenta precisa resolver."""
+    from app.db import SessionLocal
+    from app.assistant.tools import run_tool
+    from app.auth import default_producer
+    with SessionLocal() as s:
+        s.info["producer_id"] = default_producer(s).id
+        z, srcs = run_tool(s, "get_zarc", {"field": "Talhão 2", "crop": "milho"})
+        assert z.get("proximos_periodos") and srcs
+        p, _ = run_tool(s, "plan_planting", {"field": "Talhão 2", "crop": "milho"})
+        assert p.get("options")
