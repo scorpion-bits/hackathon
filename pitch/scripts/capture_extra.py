@@ -15,6 +15,10 @@ chrome = (sorted(glob.glob('/opt/pw-browsers/chromium-*/chrome-linux/chrome')) o
 proxy = os.environ.get('HTTPS_PROXY')
 
 
+RETRY_TILES = """(n) => { const bad = [...document.querySelectorAll('img.leaflet-tile')].filter((i) => !(i.complete && i.naturalWidth > 0));
+  bad.forEach((i) => { i.src = i.src.split('?')[0] + '?r=' + n }); return bad.length }"""
+
+
 def dark_share(path):
     """Fração de pixels quase pretos (tiles de satélite que não carregaram)."""
     im = Image.open(path).convert('L').resize((130, 270))
@@ -34,11 +38,13 @@ with sync_playwright() as p:
     pg.get_by_role('textbox').first.fill('Araraquara'); pg.get_by_text('Araraquara / SP').click(timeout=30000)
     pg.get_by_role('button', name='Continuar').click()
     pg.get_by_role('button', name='Usar exemplo').first.click(timeout=30000)
-    for i in range(12):
-        pg.wait_for_timeout(5000)
-        pg.screenshot(path=str(OUT / 'f-entrevista.png'))
-        if dark_share(OUT / 'f-entrevista.png') < 0.08:
+    pg.wait_for_timeout(6000)
+    for n in range(15):  # tile de satélite que falhou na rede → pede de novo até não faltar nenhum
+        if pg.evaluate(RETRY_TILES, n) == 0:
             break
+        pg.wait_for_timeout(3000)
+    pg.wait_for_timeout(1500)
+    pg.screenshot(path=str(OUT / 'f-entrevista.png'))
     print('entrevista escuro:', round(dark_share(OUT / 'f-entrevista.png'), 3))
 
     # 2) João: IA, mapa vivo, dados abertos
