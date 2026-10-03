@@ -75,7 +75,7 @@ Antes: app aberto em outra janela, **já logado como João** (o botão "Entrar c
 3. Navegador 1: `http://localhost:5173` → **Entrar como João (demo)** → F12 → modo celular 390 px → deixar no Início.
 4. Navegador 2 (ou aba): `cd pitch` → `py -m http.server 8090` (Linux: `python3 -m http.server 8090`) → `http://localhost:8090` → **F** (tela cheia).
 5. Se houver duas telas: **S** abre as notas com cronômetro no notebook; o projetor fica com os slides.
-6. Passar uma vez: slide 7 (o vídeo toca?), **Alt+Tab** até o app e de volta, tecla **T** no projetor da sala.
+6. Passar uma vez: slide 7 (o vídeo toca e o som sai na caixa? volume do notebook no máximo), **Alt+Tab** até o app e de volta, tecla **T** no projetor da sala.
 7. Cronometrar um ensaio completo (meta 6:30). Ensaio registrado em H-011.
 
 ## 6. Perguntas prováveis da banca
@@ -98,5 +98,5 @@ Antes: app aberto em outra janela, **já logado como João** (o botão "Entrar c
 
 - Slides: `pitch/index.html` (+ `css/theme.css`, `js/deck.js`); números gerados em `pitch/data/data.js` por `pitch/scripts/build_data.py`.
 - PDF (entregável): `pitch/dist/AgroBits-pitch.pdf` (claro) e `AgroBits-pitch-escuro.pdf`; o vídeo aparece como storyboard de 6 quadros.
-- Vídeo: `pitch/assets/video/agrobits-showcase.mp4` (24 s, 1920×1080, sem som), feito de `pitch/video/promo.html` com as telas reais.
+- Vídeo: `pitch/assets/video/agrobits-showcase.mp4` (24 s, 1920×1080, com efeitos sonoros sintetizados em `pitch/scripts/make_sfx.py`), feito de `pitch/video/promo.html` com as telas reais.
 - Roteiro detalhado da demo e plano B do app: `docs/demo/roteiro.md`.

@@ -17,7 +17,7 @@ cd pitch && python3 -m http.server 8090      # Windows: py -m http.server 8090
 | **T** | tema claro ↔ escuro (o claro é o padrão; trocar na sala se o projetor lavar as cores) |
 | Esc | visão geral dos slides |
 
-- **Slide 7 (`#/7`, vídeo):** toca sozinho ao entrar (24 s, sem som); avançar quando terminar.
+- **Slide 7 (`#/7`, vídeo):** toca sozinho ao entrar (24 s, com efeitos sonoros: ligar o som do notebook/caixa); avançar quando terminar.
 - **Slide 10 (`#/10`, demo ao vivo):** trocar para o navegador do app (`http://localhost:5173`, "Entrar como João"). Se a demo falhar, fique no slide e narre os 5 passos pelo celular da tela.
 - Capa, chamada da solução, vídeo e fechamento são sempre escuros; o manifesto é verde — nos dois temas.
 
@@ -41,6 +41,6 @@ scripts/                 build_data · capture_app · capture_extra · export_vi
 .venv/bin/python pitch/scripts/build_data.py      # números (banco do app + Censo/Asbraer citados; com a API no ar, conta os assuntos do dia)
 python3 pitch/scripts/capture_app.py              # telas reais do roteiro (com ./dev.sh no ar)
 python3 pitch/scripts/capture_extra.py            # entrevista, IA, dados abertos e mapa vivo
-python3 pitch/scripts/export_video.py             # vídeo 1920×1080, 30 fps (Playwright + ffmpeg); --derived só refaz webm/pôster/storyboard
+python3 pitch/scripts/export_video.py             # vídeo 1920×1080, 30 fps (Playwright + ffmpeg); --derived só refaz webm/pôster/storyboard; o áudio sai de make_sfx.py
 python3 pitch/scripts/export_pdf.py               # PDF claro (padrão); "dark" gera o escuro
 ```

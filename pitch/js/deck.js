@@ -137,7 +137,8 @@
   function onSlide(s) {
     s.querySelectorAll('[data-count]').forEach(count)
     const v = $('#promo')
-    if (s.classList.contains('video')) { v.currentTime = 0; v.play().catch(() => {}) } else v.pause()
+    // com som (a tecla/clique do apresentador libera o áudio); se o navegador barrar, toca mudo
+    if (s.classList.contains('video')) { v.currentTime = 0; v.muted = false; v.play().catch(() => { v.muted = true; v.play().catch(() => {}) }) } else v.pause()
   }
   Reveal.on('slidechanged', (e) => onSlide(e.currentSlide))
 })()

@@ -40,6 +40,7 @@ def derived(dst):
             ImageDraw.Draw(mask).rounded_rectangle((0, 0, W - 1, H - 1), radius=18, fill=255)
             sheet.paste(im, ((i % 3) * (W + G), (i // 3) * (H + G)), mask)
     sheet.save(dst / 'agrobits-showcase-storyboard.jpg', quality=88)
+    subprocess.run([sys.executable, str(Path(__file__).with_name('make_sfx.py'))], check=True)  # efeitos sonoros (só áudio)
 
 
 if derived_only:
