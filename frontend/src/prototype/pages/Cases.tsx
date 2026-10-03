@@ -60,6 +60,7 @@ export default function Cases() {
                     <div className="text-xs text-muted">Protocolo {c.protocol} · {e?.name ?? c.expert_id} · {fmtDate(c.created_at)} · resposta por {c.channel}</div>
                     {c.snapshot.path_title && <div className="mt-0.5 text-xs text-muted">Caminho em que você pensava: {c.snapshot.path_title}</div>}
                     {c.note && <div className="mt-0.5 text-xs text-muted">Você contou: “{c.note}”</div>}
+                    <Link to={`/tecnico/caso/${c.id}`} className="mt-1.5 inline-flex min-h-9 items-center gap-1 text-xs font-semibold text-primary hover:underline">Ver como o técnico recebe <ArrowRight size={13} /></Link>
                   </div>
                 </div>
                 {/* linha do tempo do atendimento */}

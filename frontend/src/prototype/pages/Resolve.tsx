@@ -286,6 +286,7 @@ function Resolve({ topic, all, status, sent, experts }: ResolveProps) {
               <div className="flex-1"><b className="block text-lg">Protocolo {sent.protocol}</b><span className="text-sm text-muted">{expertOf(sent.expert_id)?.name} · enviado em {fmtDate(sent.created_at)} · {expertOf(sent.expert_id)?.eta}</span></div>
               <Link to="/casos" className="text-sm font-semibold text-primary">Ver meus casos</Link>
             </div>
+            <Link to={`/tecnico/caso/${sent.id}`} className="iso-btn mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-sidebar px-4 font-display text-sm font-bold text-white">Ver como o técnico recebe →</Link>
             <h3 className="mt-4 text-sm font-bold">Enquanto isso, o AgroBits:</h3>
             <ul className="mt-2 space-y-1.5 text-sm">
               <li className="flex gap-2"><CheckCircle2 size={16} className="mt-0.5 shrink-0 text-primary" />Avisa você assim que o técnico responder ({sent.channel})</li>

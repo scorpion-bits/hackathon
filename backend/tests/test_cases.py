@@ -42,3 +42,16 @@ def test_funil_e_fontes(client):
     assert f["available"] and f["steps"][0]["value"] > 1_000_000 and f["steps"][2]["value"] >= 1
     src = {s["key"]: s for s in client.get("/api/opendata/sources").json()}
     assert src["zarc"]["records"] > 1_000_000 and src["zarc"]["checked_at"]
+
+
+def test_visao_do_tecnico(client):
+    h = _auth(client)
+    t = client.get("/api/topics", headers=h).json()["topics"][0]
+    c = client.post("/api/cases", json={"topic_key": t["key"], "expert_id": "cati", "channel": "whatsapp", "consent": True}, headers=h).json()
+    b = client.get(f"/api/cases/{c['id']}/brief", headers=h).json()
+    assert b["case"]["protocol"] == c["protocol"] and b["case"]["snapshot"]["evidence"] == t["evidence"]
+    assert b["farm"]["municipality"] and b["expert"]["id"] == "cati"
+    if t.get("field_id"):
+        assert b["field"]["name"] == t["field"] and b["field"]["poly"]
+    other = client.post("/api/auth/demo", json={"scenario": "nova"}).json()["token"]
+    assert client.get(f"/api/cases/{c['id']}/brief", headers={"Authorization": f"Bearer {other}"}).status_code == 404

@@ -15,6 +15,7 @@ import Login from './pages/Login'
 import OpenData from './pages/OpenData'
 import Property from './pages/Property'
 import Resolve from './pages/Resolve'
+import TechView from './pages/TechView'
 
 /** Quem não está logado (ex.: abriu a raiz pela primeira vez) vai para a tela de entrada. */
 function RequireLogin({ children }: { children: ReactNode }) {
@@ -33,6 +34,7 @@ export default function ProtoApp() {
       <Route path="propriedade" element={<RequireLogin><Shell><NeedsFields where="Minha propriedade"><Property /></NeedsFields></Shell></RequireLogin>} />
       <Route path="assistente" element={<RequireLogin><Shell><Assistant /></Shell></RequireLogin>} />
       <Route path="resolver/:id" element={<RequireLogin><Shell><Resolve /></Shell></RequireLogin>} />
+      <Route path="tecnico/caso/:id" element={<RequireLogin><Shell><TechView /></Shell></RequireLogin>} />
       <Route path="casos" element={<RequireLogin><Shell><Cases /></Shell></RequireLogin>} />
       <Route path="contexto" element={<RequireLogin><Shell><ContextPage /></Shell></RequireLogin>} />
       <Route path="*" element={<RequireLogin><Shell><NeedsFields><ForYou /></NeedsFields></Shell></RequireLogin>} />

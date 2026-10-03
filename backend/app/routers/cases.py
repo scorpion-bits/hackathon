@@ -10,9 +10,11 @@ from sqlalchemy.orm import Session
 
 from ..auth import current_producer
 from ..db import get_session
-from ..models import Case, Producer, TopicState
+from ..models import Case, Field, Producer, TopicState
 from ..services import farmdata as fd
+from ..services import live
 from ..services import topics as tp
+from ..services.weather import forecast
 
 router = APIRouter(prefix="/api", tags=["casos"])
 DB = Depends(get_session)
@@ -101,7 +103,8 @@ def create_case(body: CaseIn, session: Session = DB, me: Producer = ME):
     path_title = next((p["title"] for p in topic["paths"] if p["id"] == body.path), None)
     snapshot = {"question": topic["question"], "title": topic["title"], "summary": topic["summary"], "kind": topic["kind"],
                 "field": topic["field"], "why": topic["why"], "sources": topic["sources"], "evidence_note": topic.get("evidence_note"),
-                "path_title": path_title, "sources_status": data["sources_status"], "generated_at": data["generated_at"]}
+                "path_title": path_title, "sources_status": data["sources_status"], "generated_at": data["generated_at"],
+                "evidence": topic.get("evidence")}
     n = session.scalar(select(func.count()).select_from(Case).where(Case.producer_id == me.id)) or 0
     protocol = f"AB-{1000 + n + 1}"
     while session.scalars(select(Case).where(Case.protocol == protocol)).first():  # protocolo é único no banco todo
@@ -117,6 +120,38 @@ def create_case(body: CaseIn, session: Session = DB, me: Producer = ME):
     session.add(state)
     session.commit()
     return case_dict(c)
+
+
+IRRIGATION = {"nao": "sequeiro", "aspersao": "aspersão", "gotejamento": "gotejamento", "pivo": "pivô"}
+SOIL = {"arenoso": "arenoso", "medio": "textura média", "argiloso": "argiloso"}
+
+
+@router.get("/cases/{case_id}/brief")
+def case_brief(case_id: int, session: Session = DB, me: Producer = ME):
+    """O caso como o técnico recebe: pergunta, quem/onde, talhão, dados oficiais do envio (snapshot) e o clima atual (real, com data).
+    Visão simulada (D-019): na demonstração o "técnico" é a própria conta abrindo a tela."""
+    c = _own(session, me, case_id)
+    farm = fd.find_farm(session, me)
+    f = session.get(Field, c.field_id) if c.field_id else None
+    field = None if f is None else {
+        "name": f.name, "crop": f.crop, "area_ha": round(f.area_ha, 2), "soil": SOIL.get(f.soil or "", f.soil),
+        "irrigation": IRRIGATION.get(f.irrigation or "", "irrigado" if f.irrigated else "sequeiro"),
+        "poly": (f.geometry or {}).get("coordinates", [[]])[0], "color": f.color}
+    weather = rain = None
+    if farm is not None:
+        w = forecast(farm.lat, farm.lon)
+        days = (w.get("daily") or [])[:7] if w.get("available") else []
+        peak = max(days, key=lambda d: d.get("rain_mm") or 0) if days else None
+        weather = {"available": bool(days), "status": w.get("status"), "fetched_at": w.get("fetched_at"),
+                   "rain_7d_mm": round(sum(d.get("rain_mm") or 0 for d in days), 1) if days else None,
+                   "peak": {"date": peak["date"], "mm": peak.get("rain_mm")} if peak else None}
+        r = live.rain_vs_normal(farm.lat, farm.lon)
+        rain = {k: r.get(k) for k in ("available", "status", "fetched_at", "observed_mm", "normal_mm", "label", "period")}
+    return {"case": case_dict(c), "expert": next((e for e in EXPERTS if e["id"] == c.expert_id), None),
+            "producer": {"name": me.name, "is_demo": me.is_demo},
+            "farm": None if farm is None else {"name": farm.name, "municipality": farm.municipality, "uf": farm.uf,
+                                                "geocode": farm.geocode, "lat": farm.lat, "lon": farm.lon},
+            "field": field, "weather": weather, "rain_normal": rain}
 
 
 @router.post("/cases/{case_id}/demo-reply")
