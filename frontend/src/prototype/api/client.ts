@@ -2,7 +2,7 @@
 // Token da conta em localStorage['agrobits.token']; todo acesso ao storage fica em try/catch.
 
 const TOKEN_KEY = 'agrobits.token'
-const TIMEOUT_MS = 8000
+const TIMEOUT_MS = 25000 // 1º cálculo dos assuntos consulta várias fontes ao vivo e pode passar de 8 s
 export const OFFLINE_MSG = 'Servidor fora do ar — rode ./iniciar.sh'
 
 export class ApiError extends Error {

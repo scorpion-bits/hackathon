@@ -22,6 +22,11 @@ propriedade) **não são publicadas** neste repositório (`data/restricted/`, fo
 **agregadas por município**, com supressão de grupos com menos de 3 registros.
 O produtor da demonstração (João, Sítio Boa Esperança) é **fictício** e rotulado como tal na interface.
 
+**O que é real e o que é demonstração:**
+- **Real (sempre consultado na fonte):** Zarc, Agrofit, SIPEAGRO e seguro rural (MAPA), previsão (Open-Meteo), chuva dos últimos 30 dias (NASA POWER), municípios (IBGE), imagens de satélite (NASA GIBS). Fonte fora do ar → a tela avisa; nunca preenche com exemplo.
+- **Demonstração (dado de conta):** o João, o sítio, talhões, estoque, casos e a resposta do técnico (simulada), sempre com o selo "conta de demonstração". As instituições (CATI, Senar, prefeitura) são exemplo de integração, sem convênio.
+- Roteiro de 3 min: `docs/demo/roteiro.md` · teste ponta a ponta: `python3 tests/e2e_demo.py` (com o app rodando).
+
 **Contas (M1):** tela `/entrar` → criar conta (senha com hash), entrar, **"Entrar como João (demo)"**
 (volta sempre ao estado inicial; também dá para entrar com `joao@demo.agrobits` / `demo1234`) ou
 **"Experimentar como novo usuário"** (conta vazia). Os dados do João ficam em `backend/app/fixtures/demo/joao.json`.

@@ -35,14 +35,14 @@ Este arquivo ≤ 250 linhas: ao atualizar, **substitua** linhas de estado em vez
 **Pronto (02/10 ~18h, tudo na `main`):**
 - **Rodar:** `iniciar.bat` (Windows) / `./iniciar.sh` (Linux) — usa Docker se houver; senão cai sozinho no `./dev.sh`,
   **sem sudo** (baixa Node/uv portáteis em `.tools/`). Opções: atualizar, resetar, sincronizar, logs, parar, sem-docker.
-- **Protótipo** `/prototipo` (mobile first, D-016; marca AgroBits isométrica, D-014):
+- **App AgroBits** `/` (antes `/prototipo`; mobile first, D-016; marca AgroBits isométrica, D-014):
   Login · Entrevista (`?demo=1` pula pro fim; resumo em cartões) · **Início guiado** (um assunto por vez) →
-  **Resolver** `/prototipo/resolver/:id` (dados → caminhos possíveis → **enviar caso ao técnico público**, D-015) ·
-  **Meus casos** · **Editar talhões** `/prototipo/talhoes` (criar/ajustar formato/cultura; estado compartilhado em `farmStore.ts`) ·
+  **Resolver** `/resolver/:id` (dados → caminhos possíveis → **enviar caso ao técnico público**, D-015) ·
+  **Meus casos** · **Editar talhões** `/talhoes` (criar/ajustar formato/cultura; estado compartilhado em `farmStore.ts`) ·
   **Mapa vivo** (globo 3D; desktop: guia em 3 passos; celular: 2 botões + 1 cartão + gavetas; `?talhao=N`) ·
   Dados abertos · Minha propriedade · IA (aviso "explica dados, não dá receita") · Meu contexto.
   Dados de exemplo: `prototype/mock.ts`, `resolve.ts` (casos/órgãos), `farmStore.ts`.
-- **App funcional** `/` + backend FastAPI (23 testes: `cd backend && pytest -q`).
+- **App antigo** `/legado` + backend FastAPI (38 testes: `cd backend && pytest -q`).
 - **Dados ao vivo:** `scripts/fetch_opendata.py` (CKAN MAPA, hash; 02/10 idênticos ao portal) · `services/live.py`
   (NASA POWER: set/26 93 mm × normal 48 mm; IBGE malhas) · Open-Meteo · NASA GIBS (camadas verificadas). Ver `docs/09`.
 - **Modelo de negócio:** A — público, ATER (CATI/Senar/prefeitura), gratuito ao produtor. Ver `docs/10-business-model.md`.
@@ -52,7 +52,8 @@ Este arquivo ≤ 250 linhas: ao atualizar, **substitua** linhas de estado em vez
 **M3 ✅ (8cbc8af):** `GET /api/topics` — 7 regras (`services/topics.py`, textos em `topics_text.py`) × Zarc/Open-Meteo/NASA/Agrofit/SIPEAGRO; fonte fora → assunto some + `sources_status`; escolha em `POST /api/topics/{key}/choice`.
 **M4 ✅ (4c02bdc):** telas do roteiro ligadas à API (hooks em `frontend/src/prototype/api/`: `resource.ts`, `topics.ts`, `cases.ts`, `opendata.ts`); casos em `routers/cases.py` (`/api/cases`, `/api/experts`, demo-reply, reset só demo); `/api/opendata/funnel` e `sources` com contagem real; `resolve.ts` apagado, `mock.ts` sem número de fonte aberta; `SourceStatus` mostra "dado real de <data>"/"indisponível".
 **M5 ✅ (3035906):** `/api/assistant/*` por conta; ferramentas `get_topics`/`explain_topic`; prompt "explica, não decide, sem dose"; offline responde ao roteiro (Zarc, chuva, defensivo→técnico, "o que faço?"); `AGROBITS_LLM_*` (+`AGROIA_*`); `Assistant.tsx` ligado à API (`demo.ts` apagado); scripts mostram "IA: ligada/offline"; 37 testes.
-**Próximo:** M6 (app em `/` + roteiro). MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
+**M6 ✅ (HASH):** AgroBits em `http://localhost:5173/` (app antigo em `/legado`, `/prototipo/*` redireciona); sem banner de protótipo; quem não entrou vai a `/entrar`; `tests/e2e_demo.py` (Playwright, 390 e 1280 px, 2 cenários); roteiro em `docs/demo/roteiro.md`; contagens da animação da entrevista agora vêm da API.
+**Próximo:** M7 opcional (ANA) · pitch + PDF. MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
 M4 telas → M5 IA → M6 app em `/` + roteiro; M7 ANA opcional) → **pitch (Thales) + PDF** → congelamento 03/10 08h.
 **Regra de dados (D-022):** dado de fonte aberta/externa é SEMPRE real (fonte fora → aviso, ou último dado real com data);
 fictício só dado de conta (contas demo `is_demo`, fixtures nas mesmas tabelas). Cenários: conta nova × conta existente (João).
@@ -139,8 +140,8 @@ Ferramenta pronta para a análise inicial: `python3 scripts/profile_data.py data
 | 4 | MVP definido (aprovado) | 02/10 11h30 | ✅ |
 | 5 | Arquitetura definida (aprovada) | 02/10 12h00 | ✅ |
 | 6 | Fluxo principal funcionando | 02/10 17h00 | ✅ no protótipo (backend ligado só no app funcional) |
-| 7 | Demo funcionando | 02/10 20h00 | ⏳ |
-| 8 | Testes críticos concluídos | 02/10 21h30 | ⏳ |
+| 7 | Demo funcionando | 02/10 20h00 | ✅ app em `/` + roteiro (falta H-009) |
+| 8 | Testes críticos concluídos | 02/10 21h30 | ✅ `pytest` 38 + `tests/e2e_demo.py` (falta H-009 humano) |
 | 9 | Pitch pronto | 03/10 08h00 | ⏳ |
 | 10 | Entrega final validada | 03/10 08h45 | ⏳ |
 
