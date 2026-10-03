@@ -1,7 +1,26 @@
+import os
+import sys
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .db import Base, engine
+from .db import ROOT, Base, engine
+
+
+def load_dotenv(path: Path = ROOT / ".env") -> None:
+    """Lê o .env da raiz (chave da IA) quando a API é iniciada à mão, sem dev.sh/Docker (ex.: Windows).
+    Não sobrescreve variáveis já definidas; nos testes não lê nada (eles rodam sempre em modo offline)."""
+    if "pytest" in sys.modules or not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+load_dotenv()
 from .routers import api, assistant, auth, cases, onboarding, topics
 
 Base.metadata.create_all(engine)
