@@ -8,7 +8,8 @@ import { useSearchParams } from 'react-router-dom'
 import { Guide, type Place } from '../components/livemap/Guide'
 import { MobileUI } from '../components/livemap/MobileUI'
 import { Controls, FarmPin, FieldCard, FieldLabel, ForecastBars, Timeline } from '../components/livemap/Panels'
-import { DATA_LAYERS, GIBS_ATTRIBUTION, addDays, gibsTileUrl, gibsTime } from '../components/livemap/layers'
+import { kmPerPixel, useCoverage } from '../components/livemap/coverage'
+import { DATA_LAYERS, GIBS_ATTRIBUTION, addDays, gibsTileUrl, gibsTime, shortDate } from '../components/livemap/layers'
 import { Map as MLMap, Marker, type GeoJSONSource, type RasterTileSource } from '../components/livemap/maplibre'
 import { L, buildStyle, centroid, fieldsGeoJSON } from '../components/livemap/mapStyle'
 import { FIELDS, PRODUCER } from '../mock'
@@ -55,7 +56,7 @@ export default function LiveMap() {
   const [ready, setReady] = useState(false)
   const [markers, setMarkers] = useState<MarkerEls | null>(null)
   const [zoom, setZoom] = useState(BRAZIL.zoom)
-  const [layerId, setLayerId] = useState('temp')
+  const [layerId, setLayerId] = useState('zarc') // abre no dado que é do talhão (Zarc); satélite é da região
   const [opacity, setOpacity] = useState<Record<string, number>>(() => Object.fromEntries(DATA_LAYERS.map((l) => [l.id, l.defaultOpacity])))
   const [offset, setOffset] = useState(-1) // ontem: dia mais recente com imagem de satélite completa
   const [playing, setPlaying] = useState(false)
@@ -71,6 +72,8 @@ export default function LiveMap() {
   const date = useMemo(() => addDays(today, offset), [today, offset])
   const time = layer?.gibs ? gibsTime(layer.gibs, today, offset, latest) : null
   const layerOpacity = layer ? opacity[layer.id] : 1
+  const [homeLon, homeLat] = homeCenter()
+  const coverage = useCoverage(layer?.gibs, time, homeLon, homeLat)
 
   const flyHome = useCallback((m = mapRef.current) => {
     if (m) m.flyTo({ center: homeCenter(), zoom: m.getContainer().clientWidth < 640 ? HOME_ZOOM - 0.7 : HOME_ZOOM, pitch: 52, bearing: -18, padding: viewPadding(m), duration: 7000, curve: 1.6, essential: true })
@@ -86,6 +89,18 @@ export default function LiveMap() {
     setSelected(null)
     if (m) m.flyTo({ ...BRAZIL, pitch: 0, bearing: 0, padding: viewPadding(m), duration: 4500, curve: 1.6, essential: true })
   }, [])
+
+  // Imagens da NASA têm 0,3–2 km por ponto: perto do talhão viram uma cor só. Ao escolher uma delas, afasta para a região.
+  const flyRegion = useCallback((maxzoom: number) => {
+    const m = mapRef.current
+    setSelected(null)
+    if (m) m.flyTo({ center: homeCenter(), zoom: maxzoom + 2, pitch: 30, bearing: 0, padding: viewPadding(m), duration: 2500, curve: 1.5, essential: true })
+  }, [])
+  useEffect(() => {
+    const m = mapRef.current
+    if (m && ready && layer?.gibs && m.getZoom() > layer.gibs.maxzoom + 3) flyRegion(layer.gibs.maxzoom)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- só quando muda a camada
+  }, [layerId, ready])
 
   // ---------- criação do mapa (uma vez; StrictMode-safe)
   useEffect(() => {
@@ -238,6 +253,20 @@ export default function LiveMap() {
           {createPortal(<FarmPin show={!near} onClick={() => { setArea('farm'); flyHome() }} />, markers.pin, 'pin')}
           {createPortal(<ForecastBars show={showForecast} offset={offset} />, markers.forecast, 'fc')}
         </>
+      )}
+
+      {layer?.gibs && (coverage === 'empty' || zoom > layer.gibs.maxzoom + 3) && (
+        <div role="status" className="absolute left-3 right-3 top-16 z-20 mx-auto max-w-md rounded-xl bg-black/75 px-3.5 py-2.5 text-[13px] leading-snug text-white shadow-lg ring-1 ring-white/15 backdrop-blur md:left-[360px]">
+          {coverage === 'empty' && (layer.gibs.emptyMeans
+            ? <p>{layer.gibs.emptyMeans}</p>
+            : <p><b>Sem imagem de {layer.label.toLowerCase()} sobre a sua propriedade {time === 'default' ? 'na imagem mais recente' : `em ${shortDate(date)}`}</b> (nuvem, ou o satélite não passou). Mude o dia na linha do tempo.</p>)}
+          {zoom > layer.gibs.maxzoom + 3 && (
+            <p className={coverage === 'empty' ? 'mt-1.5 text-white/80' : ''}>
+              Cada ponto desta imagem cobre ≈{kmPerPixel(layer.gibs, homeLat).toLocaleString('pt-BR', { maximumFractionDigits: 1 })} km: mostra a região, não o talhão.{' '}
+              <button type="button" onClick={() => flyRegion(layer.gibs!.maxzoom)} className="font-semibold text-emerald-300 underline">Ver a região</button>
+            </p>
+          )}
+        </div>
       )}
 
       <Controls

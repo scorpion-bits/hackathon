@@ -26,7 +26,7 @@ function Hero() {
   const recs = steps[steps.length - 1]?.value
   const checked = (sources ?? []).map((x) => x.checked_at).filter(Boolean).sort().pop()
   const nums = [
-    { big: String(SOURCES.length), unit: '', label: 'fontes oficiais', sub: 'MAPA, ANA, Embrapa, NASA, INPE, Open-Meteo', icon: Landmark },
+    { big: String(SOURCES.length), unit: '', label: 'fontes oficiais', sub: 'MAPA, ANA/Embrapa, NASA, Open-Meteo, IBGE', icon: Landmark },
     { big: total != null ? (total / 1e6).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '…', unit: 'milhões', label: 'registros analisados', sub: total != null ? `${fmtInt(total)} linhas lidas por máquina` : 'carregando…', icon: Database },
     { big: recs != null ? fmtInt(recs) : '…', unit: '', label: 'assuntos hoje', sub: 'só o que serve para a sua propriedade', icon: Sparkles },
   ]
@@ -181,7 +181,7 @@ function Sources() {
 
 /* ------------------------------------------------------------------ caminho dos dados */
 const STEPS: { icon: typeof Landmark; title: string; text: string; tone: string }[] = [
-  { icon: Landmark, title: 'Fontes oficiais', text: 'APIs e arquivos abertos do MAPA, ANA, Embrapa, NASA, INPE e Open-Meteo.', tone: '#2F6E91' },
+  { icon: Landmark, title: 'Fontes oficiais', text: 'APIs e arquivos abertos do MAPA, ANA/Embrapa, NASA, IBGE e Open-Meteo.', tone: '#2F6E91' },
   { icon: RefreshCw, title: 'Atualização automática', text: 'O AgroBits confere o portal do MAPA e atualiza as bases sozinho (ou com ./iniciar.sh sincronizar); clima e satélite são consultados na hora.', tone: '#7C5CBF' },
   { icon: Filter, title: 'Filtro pelo seu contexto', text: 'O arquivo contexto.md diz onde você está, o que planta e o que te preocupa.', tone: '#9A6516' },
   { icon: Bot, title: 'Agentes de IA interpretam', text: 'Cruzam os dados filtrados com a previsão do tempo e escrevem em palavras simples.', tone: '#2E7D4F' },

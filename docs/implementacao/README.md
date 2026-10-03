@@ -58,7 +58,7 @@ Esforço = `/effort` sugerido. Modelo = `/model` sugerido.
 | M4 | [Telas ligadas: Início, Resolver, Casos, Dados abertos, Mapa](M4-telas.md) | Sonnet | médio | 1h10 | ✅ 4c02bdc |
 | M5 | [IA real + passo a passo da chave](M5-ia.md) | Sonnet | médio | 40 min | ✅ 3035906 |
 | M6 | [App principal em `/` + teste dos 2 cenários + roteiro](M6-final.md) | Sonnet | médio | 50 min | ✅ e4aa180 |
-| M7 | [*Opcional:* pivôs da ANA na região](M7-ana-pivos.md) | Sonnet | baixo | 30 min | ⏳ |
+| M7 | [*Opcional:* pivôs da ANA na região](M7-ana-pivos.md) | Sonnet | baixo | 30 min | ✅ HASH |
 
 Ordem: M1 → M2 → M3 → M4 → M5 → M6 (M7 depois da M3, se houver folga). Total essencial ≈ 6h20.
 Pitch e PDF ficam fora do plano (T-023, Thales + Claude); os números reais saem da M3 e da M4.

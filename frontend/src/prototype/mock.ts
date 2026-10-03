@@ -24,7 +24,7 @@ export const SOURCES: Source[] = [
   { key: 'agrofit', apiKey: 'agrofit', name: 'Agrofit — defensivos registrados', agency: 'MAPA', kind: 'arquivo', freshness: 'semanal', whatItTells: 'Quais produtos são registrados para cada cultura e praga, e o quanto são tóxicos.', color: '#9A6516' },
   { key: 'seguro', apiKey: 'psr', name: 'Seguro Rural com subvenção (PSR)', agency: 'MAPA', kind: 'arquivo', freshness: 'mensal', whatItTells: 'Onde e para quais culturas o seguro rural com apoio do governo está chegando.', color: '#C0392B' },
   { key: 'drones', apiKey: 'sipeagro_aviacao', name: 'Aviação agrícola e drones registrados (SIPEAGRO)', agency: 'MAPA', kind: 'arquivo', freshness: 'semanal', whatItTells: 'Quantos drones e aviões agrícolas operam na sua região — serviços disponíveis perto de você.', color: '#3B82A6' },
-  { key: 'pivos', name: 'Agricultura irrigada por pivôs centrais', agency: 'ANA / Embrapa', kind: 'mapa', freshness: 'safra', whatItTells: 'Onde a irrigação cresce — pressão sobre a água da sua bacia.', color: '#0E7490' },
+  { key: 'pivos', apiKey: 'ana_pivos', name: 'Agricultura irrigada por pivôs centrais (1985–2019)', agency: 'ANA / Embrapa', kind: 'mapa', freshness: 'safra', whatItTells: 'Quantos pivôs de irrigação existem no seu município e nos vizinhos, e como isso cresceu desde 1985.', color: '#0E7490' },
 ]
 
 /** Talhão como as telas do mapa o leem. `status` e `zarc` vêm da API (farmStore); `zarc` = risco Zarc por decêndio (36 valores). */
@@ -85,7 +85,7 @@ export const CONTEXT_MD = `# Contexto do produtor — AgroBits
 ## Filtros aplicados aos dados abertos
 - Zarc: município 3503208 · culturas [soja, milho 1ª safra, feijão] · solos [argiloso, médio] · manejo [sequeiro, irrigado]
 - Agrofit: culturas [soja, milho, feijão] · priorizar classe toxicológica 4–5
-- Clima: coordenada da sede · alertas: chuva ≥ 50 mm/dia, mínima ≤ 3 °C
-- Satélite: raio de 10 km
-- Região: drones e seguro rural do município e vizinhos
+- Clima: coordenada da sede · alertas: chuva ≥ 40 mm/dia
+- Satélite: chuva dos últimos 30 dias (NASA POWER) e imagens da região (NASA GIBS)
+- Região: drones e seguro rural do município
 `

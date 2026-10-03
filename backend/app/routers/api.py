@@ -358,9 +358,9 @@ def rain_history(session: Session = DB):
 
 # ---------------- dados abertos ----------------
 @router.get("/opendata/crops")
-def crops(session: Session = DB):
-    farm = farm_or_404(session)
-    return {"zarc_crops": od.zarc_crops(farm.geocode),
+def crops(geocode: str | None = None, session: Session = DB):
+    """Culturas com Zarc no município (da conta, ou `geocode` do município escolhido na entrevista)."""
+    return {"zarc_crops": od.zarc_crops(geocode or farm_or_404(session).geocode),
             "other_crops": ["Café", "Cana-de-açúcar", "Laranja", "Hortaliças", "Pastagem", "Mandioca", "Eucalipto"]}
 
 
@@ -387,8 +387,20 @@ def boundary(session: Session = DB):
 
 @router.get("/opendata/sources")
 def sources():
-    """Fontes abertas com o contador de linhas e a data da última conferência no portal (`data/sync_state.json`)."""
-    return od.sources_overview()
+    """Fontes abertas com o contador de linhas e a data da última conferência no portal (`data/sync_state.json`).
+    A ANA (pivôs) é consultada ao vivo: entra sem contagem (`records` nulo)."""
+    ana = live.SOURCES["ana_pivos"]
+    return od.sources_overview() + [ana | {"notes": "consulta ao vivo (SNIRH)", "extracted_at": None, "records": None, "checked_at": None}]
+
+
+@router.get("/opendata/pivots")
+def pivots(lat: float | None = None, lon: float | None = None, geocode: str | None = None, session: Session = DB):
+    """Pivôs centrais (ANA/Embrapa) no município e na região. Sem parâmetros usa a propriedade da conta;
+    a entrevista passa lat/lon/geocode do município escolhido antes de salvar."""
+    if lat is None or lon is None or not geocode:
+        farm = farm_or_404(session)
+        lat, lon, geocode = farm.lat, farm.lon, farm.geocode
+    return live.pivots_near(lat, lon, geocode)
 
 
 @router.get("/opendata/funnel")

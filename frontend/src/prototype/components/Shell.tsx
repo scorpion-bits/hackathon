@@ -81,7 +81,7 @@ export function Shell({ children, full }: { children: ReactNode; full?: boolean 
 
 /** Selo de fonte do protótipo. */
 export function SourceChip({ k }: { k: string }) {
-  const map: Record<string, string> = { zarc: 'Zarc · MAPA', clima: 'Previsão · Open-Meteo', satelite: 'Satélite · NASA/INPE', agrofit: 'Agrofit · MAPA', seguro: 'Seguro Rural · MAPA', drones: 'SIPEAGRO · MAPA', pivos: 'Pivôs · ANA/Embrapa', voce: 'Seu contexto' }
+  const map: Record<string, string> = { zarc: 'Zarc · MAPA', clima: 'Previsão · Open-Meteo', satelite: 'Satélite · NASA', agrofit: 'Agrofit · MAPA', seguro: 'Seguro Rural · MAPA', drones: 'SIPEAGRO · MAPA', pivos: 'Pivôs · ANA/Embrapa', voce: 'Seu contexto' }
   return <span className="inline-flex items-center gap-1 rounded-md border border-info/20 bg-info-soft px-1.5 py-0.5 text-[11px] font-medium text-info"><Database size={11} />{map[k] ?? k}</span>
 }
 

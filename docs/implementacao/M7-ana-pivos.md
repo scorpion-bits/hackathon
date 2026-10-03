@@ -20,3 +20,8 @@ Serviço ArcGIS REST da ANA (SNIRH): `https://www.snirh.gov.br/arcgis/rest/servi
 
 ## 🧪 Como a equipe testa
 `./iniciar.sh atualizar` → Dados abertos → cartão de pivôs: Araraquara com 0 e os vizinhos com números.
+
+## Feito (03/10 ~01h)
+- `live.pivots_near(lat, lon, geocode)` (consulta espacial de 50 km no SNIRH, cache de 7 dias) + `GET /api/opendata/pivots` (sem parâmetros usa a conta; a entrevista passa lat/lon/geocode).
+- `/api/opendata/sources` inclui `ana_pivos` (sem contagem: consulta ao vivo). Card "Pivôs centrais (ANA)" em Dados abertos com município, região 1985→2019 e vizinhos.
+- Tela "Seu radar começa com" (fim da entrevista) só lista pivôs se a ANA respondeu, com os números reais.

@@ -2,6 +2,7 @@
 
 - NASA POWER: chuva observada nos últimos 30 dias × normal climatológica do lugar ("está mais seco que o normal?")
 - IBGE Malhas: contorno oficial do município (GeoJSON) para o mapa
+- ANA/Embrapa: área irrigada por pivôs centrais por município, 1985–2019 (SNIRH, ArcGIS REST)
 
 Sem rede: devolve o último cache (status "stale") ou available=False — nunca inventa número.
 """
@@ -18,11 +19,17 @@ from ..db import DATA
 CACHE_DIR = DATA / "cache"
 POWER = "https://power.larc.nasa.gov/api/temporal"
 IBGE_MALHA = "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/{geocode}"
+ANA_PIVOTS = "https://www.snirh.gov.br/arcgis/rest/services/SPR/Irrigada_Pivos_por_Municipios/MapServer/0/query"
+PIVOT_YEARS = [1985, 1990, 1995, 2000, 2005, 2010, 2014, 2017, 2019]
+# campos de quantidade vêm truncados (qtpivo_198…qtpivo_206), na mesma ordem dos anos de área (arha_1985…arha_2019)
+PIVOT_COUNT_FIELDS = [f"qtpivo_{n}" for n in range(198, 207)]
 MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 
 SOURCES = {
     "nasa_power": {"key": "nasa_power", "name": "NASA POWER — chuva diária (satélite + reanálise) e climatologia",
                    "agency": "NASA Langley Research Center", "url": "https://power.larc.nasa.gov"},
+    "ana_pivos": {"key": "ana_pivos", "name": "Levantamento da Agricultura Irrigada por Pivôs Centrais (1985–2019)",
+                  "agency": "ANA / Embrapa", "url": "https://metadados.snirh.gov.br/geonetwork/srv/api/records/e2d38e3f-5e62-41ad-87ab-990490841073"},
     "ibge_malhas": {"key": "ibge_malhas", "name": "Malha municipal", "agency": "IBGE",
                     "url": "https://servicodados.ibge.gov.br/api/docs/malhas?versao=3"},
 }
@@ -107,3 +114,40 @@ def municipality_boundary(geocode: str) -> dict:
     if not data:
         return {"available": False, "status": status, "source": SOURCES["ibge_malhas"]}
     return {"available": True, "status": status, "fetched_at": fetched, "geojson": data, "source": SOURCES["ibge_malhas"]}
+
+
+def _pivot_row(a: dict) -> dict:
+    return {"geocode": str(a.get("cdmun")), "municipality": a.get("nmmun"), "uf": a.get("ufsg"),
+            "series": [{"year": y, "area_ha": round(a.get(f"arha_{y}") or 0, 1), "pivots": int(a.get(c) or 0)}
+                       for y, c in zip(PIVOT_YEARS, PIVOT_COUNT_FIELDS)]}
+
+
+def pivots_near(lat: float, lon: float, geocode: str, radius_km: int = 50) -> dict:
+    """Pivôs centrais (ANA/Embrapa) no município e nos vizinhos num raio de `radius_km`. Base de 2019: cache de 7 dias."""
+    fields = ",".join(["cdmun", "nmmun", "ufsg"] + [f"arha_{y}" for y in PIVOT_YEARS] + PIVOT_COUNT_FIELDS)
+    data, status, fetched = cached_json(
+        f"ana_pivos_{lat:.2f}_{lon:.2f}_{radius_km}", ANA_PIVOTS,
+        {"geometry": f"{lon},{lat}", "geometryType": "esriGeometryPoint", "inSR": 4326, "distance": radius_km,
+         "units": "esriSRUnit_Kilometer", "spatialRel": "esriSpatialRelIntersects", "outFields": fields,
+         "returnGeometry": "false", "f": "json"}, ttl=7 * 24 * 3600)
+    feats = (data or {}).get("features")
+    if not feats:
+        return {"available": False, "status": status, "error": "Base de pivôs da ANA indisponível agora (sem conexão e sem cache).",
+                "source": SOURCES["ana_pivos"]}
+    rows = [_pivot_row(f["attributes"]) for f in feats]
+    own = next((r for r in rows if r["geocode"] == str(geocode)), None)
+    others = sorted((r for r in rows if r["geocode"] != str(geocode)), key=lambda r: -r["series"][-1]["area_ha"])
+    last = lambda r: r["series"][-1]  # noqa: E731
+    first = lambda r: r["series"][0]  # noqa: E731
+    return {
+        "available": True, "status": status, "fetched_at": fetched, "radius_km": radius_km,
+        "municipality": own, "neighbors": others,
+        "region": {"municipalities": len(rows),
+                   "with_pivots": sum(1 for r in rows if last(r)["pivots"] > 0),
+                   "pivots_1985": sum(first(r)["pivots"] for r in rows), "pivots_2019": sum(last(r)["pivots"] for r in rows),
+                   "area_1985_ha": round(sum(first(r)["area_ha"] for r in rows), 1),
+                   "area_2019_ha": round(sum(last(r)["area_ha"] for r in rows), 1)},
+        "notes": ["Mapeamento por satélite até 2019 (série 1985–2019): não mostra pivôs instalados depois disso.",
+                  f"Região = municípios que tocam um círculo de {radius_km} km em volta da propriedade."],
+        "source": SOURCES["ana_pivos"],
+    }

@@ -6,7 +6,8 @@ import { SOURCES } from '../../mock'
 import { SOURCE_SHORT, buildContextMd, cropLabels, sourceReasons, totalHa, withDefaults } from './context'
 import type { Answers } from './types'
 import { fmtHa } from './format'
-import { nfmt, useSources } from '../../api/opendata'
+import { nfmt, usePivots, useSources } from '../../api/opendata'
+import { useApi } from '../../api/resource'
 import { ContextSummary } from './ContextSummary'
 
 const STEP_MS = 1000
@@ -33,6 +34,11 @@ export function ResultScreen({ answers, onEdit, onFinish, saving = false, error 
 }) {
   const a = useMemo(() => withDefaults(answers), [answers])
   const lines = useProcessingLines(a)
+  const mun = a.municipality
+  // o radar só lista fonte que tem dado para esta escolha: culturas com Zarc no município e pivôs da ANA que responderam
+  const zarcCrops = useApi<{ zarc_crops: string[] }>(mun ? `/opendata/crops?geocode=${mun.ibge}` : null).data?.zarc_crops ?? null
+  const pivRes = usePivots(mun && sourceReasons(a).pivos ? { lat: mun.lat, lon: mun.lon, geocode: mun.ibge } : null)
+  const pivots = pivRes.data
   const [done, setDone] = useState(0) // linhas concluídas; lines.length + 1 = animação terminou
   const ready = done > lines.length
 
@@ -75,7 +81,13 @@ export function ResultScreen({ answers, onEdit, onFinish, saving = false, error 
     )
   }
 
-  const reasons = sourceReasons(a)
+  const reasons = sourceReasons(a, zarcCrops)
+  if (reasons.pivos) {
+    const own = pivots?.available ? pivots.municipality?.series.at(-1) : undefined
+    reasons.pivos = pivRes.loading && !pivots ? 'Consultando a base da ANA…'
+      : !pivots?.available ? null
+      : `${own ? `${nfmt(own.pivots)} em ${mun?.name} · ` : ''}${nfmt(pivots.region!.pivots_2019)} na região (ANA, 2019)`
+  }
   const active = SOURCES.filter((s) => reasons[s.key])
   const download = () => {
     const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' })
@@ -121,7 +133,7 @@ export function ResultScreen({ answers, onEdit, onFinish, saving = false, error 
           <div className="rounded-2xl border border-border bg-surface p-4 shadow-sm">
             <h2 className="text-sm font-bold text-ink">Seu radar começa com</h2>
             <div className="mt-3 grid grid-cols-2 gap-2 text-center">
-              <Stat value={String(active.length)} label={active.length === 1 ? 'fonte ativa' : 'fontes ativas'} />
+              <Stat value={String(active.filter((s) => s.key !== 'pivos' || pivots?.available).length)} label={active.length === 1 ? 'fonte com dado para você' : 'fontes com dado para você'} />
               <Stat value={a.fields.length ? `${fmtHa(totalHa(a))} ha` : '—'} label={a.fields.length ? `em ${a.fields.length} ${a.fields.length > 1 ? 'talhões' : 'talhão'}` : 'sem talhões'} />
             </div>
             <ul className="mt-3 space-y-1.5">

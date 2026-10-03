@@ -7,6 +7,16 @@ export type WeatherDay = { date: string; tmax: number; tmin: number; rain_mm: nu
 export type Weather = { available: boolean; status: string; fetched_at?: string; error?: string; daily: WeatherDay[]; rain_next_7d_mm?: number }
 export type RainNormal = { available: boolean; status: string; fetched_at?: string; error?: string; observed_mm: number; normal_mm: number; ratio: number | null; label: string; period: { start: string; end: string; days: number } }
 
+export type PivotRow = { geocode: string; municipality: string; uf: string; series: { year: number; area_ha: number; pivots: number }[] }
+export type Pivots = { available: boolean; status: string; fetched_at?: string; error?: string; radius_km?: number
+  municipality?: PivotRow | null; neighbors?: PivotRow[]
+  region?: { municipalities: number; with_pivots: number; pivots_1985: number; pivots_2019: number; area_1985_ha: number; area_2019_ha: number }
+  notes?: string[] }
+/** Pivôs centrais (ANA/Embrapa, ao vivo com cache). Sem `at`, usa a propriedade da conta; `null` não consulta. */
+export function usePivots(at?: { lat: number; lon: number; geocode: string } | null) {
+  const path = at === null ? null : at ? `/opendata/pivots?lat=${at.lat}&lon=${at.lon}&geocode=${at.geocode}` : '/opendata/pivots'
+  return useApi<Pivots>(path)
+}
 export const useSources = () => useApi<SourceInfo[]>('/opendata/sources')
 /** Total de registros oficiais nas bases abertas locais (soma de `records`); sem login. `null` enquanto carrega ou se a API não responde. */
 export function useTotalRecords(): number | null {

@@ -37,19 +37,22 @@ export const cropLabels = (a: Answers) => unique(a.fields.map((f) => cropOf(f)?.
 const isIrrigated = (f: FieldDraft) => !!f.irrigation && f.irrigation !== 'nao'
 
 /** Para cada fonte do radar: motivo de estar ativa (já desbloqueada pelas respostas) ou null (ainda aguardando). */
-export function sourceReasons(a: Answers): Record<string, string | null> {
+/** Por que cada fonte entra no radar. `zarcCrops` (nomes do Zarc no município, vindos da API) tira as culturas sem
+ *  zoneamento na base; sem a lista (ainda carregando), usa a marcação da cultura. */
+export function sourceReasons(a: Answers, zarcCrops?: string[] | null): Record<string, string | null> {
   const mun = a.municipality
-  const zarcCrops = unique(a.fields.map((f) => cropOf(f)).filter((c) => c?.zarc).map((c) => c!.zarcName!))
+  const inZarc = (name: string) => !zarcCrops || zarcCrops.some((z) => z.toLowerCase() === name.toLowerCase())
+  const withZarc = unique(a.fields.map((f) => cropOf(f)).filter((c) => c?.zarc && inZarc(c.zarcName!)).map((c) => c!.label.toLowerCase()))
   const crops = cropLabels(a).map((c) => c.toLowerCase())
   const wantsMoney = a.credit.length > 0 || (!!a.income && a.income !== 'nd') || !!a.budget || a.goals.includes('credito') || a.concerns.includes('credito')
   return {
-    zarc: mun && zarcCrops.length ? `Janelas de plantio de ${zarcCrops.join(', ')} em ${mun.name}` : null,
-    clima: mun ? `Previsão de 16 dias sobre ${mun.name}` : null,
-    satelite: mun ? 'Vegetação, calor e umidade num raio de 10 km' : null,
-    agrofit: crops.length ? `Defensivos registrados para ${crops.join(', ')}` : null,
-    seguro: wantsMoney ? 'Seguro rural com apoio do governo e crédito para o seu perfil' : null,
-    drones: a.machines.length ? (a.machines.includes('drone') ? 'Operadores e regras de drone na sua região' : 'Serviços de drone e avião agrícola perto de você') : null,
-    pivos: a.fields.some(isIrrigated) || a.concerns.includes('seca') ? 'Pressão sobre a água da sua bacia (irrigação)' : null,
+    zarc: mun && withZarc.length ? `Risco de perda pelo clima por data de plantio: ${withZarc.join(', ')} em ${mun.name}` : null,
+    clima: mun ? `Previsão de chuva e temperatura sobre ${mun.name}` : null,
+    satelite: mun ? 'Chuva dos últimos 30 dias × normal (NASA POWER) e imagens da região (NASA)' : null,
+    agrofit: crops.length ? `Confere se os defensivos do seu estoque são registrados para ${crops.join(', ')}` : null,
+    seguro: wantsMoney ? 'Apólices de seguro rural com subvenção no seu município' : null,
+    drones: a.machines.length ? 'Operadores de drone e avião agrícola registrados no seu município' : null,
+    pivos: a.fields.some(isIrrigated) || a.concerns.includes('seca') ? 'Pivôs de irrigação no seu município e vizinhos (até 2019)' : null,
   }
 }
 
@@ -106,9 +109,9 @@ export function buildContextMd(input: Answers, now = new Date()): string {
   const zarcCrops = unique(a.fields.map((f) => cropOf(f)).filter((c) => c?.zarc).map((c) => c!.zarcName!))
   const soils = unique(a.fields.map((f) => f.soil).filter((x) => x && x !== 'nao_sei').map((x) => (x === 'medio' ? 'médio' : x!)))
   const manejo = unique(a.fields.map((f) => (f.irrigation === undefined ? undefined : isIrrigated(f) ? 'irrigado' : 'sequeiro')).filter(Boolean) as string[])
-  const alerts = ['chuva ≥ 50 mm/dia']
-  if (a.concerns.includes('geada')) alerts.push('mínima ≤ 3 °C')
-  if (a.concerns.includes('seca')) alerts.push('10 dias seguidos ou mais sem chuva')
+  const alerts = ['chuva ≥ 40 mm/dia']
+  if (a.concerns.includes('geada')) alerts.push('mínima ≤ 3 °C (ainda não automático)')
+  if (a.concerns.includes('seca')) alerts.push('10 dias seguidos ou mais sem chuva (ainda não automático)')
 
   const L: string[] = []
   L.push('# Contexto do produtor — AgroBits')
@@ -156,10 +159,10 @@ export function buildContextMd(input: Answers, now = new Date()): string {
   L.push(`- Zarc: município ${mun?.ibge ?? '—'} · culturas [${zarcCrops.join(', ') || 'a definir'}] · solos [${soils.join(', ') || 'estimado pela região'}] · manejo [${manejo.join(', ') || 'sequeiro'}]`)
   L.push(`- Agrofit: culturas [${crops.join(', ') || 'a definir'}] · priorizar classe toxicológica 4–5`)
   L.push(`- Clima: coordenada ${s?.fromFields ? 'da sede' : 'do município'} · alertas: ${alerts.join(', ')}`)
-  L.push('- Satélite: raio de 10 km')
-  if (reasons.seguro) L.push(`- Seguro rural e crédito: município e vizinhos · culturas [${crops.join(', ') || 'a definir'}]${a.credit.includes('pronaf') ? ' · programa já usado: PRONAF' : ''}`)
-  if (reasons.drones) L.push(`- Região: ${a.machines.includes('drone') ? 'regras e operadores de drone' : 'drones e aviação agrícola'} do município e vizinhos`)
-  if (reasons.pivos) L.push('- Pivôs centrais (ANA/Embrapa): bacia hidrográfica do município')
+  L.push('- Satélite: chuva dos últimos 30 dias no ponto da propriedade (NASA POWER, ~50 km) e imagens da região (NASA GIBS, 0,3–2 km por ponto)')
+  if (reasons.seguro) L.push(`- Seguro rural (PSR): apólices com subvenção no município${a.credit.includes('pronaf') ? ' · programa já usado: PRONAF' : ''}`)
+  if (reasons.drones) L.push('- Aviação agrícola (SIPEAGRO): operadores de drone e avião registrados no município')
+  if (reasons.pivos) L.push('- Pivôs centrais (ANA/Embrapa): município e vizinhos num raio de 50 km, série 1985–2019')
   if (a.language !== 'tecnica' || a.internet !== 'boa') L.push(`- Resposta: ${a.language === 'tecnica' ? 'técnica' : 'linguagem simples'}${a.internet !== 'boa' ? ' · modo leve (textos curtos, poucos gráficos)' : ''}`)
   L.push('')
   return L.join('\n')

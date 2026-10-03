@@ -5,7 +5,7 @@ import type { ReactNode } from 'react'
 import { RiskStrip } from '../../../components/data'
 import { Badge } from '../../../components/ui'
 import { Link } from 'react-router-dom'
-import { nfmt, useRainNormal, useSources } from '../../api/opendata'
+import { nfmt, usePivots, useRainNormal, useSources } from '../../api/opendata'
 import { useApi } from '../../api/resource'
 import { useTopics } from '../../api/topics'
 import { FIELDS } from '../../mock'
@@ -200,14 +200,46 @@ function SateliteSample() {
 }
 
 function PivosSample() {
+  const r = usePivots()
+  if (r.loading && !r.data) return <Skeleton className="h-40" />
+  const d = r.data
+  const own = d?.municipality
+  const ownLast = own?.series[own.series.length - 1]
+  const reg = d?.region
+  const ha = (v: number) => `${nfmt(Math.round(v))} ha`
   return (
     <div>
-      <Head k="pivos" origin="real" kind="oficial">Pivôs centrais mapeados por satélite · 1985–2019</Head>
-      <Empty>Esta base (ANA / Embrapa) ainda <b>não está integrada</b> ao AgroBits, então não mostramos números dela. A ideia é ligá-la às outras pelo código IBGE do município e sempre exibir o ano e a incerteza (a série vai só até 2019).</Empty>
-      <Footer>Fonte: ANA / Embrapa · Pivôs Centrais (dados.gov.br). Integração planejada.</Footer>
+      <Head k="pivos" origin="real" kind="oficial">Irrigação por pivôs centrais na sua região · 1985–2019</Head>
+      {d?.available && reg ? (
+        <>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {own && ownLast && <Big value={`${nfmt(ownLast.pivots)} pivôs`} label={`em ${own.municipality} (2019)`} hint={`${ha(ownLast.area_ha)} irrigados · em 1985: ${nfmt(own.series[0].pivots)}`} />}
+            <Big value={`${nfmt(reg.pivots_1985)} → ${nfmt(reg.pivots_2019)}`} label="pivôs na região, 1985 → 2019" hint={`${reg.with_pivots} de ${reg.municipalities} municípios num raio de ${d.radius_km} km`} />
+            <Big value={`${ha(reg.area_1985_ha)} → ${ha(reg.area_2019_ha)}`} label="área irrigada por pivô na região" />
+          </div>
+          {!!d.neighbors?.length && (
+            <table className="mt-3 w-full text-sm">
+              <thead><tr className="text-left text-xs text-muted"><th className="py-1 font-medium">Vizinhos com mais pivôs (2019)</th><th className="py-1 text-right font-medium">pivôs</th><th className="py-1 text-right font-medium">área</th></tr></thead>
+              <tbody>
+                {d.neighbors.filter((n) => n.series[n.series.length - 1].pivots > 0).slice(0, 5).map((n) => {
+                  const last = n.series[n.series.length - 1]
+                  return <tr key={n.geocode} className="border-t border-border"><td className="py-1.5 text-ink">{n.municipality}/{n.uf}</td><td className="py-1.5 text-right tabular-nums">{nfmt(last.pivots)}</td><td className="py-1.5 text-right tabular-nums">{ha(last.area_ha)}</td></tr>
+                })}
+              </tbody>
+            </table>
+          )}
+          <Note>Mais irrigação na região significa mais disputa pela água da bacia. Se você irriga ou pensa em irrigar, a outorga de uso da água é tema para o técnico. A série vai só até 2019: pivôs instalados depois não aparecem.</Note>
+        </>
+      ) : (
+        <Empty>Base de pivôs da ANA indisponível agora. Não mostramos número sem a fonte.</Empty>
+      )}
+      <SourceStatus status={d?.status} fetchedAt={d?.fetched_at} what="Dado de pivôs" />
+      <Footer>Fonte: ANA / Embrapa · Levantamento da Agricultura Irrigada por Pivôs Centrais (SNIRH), consultado ao vivo{d?.fetched_at ? ` em ${fmtStamp(d.fetched_at)}` : ''}.</Footer>
     </div>
   )
 }
+
+const fmtStamp = (iso: string) => `${iso.slice(8, 10)}/${iso.slice(5, 7)} ${iso.slice(11, 13)}h`
 
 export function SourceSample({ k }: { k: string }) {
   switch (k) {
@@ -223,5 +255,5 @@ export function SourceSample({ k }: { k: string }) {
 
 export const SAMPLE_TITLE: Record<string, string> = {
   zarc: 'Zarc (quando plantar)', agrofit: 'Agrofit (defensivos)', seguro: 'Seguro rural',
-  drones: 'Drones e aviação agrícola', clima: 'Previsão do tempo', satelite: 'Chuva por satélite', pivos: 'Pivôs centrais',
+  drones: 'Drones e aviação agrícola', clima: 'Previsão do tempo', satelite: 'Chuva por satélite', pivos: 'Pivôs centrais (ANA)',
 }

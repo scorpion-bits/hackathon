@@ -14,7 +14,7 @@
 | 4 | 0:55 | Descer: **Caminhos possíveis** (marcar um) | "O AgroBits **não decide** por ele. Mostra os caminhos que saem dos dados oficiais, com os prós e contras." |
 | 5 | 1:10 | **Leve para um técnico — de graça** → marcar a autorização → **Enviar meu caso** | "E aqui está a ideia central: **o AgroBits não substitui o agrônomo — leva a assistência técnica pública até quem nunca foi atendido, com os dados oficiais já organizados.** O caso já vai preenchido para a CATI, o Senar ou a prefeitura, sem custo para o produtor." |
 | 6 | 1:30 | **Meus casos** → **Simular resposta (demo)** | "Ele acompanha o caso: enviado, recebido, respondido. A resposta aqui é simulada; as instituições são exemplo de integração, ainda sem convênio." |
-| 7 | 1:45 | **Mapa vivo** (tocar num talhão) | "E o mapa mostra o satélite da NASA e o risco do Zarc sobre os talhões dele." |
+| 7 | 1:45 | **Mapa vivo** (abre em "Quando plantar?": cores do Zarc nos talhões) → tocar **"A lavoura está verde?"** (o mapa se afasta para a região) | "O risco oficial aparece em cada talhão. E a imagem de vegetação da NASA mostra a região — cada ponto tem ~300 m, por isso o mapa se afasta: é a região, não o talhão." |
 | 8 | 1:55 | **Pergunte à IA**: *"Qual o risco para plantar milho agora?"* | "A IA só **explica os dados**: cita a fonte e manda para o técnico. Não dá receita nem dose." |
 
 ## Roteiro B — conta nova · ~1 min
@@ -28,8 +28,10 @@
 
 ## Se algo falhar
 - **Chuva forte não aparece hoje:** o assunto "O que muda com tanta chuva?" depende da previsão real. Se não estiver na lista, **mostrar o assunto do Zarc** (*Quando plantar o milho do Talhão 2?*). Ele não depende da previsão.
+- **Mapa:** se aparecer o aviso "Sem imagem … (nuvem, ou o satélite não passou)", é verdade — diga isso e troque para "Quando plantar?" ou "A lavoura está verde?". Evite "Está muito quente?" (nuvens tiram a imagem com frequência).
+- **Pivôs (ANA):** Dados abertos → "Pivôs centrais" → Ver dados mostra o município e os vizinhos (série 1985–2019, consultada ao vivo). Bom para citar a base pivô do regulamento.
 - **Fonte fora do ar:** a tela avisa ("dado real de <data>" ou "indisponível") e o assunto daquela fonte some. Diga isso em voz alta: "o sistema nunca inventa dado".
-- **Plano B sem internet:** os dados do MAPA (Zarc, Agrofit, PSR, SIPEAGRO) estão no banco local e continuam funcionando. Ficam sem resposta: previsão (Open-Meteo), chuva dos últimos 30 dias (NASA POWER, só o último valor guardado, com data), imagens de satélite do mapa e a busca do município na entrevista. Roteiro A funciona quase inteiro (pular o Mapa vivo); evite o Roteiro B. A IA responde em modo offline (sem chave), com as mesmas regras.
+- **Plano B sem internet:** os dados do MAPA (Zarc, Agrofit, PSR, SIPEAGRO) estão no banco local e continuam funcionando. Ficam sem resposta: previsão (Open-Meteo), chuva dos últimos 30 dias (NASA POWER, só o último valor guardado, com data), imagens de satélite do mapa, pivôs da ANA (sem cache) e a busca do município na entrevista. Roteiro A funciona quase inteiro (pular o Mapa vivo); evite o Roteiro B. A IA responde em modo offline (sem chave), com as mesmas regras.
 - **Algo travou:** `./iniciar.sh resetar` (Windows: `iniciar.bat resetar`) e abrir de novo. A conta João sempre volta ao estado inicial ao entrar.
 
 ## Checklist antes de apresentar (notebook da apresentação)

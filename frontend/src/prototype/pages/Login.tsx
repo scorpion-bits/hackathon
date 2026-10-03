@@ -205,7 +205,7 @@ function SignupForm() {
 }
 
 const POINTS: { icon: LucideIcon; title: string; text: string }[] = [
-  { icon: ShieldCheck, title: 'Fontes oficiais', text: 'MAPA, Embrapa, ANA, INPE e previsão do tempo. Sempre com a fonte e a data.' },
+  { icon: ShieldCheck, title: 'Fontes oficiais', text: 'MAPA, ANA/Embrapa, NASA e previsão do tempo. Sempre com a fonte e a data.' },
   { icon: Filter, title: 'Filtrado pelo seu contexto', text: 'Cruzamos milhões de registros com a sua cidade, cultura e solo. Só chega o que serve.' },
   { icon: MessageCircle, title: 'Linguagem simples', text: 'Sem planilha e sem termo técnico. Do jeito que a gente conversa na roça.' },
 ]
@@ -213,7 +213,7 @@ const FLOATING = [
   { t: 'Zarc · risco climático', c: '#2E7D4F', cls: 'left-0 top-0', d: '0s' },
   { t: 'Agrofit · defensivos', c: '#D69E2E', cls: 'left-24 top-12', d: '.6s' },
   { t: 'Previsão do tempo', c: '#3B82A6', cls: 'left-4 top-24', d: '1.2s' },
-  { t: 'Satélite · INPE', c: '#9B7CE0', cls: 'left-28 top-36', d: '1.8s' },
+  { t: 'Satélite · NASA', c: '#9B7CE0', cls: 'left-28 top-36', d: '1.8s' },
 ]
 
 function Pitch() {

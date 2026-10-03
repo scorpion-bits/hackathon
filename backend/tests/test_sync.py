@@ -63,3 +63,20 @@ def test_live_apis_offline_never_invent_numbers(monkeypatch):
     monkeypatch.setattr(live, "cached_json", lambda *a, **k: (None, "offline", None))
     assert live.rain_vs_normal(-21.8, -48.2)["available"] is False
     assert live.municipality_boundary("3503208")["available"] is False
+
+
+def test_pivots_near_uses_real_series_and_flags_offline(monkeypatch):
+    def attrs(code, name, a85, a19, p85, p19):
+        a = {"cdmun": code, "nmmun": name, "ufsg": "SP"}
+        a.update({f"arha_{y}": 0.0 for y in live.PIVOT_YEARS})
+        a.update({c: 0 for c in live.PIVOT_COUNT_FIELDS})
+        a.update({"arha_1985": a85, "arha_2019": a19, "qtpivo_198": p85, "qtpivo_206": p19})
+        return {"attributes": a}
+    data = {"features": [attrs(3503208, "Araraquara", 0, 0, 0, 0), attrs(3524303, "Jaboticabal", 123.5, 367.4, 1, 9)]}
+    monkeypatch.setattr(live, "cached_json", lambda *a, **k: (data, "live", "2026-10-03T01:00"))
+    r = live.pivots_near(-21.8, -48.2, "3503208")
+    assert r["municipality"]["municipality"] == "Araraquara"
+    assert r["neighbors"][0]["municipality"] == "Jaboticabal" and r["neighbors"][0]["series"][-1] == {"year": 2019, "area_ha": 367.4, "pivots": 9}
+    assert r["region"]["pivots_1985"] == 1 and r["region"]["pivots_2019"] == 9 and r["region"]["with_pivots"] == 1
+    monkeypatch.setattr(live, "cached_json", lambda *a, **k: (None, "offline", None))
+    assert live.pivots_near(-21.8, -48.2, "3503208")["available"] is False
