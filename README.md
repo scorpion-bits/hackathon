@@ -249,4 +249,4 @@ planning/  tarefas, riscos, cronograma, agentes
 ```
 
 ## Equipe
-Thales Miguel Hajes · Milan Bahrami · Fernando · Maria · Victor Ricardo · Christian — com Claude (orquestrador técnico).
+Thales Miguel Hajes · Milan Bahrami · Fernando Santos Sinoara · Maria Eduarda Zanetti · Victor Ricardo · Christian Amancio — com Claude (orquestrador técnico).
