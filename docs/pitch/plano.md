@@ -1,6 +1,7 @@
 # Plano do pitch — AgroBits (proposta para aprovação, 03/10 ~02h)
 
-> Status: **proposta**. Nada da apresentação foi implementado. Aguardando aprovação da equipe (👥).
+> Status: **aprovado (03/10 ~02h) e construído** em `pitch/` (Reveal.js, vídeo de 10 s, PDF em `pitch/dist/`). Apresenta: Thales (Maria como apoio).
+> Mudanças na construção: o slide 4 virou dois (4a cruzamento, 4b funil); tema claro/escuro na tecla T (projetor desconhecido); celulares com telas reais em todo o produto (mobile first).
 > Tempo: 7:00 de conteúdo + ~1:00 de margem (total 8 min).
 
 ## A — Diagnóstico

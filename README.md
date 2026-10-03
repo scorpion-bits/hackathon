@@ -30,6 +30,7 @@ propriedade) **não são publicadas** neste repositório (`data/restricted/`, fo
 **O que é real e o que é demonstração:**
 - **Real (sempre consultado na fonte):** tudo da tabela acima. Fonte fora do ar → a tela avisa ("dado real de <data>" ou "indisponível"); nunca preenche com exemplo.
 - **Demonstração (dado de conta):** o João, o sítio, talhões, estoque, casos e a resposta do técnico (simulada), sempre com o selo "conta de demonstração". As instituições (CATI, Senar, prefeitura) são exemplo de integração, sem convênio.
+- **Pitch:** `pitch/` (apresentação HTML, vídeo de 10 s, PDF em `pitch/dist/AgroBits-pitch.pdf`) — ver `pitch/README.md`.
 - Roteiro de 3 min: `docs/demo/roteiro.md` · teste ponta a ponta: `python3 tests/e2e_demo.py` (com o app rodando).
 
 ---

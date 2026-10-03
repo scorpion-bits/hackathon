@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgroBits — pitch</title>
+<link rel="icon" href="assets/img/brand/simbolo.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="vendor/reveal/reset.css">
+<link rel="stylesheet" href="vendor/reveal/reveal.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- 1 · 0:00–0:30 -->
+<section class="s1" data-id="um-em-cinco">
+  <div class="kicker">Censo Agropecuário 2017 · IBGE</div>
+  <div class="five" id="five"></div>
+  <div class="stat">
+    <div class="big" data-count="20.1" data-dec="1" data-suffix="%">20,1%</div>
+    <p>dos estabelecimentos rurais receberam <span class="green">orientação técnica</span>.</p>
+  </div>
+  <p class="fragment up" style="font-size:46px;font-weight:700;margin-top:44px">Os outros 4 decidem sozinhos: quando plantar, o que aplicar, como enfrentar o clima.</p>
+  <div class="source">Fonte: IBGE, Censo Agropecuário 2017 — resultados definitivos: 1.025.443 de 5.073.324 estabelecimentos declararam ter recebido orientação técnica.</div>
+  <aside class="notes">
+    No último Censo Agropecuário, só 1 em cada 5 estabelecimentos rurais do Brasil recebeu orientação técnica. (clique)
+    Os outros 4 decidem sozinhos: quando plantar, o que aplicar, como lidar com o clima.
+    [~30 s] Não dizer "nunca tiveram": o Censo pergunta se recebeu orientação no período.
+  </aside>
+</section>
+
+<!-- 2 · 0:30–1:10 -->
+<section class="s2" data-id="piorando">
+  <div class="kicker">E está piorando onde mais falta</div>
+  <div class="row" style="align-items:flex-start;gap:80px">
+    <div class="col" style="flex:.95">
+      <h2>A assistência <span class="amber">do governo</span> encolheu 21%.</h2>
+      <div class="bars" id="govbars">
+        <div class="bar"><span class="muted">2006</span><div class="track"><div class="fill" style="width:100%">491.607</div></div></div>
+        <div class="bar now"><span class="muted">2017</span><div class="track"><div class="fill" style="width:79%">388.077</div></div></div>
+      </div>
+      <p class="muted" style="font-size:24px">estabelecimentos com orientação técnica vinda de órgãos de governo</p>
+      <p class="fragment up" style="margin-top:56px;font-size:36px;font-weight:600"><b class="display" style="font-size:64px">13.690</b> extensionistas públicos<br><span class="muted">para <b style="color:var(--text)">3,9 milhões</b> de estabelecimentos da agricultura familiar.</span></p>
+    </div>
+    <div class="col map" id="map" style="flex:1.05"></div>
+  </div>
+  <div class="source">Fontes: IBGE, Censo Agropecuário 2017 (orientação por origem e por região); Asbraer, apresentação na CAPADR/Câmara dos Deputados, 2023 (extensionistas). Mapa: malha de regiões do IBGE.</div>
+  <aside class="notes">
+    A assistência pública encolheu 21% em 11 anos. No Nordeste, menos de 1 em cada 10 recebe orientação; no Sul, quase metade.
+    (clique) E são 13,7 mil extensionistas públicos para 3,9 milhões de estabelecimentos familiares. [~40 s]
+  </aside>
+</section>
+
+<!-- 3 · 1:10–1:40 -->
+<section class="s3" data-id="paradoxo">
+  <div class="row" style="align-items:flex-start;gap:72px">
+    <div class="col" style="flex:.9">
+      <div class="kicker">O paradoxo</div>
+      <h2>O dado que responde<br>a essas perguntas <span class="green">já existe</span>.</h2>
+      <p style="font-size:32px;margin-top:36px" class="muted">Zarc/MAPA: o risco de perder a lavoura pelo clima, para cada município, cultura, solo e data de plantio.</p>
+      <div class="big" style="margin-top:56px" data-count="1951698">1.951.698</div>
+      <p style="font-size:30px;margin-top:12px" class="muted">linhas, só nas safras 2025-26 e 2026-27.</p>
+      <p class="fragment up" style="font-size:46px;font-weight:700;margin-top:52px">Nenhum produtor vai abrir isso.</p>
+    </div>
+    <div class="col csv" id="csv"><div class="roll"></div></div>
+  </div>
+  <div class="source" id="csvsrc">Fonte: MAPA, Zoneamento Agrícola de Risco Climático — Tábua de Risco (dados.agricultura.gov.br), arquivo original.</div>
+  <aside class="notes">
+    Ao mesmo tempo, o governo publica dados que respondem exatamente a essas perguntas. O Zarc diz, para cada município, cultura e solo, o risco de perder a lavoura se plantar em cada data.
+    São quase 2 milhões de linhas. (clique) Nenhum produtor vai abrir isso. [~30 s]
+  </aside>
+</section>
+
+<!-- 4a · 1:40–2:20 -->
+<section class="s4" data-id="cruzamento">
+  <div class="kicker">Como o dado vira decisão</div>
+  <h2>Cruzamos 9 fontes abertas<br>com o que o produtor conta.</h2>
+  <div class="flow">
+    <div>
+      <h4>O produtor conta</h4>
+      <div class="stack">
+        <span class="chip"><i style="background:#9FB3A6"></i><b>LOCAL</b>município · IBGE</span>
+        <span class="chip"><i style="background:#B7791F"></i><b>TALHÃO</b>desenhado no mapa</span>
+        <span class="chip"><i style="background:#F2C94C"></i><b>CULTURA</b>o que planta</span>
+        <span class="chip"><i style="background:#4CAF6D"></i><b>SOLO</b>declarado</span>
+      </div>
+    </div>
+    <svg class="arrow fragment up" data-fragment-index="1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    <div class="fragment up" data-fragment-index="1">
+      <h4>Dados abertos daquele lugar</h4>
+      <div class="layers">
+        <span class="chip"><i style="background:#E5484D"></i>Zarc · MAPA</span>
+        <span class="chip"><i style="background:#5BA7D9"></i>Previsão · Open-Meteo</span>
+        <span class="chip"><i style="background:#5BA7D9"></i>Chuva × normal · NASA</span>
+        <span class="chip"><i style="background:#9A6516"></i>Agrofit · MAPA</span>
+        <span class="chip"><i style="background:#3B82A6"></i>Aviação agrícola · MAPA</span>
+        <span class="chip"><i style="background:#C0392B"></i>Seguro rural · MAPA</span>
+        <span class="chip"><i style="background:#0E7490"></i>Pivôs · ANA/Embrapa</span>
+        <span class="chip"><i style="background:#7C5CBF"></i>Satélite · NASA</span>
+        <span class="chip"><i style="background:#9FB3A6"></i>Malha · IBGE</span>
+      </div>
+    </div>
+    <svg class="arrow fragment up" data-fragment-index="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    <div class="out fragment up" data-fragment-index="2">
+      <div class="card"><b>7 regras</b><span>determinísticas, com fonte e data</span></div>
+      <div class="card"><b>1 assunto por vez</b><span>em linguagem simples</span></div>
+      <div class="card go"><b>Caso para o técnico</b><span>pronto, com autorização (LGPD)</span></div>
+    </div>
+  </div>
+  <div class="source">A IA não decide e não inventa número: só explica o resultado das regras. Fonte fora do ar → a tela avisa, nunca preenche com exemplo.</div>
+  <aside class="notes">
+    Cruzamos 9 fontes abertas com o que o produtor conta: onde fica, o que planta, que solo tem.
+    (clique) Para aquele lugar, buscamos Zarc, previsão, chuva da NASA, defensivos, seguro, aviação agrícola, pivôs da ANA.
+    (clique) 7 regras transformam isso em um assunto por vez — e em um caso pronto para o técnico. [~40 s]
+  </aside>
+</section>
+
+<!-- 4b · 2:20–2:50 -->
+<section class="s4b" data-id="funil">
+  <div class="kicker">Para o João, em Araraquara/SP</div>
+  <h2>2 milhões de registros viram<br><span class="green">7 assuntos que ele entende.</span></h2>
+  <div class="funnel" id="funnel">
+    <div class="lvl"><div class="big" data-count="2044825">2.044.825</div><div><div class="bar2" style="transform:scaleX(1)"></div><p>registros oficiais na base (Zarc, Agrofit, seguro rural, aviação agrícola)</p></div></div>
+    <div class="lvl fragment up"><div class="big" data-count="6302">6.302</div><div><div class="bar2" style="transform:scaleX(.31)"></div><p>ligados ao município e às culturas dele</p></div></div>
+    <div class="lvl fragment up"><div class="big green">7</div><div><div class="bar2" style="transform:scaleX(.035);background:var(--accent)"></div><p>assuntos, cruzados com a previsão e a chuva real</p></div></div>
+  </div>
+  <div class="source">Números do próprio AgroBits (/api/opendata/funnel), bases do MAPA conferidas no portal em 02/10/2026. João e o sítio são uma conta de demonstração; os dados abertos são reais. Barras fora de escala (log).</div>
+  <aside class="notes">
+    Para o João — uma conta de demonstração em Araraquara — 2 milhões de registros viram 6 mil que importam (clique), e 7 assuntos que ele entende (clique). [~30 s]
+  </aside>
+</section>
+
+<!-- 5 · 2:50–3:00 · vídeo -->
+<section class="video" data-id="video" data-background-color="#0F1A13">
+  <video id="promo" src="assets/video/agrobits-10s.mp4" poster="assets/video/agrobits-10s-poster.jpg" muted playsinline preload="auto"></video>
+  <aside class="notes">Silêncio. O vídeo toca sozinho ao entrar (10 s). Avançar quando terminar.</aside>
+</section>
+
+<!-- 6 · 3:00–3:25 · manifesto -->
+<section class="manifesto" data-id="manifesto">
+  <div style="height:120px"></div>
+  <h2>O AgroBits não substitui o agrônomo.<br><em class="fragment up">Ele leva o agrônomo até quem nunca teve um.</em></h2>
+  <div class="verbs fragment up"><span>Entende a roça</span><span>Explica o dado</span><span>Encaminha o caso</span></div>
+  <aside class="notes">
+    O AgroBits não substitui o agrônomo. (clique) Ele leva o agrônomo até quem nunca teve um.
+    (clique) Ele não decide: entende a roça, explica o dado oficial e encaminha o caso para a assistência técnica pública, de graça. [~25 s]
+  </aside>
+</section>
+
+<!-- 7 · 3:25–4:55 · demo -->
+<section class="s7" data-id="demo">
+  <div class="row" style="gap:96px;align-items:center;height:860px">
+    <div class="col">
+      <div class="kicker">Demonstração · feito para o celular</div>
+      <h2>Um assunto por vez.<br>Do dado ao técnico<br>em <span class="green">um minuto</span>.</h2>
+      <ol class="steps" style="margin-top:48px;padding-left:0;list-style:none;font-size:32px;line-height:1.9">
+        <li><b class="green">1</b>&nbsp; O que os dados mostram</li>
+        <li><b class="green">2</b>&nbsp; Caminhos possíveis — ele escolhe</li>
+        <li><b class="green">3</b>&nbsp; Leva ao técnico público, de graça</li>
+      </ol>
+      <p class="muted" style="font-size:24px;margin-top:40px">Ao vivo: <b style="color:var(--text)">localhost:5173</b> → "Entrar como João (demo)"</p>
+    </div>
+    <div class="phone"><div class="notch"></div><div class="screen reel" id="reel">
+      <img class="on" src="assets/img/app/02-inicio.png" alt="Início do AgroBits">
+      <img src="assets/img/app/03-resolver.png" alt="Tela Resolver com o risco Zarc">
+      <img src="assets/img/app/04-enviado.png" alt="Caso enviado">
+      <img src="assets/img/app/05-tecnico.png" alt="Visão do técnico">
+    </div></div>
+  </div>
+  <aside class="notes">
+    DEMO AO VIVO (90 s) — trocar para a aba do app (Alt+Tab), modo celular (F12 → 390 px) ou o próprio celular.
+    Entrar como João → "Quando plantar o milho do Talhão 2?" → Resolver → risco 40% hoje, 20% a partir de 21/10 →
+    caminhos (marcar "Plantar a partir de 21/10") → autorizar → Enviar meu caso → "Ver como o técnico recebe".
+    Se a demo falhar: ficar neste slide; as telas reais passam sozinhas no celular.
+  </aside>
+</section>
+
+<!-- 8 · 4:55–5:35 · o que o técnico recebe -->
+<section class="s8" data-id="tecnico">
+  <div class="kicker">O valor para o especialista</div>
+  <h2>O técnico chega <span class="green">sabendo</span>.</h2>
+  <div class="compare">
+    <div>
+      <h4>Hoje: visita às cegas</h4>
+      <ul class="blind">
+        <li>Onde fica? Que talhão?</li>
+        <li>O que plantou? Qual o solo?</li>
+        <li>Está na janela do Zarc?</li>
+        <li>Choveu? Vai chover?</li>
+      </ul>
+    </div>
+    <div class="phone sm"><div class="notch"></div><div class="screen"><img src="assets/img/app/05-tecnico.png" alt="Caso recebido — visão do técnico"></div></div>
+    <div>
+      <h4>Com o AgroBits: caso pronto</h4>
+      <ul class="has">
+        <li class="fragment up">Local, talhão, área, cultura, solo</li>
+        <li class="fragment up">Risco Zarc por data de plantio</li>
+        <li class="fragment up">Chuva prevista e × normal</li>
+        <li class="fragment up">Fontes com data · autorização LGPD</li>
+      </ul>
+    </div>
+  </div>
+  <p class="fragment up" style="font-size:32px;font-weight:600;margin-top:10px;text-align:center">Triagem à distância, visita quando precisa: <span class="green">mais produtores por técnico</span> — a medir no piloto.</p>
+  <aside class="notes">
+    Hoje o técnico chega na propriedade às cegas. Com o AgroBits ele recebe o caso pronto: (clique) onde fica e o que planta, (clique) o risco oficial do Zarc,
+    (clique) a chuva prevista e a dos últimos 30 dias, (clique) as fontes com data e a autorização do produtor.
+    (clique) Ele faz a triagem à distância e vai até a propriedade quando precisa. É isso que queremos medir com a CATI. [~40 s] Não citar números de ganho: não temos.
+  </aside>
+</section>
+
+<!-- 9 · 5:35–6:05 · ODS -->
+<section class="s9" data-id="ods">
+  <div class="kicker">Impacto · Objetivos de Desenvolvimento Sustentável (ONU)</div>
+  <h2>Três objetivos, uma relação direta cada.</h2>
+  <div class="ods">
+    <div class="fragment up"><div class="tile" style="background:#DDA63A">2</div><h3>Fome Zero e Agricultura Sustentável</h3><p>Metas 2.3 e 2.a: renda e produtividade do pequeno produtor; a 2.a cita os serviços de extensão rural.</p></div>
+    <div class="fragment up"><div class="tile" style="background:#3F7E44">13</div><h3>Ação contra a mudança do clima</h3><p>Meta 13.1: adaptação ao risco climático. O Zarc é risco climático por data de plantio.</p></div>
+    <div class="fragment up"><div class="tile" style="background:#DD1367">10</div><h3>Redução das desigualdades</h3><p>A cobertura vai de 8% no Nordeste a 49% no Sul. O caso pronto encurta essa distância.</p></div>
+  </div>
+  <aside class="notes">
+    ODS 2: renda e produtividade do pequeno produtor, e a meta 2.a cita a extensão rural. (clique)
+    ODS 13: adaptação ao risco climático — o Zarc é exatamente isso. (clique)
+    ODS 10: a diferença de cobertura entre Nordeste e Sul. [~30 s]
+  </aside>
+</section>
+
+<!-- 10 · 6:05–6:45 · como construímos -->
+<section class="s10" data-id="construcao">
+  <div class="kicker">Como construímos em 24 horas</div>
+  <div class="row" style="align-items:flex-start;gap:80px">
+    <div class="col">
+      <h3>Organização</h3>
+      <div class="facts">
+        <div><b>6 pessoas</b>decidem, validam, testam e apresentam</div>
+        <div><b>22 decisões</b>registradas, cada uma aprovada pela equipe</div>
+        <div><b id="commits">70+ commits</b>no GitHub, entregas sempre na main</div>
+        <div><b>11 checkpoints</b>do problema (CP1) à entrega (CP10)</div>
+      </div>
+      <p class="muted" style="font-size:24px;margin-top:34px">IA como par de programação (Claude), com a equipe decidindo produto, dados e prioridades.</p>
+    </div>
+    <div class="col" style="flex:1.1">
+      <h3>Tecnologia a serviço de uma regra:<br><span class="green">nenhum número inventado.</span></h3>
+      <div class="arch">
+        <div class="node"><b>Dados abertos</b><span>CKAN do MAPA (hash) · APIs NASA, Open-Meteo, IBGE, ANA</span></div><div class="sep">›</div>
+        <div class="node"><b>Python + SQLite</b><span>pipeline reprodutível · cache com data</span></div><div class="sep">›</div>
+        <div class="node"><b>FastAPI</b><span>7 regras · IA com ferramentas e modo offline</span></div><div class="sep">›</div>
+        <div class="node"><b>React</b><span>mobile first · mapa · TypeScript</span></div>
+      </div>
+      <p class="muted" style="font-size:24px;margin-top:30px">40 testes da API + teste ponta a ponta em 390 px e 1280 px, nos dois cenários da demo.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Seis pessoas, 22 decisões registradas e aprovadas, tudo no GitHub. Usamos IA como par de programação; quem decidiu foi a equipe.
+    A tecnologia serviu a uma regra: nenhum número inventado. Todo dado tem fonte e data; fonte fora do ar, a tela avisa. [~40 s]
+  </aside>
+</section>
+
+<!-- 11 · 6:45–7:00 · fechamento -->
+<section class="s11" data-id="fim">
+  <div class="close">
+    <div class="logo"><img src="assets/img/brand/simbolo.png" alt=""><div class="display">AgroBits</div></div>
+    <h3>Leva o agrônomo até <span class="green">quem nunca teve um.</span></h3>
+    <p>Próximo passo: piloto com uma Casa da Agricultura (CATI).</p>
+    <p style="font-size:22px;margin-top:64px">1ª Hackathon de Dados Abertos · IFSP Araraquara · Thales Miguel Hajes · Milan Bahrami · Fernando · Maria · Victor Ricardo · Christian</p>
+  </div>
+  <aside class="notes">Próximo passo: um piloto com uma Casa da Agricultura. O AgroBits leva o agrônomo até quem nunca teve um. Obrigado. [~15 s]</aside>
+</section>
+
+</div></div>
+<div id="help">→ avança · S notas e cronômetro · F tela cheia · T tema claro/escuro · ?print-pdf exporta</div>
+
+<script src="data/data.js"></script>
+<script src="vendor/reveal/reveal.js"></script>
+<script src="vendor/reveal/plugin/notes.js"></script>
+<script src="js/deck.js"></script>
+</body>
+</html>

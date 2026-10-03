@@ -54,7 +54,8 @@ Este arquivo ≤ 250 linhas: ao atualizar, **substitua** linhas de estado em vez
 **M5 ✅ (3035906):** `/api/assistant/*` por conta; ferramentas `get_topics`/`explain_topic`; prompt "explica, não decide, sem dose"; offline responde ao roteiro (Zarc, chuva, defensivo→técnico, "o que faço?"); `AGROBITS_LLM_*` (+`AGROIA_*`); `Assistant.tsx` ligado à API (`demo.ts` apagado); scripts mostram "IA: ligada/offline"; 37 testes.
 **M6 ✅ (e4aa180):** AgroBits em `http://localhost:5173/` (app antigo em `/legado`, `/prototipo/*` redireciona); sem banner de protótipo; quem não entrou vai a `/entrar`; `tests/e2e_demo.py` (Playwright, 390 e 1280 px, 2 cenários); roteiro em `docs/demo/roteiro.md`; contagens da animação da entrevista agora vêm da API.
 **M7 ✅ (4683ca9):** pivôs ANA/Embrapa ao vivo (`/api/opendata/pivots`, card em Dados abertos); radar da entrevista só lista fonte com dado (Zarc por município, ANA respondeu), sem "raio 10 km"/"crédito"; Mapa vivo abre no Zarc, avisa "sem imagem" (pixel vazio na sede) e afasta para a região nas camadas NASA.
-**Próximo:** pitch + PDF. MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
+**Pitch ✅ (03/10 ~03h):** `pitch/` (Reveal local, 12 slides, notas com falas, tecla T claro/escuro, vídeo 10 s `assets/video/agrobits-10s.mp4`, PDF `pitch/dist/`); tela do técnico `/tecnico/caso/:id` (`/api/cases/{id}/brief`); chave da avaliação em `.env.avaliacao` (revogar após o evento); fontes do app locais (`frontend/public/fonts`).
+**Próximo:** H-009 (teste por quem não desenvolveu) + H-011 ensaio cronometrado do pitch. MVP real em 6 etapas, `docs/implementacao/README.md` (M1 contas → M2 entrevista/talhões → M3 assuntos reais →
 M4 telas → M5 IA → M6 app em `/` + roteiro; M7 ANA opcional) → **pitch (Thales) + PDF** → congelamento 03/10 08h.
 **Regra de dados (D-022):** dado de fonte aberta/externa é SEMPRE real (fonte fora → aviso, ou último dado real com data);
 fictício só dado de conta (contas demo `is_demo`, fixtures nas mesmas tabelas). Cenários: conta nova × conta existente (João).
@@ -143,7 +144,7 @@ Ferramenta pronta para a análise inicial: `python3 scripts/profile_data.py data
 | 6 | Fluxo principal funcionando | 02/10 17h00 | ✅ no protótipo (backend ligado só no app funcional) |
 | 7 | Demo funcionando | 02/10 20h00 | ✅ app em `/` + roteiro (falta H-009) |
 | 8 | Testes críticos concluídos | 02/10 21h30 | ✅ `pytest` 38 + `tests/e2e_demo.py` (falta H-009 humano) |
-| 9 | Pitch pronto | 03/10 08h00 | ⏳ |
+| 9 | Pitch pronto | 03/10 08h00 | ✅ `pitch/` + PDF (falta ensaio H-011) |
 | 10 | Entrega final validada | 03/10 08h45 | ⏳ |
 
 Detalhes: `planning/timeline.md`.
