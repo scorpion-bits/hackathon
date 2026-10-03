@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Efeitos sonoros do vídeo-vitrine (sintetizados aqui, sem áudio de terceiros) e mux no vídeo SEM recodificar a imagem.
+"""Música de fundo e efeitos sonoros do vídeo-vitrine (sintetizados aqui, sem áudio de terceiros) e mux no vídeo SEM recodificar a imagem.
 Os tempos seguem pitch/video/promo.html (popSpan, wipe, queda do mascote, recursos a cada 1,95 s, confete).
 Uso: python3 pitch/scripts/make_sfx.py   → pitch/video/sfx.wav + áudio dentro de assets/video/agrobits-showcase.{mp4,webm}
 Requer numpy e ffmpeg. Rodar de novo é seguro: sempre parte do vídeo sem som (stream de vídeo copiado).
@@ -73,11 +73,11 @@ def chime(freqs, d=1.2, decay=3.5):
 for i in range(4): add(.12 + i * .2, pop(700 + i * 90), .55, -.3 + i * .2)
 for i in range(3): add(.95 + i * .16, pop(1250 + i * 120, .07), .35, (-1) ** i * .6)
 # viradas de cena (círculo que abre)
-for at in (2.05, 4.15, 18.95, 21.55): add(at - .05, whoosh(), .5)
+for at in (2.05, 4.15, 18.95, 21.55): add(at - .05, whoosh(), .16)
 # cena 2: "O governo tem as respostas." + bases caindo e sendo sugadas
 for i in range(3): add(2.45 + i * .2, pop(820 + i * 110), .55)
 for i in range(9): add(2.85 + i * .06, tick(2000 + 150 * i), .25, -.8 + i * .2)
-add(3.95, whoosh(.45, rise=True), .55); add(4.32, pop(1600, .12), .4)
+add(3.95, whoosh(.45, rise=True), .18); add(4.32, pop(1600, .12), .4)
 # cena 3: mascote cai, frase, pulinho, logo vai para o canto
 add(4.85, thud(), .9); add(4.85, tick(900, .05), .3)
 for i in range(4): add(5.05 + i * .17, pop(760 + i * 80), .5)
@@ -86,7 +86,7 @@ add(6.55, pop(1100, .1), .45)
 # cena 4 (7,2–19): seis recursos, um a cada 1,95 s
 for i in range(6):
     at = 7.2 + i * 1.95
-    add(at - .08, whoosh(.3, rise=False), .28, .4)
+    add(at - .08, whoosh(.3, rise=False), .08, .4)
     add(at + .05, chime([660 * 2 ** (i / 12 * 2)], .5, 7), .22)
 add(18.0, chime([988, 1319], .9, 4), .35)  # notificação: o caso chega ao técnico
 # cena 5: "Leva o agrônomo / até quem nunca / teve um."
@@ -98,13 +98,59 @@ add(22.35, pop(600, .16), .7); add(22.35, chime([523, 659, 784], 1.4, 2.2), .3)
 for i in range(26): add(22.45 + rng.uniform(0, .5), tick(rng.uniform(2500, 5200), .025), .16, rng.uniform(-1, 1))
 add(22.8, chime([523, 659, 784, 1047], 1.6, 1.8), .35)
 
-# eco curto (espaço) + normalização suave
-mix = out[: int(SR * DUR)].copy()
+# eco curto (espaço) nos efeitos
+fx = out[: int(SR * DUR)].copy()
 for dly, g in ((.11, .25), (.23, .12)):
-    k = int(SR * dly); mix[k:] += mix[:-k][:, ::-1] * g
-mix = np.tanh(mix * 1.1)
-mix = mix / np.max(np.abs(mix)) * 0.85
-fade = int(SR * .4); mix[-fade:] *= np.linspace(1, 0, fade)[:, None]
+    k = int(SR * dly); fx[k:] += fx[:-k][:, ::-1] * g
+fx = np.tanh(fx * 1.1); fx /= np.max(np.abs(fx))
+
+# música de fundo (sintetizada): 120 bpm, 12 compassos de 2 s, C–G–Am–F; o último compasso (22 s) resolve em Dó
+BPM = 120; BEAT = 60 / BPM; N = int(SR * DUR)
+mus = np.zeros((N, 2))
+CH = [[60, 64, 67], [55, 59, 62], [57, 60, 64], [53, 57, 60]]
+hz = lambda m: 440 * 2 ** ((m - 69) / 12)  # noqa: E731
+
+
+def put(at, sig, g, pan=0.0):
+    i = int(at * SR); sig = sig[: max(0, N - i)]
+    mus[i:i + len(sig), 0] += sig * g * (1 - pan) ; mus[i:i + len(sig), 1] += sig * g * (1 + pan)
+
+
+def pluck(f, d=.35):  # corda dedilhada simples (duas harmônicas, ataque rápido)
+    t = t_(d); return (np.sin(2 * np.pi * f * t) + .35 * np.sin(4 * np.pi * f * t)) * np.exp(-t * 9) * np.minimum(1, t / .004)
+
+
+def pad(fs, d):
+    t = t_(d); e = np.minimum(1, t / .25) * np.minimum(1, (d - t) / .3)
+    return sum(np.sin(2 * np.pi * f * t) + .2 * np.sin(2 * np.pi * f * 1.005 * t) for f in fs) / len(fs) * e
+
+
+def kick():
+    t = t_(.18); return np.sin(2 * np.pi * np.cumsum(55 + 90 * np.exp(-t * 35)) / SR) * np.exp(-t * 18)
+
+
+def hat():
+    t = t_(.05); return rng.standard_normal(len(t)) * np.exp(-t * 90)
+
+
+for bar in range(12):
+    at = bar * 4 * BEAT
+    ch = [60, 64, 67] if bar == 11 else CH[bar % 4]
+    put(at, pad([hz(m) for m in ch], 4 * BEAT if bar < 11 else 2.0), .18)
+    put(at, pluck(hz(ch[0] - 24), .9), .35)  # baixo
+    if bar == 11:
+        continue
+    for k, m in enumerate([ch[0], ch[1], ch[2], ch[1] + 12, ch[2], ch[1], ch[0] + 12, ch[2]]):  # arpejo em colcheias
+        put(at + k * BEAT / 2, pluck(hz(m + 12)), .16, .3 if k % 2 else -.3)
+    if bar >= 1:  # batida entra no 2º compasso
+        for b in range(4):
+            put(at + b * BEAT, kick(), .32); put(at + b * BEAT + BEAT / 2, hat(), .05, .2)
+mus /= np.max(np.abs(mus))
+mus[: int(SR * .6)] *= np.linspace(0, 1, int(SR * .6))[:, None]
+
+mix = fx * .8 + mus * .42
+mix = np.tanh(mix * 1.05); mix = mix / np.max(np.abs(mix)) * 0.88
+fade = int(SR * .5); mix[-fade:] *= np.linspace(1, 0, fade)[:, None]
 
 wav = ROOT / 'video' / 'sfx.wav'
 with wave.open(str(wav), 'wb') as w:

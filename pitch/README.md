@@ -17,7 +17,7 @@ cd pitch && python3 -m http.server 8090      # Windows: py -m http.server 8090
 | **T** | tema claro ↔ escuro (o claro é o padrão; trocar na sala se o projetor lavar as cores) |
 | Esc | visão geral dos slides |
 
-- **Slide 7 (`#/7`, vídeo):** toca sozinho ao entrar (24 s, com efeitos sonoros: ligar o som do notebook/caixa); avançar quando terminar.
+- **Slide 7 (`#/7`, vídeo):** toca sozinho ao entrar (24 s, com música de fundo e efeitos: ligar o som do notebook/caixa); avançar quando terminar.
 - **Slide 10 (`#/10`, demo ao vivo):** trocar para o navegador do app (`http://localhost:5173`, "Entrar como João"). Se a demo falhar, fique no slide e narre os 5 passos pelo celular da tela.
 - Capa, chamada da solução, vídeo e fechamento são sempre escuros; o manifesto é verde — nos dois temas.
 
