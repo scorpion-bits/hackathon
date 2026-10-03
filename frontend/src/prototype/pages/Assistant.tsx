@@ -8,6 +8,7 @@ import { Button, Card, PageHeader } from '../../components/ui'
 import { apiPost } from '../api/client'
 import { useApi } from '../api/resource'
 import { useTopics } from '../api/topics'
+import { parseMarkdown, renderBlock } from '../components/views/Markdown'
 
 type Source = { key: string; name?: string; agency?: string; extracted_at?: string }
 type Msg = { id: string; role: 'user' | 'assistant'; text: string; sources: Source[]; time: string; mode?: string; warning?: string }
@@ -15,6 +16,8 @@ type Reply = { answer: string; sources: Source[]; mode: string; warning?: string
 type Hist = { role: 'user' | 'assistant'; content: string; sources: Source[]; created_at: string }[]
 type Status = { llm: boolean; mode: string; model: string | null }
 
+// respostas offline usam "•" e quebras simples; o renderizador espera markdown
+const prepare = (t: string) => t.replace(/^\s*•\s*/gm, '- ').replace(/\n(?!\n|- |\d+\. )/g, '\n\n')
 const hhmm = (d: Date) => d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
 const FALLBACK_SUGGESTIONS = ['Quando eu planto o milho do Talhão 2?', 'Choveu mais que o normal?', 'O que é o Zarc?', 'O que eu faço?']
 
@@ -27,7 +30,7 @@ function AiBubble({ m }: { m: Msg }) {
     <div className="flex gap-3">
       <Avatar ai />
       <div className="min-w-0 flex-1 rounded-2xl rounded-tl-sm border border-border bg-surface p-4 shadow-sm">
-        <div className="whitespace-pre-line text-sm leading-relaxed text-ink">{m.text}</div>
+        <div className="space-y-2">{m.role === 'assistant' && parseMarkdown(prepare(m.text)).map((b, i) => renderBlock(b, i))}</div>
         {m.warning && <div className="mt-3 rounded-lg bg-accent-soft px-3 py-2 text-xs text-accent">{m.warning}</div>}
         {m.sources.length > 0 && (
           <div className="mt-3">

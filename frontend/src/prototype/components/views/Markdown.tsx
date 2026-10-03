@@ -50,22 +50,23 @@ export function parseMarkdown(src: string): Block[] {
 }
 
 /** **negrito**, `código`, _itálico_ */
-function inline(text: string): ReactNode {
-  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`|_[^_]+_)/g).filter(Boolean)
+export function inline(text: string): ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*\s][^*]*\*|`[^`]+`|_[^_]+_)/g).filter(Boolean)
   return parts.map((p, i) => {
     if (p.startsWith('**')) return <strong key={i} className="font-semibold text-ink">{p.slice(2, -2)}</strong>
+    if (p.startsWith('*') && p.endsWith('*') && p.length > 2) return <em key={i}>{p.slice(1, -1)}</em>
     if (p.startsWith('`')) return <code key={i} className="rounded bg-bg px-1 py-0.5 font-mono text-[0.85em] text-primary-dark ring-1 ring-border">{p.slice(1, -1)}</code>
     if (p.startsWith('_') && p.endsWith('_') && p.length > 2) return <em key={i}>{p.slice(1, -1)}</em>
     return <Fragment key={i}>{p}</Fragment>
   })
 }
 
-function renderBlock(b: Block, key: number): ReactNode {
+export function renderBlock(b: Block, key: number): ReactNode {
   switch (b.t) {
     case 'h1':
       return <h1 key={key} className="text-2xl font-bold tracking-tight text-ink">{inline(b.text)}</h1>
     case 'h2':
-      return null
+      return key < 0 ? null : <h2 key={key} className="mt-2 text-base font-semibold text-ink">{inline(b.text)}</h2>
     case 'h3':
       return <h3 key={key} className="mt-3 text-sm font-semibold text-ink">{inline(b.text)}</h3>
     case 'quote':
