@@ -190,7 +190,8 @@ def main() -> None:
     # Escreve num arquivo temporário e troca no fim: a API continua lendo o banco antigo durante a reconstrução.
     tmp = OUT.with_suffix(".db.tmp")
     tmp.unlink(missing_ok=True)
-    with sqlite3.connect(tmp) as con:
+    con = sqlite3.connect(tmp)
+    with con:  # "with" só faz commit; no Windows o arquivo precisa estar FECHADO para ser renomeado
         zarc.to_sql("zarc_risk", con, index=False)
         con.execute("CREATE INDEX ix_zarc ON zarc_risk (geocode, crop)")
         munis.to_sql("municipalities", con, index=False)
@@ -199,6 +200,7 @@ def main() -> None:
         con.execute("CREATE INDEX ix_agrofit_crop ON agrofit (crop)")
         region.to_sql("region_stats", con, index=False)
         sources.to_sql("data_sources", con, index=False)
+    con.close()
     tmp.replace(OUT)
     print(f"OK → {OUT} ({OUT.stat().st_size / 1e6:.0f} MB)")
 
