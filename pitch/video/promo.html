@@ -2,195 +2,274 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>AgroBits — vídeo de 10 s</title>
+<title>AgroBits — vídeo (showcase, 24 s)</title>
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <style>
-  /* Paleta oficial (docs/brand/paleta.png, tema escuro) */
-  :root { --bg:#0F1A13; --surface:#1B2A20; --primary:#4CAF6D; --accent:#F2C94C; --alert:#E5484D; --text:#EAF2EC; --muted:#9FB3A6; }
+  /* Paleta oficial (docs/brand/paleta.png). Linguagem de "comercial": blocos de cor, tipografia que estoura no ritmo,
+     o mascote da marca como personagem e o produto REAL no celular (capturas do app). */
+  :root { --dark:#0F1A13; --green:#2E7D4F; --bright:#4CAF6D; --mint:#7BE3A8; --amber:#F2C94C; --paper:#F6F9F3; --ink:#1C2B21; }
   html, body { margin:0; background:#000; }
-  #stage { position:relative; width:1920px; height:1080px; overflow:hidden; background:var(--bg); font-family:Inter, system-ui, sans-serif; color:var(--text); }
-  #grid { position:absolute; inset:-200px; opacity:.0;
-    background-image: linear-gradient(30deg, rgba(76,175,109,.07) 1px, transparent 1px), linear-gradient(150deg, rgba(76,175,109,.07) 1px, transparent 1px);
-    background-size: 64px 37px; }
-  #glow { position:absolute; left:50%; top:50%; width:1400px; height:1400px; margin:-700px; border-radius:50%;
-    background: radial-gradient(circle, rgba(76,175,109,.16), rgba(76,175,109,0) 60%); opacity:0; }
-  .chip { position:absolute; left:0; top:0; display:flex; align-items:center; gap:14px; padding:14px 22px 14px 16px; border-radius:999px;
-    background:var(--surface); box-shadow: 0 0 0 1px rgba(234,242,236,.10), 0 18px 40px rgba(0,0,0,.35); white-space:nowrap; will-change:transform; }
-  .chip i { width:14px; height:14px; border-radius:50%; flex:none; }
-  .chip b { font-family:Montserrat, sans-serif; font-weight:700; font-size:15px; letter-spacing:.12em; color:var(--muted); }
-  .chip span { font-weight:600; font-size:26px; }
-  .phone { position:absolute; left:0; top:0; width:408px; height:850px; margin:-425px 0 0 -204px; border-radius:62px; background:#050806;
-    box-shadow: 0 0 0 2px #24342a, 0 40px 90px rgba(0,0,0,.55); will-change:transform; }
-  .screen { position:absolute; left:14px; top:14px; width:380px; height:822px; border-radius:50px; overflow:hidden; background:#F6F9F3; }
-  .screen img { position:absolute; left:0; top:0; width:380px; display:block; }
-  .notch { position:absolute; left:50%; top:26px; width:96px; height:26px; margin-left:-48px; border-radius:20px; background:#050806; z-index:3; }
-  .tap { position:absolute; width:90px; height:90px; margin:-45px; border-radius:50%; background:rgba(76,175,109,.45); opacity:0; z-index:4; }
-  .label { position:absolute; left:0; top:0; transform:translate(-50%,0); font-family:Montserrat, sans-serif; font-weight:700; font-size:22px;
-    letter-spacing:.18em; text-transform:uppercase; color:var(--muted); opacity:0; white-space:nowrap; }
-  #bridge { position:absolute; inset:0; opacity:0; }
-  #card { position:absolute; left:0; top:0; width:330px; padding:18px 20px; border-radius:20px; background:#FFFFFF; color:#1C2B21;
-    box-shadow: 0 24px 60px rgba(0,0,0,.45); opacity:0; will-change:transform; }
-  #card small { display:block; font-weight:700; font-size:13px; letter-spacing:.14em; color:#2E7D4F; }
-  #card strong { display:block; margin-top:6px; font-family:Montserrat, sans-serif; font-weight:800; font-size:22px; line-height:1.15; }
-  #card p { margin:10px 0 0; display:flex; flex-wrap:wrap; gap:6px; }
-  #card p em { font-style:normal; font-size:14px; font-weight:600; padding:4px 10px; border-radius:999px; background:#E3F1E7; color:#1F5C39; }
-  #card p em.r { background:#FBE4E4; color:#C0392B; }
-  #end { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-  #logo { display:flex; align-items:center; gap:28px; }
-  #logo img { width:190px; height:190px; will-change:transform; }
-  #word { font-family:Montserrat, sans-serif; font-weight:800; font-size:132px; letter-spacing:-.02em; clip-path: inset(0 100% 0 0); }
-  #tag { margin-top:34px; font-family:Montserrat, sans-serif; font-weight:700; font-size:46px; letter-spacing:-.01em; opacity:0; }
-  #tag em { font-style:normal; color:var(--primary); }
-  #src { position:absolute; left:0; right:0; bottom:44px; text-align:center; font-size:18px; color:var(--muted); opacity:0; letter-spacing:.04em; }
+  #stage { position:relative; width:1920px; height:1080px; overflow:hidden; background:var(--dark); font-family:Inter, system-ui, sans-serif; }
+  .layer { position:absolute; inset:0; }
+  .word { position:absolute; left:0; top:0; font-family:Montserrat, sans-serif; font-weight:800; letter-spacing:-.03em; white-space:nowrap; will-change:transform, opacity; }
+  .line { position:absolute; left:0; right:0; display:flex; justify-content:center; gap:.26em; font-family:Montserrat, sans-serif; font-weight:800; letter-spacing:-.03em; white-space:nowrap; line-height:1; }
+  .line span { display:inline-block; will-change:transform, opacity; transform-origin:50% 80%; }
+  .pill { position:absolute; left:0; top:0; padding:16px 28px; border-radius:999px; font-weight:700; font-size:34px; white-space:nowrap; will-change:transform, opacity;
+    box-shadow: 0 14px 30px rgba(0,0,0,.18); }
+  .pill.q { background:var(--amber); color:var(--ink); }
+  .pill.a { background:#fff; color:var(--green); }
+  .mascot { position:absolute; left:0; top:0; width:300px; height:300px; will-change:transform; transform-origin:50% 100%; }
+  .mascot img { width:100%; height:100%; display:block; }
+  .phone { position:absolute; left:0; top:0; width:408px; height:859px; margin:-430px 0 0 -204px; border-radius:64px; background:#050806;
+    box-shadow: 0 0 0 2px #26372C, 0 50px 100px rgba(0,0,0,.35); will-change:transform; }
+  .phone .screen { position:absolute; left:14px; top:14px; width:380px; height:831px; border-radius:52px; overflow:hidden; background:var(--paper); }
+  .phone .status { position:absolute; left:0; right:0; top:0; height:40px; background:#0F1A13; z-index:3; }
+  .phone .status i { position:absolute; left:50%; top:9px; width:104px; height:26px; margin-left:-52px; border-radius:16px; background:#000; }
+  .phone .view { position:absolute; left:0; right:0; top:40px; bottom:0; overflow:hidden; }
+  .phone .view img { position:absolute; left:0; top:0; width:380px; display:block; will-change:transform; }
+  .blob { position:absolute; left:0; top:0; width:780px; height:780px; margin:-390px 0 0 -390px; border-radius:50%; will-change:transform, background; }
+  .feat { position:absolute; left:1130px; top:360px; width:720px; }
+  .feat .n { font-family:Montserrat; font-weight:800; font-size:30px; letter-spacing:.2em; color:var(--green); }
+  .feat .t { font-family:Montserrat; font-weight:800; font-size:92px; line-height:1.0; letter-spacing:-.035em; color:var(--ink); margin-top:14px; }
+  .feat .s { font-size:38px; line-height:1.3; color:#4C5D52; margin-top:24px; }
+  .feat > * { will-change:transform, opacity; }
+  .bug { position:absolute; left:64px; top:52px; display:flex; align-items:center; gap:14px; font-family:Montserrat; font-weight:800; font-size:34px; color:var(--ink); opacity:0; }
+  .bug img { width:58px; height:58px; }
+  .cube { position:absolute; left:0; top:0; width:44px; height:44px; will-change:transform; }
+  #confetti { position:absolute; inset:0; z-index:1; }
+  #final-word { font-size:150px; color:var(--ink); }
+  #final-tag { position:absolute; z-index:2; left:0; right:0; top:760px; text-align:center; font-size:44px; color:#4C5D52; opacity:0; }
+  #final-mini { position:absolute; z-index:2; left:0; right:0; top:840px; text-align:center; font-family:Montserrat; font-weight:700; font-size:26px; letter-spacing:.16em; text-transform:uppercase; color:var(--green); opacity:0; }
 </style>
 </head>
 <body>
 <div id="stage">
-  <div id="grid"></div>
-  <div id="glow"></div>
-  <svg id="bridge" viewBox="0 0 1920 1080"><path id="arc" d="M 760 470 C 880 300, 1040 300, 1160 470" fill="none" stroke="#4CAF6D" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 0"/></svg>
-  <div id="chips"></div>
+  <!-- fundos em camadas (cada um revela por máscara circular) -->
+  <div class="layer" id="bgDark" style="background:var(--dark)"></div>
+  <div class="layer" id="bgGreen" style="background:var(--green)"></div>
+  <div class="layer" id="bgPaper" style="background:var(--paper)"></div>
+  <div class="layer" id="bgGreen2" style="background:var(--green)"></div>
+  <div class="layer" id="bgPaper2" style="background:var(--paper)"></div>
 
-  <div class="phone" id="pA"><div class="notch"></div><div class="screen">
-    <img id="a1" src="../assets/img/app/02-inicio-full.png" alt="">
-    <img id="a2" src="../assets/img/app/03-resolver-full.png" alt="">
-    <img id="a3" src="../assets/img/app/04-enviado.png" alt="">
-    <div class="tap" id="tap"></div>
-  </div></div>
-  <div class="phone" id="pB"><div class="notch"></div><div class="screen">
-    <img id="b1" src="../assets/img/app/05-tecnico-full.png" alt="">
-  </div></div>
-  <div class="label" id="lA">Produtor</div>
-  <div class="label" id="lB">Técnico público</div>
+  <div class="layer" id="s1"></div>
+  <div class="layer" id="s2"></div>
+  <div class="layer" id="s3"></div>
 
-  <div id="card">
-    <small>CASO AB-1002 · CATI</small>
-    <strong>Quando plantar o milho do Talhão 2?</strong>
-    <p><em>Araraquara/SP</em><em>3,06 ha · argiloso</em><em class="r">Zarc: 40% agora</em><em>63,7 mm em 7 dias</em></p>
+  <!-- vitrine de funcionalidades -->
+  <div class="layer" id="s4">
+    <div class="blob" id="blob"></div>
+    <div class="phone" id="phA"><div class="screen"><div class="status"><i></i></div><div class="view" id="viewA"></div></div></div>
+    <div class="phone" id="phB"><div class="screen"><div class="status"><i></i></div><div class="view"><img src="../assets/img/app/05-tecnico.png" alt=""></div></div></div>
+    <div id="feats"></div>
+    <div class="bug" id="bug"><img src="../assets/img/brand/simbolo.png" alt="">AgroBits</div>
   </div>
 
-  <div id="end">
-    <div id="logo"><img id="sym" src="../assets/img/brand/simbolo.png" alt=""><div id="word">AgroBits</div></div>
-    <div id="tag">Leva o agrônomo até <em>quem nunca teve um.</em></div>
+  <div class="layer" id="s5"></div>
+  <div class="layer" id="s6">
+    <div id="confetti"></div>
+    <div id="final-tag">O dado público, trabalhando para cada talhão.</div>
+    <div id="final-mini">Grátis para o produtor · dados abertos oficiais</div>
   </div>
-  <div id="src">Dados abertos: Zarc/MAPA · Open-Meteo · NASA · IBGE · ANA — conta de demonstração</div>
+  <div class="mascot" id="mascot"><img src="../assets/img/brand/simbolo.png" alt=""></div>
 </div>
 <script>
-// Linha do tempo determinística: seek(t) desenha o quadro do instante t (s). O exportador chama seek quadro a quadro.
+// Linha do tempo determinística: seek(t) desenha o instante t (s). O exportador grava quadro a quadro (30 fps).
 const $ = (id) => document.getElementById(id)
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x))
 const prog = (t, a, b) => clamp((t - a) / (b - a))
 const lerp = (a, b, k) => a + (b - a) * k
 const outCubic = (k) => 1 - Math.pow(1 - k, 3)
-const inOutCubic = (k) => (k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2)
-const outBack = (k, s = 1.5) => 1 + (s + 1) * Math.pow(k - 1, 3) + s * Math.pow(k - 1, 2)
 const inCubic = (k) => k * k * k
+const inOut = (k) => (k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2)
+const outBack = (k, s = 1.7) => 1 + (s + 1) * Math.pow(k - 1, 3) + s * Math.pow(k - 1, 2)
+const outElastic = (k) => k === 0 ? 0 : k === 1 ? 1 : Math.pow(2, -10 * k) * Math.sin((k * 10 - .75) * (2 * Math.PI / 3)) + 1
+const W = 1920, H = 1080, D = Math.hypot(W, H)
 
-// Valores REAIS do caso da conta demo (API /cases/{id}/brief, 03/10): nada inventado.
-const CHIPS = [
-  { k: 'LOCAL', v: 'Araraquara/SP', c: '#9FB3A6', x: 360, y: 250 },
-  { k: 'TALHÃO', v: '3,06 ha', c: '#B7791F', x: 1490, y: 230 },
-  { k: 'CULTURA', v: 'Milho', c: '#F2C94C', x: 300, y: 610 },
-  { k: 'CHUVA', v: '63,7 mm · 7 dias', c: '#5BA7D9', x: 1530, y: 560 },
-  { k: 'ZARC', v: 'risco 40% hoje', c: '#E5484D', x: 560, y: 880 },
-  { k: 'SOLO', v: 'argiloso', c: '#4CAF6D', x: 1330, y: 860 },
+function el(parent, cls, html, style = '') { const e = document.createElement('div'); e.className = cls; e.innerHTML = html; e.style.cssText = style; parent.appendChild(e); return e }
+// texto que "estoura": escala com overshoot + sobe; some com escala para baixo
+function pop(e, t, t0, t1, { x, y, size = 120, color = '#fff', rot = 0, outDur = .25 }) {
+  const k = prog(t, t0, t0 + .42), o = t1 != null ? prog(t, t1, t1 + outDur) : 0
+  const s = k ? outBack(k, 2.2) * (1 - .25 * inCubic(o)) : 0
+  e.style.fontSize = size + 'px'; e.style.color = color
+  e.style.opacity = clamp(k * 3) * (1 - o)
+  e.style.transform = `translate(-50%,-50%) translate(${x}px,${y + 40 * (1 - outCubic(k)) - 30 * o}px) rotate(${rot * (1 - k)}deg) scale(${s})`
+}
+// linha centralizada: o navegador mede as palavras; cada <span> estoura no seu tempo
+function line(parent, words, { y, size, colors }) {
+  const L = el(parent, 'line', words.map((w) => `<span>${w}</span>`).join(''), `top:${y - size / 2}px;font-size:${size}px`)
+  const spans = [...L.children]; spans.forEach((sp, i) => { sp.style.color = colors[i] || colors[0] }); return spans
+}
+function popSpan(sp, t, t0, t1, outDur = .25) {
+  const k = prog(t, t0, t0 + .42), o = t1 != null ? prog(t, t1, t1 + outDur) : 0
+  sp.style.opacity = clamp(k * 3) * (1 - o)
+  sp.style.transform = `translateY(${40 * (1 - outCubic(k)) - 30 * o}px) scale(${k ? outBack(k, 2.2) * (1 - .25 * inCubic(o)) : 0})`
+}
+// máscara circular (wipe) a partir de um ponto
+function wipe(e, t, t0, t1, cx = W / 2, cy = H / 2) { const r = D * inOut(prog(t, t0, t1)); e.style.clipPath = `circle(${r}px at ${cx}px ${cy}px)` }
+
+// ---------- cena 1: "Toda roça tem perguntas." + perguntas reais do produtor
+const S1 = $('s1')
+const w1 = line(S1, ['Toda', 'roça', 'tem', 'perguntas.'], { y: 540, size: 120, colors: ['#fff', '#fff', '#fff', '#F2C94C'] })
+const Q = [['Quando plantar?', 420, 250, -6], ['Vai chover forte?', 1500, 300, 5], ['Posso usar este produto?', 470, 820, 4], ['Tem seguro?', 1460, 800, -5]]
+  .map(([txt, x, y, r]) => ({ e: el(S1, 'pill q', txt), x, y, r }))
+// ---------- cena 2: "O governo tem as respostas." + as bases abertas caindo
+const S2 = $('s2')
+const w2 = line(S2, ['O governo', 'tem as', 'respostas.'], { y: 430, size: 112, colors: ['#fff', '#fff', '#7BE3A8'] })
+const A = ['Zarc · MAPA', 'Agrofit · MAPA', 'NASA POWER', 'Open-Meteo', 'IBGE', 'Pivôs · ANA', 'Seguro rural · MAPA', 'SIPEAGRO · MAPA', 'Satélite · NASA']
+  .map((txt, i) => ({ e: el(S2, 'pill a', txt), x: 250 + (i % 5) * 360 + (i > 4 ? 180 : 0), y: i > 4 ? 900 : 780, r: (i % 2 ? 1 : -1) * (4 + i), d: i * .09 }))
+// ---------- cena 3: o mascote junta perguntas e respostas
+const S3 = $('s3')
+const w3 = line(S3, ['O', 'AgroBits', 'junta', 'os dois.'], { y: 800, size: 96, colors: ['#1C2B21', '#2E7D4F', '#1C2B21', '#1C2B21'] })
+const orbit = [...['Quando plantar?', 'Vai chover?', 'Posso usar?'].map((t) => ['q', t]), ...['Zarc', 'NASA', 'Agrofit'].map((t) => ['a', t])]
+  .map(([c, txt], i) => ({ e: el(S3, `pill ${c}`, txt, 'font-size:26px;padding:12px 22px'), a: i * Math.PI / 3 }))
+const lock = el(S3, 'word', 'AgroBits', 'color:var(--ink)')
+// ---------- cena 4: vitrine (telas reais do app)
+const FEATS = [
+  { img: '02-inicio.png', n: '01', t: 'Um assunto<br>por vez.', s: 'O que importa hoje, na sua roça.', blob: '#7BE3A8' },
+  { img: '03a-resolver-dados.png', n: '02', t: 'O risco oficial<br>do Zarc.', s: 'Por data de plantio, para o seu solo.', blob: '#F2C94C', zoom: [1.0, 1.18, 190, 360] },
+  { img: '03b-resolver-caminhos.png', n: '03', t: 'Caminhos<br>possíveis.', s: 'Você escolhe. A IA não decide.', blob: '#7BE3A8' },
+  { img: 'f-mapa.png', n: '04', t: 'Mapa vivo,<br>com satélite.', s: 'Seus talhões com dados do MAPA e da NASA.', blob: '#4CAF6D' },
+  { img: 'f-ia.png', n: '05', t: 'Pergunte<br>à IA.', s: 'Ela explica o dado e mostra a fonte.', blob: '#F2C94C' },
+  { img: '04-enviado.png', n: '06', t: 'Leva ao técnico.<br>De graça.', s: 'O caso chega pronto na assistência pública.', blob: '#7BE3A8' },
 ]
-const chipEls = CHIPS.map((d) => {
-  const el = document.createElement('div')
-  el.className = 'chip'
-  el.innerHTML = `<i style="background:${d.c}"></i><b>${d.k}</b><span>${d.v}</span>`
-  $('chips').appendChild(el)
-  return el
+const T0 = 7.2, FD = 1.95
+const views = FEATS.map((f) => { const i = document.createElement('img'); i.src = `../assets/img/app/${f.img}`; $('viewA').appendChild(i); return i })
+const feats = FEATS.map((f) => {
+  const e = el($('feats'), 'feat', `<div class="n">${f.n}</div><div class="t">${f.t}</div><div class="s">${f.s}</div>`)
+  return { e, parts: [...e.children] }
+})
+// ---------- cena 5: a frase
+const S5 = $('s5')
+const w5 = [['Leva o agrônomo', 400, '#fff'], ['até quem nunca', 560, '#7BE3A8'], ['teve um.', 720, '#7BE3A8']].map(([w, y, c]) => line(S5, [w], { y, size: 132, colors: [c] })[0])
+// ---------- cena 6: final + confete de cubinhos (sementes da marca)
+const finalWord = el($('s6'), 'word', 'AgroBits'); finalWord.id = 'final-word'
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647
+const cubeSVG = (t, l, r) => `<svg viewBox="0 0 120 120"><path d="M60 10 108 37 60 64 12 37Z" fill="${t}"/><path d="M12 37 60 64v48L12 85Z" fill="${l}"/><path d="M108 37 60 64v48l48-27Z" fill="${r}"/></svg>`
+const PAL = [['#7BE3A8', '#4FD08A', '#1F7A45'], ['#FFE08A', '#F2C94C', '#B7791F'], ['#B9F0D0', '#7BE3A8', '#2E7D4F']]
+const confetti = Array.from({ length: 34 }, (_, i) => {
+  const a = rnd() * Math.PI * 2, v = 700 + rnd() * 900
+  const c = el($('confetti'), 'cube', cubeSVG(...PAL[i % 3]))
+  return { c, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 500, spin: (rnd() - .5) * 720, s: .6 + rnd() * .9 }
 })
 
 function seek(t) {
-  // --- fundo
-  $('grid').style.opacity = lerp(0, 1, prog(t, 0, .8)) * (1 - prog(t, 7.6, 8.4) * .6)
-  $('grid').style.transform = `translate(${-t * 6}px, ${-t * 3}px)`
-  $('glow').style.opacity = .35 + .65 * prog(t, 2.3, 3.4) - .6 * prog(t, 7.4, 8.2)
+  // ---------------- fundos (wipes no ritmo)
+  wipe($('bgGreen'), t, 2.05, 2.55)
+  wipe($('bgPaper'), t, 4.15, 4.65)
+  wipe($('bgGreen2'), t, 18.95, 19.45, 640, 560)
+  wipe($('bgPaper2'), t, 21.55, 22.05)
 
-  // --- 1. dados dispersos (0–2.4 s) → 2. convergem para o celular (2.5–3.6 s)
-  const phoneA = { x: lerp(960, 640, inOutCubic(prog(t, 5.9, 6.8))), y: 560 }
-  CHIPS.forEach((d, i) => {
-    const el = chipEls[i]
-    const t0 = .25 + i * .2
-    const pop = prog(t, t0, t0 + .5)
-    const drift = Math.sin(t * 1.3 + i) * 6
-    let x = d.x + drift, y = d.y + Math.cos(t * 1.1 + i) * 5, s = pop ? outBack(pop, 2) : 0, o = clamp(pop * 2)
-    const f0 = 2.55 + i * .07
-    const fly = prog(t, f0, f0 + .75)
-    if (fly > 0) {
-      const k = inCubic(fly) * .25 + inOutCubic(fly) * .75
-      const cx = (d.x + 960) / 2, cy = Math.min(d.y, 560) - 160
-      x = (1 - k) * (1 - k) * d.x + 2 * (1 - k) * k * cx + k * k * 960
-      y = (1 - k) * (1 - k) * d.y + 2 * (1 - k) * k * cy + k * k * 520
-      s = lerp(1, .25, k); o = 1 - prog(fly, .7, 1)
-    }
-    el.style.opacity = o
-    el.style.transform = `translate(-50%,-50%) translate(${x}px,${y}px) scale(${s})`
+  // ---------------- cena 1 (0–2.3)
+  S1.style.display = t < 2.6 ? 'block' : 'none'
+  w1.forEach((sp, i) => popSpan(sp, t, .12 + i * .2, 1.95))
+  Q.forEach(({ e, x, y, r }, i) => {
+    const t0 = .95 + i * .16, k = prog(t, t0, t0 + .45), o = prog(t, 1.9, 2.15)
+    e.style.opacity = clamp(k * 3) * (1 - o)
+    e.style.transform = `translate(-50%,-50%) translate(${x}px,${y + Math.sin(t * 2.4 + i) * 8}px) rotate(${r}deg) scale(${k ? outBack(k, 2.4) : 0})`
   })
 
-  // --- celular do produtor: entra (2.1–3.0), absorve os dados, navega, vai para a esquerda (5.9–6.8)
-  const enter = prog(t, 2.05, 3.0)
-  const exit = prog(t, 7.55, 8.15)
-  const yA = lerp(1500, phoneA.y, outBack(enter, 1.2)) + inCubic(exit) * 1400
-  const rotA = lerp(-9, 0, outCubic(enter))
-  const pulse = Math.sin(Math.PI * prog(t, 3.05, 3.55)) * .035
-  const sA = lerp(1, .9, inOutCubic(prog(t, 5.9, 6.8))) + pulse
-  $('pA').style.transform = `translate(${phoneA.x}px, ${yA}px) rotate(${rotA}deg) scale(${sA})`
-  $('pA').style.boxShadow = `0 0 0 2px #24342a, 0 0 ${80 * Math.sin(Math.PI * prog(t, 3.0, 3.7))}px rgba(76,175,109,.55), 0 40px 90px rgba(0,0,0,.55)`
+  // ---------------- cena 2 (2.3–4.4)
+  S2.style.display = t > 2.2 && t < 4.7 ? 'block' : 'none'
+  w2.forEach((sp, i) => popSpan(sp, t, 2.45 + i * .2, 3.95))
+  A.forEach(({ e, x, y, r, d }) => {
+    const t0 = 2.85 + d, k = prog(t, t0, t0 + .55), suck = inCubic(prog(t, 3.95, 4.35))
+    const yy = lerp(-120, y, outBack(k, 1.4)), xx = lerp(x, W / 2, suck), y2 = lerp(yy, H / 2, suck)
+    e.style.opacity = clamp(k * 4) * (1 - prog(t, 4.2, 4.4))
+    e.style.transform = `translate(-50%,-50%) translate(${xx}px,${y2}px) rotate(${r * (1 - suck)}deg) scale(${1 - .6 * suck})`
+  })
 
-  // telas reais dentro do celular: Início → Resolver (risco Zarc) → caso enviado
-  const sc = 380 / 1170
-  const swipe1 = inOutCubic(prog(t, 4.15, 4.55))
-  $('a1').style.transform = `translate(${-380 * swipe1}px, ${-lerp(0, 230, inOutCubic(prog(t, 3.1, 4.1)))}px)`
-  // rola até o risco Zarc, depois desce rápido até o botão "Enviar meu caso" (y ≈ 2397 px na faixa)
-  const scrollA2 = lerp(0, 120, inOutCubic(prog(t, 4.6, 5.05))) + lerp(0, 1640, inOutCubic(prog(t, 5.1, 5.45)))
-  $('a2').style.transform = `translate(${380 * (1 - swipe1)}px, ${-scrollA2}px)`
-  const cut = prog(t, 5.72, 5.88)
-  $('a2').style.opacity = 1 - cut
-  $('a3').style.opacity = cut
-  // toque em "Enviar meu caso"
-  const tp = prog(t, 5.48, 5.9)
-  $('tap').style.opacity = tp > 0 && tp < 1 ? (1 - tp) : 0
-  $('tap').style.transform = `translate(190px, 665px) scale(${lerp(.4, 1.8, outCubic(tp))})`
-
-  // --- 3. a ponte: o caso vai até o técnico (6.0–7.2)
-  const inB = prog(t, 6.0, 6.9)
-  const xB = lerp(2400, 1280, outBack(inB, 1.1))
-  $('pB').style.transform = `translate(${xB}px, ${560 + inCubic(exit) * 1400}px) scale(.9)`
-  $('b1').style.transform = `translateY(${-lerp(0, 150, inOutCubic(prog(t, 7.0, 7.6)))}px)`
-  $('bridge').style.opacity = prog(t, 6.3, 6.6) * (1 - prog(t, 7.3, 7.6))
-  const arc = $('arc'), L = 520
-  arc.style.strokeDasharray = `${L * outCubic(prog(t, 6.3, 6.9))} ${L}`
-  const fly = prog(t, 6.25, 7.05)
-  const k = inOutCubic(fly)
-  const cx = (1 - k) * (1 - k) * 640 + 2 * (1 - k) * k * 960 + k * k * 1280
-  const cy = (1 - k) * (1 - k) * 470 + 2 * (1 - k) * k * 250 + k * k * 470
-  const cardIn = prog(t, 5.95, 6.25)
-  $('card').style.opacity = clamp(cardIn * 2) * (1 - prog(t, 6.85, 7.1))
-  $('card').style.transform = `translate(-50%,-50%) translate(${cx}px, ${cy}px) scale(${lerp(.6, 1, outBack(cardIn, 2)) * lerp(1, .5, prog(fly, .7, 1))}) rotate(${Math.sin(Math.PI * fly) * -4}deg)`
-  for (const [id, x, a] of [['lA', 640, 6.7], ['lB', 1280, 6.9]]) {
-    $(id).style.opacity = prog(t, a, a + .3) * (1 - prog(t, 7.5, 7.8))
-    $(id).style.transform = `translate(-50%, 0) translate(${x}px, ${1000 + 20 * (1 - outCubic(prog(t, a, a + .3)))}px)`
+  // ---------------- cena 3 (4.4–7.2): mascote + "O AgroBits junta os dois."
+  S3.style.display = t > 4.3 && t < 7.4 ? 'block' : 'none'
+  const m = $('mascot')
+  {
+    // queda com quique (squash & stretch), pulo feliz em 6.0; depois vai para o canto (6.7–7.2)
+    let x = W / 2, y = 470, sx = 1, sy = 1, s = 1, o = 1, rot = 0
+    const drop = prog(t, 4.45, 5.05)
+    y = lerp(-260, 470, outBack(drop, 1.1)); if (drop === 0) o = 0
+    const land = prog(t, 5.0, 5.25); const sq = Math.sin(Math.PI * land) * .14
+    sx = 1 + sq; sy = 1 - sq
+    const hop = prog(t, 6.0, 6.45); y -= Math.sin(Math.PI * hop) * 90; rot = Math.sin(Math.PI * 2 * hop) * 6
+    const lockK = inOut(prog(t, 6.45, 6.85)); x = lerp(W / 2, 700, lockK)
+    const toBug = inOut(prog(t, 6.95, 7.35)); x = lerp(x, 93, toBug); y = lerp(y, 81, toBug); s = lerp(1, .19, toBug)
+    // reaparece no final (cena 6)
+    const fin = prog(t, 21.85, 22.45)
+    if (t > 7.36 && t < 21.85) o = 0
+    if (t >= 21.85) { o = 1; x = W / 2 - 330; y = lerp(-300, 500, outBack(fin, 1.15)); const l2 = prog(t, 22.4, 22.62); s = 1; sx = 1 + Math.sin(Math.PI * l2) * .12; sy = 1 - Math.sin(Math.PI * l2) * .12; rot = 0 }
+    m.style.opacity = o
+    m.style.transform = `translate(-50%,-100%) translate(${x}px,${y + 150}px) rotate(${rot}deg) scale(${s * sx},${s * sy})`
   }
+  w3.forEach((sp, i) => popSpan(sp, t, 5.05 + i * .17, 6.35))
+  orbit.forEach(({ e, a }, i) => {
+    const k = prog(t, 5.2 + i * .06, 5.5 + i * .06), suck = inCubic(prog(t, 5.55 + i * .05, 6.0 + i * .03))
+    const ang = a + t * 1.6, R = lerp(470, 20, suck)
+    e.style.opacity = clamp(k * 3) * (1 - prog(suck, .8, 1))
+    e.style.transform = `translate(-50%,-50%) translate(${W / 2 + Math.cos(ang) * R * 1.25}px,${400 + Math.sin(ang) * R * .62}px) scale(${(k ? outBack(k) : 0) * (1 - .7 * suck)})`
+  })
+  pop(lock, t, 6.55, 6.95, { x: 1180, y: 400, size: 150, color: '#1C2B21', outDur: .3 })
 
-  // --- 4. marca + mensagem (7.9–10)
-  const lg = prog(t, 7.95, 8.55)
-  $('sym').style.transform = `scale(${lg ? outBack(lg, 1.8) : 0}) rotate(${lerp(-12, 0, outCubic(lg))}deg)`
-  $('word').style.clipPath = `inset(0 ${100 - 100 * outCubic(prog(t, 8.25, 8.85))}% 0 0)`
-  const tg = prog(t, 8.75, 9.25)
-  $('tag').style.opacity = tg
-  $('tag').style.transform = `translateY(${18 * (1 - outCubic(tg))}px)`
-  $('src').style.opacity = prog(t, 9.0, 9.4) * .9
-  $('end').style.opacity = lg > 0 ? 1 : 0
+  // ---------------- cena 4 (7.0–19.0): vitrine
+  $('s4').style.display = t > 6.9 && t < 19.6 ? 'block' : 'none'
+  $('bug').style.opacity = prog(t, 7.25, 7.45) * (1 - prog(t, 18.9, 19.1))
+  const enter = prog(t, 7.0, 7.65), leave = inCubic(prog(t, 18.75, 19.25))
+  const fi = clamp(Math.floor((t - T0) / FD), 0, FEATS.length - 1)
+  // blob atrás do celular muda de cor a cada funcionalidade (pulsa na troca)
+  const local = t - (T0 + fi * FD), pulse = Math.sin(Math.PI * clamp(local / .5)) * .06
+  $('blob').style.background = FEATS[fi].blob
+  $('blob').style.transform = `translate(640px, 560px) scale(${(enter ? outBack(enter, 1.3) : 0) * (1 + pulse) * (1 - leave)})`
+  // celular A
+  const phX = 640, phY = lerp(1500, 560, outBack(enter, 1.2)) + leave * 900
+  const tB = prog(t, 18.0, 18.45) // o técnico entra pela direita no último quadro
+  $('phA').style.transform = `translate(${phX - 210 * inOut(tB)}px, ${phY}px) rotate(${lerp(-8, 0, outCubic(enter)) + (-4 * inOut(tB))}deg) scale(${1 - .1 * inOut(tB)})`
+  $('phB').style.transform = `translate(${lerp(2300, 840, outBack(tB, 1.1))}px, ${560 + leave * 900}px) rotate(${4 * inOut(tB)}deg) scale(.9)`
+  // troca de tela: chicote horizontal com desfoque de movimento
+  views.forEach((img, i) => {
+    const start = T0 + i * FD, sw = prog(t, start - .22, start + .05) // entra
+    const out = i < FEATS.length - 1 ? prog(t, start + FD - .22, start + FD + .05) : 0
+    const x = lerp(380, 0, inOut(sw)) - 380 * inOut(out)
+    const moving = (sw > 0 && sw < 1) || (out > 0 && out < 1)
+    let z = ''
+    const f = FEATS[i]
+    if (f.zoom) { const k = inOut(prog(t, start + .2, start + 1.4)); z = ` scale(${lerp(f.zoom[0], f.zoom[1], k)})`; img.style.transformOrigin = `${f.zoom[2]}px ${f.zoom[3]}px` }
+    img.style.opacity = i === 0 ? 1 : (sw > 0 ? 1 : 0)
+    img.style.transform = `translateX(${i === 0 ? -380 * inOut(out) : x}px)${z}`
+    img.style.filter = moving ? 'blur(6px)' : 'none'
+  })
+  // textos das funcionalidades
+  feats.forEach(({ e, parts }, i) => {
+    const start = T0 + i * FD + .05, end = start + FD - .3
+    e.style.display = t > start - .1 && t < end + .4 ? 'block' : 'none'
+    parts.forEach((p, j) => {
+      const k = prog(t, start + j * .09, start + j * .09 + .4), o = prog(t, end, end + .25)
+      p.style.opacity = clamp(k * 2.5) * (1 - o)
+      p.style.transform = `translateY(${36 * (1 - outCubic(k)) - 40 * inCubic(o)}px)`
+    })
+  })
+  if (tB > 0) { const f = feats[5]; f.parts[1].innerHTML = 'Leva ao técnico.<br>De graça.' }
+
+  // ---------------- cena 5 (19.0–21.6): a frase
+  S5.style.display = t > 18.9 && t < 21.9 ? 'block' : 'none'
+  w5.forEach((sp, i) => popSpan(sp, t, 19.3 + i * .36, 21.25))
+
+  // ---------------- cena 6 (21.6–24): marca + confete
+  $('s6').style.display = t > 21.5 ? 'block' : 'none'
+  const fw = prog(t, 22.35, 22.75)
+  finalWord.style.opacity = clamp(fw * 3)
+  finalWord.style.transform = `translate(-50%,-50%) translate(${W / 2 + 140}px, 420px) scale(${fw ? outBack(fw, 1.8) : 0})`
+  $('final-tag').style.opacity = prog(t, 22.8, 23.2); $('final-tag').style.transform = `translateY(${20 * (1 - outCubic(prog(t, 22.8, 23.2)))}px)`
+  $('final-mini').style.opacity = prog(t, 23.1, 23.45)
+  confetti.forEach(({ c, vx, vy, spin, s }) => {
+    const dt = t - 22.45
+    if (dt < 0) { c.style.opacity = 0; return }
+    const x = W / 2 - 330 + vx * dt * .55, y = 420 + vy * dt * .55 + 900 * dt * dt
+    c.style.opacity = 1 - prog(dt, .55, .95)
+    c.style.transform = `translate(${x}px,${y}px) rotate(${spin * dt}deg) scale(${s})`
+  })
 }
 window.seek = seek
-// reprodução ao vivo (abrir o arquivo no navegador): ?loop=1 repete
-const loop = new URLSearchParams(location.search).has('loop')
-if (!new URLSearchParams(location.search).has('render')) {
+const qs = new URLSearchParams(location.search)
+if (!qs.has('render')) {
   let t0 = null
-  const tick = (now) => { if (t0 == null) t0 = now; let t = (now - t0) / 1000; if (loop) t %= 10.5; seek(Math.min(t, 10)); requestAnimationFrame(tick) }
+  const tick = (now) => { if (t0 == null) t0 = now; let t = (now - t0) / 1000; if (qs.has('loop')) t %= 25; seek(Math.min(t, 24)); requestAnimationFrame(tick) }
   requestAnimationFrame(tick)
 } else seek(0)
 </script>

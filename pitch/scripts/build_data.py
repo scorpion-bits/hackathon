@@ -11,6 +11,7 @@ import subprocess
 import zipfile
 from datetime import date
 from pathlib import Path
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[2]
 PITCH = ROOT / 'pitch'
@@ -52,8 +53,48 @@ for f in geo['features']:
             d += 'M' + 'L'.join(f'{(x - minx) * k * s:.1f},{(maxy - y) * s:.1f}' for x, y in ring) + 'Z'
     regions[NAMES[str(f['properties']['codarea'])]] = d
 
+# --- João (conta de demonstração): talhões do fixture, área geodésica (mesma ordem de grandeza do turf no app)
+def ring_area_ha(ring):
+    R = 6378137.0
+    tot = 0.0
+    for (x1, y1), (x2, y2) in zip(ring, ring[1:]):
+        tot += math.radians(x2 - x1) * (2 + math.sin(math.radians(y1)) + math.sin(math.radians(y2)))
+    return abs(tot * R * R / 2) / 10000
+
+
+fx = json.loads((ROOT / 'backend' / 'app' / 'fixtures' / 'demo' / 'joao.json').read_text())
+joao_fields = [{'name': f['name'], 'crop': f['crop'] + (' irrigado' if f.get('irrigated') else ''), 'ring': f['ring'],
+                'color': f.get('color'), 'area_ha': round(ring_area_ha(f['ring']), 2)} for f in fx['fields']]
+joao = {'producer': fx['producer']['name'], 'farm': fx['farm']['name'], 'municipality': fx['farm']['municipality'],
+        'uf': fx['farm']['uf'], 'fields': joao_fields, 'total_ha': round(sum(f['area_ha'] for f in joao_fields), 1)}
+
+# --- funil do João: mesmas contas de /api/opendata/funnel (services/opendata.py:funnel)
+crops = list(dict.fromkeys(f['crop'] for f in fx['fields']))
+firsts = list(dict.fromkeys(c.split(' ')[0] for c in crops))
+zarc_mun = one(f"SELECT COUNT(*) FROM zarc_risk WHERE geocode=? AND crop IN ({','.join('?' * len(crops))})", fx['farm']['geocode'], *crops)
+agro_mun = one('SELECT COUNT(*) FROM agrofit WHERE ' + ' OR '.join('crop LIKE ?' for _ in firsts), *[f'{c}%' for c in firsts])
+
+
+def topics_today():
+    """Quantos assuntos o app mostra hoje ao João (depende da previsão do dia): pergunta à API local, se estiver no ar.
+    Atenção: entrar como João (demo) recarrega a conta de demonstração (casos enviados voltam ao estado inicial)."""
+    try:
+        req = lambda path, body=None, tok=None: json.load(urlopen(Request(  # noqa: E731
+            'http://localhost:8000/api' + path, data=json.dumps(body).encode() if body else None,
+            headers={'content-type': 'application/json', **({'authorization': f'Bearer {tok}'} if tok else {})}), timeout=20))
+        tok = req('/auth/demo', {'scenario': 'existente'})['token']
+        return len(req('/topics', tok=tok)['topics'])
+    except Exception:  # API fora do ar: mantém o último valor gerado
+        old = (PITCH / 'data' / 'data.js').read_text()
+        return json.loads(old[old.index('{'):old.rindex('}') + 1]).get('joao', {}).get('funnel', {}).get('topics')
+
+
+joao['funnel'] = {'total': zarc + agrofit + psr + avia, 'local': zarc_mun + agro_mun, 'zarc': zarc_mun, 'agrofit': agro_mun,
+                  'topics': topics_today()}
+
 data = {
     'generated': date.today().isoformat(),
+    'joao': joao,
     'app': {'total': zarc + agrofit + psr + avia, 'zarc': zarc, 'agrofit': agrofit, 'psr': psr, 'aviacao': avia, 'zarc_araraquara': zarc_arq},
     'zarc_raw': {'file': raw.name, 'header': header, 'rows': rows},
     # Censo Agropecuário 2017 (IBGE), resultados definitivos; tabela por região e ATER reproduzida pela Asbraer (2023)

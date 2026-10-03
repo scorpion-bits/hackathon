@@ -1,5 +1,6 @@
 # Roteiro da demo — AgroBits (3 minutos)
 
+> Pitch e tempos: `docs/pitch/plano.md` (a demo ao vivo do pitch é o Roteiro A, passos 2–5b, em ~1 min).
 > Endereço único: **http://localhost:5173** (o app antigo ficou em `/legado`, não usar na apresentação).
 > Quem fala: apresentador. Quem clica: o mesmo, no notebook; o celular fica ligado na mesma rede (`http://<IP do notebook>:5173`) para a cena do celular.
 > Todo dado de fonte aberta na tela é **real** (Zarc, Agrofit, Open-Meteo, NASA). Só a conta (João, sítio, talhões, casos, respostas) é fictícia e vem com o selo **"conta de demonstração"**.
@@ -37,7 +38,7 @@
 
 ## Checklist antes de apresentar (notebook da apresentação)
 1. `git pull` e `./iniciar.sh atualizar`.
-2. Criar o `.env` com a chave da IA (passo a passo em `docs/implementacao/M5-ia.md`). Sem chave a IA funciona em modo offline; a tela de subida mostra "IA: ligada" ou "IA: modo offline".
+2. A chave da IA para a avaliação já vem em `.env.avaliacao` (os scripts copiam para `.env` na primeira subida; revogada após o evento). Sem chave a IA funciona em modo offline; a tela de subida mostra "IA: ligada" ou "IA: modo offline".
 3. `./iniciar.sh resetar` e testar **com a internet do evento**.
 4. Abrir http://localhost:5173 — deve cair na tela de entrada (se abrir logado, clicar em Sair).
 5. Rodar o Roteiro A inteiro uma vez e conferir: previsão de 7 dias aparece, mapa carrega, caso é enviado.

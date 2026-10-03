@@ -9,6 +9,8 @@ venv/
 # Node
 node_modules/
 dist/
+# exceção: o PDF do pitch é entregável do evento
+!pitch/dist/
 build/
 .next/
 
