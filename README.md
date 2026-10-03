@@ -35,7 +35,79 @@ propriedade) **não são publicadas** neste repositório (`data/restricted/`, fo
 
 ---
 
-# Como executar
+# Passo a passo: abrir tudo (app, demonstração e pitch)
+
+Resumo: **2 terminais para o app** (API + interface) e **1 terminal para o pitch**. Tudo roda no seu computador.
+
+| O quê | Endereço | Como sobe |
+|---|---|---|
+| App AgroBits | http://localhost:5173 | passo 2 |
+| API (o app precisa dela) | http://localhost:8000/docs | passo 2 |
+| Pitch (slides) | http://localhost:8090 | passo 4 |
+| PDF do pitch | `pitch/dist/AgroBits-pitch.pdf` | já vem pronto |
+| Vídeo do pitch | `pitch/assets/video/agrobits-showcase.mp4` | já vem pronto |
+
+### 1. Baixar o projeto
+Precisa de **Git**, **Python 3.11+** (no instalador do Windows marque *Add python.exe to PATH*) e **Node.js 20+**.
+```powershell
+cd $HOME\Desktop
+git clone https://github.com/scorpion-bits/hackathon.git      # repositório privado: entre com seu usuário do GitHub
+cd hackathon
+```
+Já tem a pasta? Só atualize: `cd $HOME\Desktop\hackathon` e `git pull`.
+
+> No **PowerShell** use `$HOME`; no **cmd**, `%USERPROFILE%`. Rode **um comando por vez**.
+
+### 2. Subir o app
+**Jeito fácil:** dois cliques em **`iniciar.bat`** (Windows) ou `./iniciar.sh` (Linux/macOS). Ele usa Docker se houver;
+senão instala e sobe tudo sozinho. Espere aparecer **"Pronto!"** e pule para o passo 3.
+
+**Jeito manual (Windows, PowerShell), se o `iniciar.bat` não funcionar:**
+
+*Terminal 1 — API* (deixe aberto):
+```powershell
+cd $HOME\Desktop\hackathon
+python -m venv .venv                                           # só na 1ª vez
+.venv\Scripts\python.exe -m pip install -r backend\requirements.txt
+.venv\Scripts\python.exe scripts\pipeline_opendata.py          # só se não existir data\opendata.db (~2 min)
+.venv\Scripts\python.exe scripts\seed_demo.py
+cd backend
+..\.venv\Scripts\python.exe -m uvicorn app.main:app --port 8000
+```
+Pronto quando aparecer `Uvicorn running on http://127.0.0.1:8000`.
+A linha `[psr] arquivo restrito ausente — mantendo agregado existente` é normal.
+
+*Terminal 2 — interface* (deixe aberto):
+```powershell
+cd $HOME\Desktop\hackathon\frontend
+npm install                                                    # só na 1ª vez
+npm run dev -- --port 5173
+```
+
+### 3. Entrar como João (demonstração)
+1. Abra **http://localhost:5173** (se aparecer "Servidor fora do ar", a API do terminal 1 não está rodando).
+2. Clique em **"Entrar como João (demo)"** — a conta volta ao estado inicial a cada entrada.
+3. Para mostrar como celular: **F12** → **Ctrl+Shift+M** → largura **390 px**.
+
+### 4. Abrir o pitch
+*Terminal 3* (deixe aberto):
+```powershell
+cd $HOME\Desktop\hackathon\pitch
+py -m http.server 8090                                         # Linux/macOS: python3 -m http.server 8090
+```
+Abra **http://localhost:8090** e aperte **Ctrl+F5** (garante a versão mais nova). Teclas:
+**→** avança · **←** volta · **F** tela cheia · **S** notas do apresentador com cronômetro · **T** tema claro/escuro · **Esc** visão geral.
+O slide do vídeo toca sozinho, **com som** — ligue a caixa. Roteiro, falas e plano B: `docs/pitch/plano.md`.
+
+### 5. No dia da apresentação
+1. `git pull` → suba o app (passo 2) e o pitch (passo 4).
+2. Janela 1: app logado como João, em modo celular, no Início. Janela 2: pitch em tela cheia.
+3. No slide da demo ao vivo, **Alt+Tab** para o app; ao terminar, **Alt+Tab** de volta.
+4. Para desligar: **Ctrl+C** em cada terminal (ou `iniciar.bat parar`).
+
+---
+
+# Como executar (detalhes)
 
 Escolha **um** caminho:
 
@@ -162,7 +234,7 @@ A IA **nunca inventa números**: consulta ferramentas determinísticas (talhões
 
 ## Testes
 ```bash
-cd backend && pytest -q            # 39 testes da API
+cd backend && pytest -q            # 41 testes da API
 python3 tests/e2e_demo.py          # ponta a ponta (Playwright), com o app rodando
 ```
 
