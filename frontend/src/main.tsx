@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom'
 import 'leaflet/dist/leaflet.css'
 import '@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css'
 import './index.css'
-import App from './App.tsx'
+import App, { LEGACY } from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={LEGACY ? '/legado' : undefined}>
       <App />
     </BrowserRouter>
   </StrictMode>,

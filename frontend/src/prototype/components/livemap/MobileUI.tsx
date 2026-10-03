@@ -121,7 +121,7 @@ export function MobileUI(p: {
                 </button>
               )
             })}
-            <Link to="/prototipo/talhoes" className="iso-btn mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-primary font-display font-bold text-white">
+            <Link to="/talhoes" className="iso-btn mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl bg-primary font-display font-bold text-white">
               <Pencil size={17} /> Adicionar ou editar talhões
             </Link>
             <button onClick={() => go('brazil')} className="flex min-h-11 w-full items-center justify-center gap-1.5 text-sm font-semibold text-white/70"><Earth size={16} /> Ver o Brasil todo</button>

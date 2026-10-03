@@ -193,7 +193,7 @@ function SateliteSample() {
         </div>
       ) : <Empty>Chuva por satélite indisponível agora: a fonte não respondeu e não há dado guardado.</Empty>}
       <SourceStatus status={d?.status} fetchedAt={d?.fetched_at} what="Chuva" />
-      <Note>As imagens de vegetação, temperatura, umidade do solo e focos de fogo (NASA GIBS) ficam no <Link to="/prototipo/mapa" className="font-semibold underline">Mapa vivo</Link>, camada por camada.</Note>
+      <Note>As imagens de vegetação, temperatura, umidade do solo e focos de fogo (NASA GIBS) ficam no <Link to="/mapa" className="font-semibold underline">Mapa vivo</Link>, camada por camada.</Note>
       <Footer>Fonte: NASA POWER (chuva diária e climatologia) e NASA GIBS (imagens). Consulta ao vivo, com a última resposta guardada quando a fonte está fora.</Footer>
     </div>
   )

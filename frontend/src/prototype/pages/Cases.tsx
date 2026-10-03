@@ -36,7 +36,7 @@ export default function Cases() {
           <Inbox size={36} className="mx-auto text-muted" />
           <h2 className="mt-3 text-lg font-bold">Nenhum caso enviado ainda</h2>
           <p className="mt-1 text-sm text-muted">Na tela inicial, abra um assunto e toque em “Enviar meu caso”.</p>
-          <Link to="/prototipo" className="iso-btn mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-primary px-5 font-display font-bold text-white">Ver assuntos <ArrowRight size={16} /></Link>
+          <Link to="/" className="iso-btn mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-primary px-5 font-display font-bold text-white">Ver assuntos <ArrowRight size={16} /></Link>
         </div>
       ) : (
         <ol className="space-y-4">
@@ -55,7 +55,7 @@ export default function Cases() {
                   <IsoCube size={30}>{list.length - n}</IsoCube>
                   <div className="min-w-0 flex-1">
                     {alive
-                      ? <Link to={`/prototipo/resolver/${encodeURIComponent(c.topic_key)}`} className="font-display text-base font-bold leading-snug hover:underline">{c.question}</Link>
+                      ? <Link to={`/resolver/${encodeURIComponent(c.topic_key)}`} className="font-display text-base font-bold leading-snug hover:underline">{c.question}</Link>
                       : <span className="font-display text-base font-bold leading-snug">{c.question}</span>}
                     <div className="text-xs text-muted">Protocolo {c.protocol} · {e?.name ?? c.expert_id} · {fmtDate(c.created_at)} · resposta por {c.channel}</div>
                     {c.snapshot.path_title && <div className="mt-0.5 text-xs text-muted">Caminho em que você pensava: {c.snapshot.path_title}</div>}

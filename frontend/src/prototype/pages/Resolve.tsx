@@ -157,7 +157,7 @@ export default function ResolveRoute() {
   const topic = topics.data.topics.find((t) => t.key === id)
   const sent = (cases.data ?? []).find((c) => c.topic_key === id)
   // assunto que sumiu (dado mudou) mas já tem caso enviado: mostra o caso, não o assunto
-  if (!topic) return sent ? <Navigate to="/prototipo/casos" replace /> : <Navigate to="/prototipo" replace />
+  if (!topic) return sent ? <Navigate to="/casos" replace /> : <Navigate to="/" replace />
   return <Resolve key={id} topic={topic} all={topics.data.topics} status={topics.data.sources_status} sent={sent} experts={experts.data ?? []} />
 }
 
@@ -202,7 +202,7 @@ function Resolve({ topic, all, status, sent, experts }: ResolveProps) {
       {/* Cabeçalho + progresso */}
       <div>
         <div className="flex items-center justify-between gap-3 text-sm">
-          <Link to="/prototipo" className="inline-flex items-center gap-1 font-semibold text-muted hover:text-ink"><ArrowLeft size={16} /> Início</Link>
+          <Link to="/" className="inline-flex items-center gap-1 font-semibold text-muted hover:text-ink"><ArrowLeft size={16} /> Início</Link>
           <span className="text-muted">Assunto {position} de {all.length} · {doneCount} encaminhado{doneCount === 1 ? '' : 's'}</span>
         </div>
         <div className="mt-2 flex gap-1" aria-hidden>
@@ -225,7 +225,7 @@ function Resolve({ topic, all, status, sent, experts }: ResolveProps) {
             {statusKey && <SourceStatus status={status[statusKey]} fetchedAt={'fetched_at' in ev ? ev.fetched_at : undefined} what="Dado" />}
           </div>
           {field && (
-            <Link to={`/prototipo/mapa?talhao=${field.id}`} className="iso-card group flex flex-col overflow-hidden bg-surface">
+            <Link to={`/mapa?talhao=${field.id}`} className="iso-card group flex flex-col overflow-hidden bg-surface">
               <div className="bg-gradient-to-b from-mint-soft to-surface"><IsoFarm fields={FIELDS} colorBy="crop" focusId={field.id} height={176} className="w-full" /></div>
               <div className="flex flex-1 flex-col justify-between gap-2 px-4 py-3">
                 <span><b className="block text-sm">{field.name} · {field.crop}</b><span className="text-xs text-muted">{field.area.toLocaleString('pt-BR')} ha · solo {field.soil.toLowerCase()}</span></span>
@@ -284,7 +284,7 @@ function Resolve({ topic, all, status, sent, experts }: ResolveProps) {
             <div className="flex flex-wrap items-center gap-3">
               <CheckCircle2 size={26} className="text-primary" />
               <div className="flex-1"><b className="block text-lg">Protocolo {sent.protocol}</b><span className="text-sm text-muted">{expertOf(sent.expert_id)?.name} · enviado em {fmtDate(sent.created_at)} · {expertOf(sent.expert_id)?.eta}</span></div>
-              <Link to="/prototipo/casos" className="text-sm font-semibold text-primary">Ver meus casos</Link>
+              <Link to="/casos" className="text-sm font-semibold text-primary">Ver meus casos</Link>
             </div>
             <h3 className="mt-4 text-sm font-bold">Enquanto isso, o AgroBits:</h3>
             <ul className="mt-2 space-y-1.5 text-sm">
@@ -357,13 +357,13 @@ function Resolve({ topic, all, status, sent, experts }: ResolveProps) {
       {sent && (
         <div className="flex flex-wrap gap-3 md:pl-12">
           {next ? (
-            <button onClick={() => nav(`/prototipo/resolver/${encodeURIComponent(next.key)}`)} className="iso-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3 font-display text-base font-bold text-white hover:bg-ink/90 md:w-auto">
+            <button onClick={() => nav(`/resolver/${encodeURIComponent(next.key)}`)} className="iso-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3 font-display text-base font-bold text-white hover:bg-ink/90 md:w-auto">
               Próximo assunto <ArrowRight size={18} />
             </button>
           ) : (
-            <Link to="/prototipo" className="inline-flex items-center gap-2 rounded-xl bg-ink px-6 py-3 text-base font-semibold text-white">Tudo encaminhado — voltar ao início <ArrowRight size={18} /></Link>
+            <Link to="/" className="inline-flex items-center gap-2 rounded-xl bg-ink px-6 py-3 text-base font-semibold text-white">Tudo encaminhado — voltar ao início <ArrowRight size={18} /></Link>
           )}
-          <Link to="/prototipo/assistente" className="inline-flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-muted hover:bg-surface hover:text-ink"><Bot size={16} /> Tirar dúvida sobre os dados</Link>
+          <Link to="/assistente" className="inline-flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-muted hover:bg-surface hover:text-ink"><Bot size={16} /> Tirar dúvida sobre os dados</Link>
         </div>
       )}
     </div>

@@ -65,7 +65,7 @@ if (Test-Path .env) {
     if ($l -match '^(AGROBITS|AGROIA)_LLM_MODEL=(.+)$') { $iaModel = $Matches[2] }
   }
 }
-$url = "http://localhost:5173/prototipo"
+$url = "http://localhost:5173"
 Say "Pronto!"
 Write-Host "   Prototipo:  $url"
 Write-Host "   App:        http://localhost:5173"

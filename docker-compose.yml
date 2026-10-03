@@ -1,5 +1,5 @@
 # AgroBits com Docker: `docker compose up` sobe API (8000) + interface (5173).
-#   Protótipo: http://localhost:5173/prototipo · App: http://localhost:5173 · API: http://localhost:8000/docs
+#   AgroBits: http://localhost:5173 · App antigo: http://localhost:5173/legado · API: http://localhost:8000/docs
 # Código e dados ficam no seu computador (volumes): editar e salvar recarrega sozinho.
 services:
   backend:

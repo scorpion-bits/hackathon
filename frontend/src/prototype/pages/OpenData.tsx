@@ -74,7 +74,7 @@ function Funnel() {
   return (
     <Card
       title={<span className="inline-flex items-center gap-2"><Filter size={16} className="text-primary" /> Do volume bruto ao que importa para você</span>}
-      action={<Link to="/prototipo/contexto" className="text-xs font-medium text-primary hover:underline">filtros vêm do seu contexto.md →</Link>}
+      action={<Link to="/contexto" className="text-xs font-medium text-primary hover:underline">filtros vêm do seu contexto.md →</Link>}
     >
       <p className="mb-4 text-sm text-muted">
         Você não precisa ler {fmtInt(vals[0])} linhas. O AgroBits usa o que você contou na entrevista para filtrar,

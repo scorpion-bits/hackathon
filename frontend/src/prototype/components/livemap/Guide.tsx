@@ -106,7 +106,7 @@ export function Guide(p: {
               p.place === 'brazil' ? 'text-white' : 'text-white/60 hover:text-white')}>
             <Earth size={15} /> Ver o Brasil todo
           </button>
-          <Link to="/prototipo/talhoes"
+          <Link to="/talhoes"
             className="flex shrink-0 items-center gap-1.5 rounded-xl bg-white/5 px-3 py-2 text-xs font-semibold text-emerald-200 ring-1 ring-emerald-300/30 hover:bg-emerald-400/15 lg:-mt-1 lg:self-stretch lg:justify-center">
             <Pencil size={14} /> Adicionar ou editar talhões
           </Link>

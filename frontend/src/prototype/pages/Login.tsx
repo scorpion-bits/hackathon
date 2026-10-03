@@ -1,5 +1,5 @@
 // LOGIN / CRIAR CONTA (M1, D-018). Chama a API de contas: /api/auth/register, /login, /demo.
-// Rota: /prototipo/entrar → sem entrevista vai para /prototipo/entrevista; com entrevista vai para /prototipo.
+// Rota: /entrar → sem entrevista vai para /entrevista; com entrevista vai para /.
 import clsx from 'clsx'
 import { ArrowRight, Check, Eye, EyeOff, Filter, Info, Lock, LoaderCircle, Mail, MessageCircle, ShieldCheck, Sparkles, Sprout, UserRound, WifiOff } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
@@ -11,7 +11,6 @@ import { ApiError, apiPost } from '../api/client'
 import { signIn } from '../api/session'
 import type { Me } from '../api/session'
 import { ProtoStyles } from '../components/interview/ui'
-import { ProtoBanner } from '../components/Shell'
 import { nfmt, useTotalRecords } from '../api/opendata'
 import { Logo } from '../components/Brand'
 
@@ -67,8 +66,8 @@ function useApiRequest() {
 
 /** Depois de entrar: sem entrevista → entrevista; com entrevista → início. */
 function goAfterLogin(nav: NavigateFunction, me: Me, name?: string) {
-  if (me.has_interview) nav('/prototipo')
-  else nav('/prototipo/entrevista', { state: { name: name ?? (me.producer.name === 'Visitante' ? undefined : me.producer.name) } })
+  if (me.has_interview) nav('/')
+  else nav('/entrevista', { state: { name: name ?? (me.producer.name === 'Visitante' ? undefined : me.producer.name) } })
 }
 
 function OfflineNote({ msg }: { msg?: string }) {
@@ -315,7 +314,6 @@ export default function Login() {
   return (
     <div className="flex min-h-full flex-col bg-bg">
       <ProtoStyles />
-      <ProtoBanner />
       <div className="grid flex-1 lg:grid-cols-[1.05fr_1fr]">
         <Pitch />
 

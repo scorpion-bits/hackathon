@@ -2,7 +2,7 @@
 # Sobe o AgroBits localmente (API + interface) com um comando só.
 #
 #   ./dev.sh            API (8000) + interface (5173)
-#   ./dev.sh --proto    só a interface — basta para o protótipo em /prototipo
+#   ./dev.sh --proto    só a interface (sem API; as telas precisam da API para dados)
 #   ./dev.sh --reset    recria a propriedade de demonstração antes de subir
 #   ./dev.sh --sync     confere no portal do MAPA se as bases mudaram (baixa só o que mudou)
 #
@@ -153,13 +153,13 @@ PIDS+=($!)
 sleep 3
 echo
 say "Pronto! (Ctrl+C para parar)"
-echo "   Protótipo visual:  http://localhost:5173/prototipo"
+echo "   AgroBits:          http://localhost:5173"
 echo "   $(ia_status)"
 if [[ $PROTO -eq 0 ]]; then
-  echo "   App funcional:     http://localhost:5173"
+  echo "   App antigo:        http://localhost:5173/legado"
   echo "   API (docs):        http://localhost:8000/docs"
 fi
 echo
-if command -v xdg-open >/dev/null; then xdg-open http://localhost:5173/prototipo >/dev/null 2>&1 || true; fi
+if command -v xdg-open >/dev/null; then xdg-open http://localhost:5173 >/dev/null 2>&1 || true; fi
 
 wait -n 2>/dev/null || wait

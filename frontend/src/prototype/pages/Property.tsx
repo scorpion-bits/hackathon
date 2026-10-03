@@ -68,9 +68,9 @@ function FieldCard({ f, topic }: { f: MapField; topic?: Topic }) {
         ) : <p className="text-sm leading-relaxed text-muted">Nenhum assunto novo para este talhão hoje: cruzamos os dados oficiais com o seu cadastro.</p>}
       </div>
       <footer className="flex gap-2 border-t border-border bg-bg/60 px-4 py-2.5">
-        <Link to={`/prototipo/mapa?talhao=${f.id}`} className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted hover:bg-surface hover:text-ink"><MapIcon size={14} /> Ver no mapa</Link>
-        <Link to={`/prototipo/talhoes?de=propriedade&talhao=${f.id}`} className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted hover:bg-surface hover:text-ink"><Pencil size={14} /> Editar</Link>
-        <Link to="/prototipo/assistente" className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-primary-dark hover:bg-primary-soft"><Bot size={14} /> Perguntar à IA</Link>
+        <Link to={`/mapa?talhao=${f.id}`} className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted hover:bg-surface hover:text-ink"><MapIcon size={14} /> Ver no mapa</Link>
+        <Link to={`/talhoes?de=propriedade&talhao=${f.id}`} className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted hover:bg-surface hover:text-ink"><Pencil size={14} /> Editar</Link>
+        <Link to="/assistente" className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-primary-dark hover:bg-primary-soft"><Bot size={14} /> Perguntar à IA</Link>
       </footer>
     </article>
   )
@@ -85,7 +85,7 @@ function Overview({ topics }: { topics: Topic[] }) {
       <section className="flex flex-col overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
         <header className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
           <h2 className="inline-flex items-center gap-2 text-sm font-semibold text-ink"><MapIcon size={15} className="text-primary" /> {PRODUCER.farm} · {PRODUCER.municipality}/{PRODUCER.uf}</h2>
-          <Link to="/prototipo/talhoes?de=propriedade" className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-dark"><Pencil size={13} /> Editar talhões</Link>
+          <Link to="/talhoes?de=propriedade" className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-dark"><Pencil size={13} /> Editar talhões</Link>
         </header>
         <div className="flex-1 bg-gradient-to-b from-mint-soft to-surface"><IsoFarm fields={FIELDS} colorBy="crop" height={240} className="w-full" /></div>
       </section>
@@ -93,7 +93,7 @@ function Overview({ topics }: { topics: Topic[] }) {
         <Stat label="Área total" value={`${total.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} ha`} hint={`${FIELDS.length} ${FIELDS.length === 1 ? 'talhão desenhado' : 'talhões desenhados'} no mapa`} icon={<Ruler size={16} />} />
         <Stat label="Sem lavoura em pé" value={`${toPlant} ${toPlant === 1 ? 'talhão' : 'talhões'}`} hint="aguardando plantio" icon={<Sprout size={16} />} tone="amber" />
         <div className="col-span-2 lg:col-span-1">
-          <Link to="/prototipo"><Stat label="Pede atenção" value={`${urgent.length} ${urgent.length === 1 ? 'assunto' : 'assuntos'}`} hint={urgent[0]?.question ?? 'nada urgente hoje'} icon={<AlertTriangle size={16} />} tone="red" /></Link>
+          <Link to="/"><Stat label="Pede atenção" value={`${urgent.length} ${urgent.length === 1 ? 'assunto' : 'assuntos'}`} hint={urgent[0]?.question ?? 'nada urgente hoje'} icon={<AlertTriangle size={16} />} tone="red" /></Link>
         </div>
       </div>
     </div>
@@ -291,7 +291,7 @@ export default function Property() {
       {tab === 'talhoes' && (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {FIELDS.map((f) => <FieldCard key={f.id} f={f} topic={topics.find((t) => t.field_id === f.id)} />)}
-          <Link to="/prototipo/talhoes?de=propriedade" className="grid min-h-48 place-items-center rounded-xl border-2 border-dashed border-border text-center text-sm font-semibold text-muted transition hover:border-primary hover:bg-primary-soft/40 hover:text-primary">
+          <Link to="/talhoes?de=propriedade" className="grid min-h-48 place-items-center rounded-xl border-2 border-dashed border-border text-center text-sm font-semibold text-muted transition hover:border-primary hover:bg-primary-soft/40 hover:text-primary">
             <span><Plus size={28} className="mx-auto mb-1" />Adicionar ou editar talhões<span className="block text-xs font-normal">abre o mapa para desenhar</span></span>
           </Link>
         </div>

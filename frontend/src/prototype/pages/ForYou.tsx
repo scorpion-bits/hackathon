@@ -23,7 +23,7 @@ const PRIORITY = {
 
 // Fontes oficiais que alimentam a tela (mostradas como "de onde vem").
 const HERO_SOURCES = ['Zarc · MAPA', 'Agrofit · MAPA', 'Seguro Rural · MAPA', 'SIPEAGRO · MAPA', 'NASA POWER', 'Open-Meteo']
-const enc = (key: string) => `/prototipo/resolver/${encodeURIComponent(key)}`
+const enc = (key: string) => `/resolver/${encodeURIComponent(key)}`
 
 function Origin({ it }: { it: Topic }) {
   const main = it.sources[0]
@@ -182,7 +182,7 @@ export default function ForYou() {
             </div>
           )}
 
-          <Link to="/prototipo/contexto" className="flex items-center gap-2 rounded-xl px-1 text-sm text-muted hover:text-ink">
+          <Link to="/contexto" className="flex items-center gap-2 rounded-xl px-1 text-sm text-muted hover:text-ink">
             <SlidersHorizontal size={15} className="text-primary" />
             Assuntos escolhidos a partir do seu contexto: {FIELDS.length} {FIELDS.length === 1 ? 'talhão' : 'talhões'}{crops.length ? ` · ${crops.join(', ').toLowerCase()}` : ''}.
             <span className="font-semibold text-primary">Ajustar</span>
@@ -191,7 +191,7 @@ export default function ForYou() {
 
         {/* 3. Lateral: só o que se lê num relance */}
         <aside className="space-y-6">
-          <Link to="/prototipo/mapa" className="iso-card group block overflow-hidden bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+          <Link to="/mapa" className="iso-card group block overflow-hidden bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
             <div className="bg-gradient-to-b from-mint-soft to-surface"><IsoFarm fields={FIELDS} height={190} className="w-full" /></div>
             <div className="flex items-center justify-between px-4 py-3">
               <span>
@@ -228,7 +228,7 @@ export default function ForYou() {
             )}
           </section>
 
-          <Link to="/prototipo/dados" className="flex items-center gap-3 rounded-2xl bg-primary-soft/60 p-4 text-sm ring-1 ring-primary/20 hover:bg-primary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+          <Link to="/dados" className="flex items-center gap-3 rounded-2xl bg-primary-soft/60 p-4 text-sm ring-1 ring-primary/20 hover:bg-primary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
             <Database size={20} className="shrink-0 text-primary" />
             <span className="flex-1"><b>{sources ? `${sources.length} fontes oficiais` : 'Fontes oficiais'}</b>{checked ? ` · base do MAPA conferida em ${fmtWhen(checked)}` : ''}<br /><span className="text-xs text-muted">Ver todos os dados abertos</span></span>
             <ArrowRight size={16} className="text-primary" />

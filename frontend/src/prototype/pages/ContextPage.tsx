@@ -33,7 +33,7 @@ export default function ContextPage() {
       <div className="mx-auto max-w-xl rounded-2xl bg-surface p-6 text-center ring-1 ring-border">
         <h1 className="text-xl font-bold">Seu contexto ainda não existe</h1>
         <p className="mt-1 text-sm text-muted">{onboarding.error ?? 'Ele é escrito a partir da entrevista inicial.'}</p>
-        <Link to="/prototipo/entrevista" className="iso-btn mt-4 inline-flex min-h-11 items-center rounded-xl bg-primary px-5 font-display font-bold text-white">Fazer a entrevista</Link>
+        <Link to="/entrevista" className="iso-btn mt-4 inline-flex min-h-11 items-center rounded-xl bg-primary px-5 font-display font-bold text-white">Fazer a entrevista</Link>
       </div>
     )
   }
@@ -81,7 +81,7 @@ function ContextDoc({ initial }: { initial: string }) {
         subtitle="O arquivo que os agentes de IA leem para saber quem você é e filtrar só o que serve para você."
         actions={<>
           <Button variant="secondary" onClick={() => { setDraft(text); setEditing(true); setMode('doc') }}><Pencil size={15} /> Editar</Button>
-          <Button variant="secondary" onClick={() => nav('/prototipo/entrevista')}><RefreshCcw size={15} /> Refazer entrevista</Button>
+          <Button variant="secondary" onClick={() => nav('/entrevista')}><RefreshCcw size={15} /> Refazer entrevista</Button>
           <Button onClick={download}><Download size={15} /> Baixar contexto.md</Button>
         </>}
       />
@@ -144,7 +144,7 @@ function ContextDoc({ initial }: { initial: string }) {
             <Lock size={16} className="mt-0.5 shrink-0 text-primary" />
             <p><b className="text-ink">Privacidade:</b> este arquivo descreve só a sua propriedade. Não vendemos nem repassamos seus dados.</p>
           </div>
-          <Link to="/prototipo/dados" className="block rounded-xl bg-sidebar p-4 text-sm text-white hover:opacity-95">
+          <Link to="/dados" className="block rounded-xl bg-sidebar p-4 text-sm text-white hover:opacity-95">
             <div className="text-xs uppercase tracking-wide text-white/60">Resultado do filtro</div>
             <div className="mt-1 text-lg font-bold">{funnel.length ? `${nfmt(funnel[0].value)} → ${nfmt(funnel[funnel.length - 1].value)}` : '…'}</div>
             <div className="text-xs text-white/70">Ver o funil completo em Dados abertos →</div>

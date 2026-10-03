@@ -8,24 +8,14 @@ import { logout, useMe } from '../api/session'
 import { Logo } from './Brand'
 
 const NAV = [
-  { to: '/prototipo', label: 'Para você', icon: Home, end: true },
-  { to: '/prototipo/casos', label: 'Meus casos', icon: Inbox },
-  { to: '/prototipo/mapa', label: 'Mapa vivo', icon: Globe2 },
-  { to: '/prototipo/dados', label: 'Dados abertos', icon: Database },
-  { to: '/prototipo/propriedade', label: 'Minha propriedade', icon: Sprout },
-  { to: '/prototipo/assistente', label: 'Pergunte à IA', icon: Bot },
-  { to: '/prototipo/contexto', label: 'Meu contexto', icon: FileText },
+  { to: '/', label: 'Para você', icon: Home, end: true },
+  { to: '/casos', label: 'Meus casos', icon: Inbox },
+  { to: '/mapa', label: 'Mapa vivo', icon: Globe2 },
+  { to: '/dados', label: 'Dados abertos', icon: Database },
+  { to: '/propriedade', label: 'Minha propriedade', icon: Sprout },
+  { to: '/assistente', label: 'Pergunte à IA', icon: Bot },
+  { to: '/contexto', label: 'Meu contexto', icon: FileText },
 ]
-
-export function ProtoBanner() {
-  const demo = !!useMe().me?.producer.is_demo
-  return (
-    <div className="bg-accent px-4 py-1 text-center text-[11px] font-semibold uppercase tracking-wide text-white">
-      <span className="sm:hidden">{demo ? 'Dados abertos reais · conta fictícia' : 'Hackathon · dados abertos reais'}</span>
-      <span className="hidden sm:inline">{demo ? 'Dados abertos reais (MAPA, NASA, Open-Meteo) · só a conta, a propriedade e os casos são fictícios' : 'Versão do hackathon · dados abertos reais (MAPA, NASA, Open-Meteo)'}</span>
-    </div>
-  )
-}
 
 /** Selo das contas de demonstração (D-022): dados de conta fictícios. */
 export function DemoSeal({ className }: { className?: string }) {
@@ -35,13 +25,12 @@ export function DemoSeal({ className }: { className?: string }) {
 export function Shell({ children, full }: { children: ReactNode; full?: boolean }) {
   const nav = useNavigate()
   const { me } = useMe()
-  const exit = () => { logout().finally(() => nav('/prototipo/entrar')) }
+  const exit = () => { logout().finally(() => nav('/entrar')) }
   const firstName = me?.producer.name.split(/\s+/)[0]
   const sources = useSources().data
   const checked = (sources ?? []).map((x) => x.checked_at).filter(Boolean).sort().pop()
   return (
     <div className="flex h-full flex-col">
-      <ProtoBanner />
       {me && (
         // celular: conta + Sair (a barra lateral some em telas pequenas)
         <div className="flex items-center justify-between gap-2 bg-sidebar px-4 py-1.5 text-xs text-white/80 md:hidden">
@@ -79,7 +68,7 @@ export function Shell({ children, full }: { children: ReactNode; full?: boolean 
       {/* Celular: menu inferior (a barra lateral some em telas pequenas) */}
       <nav aria-label="Menu principal" className="grid shrink-0 grid-cols-5 border-t border-white/10 bg-sidebar md:hidden">
         {/* celular: as 5 mais usadas (IA e Contexto ficam acessíveis pelas telas) */}
-        {NAV.filter((n) => !['/prototipo/contexto', '/prototipo/assistente'].includes(n.to)).map(({ to, label, icon: Icon, end }) => (
+        {NAV.filter((n) => !['/contexto', '/assistente'].includes(n.to)).map(({ to, label, icon: Icon, end }) => (
           <NavLink key={to} to={to} end={end} className={({ isActive }) => clsx('flex min-h-14 flex-col items-center justify-center gap-0.5 px-1 py-2 text-[11px] font-medium',
             isActive ? 'text-[#7fd6a0]' : 'text-white/70')}>
             <Icon size={20} /> <span className="truncate">{label.replace('Minha propriedade', 'Propriedade').replace('Dados abertos', 'Dados').replace('Para você', 'Início').replace('Meus casos', 'Casos')}</span>

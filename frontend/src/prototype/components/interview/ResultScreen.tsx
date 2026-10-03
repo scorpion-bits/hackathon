@@ -6,21 +6,26 @@ import { SOURCES } from '../../mock'
 import { SOURCE_SHORT, buildContextMd, cropLabels, sourceReasons, totalHa, withDefaults } from './context'
 import type { Answers } from './types'
 import { fmtHa } from './format'
+import { nfmt, useSources } from '../../api/opendata'
 import { ContextSummary } from './ContextSummary'
 
 const STEP_MS = 1000
 
+/** Contagens vêm de /api/opendata/sources (D-022); sem a contagem, a linha não cita número. */
 function useProcessingLines(a: Answers) {
+  const sources = useSources().data
   return useMemo(() => {
+    const n = (key: string) => sources?.find((x) => x.key === key)?.records ?? null
+    const of = (v: number | null, what: string) => (v ? `${nfmt(v)} ${what}` : what)
     const crops = cropLabels(a).map((c) => c.toLowerCase())
     const mun = a.municipality ? `${a.municipality.name}/${a.municipality.uf}` : 'a sua região'
     return [
-      `Cruzando 1.984.463 linhas do Zarc com ${a.fields.length ? `seus ${a.fields.length} ${a.fields.length > 1 ? 'talhões' : 'talhão'}` : 'o seu município'}…`,
-      `Filtrando 280.159 registros do Agrofit ${crops.length ? `pelas suas culturas (${crops.join(', ')})` : 'pelo seu perfil'}…`,
+      `Cruzando ${of(n('zarc'), 'linhas do Zarc')} com ${a.fields.length ? `seus ${a.fields.length} ${a.fields.length > 1 ? 'talhões' : 'talhão'}` : 'o seu município'}…`,
+      `Filtrando ${of(n('agrofit'), 'registros do Agrofit')} ${crops.length ? `pelas suas culturas (${crops.join(', ')})` : 'pelo seu perfil'}…`,
       `Buscando a previsão do tempo e imagens de satélite sobre ${mun}…`,
-      `Conferindo 46.137 apólices de seguro rural e 27.293 registros de drones perto de você…`,
+      `Conferindo ${of(n('psr'), 'apólices de seguro rural')} e ${of(n('sipeagro_aviacao'), 'registros de aviação agrícola')} perto de você…`,
     ]
-  }, [a])
+  }, [a, sources])
 }
 
 export function ResultScreen({ answers, onEdit, onFinish, saving = false, error }: {

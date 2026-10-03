@@ -22,7 +22,7 @@ propriedade) **não são publicadas** neste repositório (`data/restricted/`, fo
 **agregadas por município**, com supressão de grupos com menos de 3 registros.
 O produtor da demonstração (João, Sítio Boa Esperança) é **fictício** e rotulado como tal na interface.
 
-**Contas (M1):** tela `/prototipo/entrar` → criar conta (senha com hash), entrar, **"Entrar como João (demo)"**
+**Contas (M1):** tela `/entrar` → criar conta (senha com hash), entrar, **"Entrar como João (demo)"**
 (volta sempre ao estado inicial; também dá para entrar com `joao@demo.agrobits` / `demo1234`) ou
 **"Experimentar como novo usuário"** (conta vazia). Os dados do João ficam em `backend/app/fixtures/demo/joao.json`.
 Se o esquema do banco mudar, os scripts de subir recriam o `data/app.db` sozinhos.
@@ -49,7 +49,7 @@ Requisito: Docker Desktop (Windows/Mac) ou Docker Engine + Compose (Linux).
 docker compose up --build     # 1ª vez: baixa e instala tudo (~3–5 min); gera os bancos se faltarem
 docker compose up             # das próximas vezes: sobe em segundos
 ```
-- Protótipo: http://localhost:5173/prototipo · App: http://localhost:5173 · API: http://localhost:8000/docs
+- AgroBits: http://localhost:5173 · App antigo: http://localhost:5173/legado · API: http://localhost:8000/docs
 - `RESET=1 docker compose up` recria a propriedade de demonstração · `SYNC=1 docker compose up` confere o portal do MAPA
 - `docker compose down` para tudo. Código e bancos ficam na sua pasta (`./data`): editar e salvar recarrega sozinho.
 - Recarga não funciona no Windows/WSL? Use `POLLING=true docker compose up`.
@@ -59,7 +59,7 @@ docker compose up             # das próximas vezes: sobe em segundos
 Requisitos: Python 3.11+, Node 20+.
 
 **Atalho (Linux/macOS/WSL):** `./dev.sh` faz tudo abaixo e sobe API + interface (Ctrl+C para parar).
-`./dev.sh --proto` sobe só a interface (suficiente para `/prototipo`); `./dev.sh --reset` recria a demo;
+`./dev.sh --proto` sobe só a interface (só telas, sem API); `./dev.sh --reset` recria a demo;
 `./dev.sh --sync` confere no portal do MAPA se alguma base mudou antes de subir.
 
 **Dados sempre atuais:** `python scripts/fetch_opendata.py` consulta a API CKAN de dados.agricultura.gov.br,

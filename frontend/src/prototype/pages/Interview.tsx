@@ -1,10 +1,9 @@
 // ENTREVISTA do produtor (protótipo visual, D-009): wizard de cartões/chips que gera o contexto.md.
-// Rota: /prototipo/entrevista. Sem Shell, tela cheia. Nada aqui chama a API.
+// Rota: /entrevista. Sem Shell, tela cheia. Nada aqui chama a API.
 import clsx from 'clsx'
 import { ArrowLeft, ArrowRight, ChevronDown, Sparkles } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
-import { ProtoBanner } from '../components/Shell'
 import { Logo } from '../components/Brand'
 import { LiveSummary, SourceMeter } from '../components/interview/LiveSummary'
 import { PropertyMap } from '../components/interview/PropertyMap'
@@ -90,7 +89,7 @@ export default function Interview() {
       await refreshMe()
       replaceFromServer(saved.fields.map(fromApi), saved.fields)
       reloadPrefix('/topics', '/opendata', '/weather', '/climate', '/onboarding') // outra propriedade/município: tudo se refaz
-      nav('/prototipo')
+      nav('/')
     } catch (e) {
       setSaveError((e as Error).message)
     } finally {
@@ -150,7 +149,6 @@ export default function Interview() {
   return (
     <div className="flex h-full flex-col bg-bg">
       <ProtoStyles />
-      <ProtoBanner />
 
       <header className="shrink-0 border-b border-border bg-surface">
         <div className="flex h-14 items-center gap-3 px-4">
@@ -159,7 +157,7 @@ export default function Interview() {
           <div className="ml-auto flex items-center gap-4 text-sm">
             {step > 0 && !isResult && <span className="font-medium text-muted tabular-nums">Etapa {step} de {QUESTIONS}</span>}
             {isResult && <span className="font-medium text-primary-dark">Última etapa</span>}
-            <button type="button" onClick={() => nav('/prototipo/entrar')} className="rounded-lg px-2 py-1 text-muted hover:bg-bg hover:text-ink">Sair</button>
+            <button type="button" onClick={() => nav('/entrar')} className="rounded-lg px-2 py-1 text-muted hover:bg-bg hover:text-ink">Sair</button>
           </div>
         </div>
         <div className="h-1.5 bg-border" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} aria-label="Progresso da entrevista">

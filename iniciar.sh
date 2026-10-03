@@ -74,7 +74,7 @@ ia_status() {
   if [[ -n "$key" && -n "$model" ]]; then echo "IA: ligada ($model)"; else echo "IA: modo offline (sem chave) — veja docs/implementacao/M5-ia.md"; fi
 }
 
-URL="http://localhost:5173/prototipo"
+URL="http://localhost:5173"
 say "Pronto!"
 echo "   Protótipo:  $URL"
 echo "   App:        http://localhost:5173"

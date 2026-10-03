@@ -47,7 +47,7 @@ function AiBubble({ m }: { m: Msg }) {
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-muted">
           <span>{m.time}</span>
           {m.mode && <span className="rounded bg-bg px-1.5 py-0.5 font-bold uppercase tracking-wide ring-1 ring-border">{m.mode === 'llm' ? 'IA' : 'modo offline'}</span>}
-          <Link to="/prototipo/casos" className="ml-auto inline-flex items-center gap-1 font-medium text-primary-dark hover:underline">Levar a um técnico <ArrowRight size={11} /></Link>
+          <Link to="/casos" className="ml-auto inline-flex items-center gap-1 font-medium text-primary-dark hover:underline">Levar a um técnico <ArrowRight size={11} /></Link>
         </div>
       </div>
     </div>
@@ -124,7 +124,7 @@ export default function Assistant() {
 
       <div className="mb-3 flex items-start gap-2 rounded-xl bg-straw-soft px-3 py-2.5 text-sm ring-1 ring-straw/40">
         <ShieldCheck size={17} className="mt-0.5 shrink-0 text-accent" />
-        <span><b>A IA explica dados, não dá receita.</b> Para decidir sobre plantio, adubo ou defensivo, leve o caso a um técnico da assistência pública — é de graça. <Link to="/prototipo/casos" className="font-semibold text-primary-dark underline">Meus casos</Link></span>
+        <span><b>A IA explica dados, não dá receita.</b> Para decidir sobre plantio, adubo ou defensivo, leve o caso a um técnico da assistência pública — é de graça. <Link to="/casos" className="font-semibold text-primary-dark underline">Meus casos</Link></span>
       </div>
 
       <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-xl border border-primary/25 bg-primary-soft/60 px-4 py-3">
@@ -132,7 +132,7 @@ export default function Assistant() {
         <div className="text-sm text-primary-dark">
           {status ? (llm ? <><b>IA ligada</b> ({status.model}) · lê dados oficiais com ferramentas</> : <><b>Modo offline</b> (sem chave) · responde com os mesmos dados oficiais, sem modelo de IA</>) : 'Conectando…'}
         </div>
-        <Link to="/prototipo/contexto" className="ml-auto inline-flex items-center gap-1 text-sm font-medium text-primary-dark hover:underline">Ver meu contexto <ArrowRight size={14} /></Link>
+        <Link to="/contexto" className="ml-auto inline-flex items-center gap-1 text-sm font-medium text-primary-dark hover:underline">Ver meu contexto <ArrowRight size={14} /></Link>
       </div>
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">

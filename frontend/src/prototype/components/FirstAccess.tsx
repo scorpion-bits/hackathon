@@ -42,7 +42,7 @@ export function FirstAccessCard({ where }: { where?: string }) {
           ))}
         </ol>
         <div className="border-t border-border p-5 md:px-8">
-          <Link to="/prototipo/entrevista" state={{ name: me?.producer.name }}
+          <Link to="/entrevista" state={{ name: me?.producer.name }}
             className="iso-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-display text-base font-bold text-white hover:bg-primary-dark sm:w-auto">
             Começar <ArrowRight size={18} />
           </Link>

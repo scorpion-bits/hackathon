@@ -145,13 +145,13 @@ export function FieldCard({ id, date, onClose, embedded }: { id: number; date: D
         </Row>
       </div>
       {insight && (
-        <Link to={`/prototipo/resolver/${encodeURIComponent(insight.key)}`} className={clsx('mt-3 block rounded-lg p-2.5 text-[13px] font-medium ring-1',
+        <Link to={`/resolver/${encodeURIComponent(insight.key)}`} className={clsx('mt-3 block rounded-lg p-2.5 text-[13px] font-medium ring-1',
           insight.priority === 'agir' ? 'bg-red-500/15 text-red-100 ring-red-300/30' : insight.priority === 'atencao' ? 'bg-amber-400/15 text-amber-100 ring-amber-300/30' : 'bg-emerald-400/15 text-emerald-100 ring-emerald-300/30')}>
           <div className="text-[10px] font-bold uppercase tracking-wide opacity-80">Recomendação para este talhão</div>
           {insight.title}
         </Link>
       )}
-      <Link to={`/prototipo/talhoes?talhao=${f.id}`} className="mt-3 flex items-center justify-center gap-1.5 rounded-lg bg-white/10 py-2 text-[13px] font-semibold text-white hover:bg-white/20">
+      <Link to={`/talhoes?talhao=${f.id}`} className="mt-3 flex items-center justify-center gap-1.5 rounded-lg bg-white/10 py-2 text-[13px] font-semibold text-white hover:bg-white/20">
         <Pencil size={14} /> Editar este talhão (formato, cultura, solo)
       </Link>
     </div>

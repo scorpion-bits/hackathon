@@ -14,7 +14,7 @@ export default function FieldsEditor() {
   const { me } = useMe()
   const nav = useNavigate()
   const [params] = useSearchParams()
-  const from = params.get('de') === 'propriedade' ? '/prototipo/propriedade' : '/prototipo/mapa'
+  const from = params.get('de') === 'propriedade' ? '/propriedade' : '/mapa'
   const initial = Number(params.get('talhao')) || null
 
   if (sync.status === 'loading') {
@@ -51,9 +51,9 @@ export default function FieldsEditor() {
               ) : (
                 <p className="flex items-center gap-2 text-sm text-primary-dark"><CheckCircle2 size={16} /> Alterações salvas na sua conta</p>
               )}
-              <button onClick={() => nav(from === '/prototipo/mapa' ? '/prototipo/mapa' : from)}
+              <button onClick={() => nav(from === '/mapa' ? '/mapa' : from)}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-[15px] font-semibold text-white hover:bg-primary-dark">
-                <Globe2 size={17} /> {from === '/prototipo/mapa' ? 'Ver no mapa vivo' : 'Voltar para Minha propriedade'}
+                <Globe2 size={17} /> {from === '/mapa' ? 'Ver no mapa vivo' : 'Voltar para Minha propriedade'}
               </button>
             </div>
           }
