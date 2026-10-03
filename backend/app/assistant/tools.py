@@ -58,10 +58,12 @@ def get_field(session: Session, field: str, **_):
     events = session.scalars(select(Event).where(Event.field_id == f.id).order_by(Event.date.desc()).limit(8)).all()
     d["timeline"] = [{"date": e.date.isoformat(), "type": e.type, "title": e.title, "details": e.details,
                       "inputs": [f"{m.quantity:g} {m.item.unit} {m.item.name}" for m in e.movements]} for e in events]
-    z = od.zarc_for(farm.geocode, d["status"]["crop"] or f.crop, f.soil, f.irrigated)
+    # risco de HOJE vale para a cultura que está no talhão (se plantado) ou para a PLANEJADA — nunca a da safra já colhida
+    crop = (d["status"]["crop"] if d["status"]["stage"] == "plantado" else None) or f.crop
+    z = od.zarc_for(farm.geocode, crop, f.soil, f.irrigated)
     if z.get("available"):
         dec = od.decendio(fd.today())
-        d["zarc_today"] = {"risk": od.risk_text(z["risk"][dec - 1]), "decendio": od.decendio_label(dec),
+        d["zarc_today"] = {"crop": z["crop"], "risk": od.risk_text(z["risk"][dec - 1]), "decendio": od.decendio_label(dec),
                            "safra": z["safra"], "notes": z["notes"]}
     return d, [SYSTEM_SOURCE] + ([z["source"]] if z.get("available") else [])
 

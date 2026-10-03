@@ -43,10 +43,11 @@ function ZarcStrip({ values, labels, today }: { values: number[]; labels: string
           const dec = from + i + 1
           const isToday = dec === today
           return (
-            <div key={dec} className="flex flex-1 flex-col items-center gap-1">
+            // celular: 8 barras (as 4 últimas só a partir de 640 px), para caber no cartão sem vazar
+            <div key={dec} className={clsx('min-w-0 flex-1 flex-col items-center gap-1', i >= 8 ? 'hidden sm:flex' : 'flex')}>
               <span className={clsx('text-[11px] font-bold', r ? 'text-ink' : 'text-muted')}>{r ? `${r}%` : '—'}</span>
               <div className={clsx('w-full rounded', RISK_BG(r), isToday && 'ring-2 ring-ink ring-offset-2')} style={{ height: r ? 18 + r * 1.4 : 10 }} />
-              <span className={clsx('text-[10px] leading-tight', isToday ? 'font-bold text-ink' : 'text-muted')}>{shortLabel(labels[dec - 1] ?? '')}</span>
+              <span className={clsx('whitespace-nowrap text-[10px] leading-tight', isToday ? 'font-bold text-ink' : 'text-muted')}>{shortLabel(labels[dec - 1] ?? '')}</span>
             </div>
           )
         })}
@@ -283,7 +284,7 @@ function Resolve({ topic, all, status, sent, experts }: ResolveProps) {
           <div className="iso-card bg-surface p-5">
             <div className="flex flex-wrap items-center gap-3">
               <CheckCircle2 size={26} className="text-primary" />
-              <div className="flex-1"><b className="block text-lg">Protocolo {sent.protocol}</b><span className="text-sm text-muted">{expertOf(sent.expert_id)?.name} · enviado em {fmtDate(sent.created_at)} · {expertOf(sent.expert_id)?.eta}</span></div>
+              <div className="min-w-[13rem] flex-1"><b className="block text-lg">Protocolo {sent.protocol}</b><span className="text-sm text-muted">{expertOf(sent.expert_id)?.name} · enviado em {fmtDate(sent.created_at)} · {expertOf(sent.expert_id)?.eta}</span></div>
               <Link to="/casos" className="text-sm font-semibold text-primary">Ver meus casos</Link>
             </div>
             <Link to={`/tecnico/caso/${sent.id}`} className="iso-btn mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-sidebar px-4 font-display text-sm font-bold text-white">Ver como o técnico recebe →</Link>
