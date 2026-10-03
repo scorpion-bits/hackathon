@@ -112,6 +112,7 @@ if [[ $PROTO -eq 0 ]]; then
     python scripts/seed_demo.py --if-needed
   fi
 
+  [[ -f .env || ! -f .env.avaliacao ]] || cp .env.avaliacao .env   # chave da avaliação (ver README)
   [[ -f .env ]] && { set -a; source .env; set +a; }
 fi
 

@@ -48,22 +48,19 @@ Na primeira vez, todos os caminhos levam **3–5 min** (instalam dependências e
 `data/raw/`); depois sobem em segundos. É preciso **internet** na primeira vez (dependências) e para os dados ao vivo
 (clima, NASA, ANA, IBGE). Sem internet, o app funciona com as bases locais do MAPA e com o último dado guardado, com data.
 
-## Configuração da IA (opcional) — arquivo `.env`
-Sem chave, o assistente funciona em **modo offline**: responde com os mesmos dados reais e as mesmas regras, sem LLM.
-Para ligar a IA (Groq, gratuito):
+## Configuração da IA — já vem pronta para a avaliação
+**Não é preciso configurar nada.** O repositório (privado) traz o arquivo **`.env.avaliacao`** com uma chave de IA
+(Groq, modelo `openai/gpt-oss-120b`) **criada só para a avaliação da hackathon**; ela será revogada ~3 dias depois do evento.
+Os scripts de subir (`iniciar.*`, `dev.sh`) copiam esse arquivo para `.env` quando ainda não existe um `.env`; o Docker e a
+API também o leem direto. Ao subir, o terminal mostra **"IA: ligada (openai/gpt-oss-120b)"**.
 
-1. Crie uma chave em https://console.groq.com → **API Keys** → *Create API Key*.
-2. Na raiz do projeto, copie o modelo: `cp .env.example .env` (Windows: `copy .env.example .env`).
-3. No `.env`, preencha só a linha da chave:
-   ```
-   AGROBITS_LLM_BASE_URL=https://api.groq.com/openai/v1
-   AGROBITS_LLM_API_KEY=gsk_...sua chave...
-   AGROBITS_LLM_MODEL=openai/gpt-oss-120b
-   ```
-4. Suba o app. A tela do terminal mostra **"IA: ligada (openai/gpt-oss-120b)"** ou **"IA: modo offline"**.
-
-O `.env` é lido pelo Docker (`env_file`), pelo `dev.sh` e pela própria API (quando iniciada à mão). Ele está no
-`.gitignore`. Outros provedores compatíveis com a API da OpenAI e com *tool calling* (Gemini, OpenRouter) estão em `.env.example`.
+- **Por que está no repositório:** para a banca rodar o projeto sem cadastro em nenhum serviço. Nenhuma outra credencial
+  está versionada; o `.env` (sua chave pessoal) continua no `.gitignore`.
+- **Se a chave já tiver sido revogada:** o app funciona igual em **modo offline** — o assistente responde com os mesmos dados
+  reais e as mesmas regras, só sem o modelo de linguagem. Nada mais depende da chave.
+- **Usar a sua própria chave:** crie a chave em https://console.groq.com → **API Keys**, copie `.env.example` para `.env`
+  (`cp .env.example .env`; Windows: `copy .env.example .env`) e preencha `AGROBITS_LLM_API_KEY`. O `.env` tem prioridade
+  sobre o `.env.avaliacao`. Gemini e OpenRouter também funcionam (exemplos no `.env.example`).
 
 | Variável | Para quê | Padrão |
 |---|---|---|
@@ -123,7 +120,7 @@ pip install -r backend/requirements.txt
 python scripts/pipeline_opendata.py          # gera data/opendata.db (~2 min, só na 1ª vez)
 python scripts/seed_demo.py                  # contas de demonstração (data/app.db)
 cd backend
-uvicorn app.main:app --port 8000             # a API lê o .env da raiz sozinha
+uvicorn app.main:app --port 8000             # a API lê o .env (ou o .env.avaliacao) sozinha
 ```
 Terminal 2 — interface:
 ```powershell
@@ -154,7 +151,7 @@ No celular (mesma rede Wi-Fi): `http://<IP do computador>:5173`.
 | A primeira tela demora | o 1º cálculo dos assuntos consulta clima, NASA e ANA ao vivo; as próximas usam o cache |
 | Previsão "indisponível" | sem internet ou a fonte caiu; o app mostra o último dado guardado com data, nunca inventa |
 | Demo bagunçada | `iniciar.* resetar` (ou `python scripts/seed_demo.py`) |
-| IA não liga | confira o `.env` (chave sem espaços) e reinicie; a linha "IA:" no terminal diz o estado |
+| "IA: modo offline" | a chave da avaliação foi revogada ou o `.env` está sem chave: o app segue funcionando; para ligar, use a sua chave (acima) |
 
 ## Atualizar os dados abertos
 `python scripts/fetch_opendata.py` consulta a API CKAN de dados.agricultura.gov.br, compara o conteúdo (hash) e só

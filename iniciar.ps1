@@ -20,6 +20,8 @@ if ($LASTEXITCODE -ne 0) { Fail "Docker Compose nao encontrado (atualize o Docke
 docker info *> $null
 if ($LASTEXITCODE -ne 0) { Fail "O Docker Desktop nao esta aberto. Abra o Docker Desktop, espere ficar verde e tente de novo." }
 
+# chave dedicada a avaliacao (ver README): vira o .env se ainda nao existe um
+if (-not (Test-Path .env) -and (Test-Path .env.avaliacao)) { Copy-Item .env.avaliacao .env }
 $env:RESET = "0"; $env:SYNC = "0"
 # No Windows a recarga automatica ao salvar arquivos precisa de polling
 $env:POLLING = "true"
@@ -67,8 +69,7 @@ if (Test-Path .env) {
 }
 $url = "http://localhost:5173"
 Say "Pronto!"
-Write-Host "   Prototipo:  $url"
-Write-Host "   App:        http://localhost:5173"
+Write-Host "   AgroBits:   $url"
 if ($iaKey -and $iaModel) { Write-Host "   IA: ligada ($iaModel)" } else { Write-Host "   IA: modo offline (sem chave) - veja docs/implementacao/M5-ia.md" }
 Write-Host "   API (docs): http://localhost:8000/docs"
 Write-Host "   Parar:      .\iniciar.ps1 parar   -   Logs: .\iniciar.ps1 logs"

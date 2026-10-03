@@ -8,7 +8,9 @@ services:
     user: "${HOST_UID:-0}:${HOST_GID:-0}"
     ports: ["8000:8000"]
     env_file:
-      - path: .env          # chave da IA (opcional)
+      - path: .env.avaliacao  # chave dedicada à avaliação (ver README)
+        required: false
+      - path: .env          # sua chave (opcional; tem prioridade)
         required: false
     environment:
       SYNC: ${SYNC:-0}      # SYNC=1 docker compose up  → confere o portal do MAPA

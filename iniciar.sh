@@ -12,6 +12,8 @@
 # Sem Docker, chama o ./dev.sh: não precisa de sudo (baixa Node/Python portáteis em .tools/ se faltarem).
 set -euo pipefail
 cd "$(dirname "$0")"
+# chave dedicada à avaliação (ver README): vira o .env se ainda não existe um
+[[ -f .env || ! -f .env.avaliacao ]] || cp .env.avaliacao .env
 
 say()  { printf '\033[1;32m▶ %s\033[0m\n' "$*"; }
 fail() { printf '\033[1;31m✖ %s\033[0m\n' "$*" >&2; exit 1; }

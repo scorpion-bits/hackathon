@@ -11,7 +11,11 @@ from .db import ROOT, Base, engine
 def load_dotenv(path: Path = ROOT / ".env") -> None:
     """Lê o .env da raiz (chave da IA) quando a API é iniciada à mão, sem dev.sh/Docker (ex.: Windows).
     Não sobrescreve variáveis já definidas; nos testes não lê nada (eles rodam sempre em modo offline)."""
-    if "pytest" in sys.modules or not path.exists():
+    if "pytest" in sys.modules:
+        return
+    if not path.exists():
+        path = ROOT / ".env.avaliacao"  # chave dedicada à avaliação (ver README)
+    if not path.exists():
         return
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
